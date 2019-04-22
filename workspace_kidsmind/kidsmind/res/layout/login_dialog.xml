@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/app_icon" />
+
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="@string/app_name"
+        android:textColor="@color/baby_info_red" />
+
+    <LinearLayout
+        android:id="@+id/linear_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_title"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <com.ivmall.android.app.views.DeteleEditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/white_and_gray_shape"
+                android:clickable="true"
+                android:drawableLeft="@drawable/tv_icon_log_phone"
+                android:drawablePadding="8dp"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:nextFocusDown="@+id/tv_sms_code"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:singleLine="true"
+                android:textColor="@color/baby_info_red"
+                android:textColorHint="@color/hint_orange_color"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/edit_marginTop"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_sms_code"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:layout_weight="7"
+                    android:background="@drawable/white_and_gray_shape"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/tv_icon_log_phone_code"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/password"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:nextFocusDown="@+id/tv_login"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/orange_text"
+                    android:textColorHint="@color/hint_orange_color" />
+
+
+                <com.ivmall.android.app.views.CountDownClock
+                    android:id="@+id/tv_sms_code"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/white_and_gray_shape"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/linear_login"
+        android:layout_marginTop="5dp"
+        android:background="@color/login_green"
+        android:text="@string/login_in"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvLoginInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_login"
+        android:layout_marginTop="15dp"
+        android:text="@string/login_in_info" />
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.applidium.nickelodeon"
+    android:versionCode="4120"
+    android:versionName="4.1.2">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 系统无法进入休眠 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+
+    <!-- 小米TV平台要求添加 -->
+    <uses-permission android:name="com.xiaomi.permission.AUTH_THIRDPAY" />
+    <uses-feature
+        android:name="android.hardware.type.television"
+        android:required="true" />
+
+    <application
+        android:name=".MNJApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity
+            android:name=".NickelFragmentActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- VIP 列表页面 -->
+        <activity
+            android:name=".VipInfoActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+        <!-- 家长中心页面 -->
+        <activity
+            android:name=".ParentsCenterActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+
+        <!-- 播放界面 -->
+        <activity
+            android:name=".player.SmartPlayingActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".player.FreePlayingActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+
+        <!-- 注册页面 -->
+        <activity
+            android:name=".RegisterActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+
+        <!-- 子剧集列表 -->
+        <activity
+            android:name=".SubSeriesActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+
+
+        <!-- 活动页面 -->
+        <activity
+            android:name=".ActionActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+
+
+        <!-- 智能推荐  -->
+
+        <activity
+            android:name=".BabyInfoActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <!-- 支付页面 -->
+        <activity
+            android:name=".pay.payment.QrcodePayActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".pay.payment.DomyPayActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- alipay sdk end -->
+        <service android:name=".service.MediaPlayerService" />
+
+        <!-- 百度统计SDK添加 -->
+        <!-- 百度统计APP KEY -->
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="cc346cd9f9" />
+
+
+    </application>
+
+</manifest>

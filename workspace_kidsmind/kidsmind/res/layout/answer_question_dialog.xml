@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rel_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/parrents_answer_questions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/title_bg"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            android:paddingTop="10dp"
+            android:text="@string/parrents_answer"
+            android:textColor="@color/green"
+            android:textSize="@dimen/baby_age_title_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/parrents_answer_questions"
+            android:layout_alignRight="@id/parrents_answer_questions"
+            android:layout_below="@id/parrents_answer_questions"
+            android:background="@drawable/context_bg"
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
+
+            <LinearLayout
+                android:id="@+id/questions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_mother"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/baby_age_title_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/mod"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/baby_age_title_size" />
+
+                <TextView
+                    android:id="@+id/tv_son"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/baby_age_title_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/equal"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/baby_age_title_size" />
+
+            </LinearLayout>
+
+
+            <com.ivmall.android.app.views.NumberPicker
+                android:id="@+id/single_picker"
+                android:layout_width="@dimen/kNumberPicker_width"
+                android:layout_height="@dimen/kNumberPicker_height"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_wheel" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/finger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/rel_main"
+        android:layout_centerVertical="true"
+        android:paddingTop="60dp"
+        android:src="@drawable/img_finger" />
+</RelativeLayout>
+

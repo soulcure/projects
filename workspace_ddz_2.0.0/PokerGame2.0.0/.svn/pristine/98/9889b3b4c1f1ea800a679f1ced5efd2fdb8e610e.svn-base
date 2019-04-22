@@ -1,0 +1,30 @@
+package com.mykj.andr.model;
+
+
+import com.mykj.comm.io.TDataInputStream;
+
+public class HPropData {
+	/**道具ID*/
+	public int PropID;
+	/**道具名称*/
+	public String PropName;
+	/**道具描述*/
+	public String PropDesc; 
+	/**道具是否可用*/
+	public boolean canUse = false;
+
+	public HPropData(TDataInputStream tdis) {
+		if (tdis == null) {
+			return;
+		}
+		PropID = tdis.readInt();
+		PropName = tdis.readUTFShort();
+		PropDesc = tdis.readUTFShort();
+		int mCanUse = tdis.readByte();
+		if(mCanUse == 1){
+			canUse = true;
+		}else{
+			canUse = false;
+		}
+	}
+}

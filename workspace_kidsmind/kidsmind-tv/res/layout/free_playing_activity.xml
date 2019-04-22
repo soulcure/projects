@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ivmall.android.app.views.VideoViewCustom
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/img_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@anim/loading_play"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/speed"
+        style="@style/white_text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/h_transparent"
+        android:textSize="22sp"
+        android:visibility="gone" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listview"
+        android:layout_width="@dimen/playlist_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="#90000000"
+        android:descendantFocusability="afterDescendants"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ad_bar"
+        android:layout_width="298dp"
+        android:layout_height="168dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/freeplay_control_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="150dp" />
+
+    <TextView
+        android:id="@+id/tv_episode_name"
+        style="@style/black_text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bar_title_name_yellow"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rel_music"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/common_bg"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/img_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bg_music" />
+
+            <TextView
+                android:id="@+id/tv_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/img_music"
+                android:layout_alignLeft="@id/img_music"
+                android:layout_alignRight="@id/img_music"
+                android:gravity="center"
+                android:maxLines="2"
+                android:paddingBottom="15dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:textColor="@color/font_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btn_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/transparent"
+        android:src="@drawable/btn_free_pause"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_free_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/pay_value"
+        android:text="@string/free_time"
+        android:textColor="@color/little_yellow"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

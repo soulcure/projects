@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10"
+    android:background="@drawable/common_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@drawable/cartoon_bg"
+        android:paddingLeft="15dp">
+
+        <RelativeLayout
+            android:id="@+id/rel_kids"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/user_bg"
+            android:gravity="left"
+            android:paddingLeft="30dp">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dp"
+                android:singleLine="true"
+                android:text="@string/cartoon_houses"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:text="@string/year_old"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/tv_age"
+                android:layout_marginLeft="14.5dp"
+                android:clickable="true" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imgbtn_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:nextFocusRight="@id/imgbtn_set"
+                android:src="@drawable/btn_action" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/imageButton_marginLeft"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:nextFocusLeft="@+id/imgbtn_action"
+                android:src="@drawable/btn_parent" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear_setting"
+            android:layout_marginTop="-20dp"
+            android:layout_toLeftOf="@id/linear_setting"
+            android:layout_toRightOf="@id/rel_kids"
+            android:gravity="center">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/linear_h_scroll_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.ivmall.android.app.views.refresh.SwipyRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+        <GridView
+            android:id="@+id/grid_playlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="4"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="@dimen/scrollGridView_verticalSpacing" />
+    </com.ivmall.android.app.views.refresh.SwipyRefreshLayout>
+
+</LinearLayout>

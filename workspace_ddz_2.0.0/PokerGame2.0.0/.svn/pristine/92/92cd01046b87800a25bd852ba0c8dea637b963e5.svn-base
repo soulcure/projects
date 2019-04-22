@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/vip_row"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="@dimen/vip_left_width"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/item1"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/item2"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        />
+
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/item3"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        />
+
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/item4"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        />
+
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/item5"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        />
+
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/item6"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        />
+
+</TableRow>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.applidium.nickelodeon.views.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/common_bg">
+
+    <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+        android:id="@+id/linear_center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_register"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_heightPercent="75%h"
+        app:layout_widthPercent="120%h">
+
+        <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%h"
+            app:layout_widthPercent="110%h">
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="6"
+                android:background="@drawable/input_register"
+                android:hint="@string/phone_number"
+                android:inputType="number"
+                app:layout_paddingLeftPercent="5%h" />
+
+            <com.applidium.nickelodeon.views.CountDownClock
+                android:id="@+id/tv_countdown"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="4"
+                android:background="@drawable/btn_brown"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/get_verify_code"
+                android:textColor="@color/white" />
+        </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+
+        <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%h"
+            app:layout_marginTopPercent="5%h"
+            app:layout_widthPercent="110%h">
+
+
+            <EditText
+                android:id="@+id/et_verify_code"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/input_register"
+                android:hint="@string/input_verify_code"
+                android:inputType="number"
+                android:maxLength="6"
+                app:layout_paddingLeftPercent="5%h" />
+
+
+        </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+        <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%h"
+            app:layout_marginTopPercent="5%h"
+            app:layout_widthPercent="110%h">
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="6"
+                android:background="@drawable/btn_green"
+                android:text="@string/bind" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="4"
+                android:background="@drawable/btn_green"
+                android:text="@string/leapfrog" />
+        </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+
+    </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignTop="@+id/linear_center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-32dp"
+        android:src="@drawable/title_bind"
+        app:layout_heightPercent="20%h"
+        app:layout_widthPercent="86%h" />
+
+</com.applidium.nickelodeon.views.percent.PercentRelativeLayout>

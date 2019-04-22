@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/controlbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_play_bar"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <SeekBar
+            android:id="@+id/media_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/control_bar_marginLeft"
+            android:layout_weight="1"
+            android:maxHeight="6dp"
+            android:minHeight="6dp"
+            android:nextFocusDown="@+id/btn_lang"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:progressDrawable="@drawable/seek_progress_free"
+            android:thumb="@drawable/btn_free_seek" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/time_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="00:00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/pTextView_textSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="/"
+                android:textColor="@color/white"
+                android:textSize="@dimen/pTextView_textSize" />
+
+            <TextView
+                android:id="@+id/time_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="00:00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/pTextView_textSize"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/btn_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/control_bar_marginLeft"
+            android:background="#00000000"
+            android:src="@drawable/btn_free_no_favorite" />
+
+        <ImageButton
+            android:id="@+id/btn_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/control_bar_marginLeft"
+            android:background="#00000000"
+            android:src="@drawable/btn_free_no_cycle"
+            android:visibility="gone" />
+
+
+        <ImageButton
+            android:id="@+id/btn_lang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/control_bar_marginLeft"
+            android:background="#00000000"
+            android:src="@drawable/btn_free_english" />
+
+
+        <ImageButton
+            android:id="@+id/btn_quality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/control_bar_marginLeft"
+            android:background="#00000000"
+            android:src="@drawable/btn_free_hd" />
+
+
+        <com.ivmall.android.app.views.CustomDigitalClock
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/control_bar_marginLeft"
+            android:background="@drawable/btn_free_time"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+
+        <ImageButton
+            android:id="@+id/btn_parrents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/control_bar_marginLeft"
+            android:background="#00000000"
+            android:src="@drawable/btn_free_parrents"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

@@ -1,0 +1,29 @@
+<resources>
+
+    <!--metro UI-->
+    <dimen name="image_round_size">10dp</dimen>
+    <dimen name="shape_round_size">8dp</dimen>
+    <dimen name="mirror_ref_height">55dp</dimen>
+    <dimen name="animation_offset_y">25dp</dimen>
+    <dimen name="ITEM_DIVIDE_SIZE">5dp</dimen>
+    <dimen name="ITEM_V_WIDTH">240dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">365dp</dimen>
+    <dimen name="ITEM_H_WIDTH">748dp</dimen>
+    <dimen name="ITEM_H_HEIGHT">369dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE">369dp</dimen>
+    <dimen name="OUT_ITEM_NORMAL_SIZE">165dp</dimen>
+    <dimen name="TEXT_SHAPE_HEIGHT">30dp</dimen>
+
+
+    <dimen name="swich_thumbtextpadding">25dp</dimen>
+
+    <dimen name="record_item_paddingleft">70dp</dimen>
+
+
+    <!--navigation -->
+    <dimen name="img_head_width">100dp</dimen>
+    <dimen name="img_head_height">100dp</dimen>
+    <dimen name="navigation_head_height">200dp</dimen>
+
+
+</resources>

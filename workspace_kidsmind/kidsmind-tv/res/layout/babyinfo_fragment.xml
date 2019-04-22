@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_babyname"
+                    style="@style/white_text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baby_name" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    style="@style/white_text_normal"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="center"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:text="@string/baby_default_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/baby_info_marginTop"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_babybirday"
+                    style="@style/white_text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baby_birday" />
+
+                <TextView
+                    android:id="@+id/tv_birday"
+                    style="@style/white_text_normal"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/bg_input"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:nextFocusUp="@id/et_name"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/baby_info_marginTop"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_babysex"
+                    style="@style/white_text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baby_sex" />
+
+
+                <Switch
+                    android:id="@+id/sex_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:focusable="true"
+                    android:switchMinWidth="180dp"
+                    android:switchPadding="50dp"
+                    android:textOff="男孩"
+                    android:textOn="女孩"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:thumb="@drawable/switch_sex"
+                    android:thumbTextPadding="25dp"
+                    android:track="@drawable/bg_input" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="80dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_baby_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_head"
+                android:paddingLeft="10dp" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_green"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/save_alter"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/code"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ability_frame_marginTop"
+        android:background="@drawable/bg_rate"
+        android:paddingBottom="@dimen/ability_frame_paddingBottom"
+        android:paddingLeft="@dimen/ability_frame_paddingLeft"
+        android:paddingRight="@dimen/ability_frame_paddingRight"
+        android:paddingTop="@dimen/ability_frame_paddingTop">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/white_text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="25dp"
+            android:text="@string/baby_ability" />
+
+        <LinearLayout
+            android:id="@+id/linear_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_star"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/baby_five_ability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ability_text_marginTop"
+                android:text="@string/health" />
+
+
+            <com.ivmall.android.app.views.FoucsRatingBar
+                android:id="@+id/health"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ratingBar_marginTop"
+                android:numStars="3"
+                android:rating="2"
+                android:stepSize="1"
+                android:tag="@string/agility" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_science"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/linear_health"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/linear_health"
+            android:background="@drawable/bg_star"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/baby_five_ability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ability_text_marginTop"
+                android:text="@string/science" />
+
+
+            <com.ivmall.android.app.views.FoucsRatingBar
+                android:id="@+id/science"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ratingBar_marginTop"
+                android:numStars="3"
+                android:rating="2"
+                android:stepSize="1"
+                android:tag="@string/agility" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linear_society"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/linear_science"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/linear_science"
+            android:background="@drawable/bg_star"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/baby_five_ability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ability_text_marginTop"
+                android:text="@string/society" />
+
+
+            <com.ivmall.android.app.views.FoucsRatingBar
+                android:id="@+id/society"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ratingBar_marginTop"
+                android:numStars="3"
+                android:rating="2"
+                android:stepSize="1"
+                android:tag="@string/agility" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linear_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/linear_health"
+            android:layout_below="@id/linear_health"
+            android:layout_marginTop="@dimen/language_marginTop"
+            android:background="@drawable/bg_star"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/baby_five_ability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ability_text_marginTop"
+                android:text="@string/language" />
+
+
+            <com.ivmall.android.app.views.FoucsRatingBar
+                android:id="@+id/language"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ratingBar_marginTop"
+                android:numStars="3"
+                android:rating="2"
+                android:stepSize="1"
+                android:tag="@string/agility" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_art"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/linear_language"
+            android:layout_alignLeft="@id/linear_science"
+            android:layout_toRightOf="@id/linear_language"
+            android:background="@drawable/bg_star"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/baby_five_ability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ability_text_marginTop"
+                android:text="@string/art" />
+
+
+            <com.ivmall.android.app.views.FoucsRatingBar
+                android:id="@+id/art"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ratingBar_marginTop"
+                android:numStars="3"
+                android:rating="2"
+                android:stepSize="1"
+                android:tag="@string/agility" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

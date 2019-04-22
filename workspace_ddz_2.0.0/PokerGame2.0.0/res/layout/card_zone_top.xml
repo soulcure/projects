@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relTop"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp" >
+
+    <!-- 人物头像 -->
+
+    <RelativeLayout
+        android:id="@+id/relUserface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imgUserface"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/img_face_bg"
+            android:clickable="true"
+            android:contentDescription="@string/app_name"
+            android:focusable="true"
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_female_face" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/my_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/relUserface"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvuser_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_nickname"
+            android:gravity="center_vertical"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:text="这里是我的名字"
+            android:textColor="#ffee7b"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvuser_bean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="-1dp"
+            android:background="@drawable/bg_bean"
+            android:drawableLeft="@drawable/bean"
+            android:gravity="center_vertical|left"
+            android:paddingBottom="4dp"
+            android:paddingLeft="4dp"
+            android:text="000000万"
+            android:textColor="#fff000"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ivQuickBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/my_info"
+        android:layout_alignRight="@id/my_info"
+        android:layout_marginRight="-10dp"
+        android:background="@null"
+        android:src="@drawable/btn_cardzone_quickbuy" />
+	<View android:layout_width="40dp"
+	    android:layout_height="40dp"
+	    android:background="#00ffffff"
+	    android:layout_alignBottom="@id/ivQuickBuy"
+	    android:layout_alignLeft="@id/ivQuickBuy"
+	    android:layout_marginLeft="-12dp"
+	    android:layout_marginBottom="-10dp"
+	    android:id="@+id/quickBuyExpand" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signgiftArea"
+         android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/my_info"
+        >
+         <Button
+        android:id="@+id/ivSignGift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardzone_signgift_selector"
+        android:contentDescription="@string/app_name"
+        android:layout_centerInParent="true" />
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@anim/cardzone_top_btn_flash"
+            android:visibility="invisible" />
+    </RelativeLayout>
+   
+
+        <RelativeLayout
+        android:id="@+id/lottoArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/signgiftArea"
+        android:layout_toRightOf="@id/signgiftArea" >
+
+        <Button
+            android:id="@+id/btnLotto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_lotto" />
+
+        <ImageView
+            android:id="@+id/lotto_flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@anim/cardzone_top_btn_flash" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/firstChargeArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/lottoArea"
+        android:layout_toRightOf="@id/lottoArea"
+         >
+
+        <Button
+            android:id="@+id/btnFirstcharge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_firstcharge" 
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/charge_flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@anim/cardzone_top_btn_flash" />
+    </RelativeLayout>
+
+
+    
+    <!-- 客服 -->
+
+    <Button
+        android:id="@+id/btnServer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/firstChargeArea"
+        android:background="@drawable/btn_server_call"
+        android:clickable="true"
+        android:contentDescription="@string/app_name" />
+    
+
+    <Button
+        android:id="@+id/btnMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btnServer"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/btnServer"
+        android:background="@drawable/ic_msg"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/msg_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/btnMsg"
+        android:layout_alignTop="@id/btnMsg"
+        android:background="@drawable/tab_num_bg"
+        android:gravity="center"
+        android:text="1111"
+        android:textColor="#ffff00"
+        android:textSize="10sp" />
+
+<Button
+        android:id="@+id/btnSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btnMsg"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/btnMsg"
+        android:background="@drawable/ic_setting"
+        android:contentDescription="@string/app_name" />
+
+    <com.mykj.andr.ui.widget.CustomDigitalClock
+        android:id="@+id/digitalClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnMsg"
+        android:layout_marginTop="10dp"
+        android:shadowColor="#ff01264f"
+        android:shadowDx="2.0"
+        android:shadowDy="2.0"
+        android:shadowRadius="2.0"
+        android:singleLine="true"
+        android:textColor="#92a7b6"
+        android:textSize="14sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tvBroadcast"
+        style="@style/baseStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_info"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/relUserface"
+        android:background="@drawable/broadcast"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:paddingLeft="30dp"
+        android:singleLine="true"
+        android:textColor="#ffefa5"
+        android:textSize="14sp"
+        android:visibility="invisible" />
+
+</RelativeLayout>

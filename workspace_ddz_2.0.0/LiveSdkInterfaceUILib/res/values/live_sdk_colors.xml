@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="live_sdk_transparent">#00000000</color>
+    <color name="live_sdk_black">#ff000000</color>
+    <color name="live_sdk_white">#ffffffff</color>
+    <color name="live_sdk_rank_item_username_color"> #cacaca</color>
+   	<color name="live_sdk_blue">#ff3a759c</color>
+   	<color name="live_sdk_yellow">#ffffb900</color>
+   	<color name="live_sdk_yellow1">#fffa8700</color>
+   	<color name="live_sdk_yellow2">#ffdf2b</color>
+    <color name="live_sdk_purple">#ffff00ff</color>
+   	<color name="live_sdk_iv_face_pressed">#ffa24f1d</color>
+   	<color name="live_sdk_face_layout_bg">#fffff5e7</color>
+	<color name="live_sdk_rank_title_bg"> #932c05</color>
+   	<color name="live_sdk_darkred">#af274c</color>
+   	<color name="live_sdk_red">#ff0000</color>
+   	<color name="live_sdk_gray">#ffcdcdcd</color>
+	<color name="live_sdk_rank_red">#ff2412</color>
+   	<color name="live_sdk_gray1">#ff777571</color>
+   	<color name="live_sdk_gray2">#ffe1dbd6</color>
+   	<color name="live_sdk_gray3">#ffeee8e2</color>
+   	<color name="live_sdk_dialog_bg">#fff4efe8</color>
+   	
+   	<color name="live_sdk_tv_check_gift">#932c05</color>
+   	
+   	<color name="live_sdk_btn_select">#ffb53d</color>
+   	
+	<color name="live_sdk_gif_jinbi">#954a0d</color>
+
+	<color name="live_sdk_gif_to_name">#2e1c04</color>
+</resources>

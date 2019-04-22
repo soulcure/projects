@@ -1,0 +1,175 @@
+<resources>
+
+    <!-- pay Dialog -->
+    <dimen name="pay_secceed_margintop">60dp</dimen>
+    <dimen name="pay_secceed_padding_horizontal">60dp</dimen>
+    <dimen name="pay_secceed_padding_vertical">15dp</dimen>
+    <!-- activity_player -->
+    <dimen name="serie_width">180dp</dimen>
+    <dimen name="serie_height">90dp</dimen>
+    <dimen name="playlist_width">195dp</dimen>
+
+    <dimen name="item_size">16sp</dimen>
+
+    <dimen name="play_history_height">100dp</dimen>
+    <dimen name="play_history_width">140dp</dimen>
+
+    <dimen name="parent_image_width">85dp</dimen>
+    <dimen name="parent_image_height">70dp</dimen>
+
+    <dimen name="parent_image_margintop">25dp</dimen>
+
+    <dimen name="cartoon_image_item_width">108dp</dimen>
+    <dimen name="cartoon_image_item_height">128dp</dimen>
+
+
+    <dimen name="baby_line_topHeight">20dp</dimen>
+    <dimen name="baby_line_buttomHeight">10dp</dimen>
+
+
+    <dimen name="cartoon_image_padding">5dp</dimen>
+
+    <dimen name="action_button_tips">12dp</dimen>
+
+    <!--metro UI-->
+    <dimen name="image_round_size">10dp</dimen>
+    <dimen name="shape_round_size">8dp</dimen>
+    <dimen name="mirror_ref_height">55dp</dimen>
+    <dimen name="animation_offset_y">25dp</dimen>
+    <dimen name="ITEM_DIVIDE_SIZE">5dp</dimen>
+    <dimen name="ITEM_V_WIDTH">240dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">365dp</dimen>
+    <dimen name="ITEM_H_WIDTH">426dp</dimen>
+    <dimen name="ITEM_H_HEIGHT">210dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE">210dp</dimen>
+    <dimen name="OUT_ITEM_NORMAL_SIZE">165dp</dimen>
+    <dimen name="TEXT_SHAPE_HEIGHT">50dp</dimen>
+    <dimen name="item_text_height">38dp</dimen>
+
+    <!--MetroFragment-->
+    <dimen name="metro_paddingLeft">50dp</dimen>
+    <dimen name="metro_paddingRight">50dp</dimen>
+    <dimen name="metro_paddingTop">20dp</dimen>
+
+    <!--CartoonFragment-->
+    <dimen name="cartoon_item_padding">11dp</dimen>
+    <dimen name="h_gridview_padding_buttom">110dp</dimen>
+
+    <dimen name="cartoon_item_margin">80dp</dimen>
+
+    <!--ActionDialog-->
+    <dimen name="action_image_width">708dp</dimen>
+    <dimen name="action_image_height">430dp</dimen>
+
+    <!--ParentFragmentActivity-->
+    <dimen name="frame_paddingTop">100dp</dimen>
+
+    <dimen name="girdview_paddingTop">5dp</dimen>
+
+    <!--BabyInfoFragment-->
+    <dimen name="baby_margin_top">20dp</dimen>
+    <dimen name="frame_padding_top">35dp</dimen>
+    <dimen name="frame_padding_buttom">80dp</dimen>
+    <dimen name="baby_info_marginTop">20dp</dimen>
+    <dimen name="ability_frame_marginTop">15dp</dimen>
+    <dimen name="ability_frame_paddingBottom">40dp</dimen>
+    <dimen name="ability_frame_paddingLeft">35dp</dimen>
+    <dimen name="ability_frame_paddingRight">35dp</dimen>
+    <dimen name="ability_frame_paddingTop">20dp</dimen>
+
+    <dimen name="ratingBar_marginTop">10dp</dimen>
+
+    <dimen name="language_marginTop">30dp</dimen>
+    <dimen name="ability_text_marginTop">2dp</dimen>
+
+    <dimen name="babyinfo_text_width">180dp</dimen>
+    <dimen name="babyinfo_text_height">40dp</dimen>
+
+    <dimen name="baby_photo_width">110dp</dimen>
+    <dimen name="baby_photo_height">92dp</dimen>
+    <dimen name="save_btn_width">110dp</dimen>
+    <dimen name="save_btn_height">70dp</dimen>
+
+    <dimen name="star_width">111dp</dimen>
+    <dimen name="star_height">38dp</dimen>
+
+    <dimen name="swich_thumbtextpadding">27dp</dimen>
+
+    <dimen name="record_item_paddingleft">70dp</dimen>
+
+
+    <dimen name="countdownclock_marginTop">39dp</dimen>
+
+    <!-- about us -->
+    <dimen name="qrcode_margin_top">20dp</dimen>
+
+
+    <!--RecordPlayFragment-->
+    <dimen name="record_item_padding">45dp</dimen>
+    <dimen name="record_item_margin">30dp</dimen>
+
+    <!--LoginFragment-->
+
+    <dimen name="edit_text_width">480dp</dimen>
+    <dimen name="edit_text_height">60dp</dimen>
+    <dimen name="edit_marginTop">20dp</dimen>
+
+    <!--playsetting Fragment-->
+    <dimen name="setting_text_size">20sp</dimen>
+
+    <!-- BuyVipDialog -->
+    <dimen name="vip_dialog_width">450dp</dimen>
+
+
+    <!--goods_item_v-->
+    <dimen name="pad_goods_item_height">198dp</dimen>
+    <dimen name="pad_goods_item_weight">220dp</dimen>
+    <dimen name="buy_vip_fragment_width">680dp</dimen>
+    <dimen name="buy_vip_fragment_height">198dp</dimen>
+    <dimen name="vip_table_padding">150dp</dimen>
+    
+    <dimen name="record_item_spacing">15dp</dimen>
+
+    <!-- 抽奖  -->
+    <dimen name="lottery_title_width">464dp</dimen>
+    <dimen name="lottery_title_height">362dp</dimen>
+
+    <dimen name="lottery_button_width">128dp</dimen>
+    <dimen name="lottery_button_height">156dp</dimen>
+
+    <dimen name="lottery_padding">80dp</dimen>
+    <dimen name="lottery_black_text_size">22sp</dimen>
+
+    <dimen name="lottery_name_width">225dp</dimen>
+    <dimen name="lottery_name_height">39dp</dimen>
+
+    <dimen name="lottery_listview_width">350dp</dimen>
+
+    <dimen name="lottery_prize_img_width">457dp</dimen>
+    <dimen name="lottery_prize_img_height">216dp</dimen>
+
+    <dimen name="lottery_ticket_img_width">369dp</dimen>
+    <dimen name="lottery_ticket_img_height">182dp</dimen>
+    <dimen name="lottery_padding_top">25dp</dimen>
+
+    <dimen name="lottery_chance_width">279dp</dimen>
+    <dimen name="lottery_chance_height">40dp</dimen>
+
+
+    <!--navigation -->
+    <dimen name="img_head_width">100dp</dimen>
+    <dimen name="img_head_height">100dp</dimen>
+
+    <dimen name="navigation_head_height">220dp</dimen>
+    <dimen name="navigation_head_height_land">220dp</dimen>
+
+    <dimen name="toolbar_margin_left">80dp</dimen>
+
+    <!-- UserInfoFragment-->
+    <dimen name="info_save_width">420dp</dimen>
+
+    <!-- controlFragment-->
+    <dimen name="control_item_height">60dp</dimen>
+
+
+</resources>

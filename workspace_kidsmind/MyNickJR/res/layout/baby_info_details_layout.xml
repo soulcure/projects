@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#25c1f8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.32"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:weightSum="1">
+
+            <ImageButton
+                android:id="@+id/btn_play_return"
+                android:layout_width="@dimen/back_button_size"
+                android:layout_height="@dimen/back_button_size"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/btn_back" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="0.07" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/imgView_baby_name"
+                    android:layout_width="@dimen/babyinfo_baby_img_width"
+                    android:layout_height="@dimen/babyinfo_baby_img_height"
+                    android:background="@drawable/img_baby_info_name" />
+
+                <EditText
+                    android:id="@+id/re_baby_name_edit"
+                    style="@style/baby_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="@dimen/ability_edit_margin_top"
+                    android:layout_toRightOf="@id/imgView_baby_name"
+                    android:background="@drawable/bg_baby_info_input"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" />
+
+                <ImageView
+                    android:id="@+id/imgView_baby_birthy"
+                    android:layout_width="@dimen/babyinfo_baby_img_width"
+                    android:layout_height="@dimen/babyinfo_baby_img_height"
+                    android:layout_below="@id/imgView_baby_name"
+                    android:background="@drawable/img_baby_info_birthy" />
+
+                <com.applidium.nickelodeon.views.FoucsTextView
+                    android:id="@+id/re_baby_birday_text"
+                    style="@style/baby_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/re_baby_name_edit"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="@dimen/ability_text_margin_top"
+                    android:layout_toRightOf="@id/imgView_baby_birthy"
+                    android:background="@drawable/bg_baby_info_input"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="0.06" />
+
+            <ImageView
+                android:id="@+id/recommend_baby_head"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.13"
+                android:src="@drawable/dora_hover" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="0.03" />
+
+            <RadioGroup
+                android:id="@+id/sex_radiogroup"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:orientation="horizontal">
+
+                <com.applidium.nickelodeon.views.FoucsRadioButton
+                    android:id="@+id/sex_male"
+                    style="@style/baby_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:drawableLeft="@drawable/radio_btn_selector_s"
+                    android:button="@null"
+                    android:focusable="true"
+                    android:paddingLeft="5dp"
+                    android:text="@string/male" />
+
+                <com.applidium.nickelodeon.views.FoucsRadioButton
+                    android:id="@+id/sex_female"
+                    style="@style/baby_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:drawableLeft="@drawable/radio_btn_selector_s"
+                    android:button="@null"
+                    android:focusable="true"
+                    android:paddingLeft="5dp"
+                    android:text="@string/female" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.1"
+            android:src="@drawable/theme_ability_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_weight="0.58"
+            android:background="@drawable/baby_info_background"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp">
+
+            <com.applidium.nickelodeon.views.FoucsRatingBar
+                android:id="@+id/re_health"
+                style="@style/Ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/img_health" />
+
+            <com.applidium.nickelodeon.views.FoucsRatingBar
+                android:id="@+id/re_science"
+                style="@style/Ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/re_health"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/img_science" />
+
+            <com.applidium.nickelodeon.views.FoucsRatingBar
+                android:id="@+id/re_society"
+                style="@style/Ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/re_science"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/img_society" />
+
+            <com.applidium.nickelodeon.views.FoucsRatingBar
+                android:id="@+id/re_language"
+                style="@style/Ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+
+            <com.applidium.nickelodeon.views.FoucsRatingBar
+                android:id="@+id/re_art"
+                style="@style/Ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/re_language"
+                android:layout_marginTop="15dp" />
+
+            <ImageView
+                android:id="@+id/img_health"
+                android:layout_width="@dimen/ability_img_width"
+                android:layout_height="@dimen/ability_img_height"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/img_ability_health" />
+
+            <ImageView
+                android:id="@+id/img_science"
+                android:layout_width="@dimen/ability_img_width"
+                android:layout_height="@dimen/ability_img_height"
+                android:layout_below="@+id/img_health"
+                android:layout_marginTop="@dimen/ability_img_margin_top"
+                android:src="@drawable/img_ability_science" />
+
+            <ImageView
+                android:id="@+id/img_society"
+                android:layout_width="@dimen/ability_img_width"
+                android:layout_height="@dimen/ability_img_height"
+                android:layout_below="@+id/img_science"
+                android:layout_marginTop="@dimen/ability_img_margin_top"
+                android:src="@drawable/img_ability_society" />
+
+            <ImageView
+                android:id="@+id/img_language"
+                android:layout_width="@dimen/ability_img_width"
+                android:layout_height="@dimen/ability_img_height"
+                android:layout_toLeftOf="@+id/re_language"
+                android:src="@drawable/img_ability_language" />
+
+            <ImageView
+                android:id="@+id/img_art"
+                android:layout_width="@dimen/ability_img_width"
+                android:layout_height="@dimen/ability_img_height"
+                android:layout_below="@id/img_language"
+                android:layout_marginTop="@dimen/ability_img_margin_top"
+                android:layout_toLeftOf="@+id/re_art"
+                android:src="@drawable/img_ability_art" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/bag_baby_message_bottom" />
+
+    <Button
+        android:id="@+id/re_btn_save"
+        android:layout_width="@dimen/babyinfo_save_btn_width"
+        android:layout_height="@dimen/babyinfo_save_btn_hight"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="65dp"
+        android:background="@drawable/btn_ability_modify"
+        android:text="@string/save"
+        android:textColor="#00a2e9"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

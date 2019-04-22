@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">赢话费斗地主</string>
+    <string name="confirm_install_hint">安装提示</string>
+    <string name="Ensure">确定</string>
+    <string name="Cancel">取消</string>
+    <string name="prompt">提示</string>
+    <string name="prompt2">提   示</string>
+    <string name="Send">发送</string>
+    <string name="go">打开</string>
+    <string name="back">返回</string>
+    <string name="feedback">请输入您对游戏的意见</string>
+    <string name="returnStr">返回</string>
+    <string name="recommend">热力推荐</string>
+    <string name="ddz_year">年</string>
+    <string name="ddz_month">月</string>
+    <string name="ddz_day">日</string>
+    <string name="ddz_permanence">永久</string>
+    <string name="ddz_you_have">您有</string>
+    <string name="ddz_huafeijuan">张话费券</string>
+    <string name="ddz_overdue">天后过期</string>
+    <string name="ddz_today_overdue">在今天过期</string>
+    <string name="ddz_sex">性别</string>
+    <string name="ddz_sex_male">男</string>
+    <string name="ddz_sex_famale">女</string>
+    <string name="ddz_account">账号</string>
+    <string name="ddz_account_2">账号：</string>
+    <string name="ddz_yuanbao">元宝</string>
+    <string name="ddz_huafeijuan_lable">话费券</string>
+    <string name="ddz_week_points">本周积分</string>
+    <string name="ddz_week_total_points">本周累积积分</string>
+    <string name="ddz_week_rank">周排名</string>
+    <string name="ddz_person">人</string>
+    <string name="ddz_wan_ren">万人</string>
+    <string name="ddz_into_fanzuobi">为您启动防作弊组桌系统，请稍候</string>
+    <string name="ddz_no_message">尚未有消息，敬请稍后&#8230;</string>
+    <string name="ddz_room_tuijian">推    荐</string>
+    <string name="ddz_game_over">游戏已结束，请返回分区！</string>
+    <string name="ddz_adapte_failed">速配失败,请稍后再试。</string>
+    <string name="ddz_level">您的乐豆超过本房间上限了，换个场次大杀四方吧~</string>
+    <string name="ddz_into_game_room">正在进入游戏房间</string>
+    <string name="ddz_adapte_game_room">正在速配游戏房间，请稍候</string>
+    <string name="ddz_no_net">亲，再好的游戏没网络也不能玩呀~</string>
+    <string name="ddz_set_net">设置网络</string>
+    <string name="ddz_empress_retry">稍后重试</string>
+    <string name="ddz_function_not_available">该功能暂不可用&#8230;</string>
+    <string name="ddz_count">数量</string>
+    <string name="ddz_period_of_validity">有效期</string>
+    <string name="ddz_shared">分享</string>
+    <string name="ddz_success">领取奖励成功, 祝您游戏愉快！</string>
+    <string name="ddz_sdcard_error">请检测Sdcard是否存在！Sdcard卡被禁用！</string>
+    <string name="ddz_version">版本号</string>
+    <string name="ddz_update_date">更新时间</string>
+    <string name="ddz_retry">重试</string>
+    <string name="ddz_obtain_server_info_failed">获取服务器信息失败，请重试！</string>
+    <string name="ddz_obtain_gift_success">领取成功！</string>
+    <string name="ddz_has_obtain_gift">"您已经领取过奖励了！</string>
+    <string name="ddz_obtain_gift_failed">领取失败，请重试！</string>
+    <string name="ddz_free_zhuandou">免费赚豆</string>
+    <string name="ddz_download_failed">下载失败!</string>
+    <string name="ddz_file_save_path">文件保存路径</string>
+    <string name="ddz_webview_loading">网页加载可能比较慢，请您耐心等候…</string>
+    <string name="ddz_web_connetion_failed">网络不给力，连接失败了，请稍候再试！</string>
+    <string name="ddz_web_reconnetion_failed">网络不给力，重连失败了，请稍候再试！</string>
+    <string name="ddz_web_connetion_cross">网络连接断开，请检查您的网络或退出游戏稍后再试！</string>
+    <string name="ddz_account_load_other_way">您的账号已经在其他地方登录，请退出后再登录！</string>
+    <string name="ddz_into_game">省流量、低耗电，话费、实物最好赚</string>
+    <string name="ddz_notice_game_net_error">网络连接异常，请重新登录！</string>
+    <string name="ddz_yin_huafei_match">赢话费赛</string>
+    <string name="ddz_gift_ledou_match">奖10万乐豆比赛</string>
+    <string name="ddz_gift_ledou">报名费：1000乐豆</string>
+    <string name="ddz_ledou_match_difen">(底分 100)</string>
+    <string name="ddz_buy_first_buy_gift">首次充值礼包</string>
+
+    <string name="notice">公告</string>
+    <string name="match">比赛报名</string>
+    <string name="empty">物品空空的，好心塞^_^</string>
+    <string name="actioncenter">活动中心</string>
+    <string name="loading">正在加载中，稍等会~</string>
+
+    <!-- VIP -->
+    <string name="ddz_vip">VIP2，3000PK券x10,初级门票x10</string>
+    <string name="ddz_vip_jiazhu">看牌，加注</string>
+    <string name="ddz_vip_libao">Vip1级礼包</string>
+    <string name="ddz_vip_daoqi_date">到期时间：2013&#8211;08&#8211;05</string>
+    <string name="ddz_vip_chengzhangzhi">VIP成长值：</string>
+    <string name="ddz_vip_week_gift">每周奖励</string>
+    <string name="ddz_vip_zensong">赠送</string>
+    <string name="ddz_vip_xufei">续费VIP</string>
+    <string name="ddz_vip_jiacheng">经验加成</string>
+    <string name="ddz_vip_hecheng_chenggonglu">合成成功率</string>
+    <string name="ddz_vip_other_player_info">其他玩家信息(指数)</string>
+    <string name="ddz_vip_level">VIP等级：</string>
+
+
+    <!-- 分区主页 -->
+    <string name="ddz_online_count">在线人数:</string>
+    <string name="ddz_condition">条件:</string>
+    <string name="ddz_freedom">自由</string>
+    <string name="ddz_huafei">话费</string>
+    <string name="ddz_ziyunhui">智运会</string>
+    <string name="ddz_yuezhan">约战</string>
+    <string name="mm_video">美女视频</string>
+    <string name="ddz_date">时间：</string>
+    <string name="ddz_wupin">物品</string>
+    <string name="ddz_market">商城</string>
+    <string name="ddz_method_not_open">功能还在努力建设中，还请敬请期待哟~~</string>
+    <string name="ddz_return_game">正在回到游戏，请稍候</string>
+
+    <!-- 自由场 智运会 -->
+    <string name="continue_game">继续游戏</string>
+    <!-- 比赛场 -->
+    <string name="payment_match">报名费用</string>
+    <string name="match_num">报名人数:</string>
+    <string name="match_condition">报名条件:</string>
+    <string name="match_reward">奖励内容:</string>
+    <string name="entry_match">进入比赛</string>
+    <string name="match_rule">比赛规则</string>
+    <string name="empty_str"></string>
+    <string name="ddz_match_signuped">"您已报名:</string>
+    <string name="ddz_match_begin_game">距离开赛时间还有</string>
+    <string name="ddz_match_begin_game_minute">分钟</string>
+    <string name="match_reward_info">更多奖励尽在>></string>
+    <string name="see">查看</string>
+    <string name="match_rank">更多比赛排名信息:</string>
+    <string name="match_detail">详情</string>
+    <string name="match_baomin">我要报名</string>
+    <string name="match_exit">退赛</string>
+    <string name="match_eliminate">淘汰</string>
+    <string name="match_di">第</string>
+    <string name="match_ming">名</string>
+    <string name="ddz_donot_loaded">还未登录比赛服务器&#8230;请稍后再试</string>
+    <string name="ddz_signuped">您已经报名该赛事，不能重复报名。</string>
+    <string name="ddz_cost_not_enough">报名费用不足,请及时充值.</string>
+    <string name="ddz_loading_match">正在进入比赛场，请稍候</string>
+    <string name="ddz_best_rank">最佳名次：</string>
+    <string name="ddz_match_time">参赛次数：</string>
+    <string name="ddz_finals_match_time">决赛次数：</string>
+    <string name="ddz_net_error">网络繁忙，比赛服务器连接断开，请稍候再试！！</string>
+    <string name="ddz_match_feiyong">报名费用：</string>
+    <string name="ddz_match_free">免费</string>
+    <string name="ddz_match_into_game">正在进入游戏，请稍候</string>
+    <string name="ddz_match_begin_time">开赛时间：</string>
+    <string name="ddz_match_end">比赛已结束</string>
+    <string name="ddz_match_count_down">开赛倒计时：</string>
+    <string name="ddz_match_limiting">限制人数：</string>
+    <string name="ddz_match_none">无</string>
+    <string name="ddz_match_choose">选择</string>
+    <string name="ddz_match_your_rank">您的排名是</string>
+    <string name="ddz_match_your_rank_ming">名</string>
+    <string name="match_login">正在为您登录比赛服务器,请稍后&#8230;</string>
+
+    <!-- 支付提示 -->
+    <string name="pay_login">正在请求支付,请稍后&#8230;</string>
+    <string name="pay_error">支付数据异常，请稍候再试</string>
+    <string name="buysuccess">购买请求已发送，请您耐心等待购买结果或进行其他操作。</string>
+    <string name="buyfail">无法购买，您已请求购买此道具，为避免重复购买，请耐心等待反馈结果后再二次购买。</string>
+    <string name="buyerror">暂时没有适合您当前平台的道具支付方式，多谢您的支持。</string>
+    <string name="buywap">此道具仅能通过CMWAP购买，请确认您的网络接入点并重新登录购买。</string>
+    <string name="payerror">支付订单获取有误，请稍后重试。</string>
+    <string name="paySmsErr">获取购买短信失败，请检查您的网络情况</string>
+    <string name="start_game">开始游戏</string>
+    <string name="i_know">我知道了</string>
+    <string name="pay_prompt">选择支付方式</string>
+    <string name="pay_btn_ridio">不再弹出提示框</string>
+
+
+    <!-- 活动 -->
+    <string name="action">活动</string>
+    <string name="action_time">活动时间</string>
+    <string name="action_state">活动状态</string>
+    <string name="action_content">活动内容</string>
+    <string name="action_doing">进行中</string>
+    <string name="action_will_begin">即将开始 </string>
+    <string name="action_closed">已结束</string>
+    <string name="action_to"> 至 </string>
+    <string name="action_count">数量： </string>
+    <string name="action_join">立即参与 </string>
+
+    <!-- 背包 -->
+    <string name="handsel">赠送</string>
+    <string name="use">使用</string>
+    <string name="package_linqu">已领取于</string>
+    <string name="package_detail_forever">永久</string>
+    <string name="package_zenfsong_lable_1">您在</string>
+    <string name="package_zenfsong_lable_2">成功赠送给ID为</string>
+    <string name="package_zenfsong_lable_3">的好友</string>
+    <string name="package_zenfsong_lable_4">个</string>
+    <string name="package_duihuan_tip">请在有效期内领取哦！</string>
+    <string name="package_id_error">无效的ID</string>
+    <string name="package_largess_count_error">无效的赠送数量</string>
+    <string name="package_largess_myself_error">不支持赠送自己功能</string>
+    <string name="package_not_enaghe_error">道具数量不足或赠送数量无效，无法赠送</string>
+    <string name="package_binded_error">该道具已绑定，不可赠送</string>
+    <string name="package_largess">赠送物品</string>
+    <string name="package_largess_info_error">输入信息有误，请重新输入</string>
+    <string name="package_synthetic_material_shortage">合成材料不足</string>
+    <string name="package_level">用户VIP等级未达到要求，无法合成</string>
+    <string name="package_synthetic_success">成功合成</string>
+    <string name="package_input_you_package">个, 道具已放进您的背包</string>
+    <string name="package_no_obtain_material">暂未获取您的合成材料,请稍后重试&#8230;</string>
+    <string name="package_net_error">网络异常, 道具图片下载失败&#8230;</string>
+    <string name="package_arrange_list">您的物品信息正在加载中，稍等会~</string>
+    <string name="package_handsel_daoju">赠送道具</string>
+    <string name="package_handsel_id">对方ID号 :</string>
+    <string name="package_handsel_id_error">请输入15位以内数字的ID号</string>
+    <string name="package_handsel_input_id_again">确认ID号 :</string>
+    <string name="package_handsel_input_id_again_error">两次输入的ID不一致，请重新输入</string>
+    <string name="package_handsel_count">赠送数量 : </string>
+    <string name="package_daoju_name">道具名称</string>
+    <string name="package_daoju_info">道具描述</string>
+    <string name="package_daoju_hecheng_cailiao">合成材料 : </string>
+    <string name="package_daoju_hecheng_count">合成数量 : </string>
+    <string name="package_daoju_hecheng_feiyong">合成费用: </string>
+    <string name="package_daoju_hecheng_chenggonglu">成功率: </string>
+
+    <!-- 商城 -->
+    <string name="entry_market">去商城</string>
+    <string name="market_buy">购买</string>
+    <string name="market_buy_success">购买成功，请稍后进入您的物品查看。</string>
+    <string name="market_price">￥:</string>
+    <string name="market_point">点</string>
+    <string name="market_lebi">乐币</string>
+    <string name="market_yuan">元</string>
+    <string name="buy_confirm">确认购买</string>
+    <string name="juhao">。</string>
+    <string name="wenhao">？</string>
+    <string name="cur_vip_level_tips">当前身份: </string>
+    <string name="market_expire_tips">到期</string>
+    <string name="goods_hot">热</string>
+    <string name="goods_discount">折</string>
+    <string name="goods_recomend">荐</string>
+    <string name="non_vip_tips">看您天生福相、贵气逼人，快加入贵族大家庭吧~</string>
+    <string name="vip_privilege">贵族特权</string>
+    <string name="to_be_vip">成为贵族</string>
+
+
+    <!-- 个人信息 -->
+    <string name="agree">同意</string>
+    <string name="info_get">领取</string>
+    <string name="info_change_password">修改密码</string>
+    <string name="info_save">保存</string>
+    <string name="info_view">查看</string>
+    <string name="info_paiming">详细排名</string>
+    <string name="popilarize_empty">您还没有分享游戏给好友，聚集更多的好友到你的麾下吧O(∩_∩)O !</string>
+    <string name="popilarize_unreach">还没有奖励哦，快去看看其他人吧~</string>
+    <string name="spread_label">"我的推广码: "</string>
+    <string name="info_net_busy">网络繁忙，密码修改失败，请稍后再试</string>
+    <string name="info_account_error">账号不应该小于6的字符。</string>
+    <string name="info_password_error">密码应该在6&#8212;16个字符之间</string>
+    <string name="info_repassword_error">两次密码输入不一致</string>
+    <string name="info_tuiguangma_error">请输入正确的推广码</string>
+    <string name="info_connecting">正在连接服务器,请稍后..</string>
+    <string name="info_modify_success">修改成功</string>
+    <string name="info_modify_failed">修改失败</string>
+    <string name="info_obtain">获得</string>
+    <string name="info_shenfenzheng_error">身份证号码必须是15位及以上</string>
+    <string name="info_phone_num_error">请输入正确格式的手机号码</string>
+    <string name="info_areacode_error">请输入省市信息</string>
+    <string name="info_citycode_error">请输入城市信息</string>
+    <string name="info_empty">请至少输入一栏信息</string>
+    <string name="info_obtain_failed">获取信息失败，请您检查网络后重试</string>
+    <string name="info_nickname">昵&#160;&#160;&#160;&#160;&#160;称：</string>
+    <string name="info_nickname_error">昵称只能是2&#8211;8个汉字或4&#8211;16个字符</string>
+    <string name="info_sex">性&#160;&#160;&#160;&#160;&#160;别：</string>
+    <string name="info_victory">胜&#160;&#160;&#160;&#160;&#160;率：</string>
+    <string name="info_city">城市：</string>
+    <string name="info_male">男</string>
+    <string name="info_famale">女</string>
+    <string name="info_dashifen">大师分：</string>
+    <string name="info_ledou">乐&#160;&#160;&#160;&#160;&#160;豆：</string>
+    <string name="info_count">帐&#160;&#160;&#160;&#160;&#160;号：</string>
+    <string name="info_chenghao">称号：</string>
+    <string name="info_what_is_dashifen">什么是大师分</string>
+    <string name="info_yuanbao">元宝：</string>
+    <string name="info_huafeijuan">话费券：</string>
+    <string name="info_real_name">真实姓名：</string>
+    <string name="info_identity_number">身份证号：</string>
+    <string name="info_phone_number">手机号码：</string>
+    <string name="info_area_information">省市信息：</string>
+    <string name="info_more_info">戳这里！完善资料奖乐豆！</string>
+
+    <!-- 话费领取 -->
+    <string name="tick_no_enough">(累积30元以上就可领取呦^_^)</string>
+    <string name="tick_count">您的话费券余额:</string>
+    <string name="tick_option">选择领取项:</string>
+    <string name="thirty">30元</string>
+    <string name="fifty">50元</string>
+    <string name="hundred">100元</string>
+    <string name="mobile_num">请输入移动手机号码:</string>
+    <string name="wrong_num">*手机号码输入格式错误</string>
+    <string name="input_again">请再次输入手机号码:</string>
+    <string name="input_error">*两次输入手机号码不一致</string>
+    <string name="pact">话费领取条约</string>
+    <string name="tick_info">当月领取的话费将在下个月20号前统一发放，如有问题请联系客服</string>
+
+    <!-- VIP -->
+    <string name="vip">VIP</string>
+    <string name="myvip">我的VIP</string>
+    <string name="vipP">VIP特权</string>
+    <string name="vippro">简介</string>
+
+
+    <!-- 支付模块 -->
+    <string name="sms_buying">您正在请求购买</string>
+    <string name="sms_mdo_buying">尊敬的客户，您即将通过话费对您的游戏账号进行充值。\n</string>
+    <string name="mdo_goods_info">购买商品：</string>
+    <string name="sms_server_num">客服电话：</string>
+    <string name="sms_free_if_cancel">，取消不扣费。</string>
+    <string name="sms_price_info">资费说明：信息费</string>
+    <string name="cmcc_sms_price_info">，价格</string>
+    <string name="sms_count">，需发送一条短信，</string>
+    <string name="sms_unit">/条</string>
+    <string name="sms_pay_info">（不含通信费）</string>
+    <string name="cmwap_buying">您将通过cmwap方式购买</string>
+    <string name="buy_success">，购买成功后可</string>
+    <string name="need_pay">价格</string>
+    <string name="mobile_pay_info">\n确定购买?</string>
+    <string name="weixin_not_installed_4pay">您尚未安装微信，请您安装微信后再用微信支付，谢谢您的支持。</string>
+    <string name="ddz_pay_day">充值日期:</string>
+    <string name="ddz_pay_point">充值点数:</string>
+    <string name="ddz_account_detail">账户明细</string>
+    <string name="ddz_account_point">点数</string>
+    <string name="ddz_account_point_not_enough">您当前无剩余点数，请及时充值！</string>
+    <string name="ddz_query_point_failed">查询点数失败。</string>
+    <string name="ddz_pay_zifubao">支付宝</string>
+    <string name="ddz_pay_yibao">易宝</string>
+    <string name="ddz_pay_input_money_error">对不起,您输入的金额应该在1&#8211;999之间。</string>
+    <string name="ddz_pay_input_money">请您输入充值金额！</string>
+    <string name="ddz_pay_recharge_failed">点数充值失败！</string>
+    <string name="ddz_pay_config_tip_1">缺少</string>
+    <string name="ddz_pay_config_tip_2">或者</string>
+    <string name="ddz_pay_config_tip_3">请在</string>
+    <string name="ddz_pay_config_tip_4">中增加。</string>
+    <string name="ddz_pay_rechargeing">正在支付</string>
+    <string name="ddz_pay_input_month">请您选择需要查询的月份！</string>
+    <string name="ddz_pay_find_nothing">未查询到相关记录,请稍后再试&#8230;</string>
+    <string name="ddz_pay_extinction_date">消费日期</string>
+    <string name="ddz_pay_extinction_point">消费点数</string>
+    <string name="ddz_pay_extinction_record">消费记录</string>
+    <string name="ddz_pay_business_name">业务名称</string>
+    <string name="ddz_pay_business_code">业务代码</string>
+    <string name="ddz_pay_record">充值记录</string>
+    <string name="ddz_pay_point_record">点数充值记录</string>
+    <string name="ddz_pay_tip_1">尊敬的客户，您已成功通过信息费对您的点数帐户进行充值！</string>
+    <string name="ddz_pay_game_point">游戏点数</string>
+    <string name="ddz_pay_tip_2">此次点数充值共收取</string>
+    <string name="ddz_pay_tip_3">元人民币。</string>
+    <string name="ddz_pay_tip_4">如有疑问，请咨询10086，中国移动。</string>
+    <string name="ddz_pay_failed">对不起，充值失败，请尝试重新充值或联系客服！</string>
+    <string name="ddz_pay_fail_reson">充值失败，失败原因：</string>
+    <string name="ddz_pay_find_failed">查询失败,请稍后再试。</string>
+    <string name="ddz_pay_ordering_error">支付订单获取有误，请稍后重试。</string>
+    <string name="ddz_pay_only_support_mobile">游戏目前只支持中国移动手机用户进行支付，多谢您的支持！</string>
+    <string name="ddz_pay_chongzhi_way">充值方式：</string>
+    <string name="ddz_pay_input_chongzhi_jiner">请输入充值金额：</string>
+    <string name="ddz_pay_input_hint">输入</string>
+    <string name="ddz_pay_input_renmingbi">人民币(1元=100点)</string>
+    <string name="ddz_pay_input_renmingbi_int">仅限整数</string>
+    <string name="ddz_pay_dianshu_account_yuer">点数账户余额：</string>
+    <string name="ddz_pay_finding">正在查询....</string>
+    <string name="ddz_pay_know">知道了</string>
+    <string name="ddz_pay_duihuan">去领取</string>
+    <string name="ddz_pay_find_today">查询当天</string>
+    <string name="ddz_pay_find_ten_days">查询最近10天</string>
+    <string name="ddz_pay_find_month">查询指定月</string>
+    <string name="ddz_pay_chongzhi_jiner">充值金额：</string>
+    <string name="ddz_pay_chongzhi_click_input_jiner">点击输入金额</string>
+    <string name="ddz_pay_chongzhi_tip">提示:</string>
+    <string name="ddz_pay_chongzhi_support_info"> 该专区只支持中国移动用户</string>
+    <string name="ddz_pay_chongzhi_shangxian">每月上限30000点</string>
+    <string name="ddz_pay_chongzhi_zhuanhuan">1元=100点</string>
+    <string name="ddz_pay_chongzhi_input_lable">(请输入1&#8211;300元任意整数金额)</string>
+    <string name="ddz_pay_chongzhi_recharge_phone_num">充值手机号</string>
+    <string name="ddz_pay_chongzhi_recharge_phone_num_again">确认手机号</string>
+    <string name="ddz_pay_chongzhi_recharge_info">温馨提示，输入的手机号将与您的账号绑定，请正确填写手机号，以免造成您的损失。</string>
+    <string name="ddz_pay_chongzhi_recharge_agree">我已经阅读并同意</string>
+    <string name="ddz_pay_chongzhi_recharge_tiaoyue">移动话费领取条约</string>
+    <string name="ddz_pay_select_title">请选择付款方式</string>
+    <string name="ddz_pay_confirm">购买确认</string>
+
+    <!-- 登录送模块 -->
+    <string name="login_gift_continuity_1">您已经连续登录了</string>
+    <string name="login_gift_continuity_2">天，获得</string>
+    <string name="login_gift_continuity_3">奖励！</string>
+    <string name="login_gift_continuity_4">连续登录</string>
+    <string name="login_gift_continuity_day">天</string>
+    <string name="login_gift_reward">奖励：</string>
+    <string name="login_gift_tomorrow_reward">明天奖励</string>
+    <string name="login_gift_reward_1">奖励：抽奖</string>
+    <string name="login_gift_no_notice">还没有公告消息哦</string>
+    <string name="login_gift_goto_look">去看看</string>
+    <string name="login_gift_sign_up">报名</string>
+    <string name="login_gift_continuity_time">次</string>
+    <string name="login_gift_has_obtain">您今天已领取，明天再来哦~</string>
+    <string name="login_gift_ledou">登录送乐豆</string>
+    <string name="login_gift_days_ledou">您连续登录N天，获得N乐豆</string>
+    <string name="login_gift_info">奖励说明: </string>
+    <string name="login_gift_member">会员享有 </string>
+    <string name="login_gift_more_gift">乐豆奖励和更多惊喜！</string>
+    <string name="login_gift_free_gift">免费拿奖励</string>
+    <string name="login_gift_login_duoduo">登录多多</string>
+    <string name="login_gift_duoduo">奖励多多</string>
+    <string name="login_gift_echer_login">每天登录拿乐豆</string>
+    <string name="login_gift_login_continuity">连续登录</string>
+    <string name="login_gift_detail">奖励：抽奖0次</string>
+    <string name="login_gift_lucky">立即抽奖</string>
+    <string name="login_gift_game_win_ledou">玩游戏赢乐豆</string>
+    <string name="login_gift_one_huafenjuan">奖励：1元话费劵</string>
+    <string name="login_gift_do_task">去做任务</string>
+    <string name="login_gift_activity_loading">精彩活动正在加载中&#8230;</string>
+    <string name="login_gift_get_ticket">领&#160;&#160;取</string>
+    <string name="login_gift_get_ticket_lable">话费券领取</string>
+    <string name="login_gift_exit_top_lable">明天登录即可获得</string>
+    <string name="login_gift_exit_bottom_lable">登录后请在我的物品中查看</string>
+
+
+    <string name="lucky_ledou_2">乐豆</string>
+
+    <!-- 任务模块 -->
+    <string name="task_lable">任务：</string>
+    <string name="task_yin">赢</string>
+    <string name="task_ju">局</string>
+    <string name="task_done">已完成</string>
+    <string name="task_wan">玩</string>
+    <string name="task_current_status">现在状态：</string>
+    <string name="task_yin_jun">赢局</string>
+    <string name="task_jun_shu">局数</string>
+    <string name="task_goal">金币</string>
+    <string name="task_stage_property">道具X</string>
+    <string name="task_special_goods">特殊物品X</string>
+
+    <!-- 意见反馈 -->
+    <string name="feedback_you_can_input">还可以输入</string>
+    <string name="feedback_input_word_1">字 ( 共</string>
+    <string name="feedback_input_word_2">字 )</string>
+    <string name="feedback_input_content_empty">发送内容不能为空</string>
+    <string name="feedback_submit_failed">发送失败</string>
+
+    <!-- 更多游戏 -->
+    <string name="more_game_downloaded">已下载</string>
+    <string name="more_game_gifted">已奖励</string>
+    <string name="more_game_gift">奖励</string>
+    <string name="more_game_obtain">领取</string>
+    <string name="more_game_open">打开</string>
+    <string name="more_game_install">安装</string>
+    <string name="more_game_continue">继续</string>
+    <string name="more_game_pause">暂停</string>
+    <string name="more_game_doudizhu">斗地主</string>
+    <string name="more_game_size">大小：30M</string>
+    <string name="more_game_info">简介</string>
+    <string name="more_game_download">下载</string>
+
+    <!-- 配置模块 -->
+    <string name="config_yidong_pay_open">移动支付打开</string>
+    <string name="config_liantong_pay_open">联通支付打开</string>
+    <string name="config_dianxin_pay_open">电信支付打开</string>
+    <string name="config_other_pay_open">第三方支付打开</string>
+    <string name="config_yidong">移动</string>
+    <string name="config_liantong">联通</string>
+    <string name="config_dianxin">电信</string>
+    <string name="config_input_yaoqingma">请输入邀请码</string>
+
+    <!-- 游戏退出 -->
+    <string name="exit_lable_1">点击赚取更多乐豆!</string>
+    <string name="exit_lable_2">对战比赛如此精彩，继续战斗吧！</string>
+    <string name="exit_lable_3">登录后请在我的物品中查看</string>
+    <string name="exit_game">退出游戏</string>
+
+    <!-- 活动 -->
+    <string name="action_huafeijuan_yuer">话费劵余额：</string>
+    <string name="action_choose_option">选择领取项：</string>
+    <string name="action_input_phone_number">手机号码：</string>
+    <string name="action_input_phone_number_again">再次输入：</string>
+    <string name="action_huafeijuan_linqu_tiaoyue">话费领取条款</string>
+    <string name="action_input_phone_number_error">*手机号码输入格式错误</string>
+    <string name="action_input_phone_number_error2">*两次输入手机号码不一致</string>
+
+    <!-- 注册账号 -->
+    <string name="registe_wanshan_account">绑定账号</string>
+    <string name="account_digits">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="registe_wanshan_account_tip">设置个性化账号，更有乐豆免费送</string>
+    <string name="registe_wanshan_account_lable">输入账号</string>
+    <string name="registe_wanshan_account_hint">手机号/QQ号/自定义</string>
+    <string name="registe_wanshan_password_lable">输入密码</string>
+    <string name="registe_wanshan_account_info">6~20个字母/数字</string>
+    <string name="registe_wanshan_password_info">6~16个字符</string>
+    <string name="registe_wanshan_password_hint">推荐填写常用密码</string>
+    <string name="registe_wanshan_repassword_lable">确认密码</string>
+    <string name="registe_wanshan_tuiguangma_lable">推&#160;&#160;广&#160;&#160;码</string>
+    <string name="registe_wanshan_tuiguangma_hint">好友给您的推广码</string>
+    <string name="registe_wanshan_tuiguangma_gift">填写可获得新手奖励</string>
+    <string name="registe_wanshan_xuantian">(选填)</string>
+    <string name="registe_wanshan_account_lable_1">账    号：</string>
+    <string name="registe_wanshan_nickname">昵    称：</string>
+    <string name="registe_wanshan_modify_tip">如果需要修改个人资料，请登录后进入个人中心</string>
+
+    <!-- 个人中心 -->
+    <string name="change_header_icon_str">点击修改头像</string>
+    <string name="binder_account_get_dou_dou">绑定账号</string>
+    <string name="id_str">&#160;I&#160;&#160;&#160;&#160;&#160;&#160;&#160;Ｄ：</string>
+    <string name="default_id_str">00000000</string>
+    <string name="get_money_str">获取话费劵</string>
+    <string name="get_ledou_str">获取乐豆</string>
+    <string name="usercenter_save_str">保存</string>
+
+    <!-- 比赛场 -->
+    <string name="match_group_rank">您的排名是0名</string>
+    <string name="match_group_rank_label">名次</string>
+    <string name="match_group_jifen_label">积分</string>
+
+    <!-- 版本升级 -->
+    <string name="login_find_out_new_verson">发现更新</string>
+    <string name="login_find_out_new_verson_gift">更新就送</string>
+    <string name="download_error">升级包下载失败，请稍后再试!</string>
+    <string name="login_download_doing">开始升级&#8230;</string>
+    <string name="login_downloaded">下载了</string>
+    <string name="login_game_downloaded_1">游戏更新了</string>
+    <string name="login_game_downloaded_2">请稍后&#8230;</string>
+    <string name="login_game_begin_download">游戏更新了0%，请稍后&#8230;</string>
+    <string name="download_title">正在下载更新包，请稍后 &#8230;</string>
+    <string name="update_title">升级啦</string>
+    <string name="update_Install">安装</string>
+    <string name="update_close">关闭</string>
+    <string name="update_Confir">马上升级</string>
+    <string name="update_Cancel">残忍拒绝</string>
+    <string name="version_title">检测到新版本 </string>
+    <string name="file_size_title">文件大小：</string>
+    <string name="no_wifi">亲爱的玩家，你现在使用的是移动数据网络，升级将会消耗您流量，您确定下载版本升级安装文件吗？</string>
+    <string name="download_success">亲爱的玩家，系统已为您准备好新版本，您确定安装最新版本吗？</string>
+
+    <!-- 客服服务 -->
+    <string name="server_center">客服中心</string>
+    <string name="server_report">意见反馈</string>
+    <string name="server_phone_num">客服热线</string>
+    <string name="call_server_online">在线客服</string>
+    <string name="server_call">客服</string>
+    <string name="server_description">如有疑问，请致电客服：</string>
+
+    <!-- 头像系统 -->
+    <string name="head_please_wait">请稍等</string>
+    <string name="head_buy_success">购买成功</string>
+    <string name="head_buy_fail">购买失败</string>
+
+    <!-- 大乐透 -->
+    <string name="lotto_wait">数据加载中，请稍候</string>
+    <string name="lotto_last_winner">上期冠军</string>
+    <string name="lotto_nobody_win">无人中奖</string>
+    <string name="lotto_win_bonus">乐透奖金：</string>
+    <string name="lotto_phase">第%d期</string>
+    <string name="lotto_pool">彩池:</string>
+    <string name="lotto_per_bonus">中奖每个奖金%d</string>
+    <string name="lotto_all">所\n有\n人</string>
+    <string name="lotto_self">自\n己</string>
+    <string name="lotto_countdown">开奖倒计时：</string>
+    <string name="lotto_pool_bonus">彩池奖励</string>
+    <string name="lotto_how_to_play">玩法介绍</string>
+    <string name="lotto_trend">今日中奖走势</string>
+    <string name="lotto_record">我的投注记录</string>
+    <string name="lotto_rank">排行榜</string>
+    <string name="lotto_bet_info">温馨提示：中奖1注%1宝豆，多下多中！</string>
+    <string name="lotto_cur_bean">当前宝豆数：</string>
+    <string name="lotto_cost">每注：%1宝豆</string>
+    <string name="lotto_result_phase_num">期号</string>
+    <string name="lotto_result_result">开奖结果</string>
+    <string name="lotto_result_row">所在行</string>
+    <string name="lotto_result_column">所在列</string>
+    <string name="lotto_record_choise">当期购买</string>
+    <string name="lotto_record_pool_bonus">彩池奖金</string>
+    <string name="lotto_record_lotto_bonus">乐透奖金</string>
+    <string name="lotto_rank_player">玩家</string>
+    <string name="lotto_rank_win_pool">中彩池次数</string>
+    <string name="lotto_rank_win_common">中奖次数</string>
+    <string name="lotto_rank_total_bonus">累计奖金</string>
+    <string name="lotto_record_title">我的投注记录</string>
+    <string name="lotto_intro_title">玩法介绍</string>
+    <string name="lotto_result_title">今日开奖结果</string>
+    <string name="lotto_rank_title">大乐透今日中奖排行榜</string>
+    <string name="lotto_rate_1">25%</string>
+    <string name="lotto_rate_2">50%</string>
+    <string name="lotto_rate_3">75%</string>
+    <string name="lotto_rate_4">满贯</string>
+    <string name="lotto_bet_num">注数：</string>
+    <string name="lotto_bet_notice">您的筹码不足，无法再加注啦。</string>
+    <string name="lotto_rank_ci">次</string>
+    <string name="lotto_bet_success" formatted="false">亲，恭喜你投%1注%2成功！</string>
+    <string name="lotto_bet_fail">失败了！</string>
+    <string name="lotto_error_0">成功</string>
+    <string name="lotto_error_1">哎呀，机器内部出错了。</string>
+    <string name="lotto_error_2">没有找到彩池相关信息</string>
+    <string name="lotto_error_3">现在不是下注时间，请稍等片刻，精彩马上开始。</string>
+    <string name="lotto_error_4">本期投注已截止，请稍等片刻，精彩继续。</string>
+    <string name="lotto_error_5"> 亲，您投注太多，不能再加了。</string>
+    <string name="lotto_error_6">余额不足</string>
+    <string name="lotto_error_7">亲，您投注的东西出错了，请重试。</string>
+    <string name="lotto_error_8"> 投注数错误</string>
+    <string name="lotto_error_9">暂无排行数据，请稍候再试</string>
+    <string name="lotto_error_10">未开奖</string>
+    <string name="lotto_error_11">乐透服务器未开启</string>
+    <string name="lotto_show_rlt_mywin">你的奖励：%1宝豆</string>
+    <string name="lotto_show_rlt_winner">本局大赢家</string>
+    <string name="lotto_show_rlt_order">名次</string>
+    <string name="lotto_show_rlt_nickname">昵称</string>
+    <string name="lotto_show_rlt_bonus">中奖金额</string>
+    <string name="lotto_show_rlt_pool">彩池金额</string>
+    <string name="lotto_timeout_tip">押注时间结束，即刻开奖，祝您好运</string>
+
+    <!-- 0元购 -->
+    <string name="game_player_is_ordering">亲，0元购正在订购中，请稍后！</string>
+    <string name="game_player_is_failed">网络繁忙，无法订购，请稍后再试！</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+    <string name="help">帮助</string>
+
+    <!-- 美女视频 -->
+    <string name="mmvideo_login">正在为您登录美女视频房间服务器,请稍后&#8230;</string>
+    <string name="new_nickname">新的昵称</string>
+    <string name="input_nickname">请输入新的昵称</string>
+    <string name="bean_need">本次修改需要</string>
+    <string name="nickname_success">昵称修改成功</string>
+
+    <!-- 兑换 -->
+    <string name="exchange_items">实物兑换</string>
+    <string name="my_items">我的物品</string>
+    <string name="exchange_records">兑换记录</string>
+    <string name="no_award_tip">还没有兑换过奖品</string>
+    <string name="no_award_tip2">想拿奖品是要付出努力的哦！</string>
+    <string name="no_conditions">无条件</string>
+    <string name="exchange">兑换</string>
+    <string name="ex_goods_commit_info">提交信息</string>
+    <string name="obtain">"去获取"</string>
+    <string name="exchange_dialog_tip_confirm">兑换确认</string>
+    <string name="exchange_dialog_tip_success">兑换成功</string>
+    <string name="exchange_dialog_tip_failed">兑换失败</string>
+    <string name="ex_lack_tips">兑换条件不足</string>
+    <string name="ex_lack_content1">亲，您还需要</string>
+    <string name="ex_lack_content2">才能兑换</string>
+    <string name="exchanging_title">正在兑换</string>
+    <string name="exchanging_content">亲，请稍等，正在兑换中</string>
+    <string name="exchange_remain_tips">数量：无限制</string>
+    <string name="exchange_remain_num">剩余数量：</string>
+    <string name="ex_goods_expire">有效期：</string>
+    <string name="ex_goods_addr_info">亲，需要填写你的收货地址</string>
+    <string name="ex_goods_phone_tips">亲，需要填写你要充值的手机号码</string>
+    <string name="ex_goods_addr">收货人地址</string>
+    <string name="ex_goods_receiver">收件人</string>
+    <string name="ex_goods_tel_phone">电话</string>
+    <string name="ex_goods_bottom_tips">话费、实物将在次月20日前发放，乐豆、道具即时到帐</string>
+    <string name="ex_goods_input_phone">输入号码</string>
+    <string name="ex_goods_input_phone_hint">请输入你的号码</string>
+    <string name="ex_goods_input_phone_repeat">再次确认</string>
+    <string name="ex_confirm">确认兑换</string>
+    <string name="ex_choose_prop_tip_1">您共有</string>
+    <string name="ex_choose_prop_tip_2">, 可兑换</string>
+    <string name="ex_choose_prop_tip_3">次</string>
+    <string name="ex_no_data">亲，当前还没有兑换物品信息哦~</string>
+    <string name="ex_empty_records_tips">很多牌友都赚奖了~你知道吗╮(╯▽╰)╭</string>
+    <string name="ex_get_records_failed">获取兑换记录失败，请重试！</string>
+    <string name="ex_go_to_game">去赚奖</string>
+
+    <!-- 排行榜 -->
+    <string name="tuhao">土豪榜</string>
+    <string name="win_bean">赢豆榜</string>
+    <string name="no_rank_tuhao">亲，您还未进入土豪榜，请再接再厉噢！</string>
+    <string name="no_rank_win_bean">亲，您还未进入赢豆榜，请再接再厉噢！</string>
+    <string name="get_rank_info_failed">获取排行信息失败，请重试！</string>
+    <string name="cur_rank_info_empty">亲，当前还没有排行信息噢！</string>
+    <string name="update_per_day_tip">每日24:00更新</string>
+    <string name="update_per_week_tip">周日24:00更新</string>
+	<string name="win_bean_tip">赢豆冲榜</string>
+	<string name="tu_hao_tip">充值冲榜</string>
+    <!-- 设置 -->
+    <string name="setting">设置</string>
+    <string name="visitors">游客账号：</string>
+    <string name="user_account">用户账号：</string>
+    <string name="user_name">我的名字很长很长</string>
+    <string name="switch_account">切换账号</string>
+    <string name="voice">背景音乐</string>
+    <string name="open">开</string>
+    <string name="close">关</string>
+    <string name="vibrate">震&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;动</string>
+    <string name="audio">游戏音效</string>
+    <string name="download_get">下载游戏免费赚乐豆</string>
+    <string name="version">版本号：1.8.3</string>
+    <string name="check_details">&lt;&lt;查看详情</string>
+    <string name="check_update">检查更新</string>
+
+    <!-- 第一次登录后show的dialog add by xsj -->
+    <string name="gift_of_meeting_str">见面有礼</string>
+    <string name="start_game_str">开始游戏</string>
+
+    <!--帮助中心tab 页面标题-->
+    <string-array name="tab_server">
+        <item>反馈</item>
+        <item>帮助</item>
+    </string-array>
+
+    <!--个人中心tab 页面标题-->
+    <string-array name="tab_uesercenter">
+        <item>我的资料</item>
+        <item>我的特权</item>
+    </string-array>
+
+    <!--商城tab 页面标题-->
+    <string-array name="tab_market">
+        <item>乐豆</item>
+        <item>道具</item>
+        <item>我的特权</item>
+    </string-array>
+
+    <!--兑换tab 页面标题-->
+    <string-array name="tab_exchange">
+        <item>奖品兑换</item>
+        <item>我的物品</item>
+        <item>兑换记录</item>
+    </string-array>
+<!-- 活动场/活动为空 -->
+   <string name="actionisnull">新的活动正在生产中，先去斗几把~</string>
+   <string name ="goquickgame" >马上游戏</string>
+</resources>

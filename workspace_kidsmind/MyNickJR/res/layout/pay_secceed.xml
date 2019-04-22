@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/play_frame_width"
+    android:layout_height="@dimen/play_frame_height"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_parent_frame"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/black_text_big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:text="@string/thanks_open" />
+
+
+    <TextView
+        android:id="@+id/vip_name"
+        style="@style/black_text_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/vipname_margin_top"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/btn_margin_top"
+        android:gravity="center">
+
+        <TextView
+            style="@style/black_text_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menber_server_time" />
+
+        <TextView
+            android:id="@+id/vip_time"
+            style="@style/orange_text_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/btn_margin_top"
+        android:background="@drawable/btn_green"
+        android:paddingBottom="@dimen/btn_padding_v"
+        android:paddingLeft="@dimen/btn_padding_h"
+        android:paddingRight="@dimen/btn_padding_h"
+        android:paddingTop="@dimen/btn_padding_v"
+        android:text="@string/i_know"
+        android:textColor="@android:color/white"
+        android:textSize="25sp" />
+</LinearLayout>
+

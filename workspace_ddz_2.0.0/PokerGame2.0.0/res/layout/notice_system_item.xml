@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+     >
+
+    <RelativeLayout
+        android:id="@+id/lySTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/msg_item_title_bg"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+         >
+
+        <ImageView
+            android:id="@+id/ivSTitleRead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/msg_iem_new_tag"
+            android:layout_centerVertical="true"
+             />
+
+        <TextView
+            android:id="@+id/tvSTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            style="@style/contexTextStyle"
+            android:textColor="@color/dialog_text_color2"
+            android:text="aaaaa"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/ivSTitleRead" />
+
+        <TextView
+            android:id="@+id/tvSFromDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            style="@style/contexTextStyle"
+            android:text="bbbbb"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvSTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+           style="@style/contexTextStyle"
+           android:text="ccccc"
+           android:visibility="gone" />
+        <ImageView android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/btn_msg_extern"
+            android:background="@null"
+            android:textColor="#502b1c"
+            android:id="@+id/btn_expand"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/msg_expand_area"
+        android:background="@drawable/msg_item_ext_bg_1" >
+        
+        <TextView
+            android:id="@+id/tvSContent"
+            style="@style/contexTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:lineSpacingExtra="5dp"
+            android:paddingRight="10dp"
+            android:text="1111111111"
+            android:textColor="#ffffff"
+             />
+    </LinearLayout>
+</LinearLayout>

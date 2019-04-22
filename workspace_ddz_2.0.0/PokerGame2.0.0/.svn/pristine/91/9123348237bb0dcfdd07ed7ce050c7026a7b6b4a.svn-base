@@ -1,0 +1,471 @@
+package com.mykj.andr.logingift;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.login.utils.DensityConst;
+import com.mykj.andr.logingift.LoginGiftManager.LoginGiftItem;
+import com.mykj.andr.logingift.LoginGiftManager.GiftSubItem;
+import com.mykj.andr.logingift.LoginGiftManager.LoginGiftQuickItem;
+import com.mykj.andr.logingift.LoginGiftManager.LoginStatus;
+import com.mykj.andr.pay.PayUtils;
+import com.mykj.game.FiexedViewHelper;
+import com.mykj.game.ddz.R;
+import com.mykj.game.ddz.api.AnalyticsUtils;
+import com.mykj.game.utils.AppConfig;
+import com.mykj.game.utils.Util;
+import com.mykj.game.utils.UtilHelper;
+
+/**
+ * 
+ * @ClassName: PromptEditDialog
+ * @Description: TODO(这里描述这个类的作用)
+ * @author Administrator
+ * @date 2012-7-30 上午11:34:52
+ * 
+ */
+public class LoginGiftDialog extends AlertDialog implements
+		android.view.View.OnClickListener {
+
+	Context ctx;
+
+	View popContainer; // 弹框容器
+	PopupWindow popView; // 弹框
+	int popWidth = 0;
+	int popHeight = 0;
+	// 强引用GC未能回收
+	// Map<Integer, ImageView> giftMap = new HashMap<Integer, ImageView>();
+
+	static Map<String, String> giftBeanMap = new HashMap<String, String>();
+
+	public static final int HANDLER_SIGN_RESULT = 1;
+	public static final int HANDLER_GIFT_RESULT = 2;
+
+	public LoginGiftDialog(Context context) {
+		super(context);
+		this.ctx = context;
+		LoginGiftManager.getInstance().requestStatus();
+		LoginGiftManager.getInstance().registerSignListener();
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.login_gift_dialog);
+
+		init();
+		setCanceledOnTouchOutside(true);
+		LoginGiftManager.getInstance().setDialog(this);
+	}
+
+	/**
+	 * 外部用
+	 * 
+	 * @param result
+	 *            1-31签到成功 ,32补签成功，0失败
+	 */
+	public void onSignResult(byte result) {
+		hand.obtainMessage(HANDLER_SIGN_RESULT, result, 0).sendToTarget();
+	}
+
+	public void onGiftResult(String note) {
+		hand.obtainMessage(HANDLER_GIFT_RESULT, note).sendToTarget();
+	}
+
+	/**
+	 * 内部用，防止线程错误
+	 * 
+	 * @param result
+	 *            1-31牵到成功，32补签，0失败
+	 */
+	private void signResult(byte result) {
+		if (result > 0) {
+			updateInfo();
+			if (result != 32) {
+				(new LoginGiftSuccessDialog(ctx, result)).show();
+			}
+		}
+	}
+
+	private void giftResult(String note) {
+		updateInfo();
+		if (Util.isEmptyStr(note)) {
+			return;
+		}
+		// TextView textView = new TextView(ctx);
+		// RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+		// android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT,
+		// android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
+		// lp.addRule(RelativeLayout.CENTER_IN_PARENT);
+		// textView.setLayoutParams(lp);
+		// textView.setText(note);
+		// textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+		// textView.setTextColor(0xffff0000);
+		// TranslateAnimation ta = new TranslateAnimation(0, 0, 0,
+		// -DensityConst.getPx(100));
+		// ta.setDuration(1500);
+		// ta.setStartOffset(200);
+		// ta.setFillAfter(true);
+		// FiexedViewHelper.getInstance().doWindowAnim(ctx, textView, ta, null);
+		Util.displayCenterToast(findViewById(R.id.forget_btn), note);
+	}
+
+	private void updateInfo() {
+		LoginStatus status = LoginGiftManager.getInstance().getLoginStatus();
+		((TextView) findViewById(R.id.login_day)).setText("本月签到："
+				+ status.signNum + "天");
+		((TextView) findViewById(R.id.login_forget)).setText("本月漏签："
+				+ status.unsignNum + "天");
+		((TextView) findViewById(R.id.card_num)).setText("签到卡剩："
+				+ status.propCount + "张");
+		if (status.todaySign) {
+			Button btn = (Button) findViewById(R.id.login_btn);
+			btn.setEnabled(false);
+			btn.setText("已签到");
+		}
+		if (status.unsignNum == 0) { // 没有漏签
+			findViewById(R.id.forget_btn).setEnabled(false);
+		} else {
+			findViewById(R.id.forget_btn).setEnabled(true);
+		}
+		ImageView img = (ImageView) findViewById(R.id.login3_status);
+		setGiftItemStatusPic(3, img);
+		img = (ImageView) findViewById(R.id.login5_status);
+		setGiftItemStatusPic(5, img);
+		img = (ImageView) findViewById(R.id.login7_status);
+		setGiftItemStatusPic(7, img);
+		img = (ImageView) findViewById(R.id.login15_status);
+		setGiftItemStatusPic(15, img);
+		img = (ImageView) findViewById(R.id.loginall_status);
+		setGiftItemStatusPic(32, img);
+	}
+
+	private void setGiftItemStatusPic(int day, ImageView img) {
+		LoginStatus status = LoginGiftManager.getInstance().getLoginStatus();
+		boolean needClean = true;
+		if ((day < 32 && status.signNum < day)
+				|| (day == 32 && !status.allSign)) {
+			img.setImageResource(R.drawable.login_gift_lock);
+			RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) img
+					.getLayoutParams();
+			lp.addRule(RelativeLayout.ALIGN_LEFT, 0);
+			lp.addRule(RelativeLayout.ALIGN_BOTTOM, 0);
+			img.setLayoutParams(lp);
+			needClean = false;
+		} else {
+			List<LoginGiftItem> list = LoginGiftManager.getInstance()
+					.getGiftItemList();
+			LoginGiftItem item = null;
+			for (int i = 0; i < list.size(); i++) {
+				item = list.get(i);
+				if (item.day == day) {
+					break;
+				}
+				item = null; // 不符合条件，重置
+			}
+
+			if (item != null && item.index > 0 && item.index < 32) {
+				if (((1 << (item.index - 1)) & status.awardStatus) != 0) { // 已经领过奖
+					img.setImageResource(R.drawable.login_gift_got);
+					RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) img
+							.getLayoutParams();
+					int anchor = lp.getRules()[RelativeLayout.ALIGN_TOP];
+					lp.addRule(RelativeLayout.ALIGN_LEFT, anchor);
+					lp.addRule(RelativeLayout.ALIGN_BOTTOM, anchor);
+					img.setLayoutParams(lp);
+					needClean = false;
+				}
+			}
+		}
+		if (needClean) {
+			img.setImageResource(0);
+		}
+	}
+
+	private void init() {
+
+		findViewById(R.id.ib_login3).setOnClickListener(this);
+		findViewById(R.id.ib_login5).setOnClickListener(this);
+		findViewById(R.id.ib_login7).setOnClickListener(this);
+		findViewById(R.id.ib_login15).setOnClickListener(this);
+		findViewById(R.id.ib_loginall).setOnClickListener(this);
+		findViewById(R.id.login_btn).setOnClickListener(this);
+		findViewById(R.id.forget_btn).setOnClickListener(this);
+		findViewById(R.id.close).setOnClickListener(this);
+
+		List<LoginGiftItem> list = LoginGiftManager.getInstance()
+				.getGiftItemList();
+		if (list != null) {
+			if (list.size() > 0) {
+				((TextView) findViewById(R.id.login3_desc))
+						.setText(list.get(0).desc);
+			}
+			if (list.size() > 1) {
+				((TextView) findViewById(R.id.login5_desc))
+						.setText(list.get(1).desc);
+			}
+			if (list.size() > 2) {
+				((TextView) findViewById(R.id.login7_desc))
+						.setText(list.get(2).desc);
+			}
+			if (list.size() > 3) {
+				((TextView) findViewById(R.id.login15_desc)).setText(list
+						.get(3).desc);
+			}
+			if (list.size() > 4) {
+				((TextView) findViewById(R.id.loginall_desc)).setText(list
+						.get(4).desc);
+			}
+
+		}
+
+		updateInfo();
+		/* 弹框 */
+		popContainer = LayoutInflater.from(ctx).inflate(
+				R.layout.login_gift_tips, null);
+		popView = new PopupWindow(popContainer, LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT);
+		popView.setBackgroundDrawable(new BitmapDrawable());
+		popView.setFocusable(true);
+		Drawable draw = ctx.getResources().getDrawable(
+				R.drawable.logingift_tips_item_default);
+
+		popWidth = (draw.getIntrinsicWidth() + 2) * 4;
+		popHeight = draw.getIntrinsicHeight() + 20;
+	}
+
+	protected int getLength(String beanMap) {
+		if (beanMap != null) {
+			return beanMap.length();
+		}
+		return 0;
+	}
+
+	protected SpannableString parseSourceData(String source, String ends) {
+		int length = getLength(source);
+		SpannableString sp = new SpannableString(source + ends);
+		int end = length;
+		try {
+			if (end >= 1) {
+				sp.setSpan(
+						new ForegroundColorSpan(Color.parseColor("#fceca3")),
+						0, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+			} else {
+				sp.setSpan(
+						new ForegroundColorSpan(Color.parseColor("#fceca3")),
+						0, 0, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+			}
+		} catch (Exception ex) {
+		}
+		return sp;
+	}
+
+	private View getPopSubView(int index) {
+		if (index == 0) {
+			return popContainer.findViewById(R.id.item1);
+		} else if (index == 1) {
+			return popContainer.findViewById(R.id.item2);
+		} else if (index == 2) {
+			return popContainer.findViewById(R.id.item3);
+		} else if (index == 3) {
+			return popContainer.findViewById(R.id.item4);
+		} else {
+			return null;
+		}
+	}
+
+	private void showPop(int id, LoginGiftItem item) {
+		View view = findViewById(id);
+		if (view != null) {
+			if (item != null && item.subs != null && item.subs.size() > 0) {
+				int i = 0;
+				for (i = 0; i < item.subs.size() && i < 4; i++) {
+					GiftSubItem subItem = item.subs.get(i);
+					View subView = getPopSubView(i);
+					subView.setVisibility(View.VISIBLE);
+					((TextView) subView.findViewById(R.id.item_text))
+							.setText(subItem.num + subItem.name);
+					((ImageView) subView.findViewById(R.id.item_pic))
+							.setTag(subItem.pic);
+					File pic = null;
+					Drawable draw = null;
+					if (!Util.isEmptyStr(subItem.pic)) {
+						pic = LoginGiftManager.getInstance()
+								.checkAndDownloadImage(subItem.pic, null);
+					}
+					if (pic != null) {
+						draw = Util.getDrawableFromFile(pic);
+					}
+					if (draw != null) {
+						((ImageView) subView.findViewById(R.id.item_pic))
+								.setImageDrawable(draw);
+					} else {
+						((ImageView) subView.findViewById(R.id.item_pic))
+								.setImageResource(R.drawable.logingift_tips_item_default);
+					}
+				}
+				for (; i < 4; i++) {
+					getPopSubView(i).setVisibility(View.INVISIBLE);
+				}
+			} else {
+				popContainer.findViewById(R.id.item1).setVisibility(
+						View.INVISIBLE);
+				popContainer.findViewById(R.id.item2).setVisibility(
+						View.INVISIBLE);
+				popContainer.findViewById(R.id.item3).setVisibility(
+						View.INVISIBLE);
+				popContainer.findViewById(R.id.item4).setVisibility(
+						View.INVISIBLE);
+			}
+			int w1 = view.getMeasuredWidth();
+			int h1 = view.getMeasuredHeight();
+			int dpi = DensityConst.getDensityDpi();
+			popView.showAsDropDown(view, (w1 - popWidth) * dpi / 320, (-h1
+					- popHeight + 10));
+		}
+	}
+
+	/**
+	 * 补签按下
+	 */
+	private void resign() {
+		LoginStatus status = LoginGiftManager.getInstance().getLoginStatus();
+		if (status.propCount <= 0) {
+			LoginGiftQuickItem buyItem = LoginGiftManager.getInstance()
+					.getBuyItem();
+			if (buyItem != null) {
+				PayUtils.showBuyDialog(ctx, buyItem.id, AppConfig.isConfirmon,"",""); 
+			}
+		} else {
+			LoginGiftManager.getInstance().requestSign(
+					LoginGiftManager.LSUB_CMD_USER_REPAIR_SIGN_REQ);
+		}
+	}
+
+	/**
+	 * 礼包被点击
+	 * 
+	 * @param id
+	 */
+	private void onGiftClick(int id) {
+		int day = 0;
+		if (id == R.id.ib_login3) {
+			// 点击礼包1
+			AnalyticsUtils.onClickEvent(ctx, "078");
+			day = 3;
+		} else if (id == R.id.ib_login5) {
+			day = 5;
+			// 点击礼包2
+			AnalyticsUtils.onClickEvent(ctx, "079");
+		} else if (id == R.id.ib_login7) {
+			day = 7;
+			// 点击礼包3
+			AnalyticsUtils.onClickEvent(ctx, "079");
+		} else if (id == R.id.ib_login15) {
+			day = 15;
+			// 点击礼包4
+			AnalyticsUtils.onClickEvent(ctx, "080");
+		} else if (id == R.id.ib_loginall) {
+			day = 32;
+			// 点击礼包5
+			AnalyticsUtils.onClickEvent(ctx, "081");
+		}
+		List<LoginGiftItem> list = LoginGiftManager.getInstance()
+				.getGiftItemList();
+		LoginGiftItem item = null;
+		for (int i = 0; i < list.size(); i++) {
+			item = list.get(i);
+			if (item.day == day) {
+				break;
+			}
+			item = null; // 不符合条件，重置
+		}
+
+		if (item != null && item.index > 0 && item.index < 32) {
+			LoginStatus stat = LoginGiftManager.getInstance().getLoginStatus();
+			if (((day <= stat.signNum) || ((day == 32) && stat.allSign)) // 领奖天数已达要求
+					&& ((1 << (item.index - 1)) & stat.awardStatus) == 0) { // 没有领过奖领奖
+				LoginGiftManager.getInstance().requestAward((byte) item.index);
+				// Toast.makeText(ctx, "正在领奖，请稍候。。。",
+				// Toast.LENGTH_SHORT).show();
+				Util.displayCenterToast(findViewById(R.id.forget_btn),
+						"正在领奖，请稍候。。。");
+			} else {
+				showPop(id, item);
+			}
+		} else {
+			// Toast.makeText(ctx, "配置请求中，请稍候。。。", Toast.LENGTH_SHORT).show();
+			Util.displayCenterToast(findViewById(R.id.forget_btn),
+					"配置请求中，请稍候。。。");
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		FiexedViewHelper.getInstance().playKeyClick();
+		int id = v.getId();
+		if (id == R.id.ib_login3 || id == R.id.ib_login5
+				|| id == R.id.ib_login7 || id == R.id.ib_login15
+				|| id == R.id.ib_loginall) {
+			onGiftClick(id);
+		} else if (id == R.id.login_btn) {
+			LoginGiftManager.getInstance().requestSign(
+					LoginGiftManager.LSUB_CMD_USER_SIGN_REQ);
+			// 点击签到
+			AnalyticsUtils.onClickEvent(ctx, "083");
+		} else if (id == R.id.forget_btn) {
+			resign();
+			// 点击补签
+			AnalyticsUtils.onClickEvent(ctx, "084");
+		} else if (id == R.id.close) {
+			dismiss();
+		}
+	}
+
+	public void dismiss() {
+		super.dismiss();
+		FiexedViewHelper.getInstance().requestUserBean();
+	}
+
+	Handler hand = new Handler() {
+		@Override
+		public void dispatchMessage(Message msg) {
+			if (!isShowing()) {
+				return;
+			}
+			// TODO Auto-generated method stub
+			int what = msg.what;
+			if (what == HANDLER_SIGN_RESULT) {
+				signResult((byte) msg.arg1);
+			} else if (what == HANDLER_GIFT_RESULT) {
+				giftResult((String) msg.obj);
+			}
+		}
+	};
+}

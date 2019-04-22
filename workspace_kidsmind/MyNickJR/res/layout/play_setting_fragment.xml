@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_play_setting"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/play_skip_head"
+            android:textColor="@color/font_white"
+            android:textSize="25sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+
+        <com.applidium.nickelodeon.switchbutton.SwitchButton
+            android:id="@+id/head_switch"
+            style="@style/SwitchButtonStyle"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            app:offDrawable="@drawable/bg_switch_normal"
+            app:onDrawable="@drawable/bg_switch_check"
+            app:thumbDrawable="@drawable/img_switch" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rel_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_play_setting"
+        android:orientation="vertical"
+        android:padding="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/time_play"
+                android:textColor="@color/font_white"
+                android:textSize="25sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <com.applidium.nickelodeon.switchbutton.SwitchButton
+                android:id="@+id/time_switch"
+                style="@style/SwitchButtonStyle"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                app:offDrawable="@drawable/bg_switch_normal"
+                app:onDrawable="@drawable/bg_switch_check"
+                app:thumbDrawable="@drawable/img_switch" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvVipInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/more"
+            android:textColor="#B7E0FD"
+            android:textSize="18sp" />
+
+        <com.applidium.nickelodeon.views.seekbar.ComboSeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:myColor="@color/seekbar_thumb"
+            app:textSize="24sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

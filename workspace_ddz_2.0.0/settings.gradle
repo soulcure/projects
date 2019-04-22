@@ -1,0 +1,4 @@
+include ':alipay_lib', ':LogingModule_ddz2.0.0'
+include ':OptimizationSKAndroidPayRes'
+include ':LiveSdkInterfaceUILib'
+include ':PokerGame2.0.0'

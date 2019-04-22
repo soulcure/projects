@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ivmall.android.app.views.FoucsLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:orientation="vertical"
+    app:drawable_border="@drawable/recommand_focus">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/recommend_linearlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#1276D7"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/recommend_image"
+                android:layout_width="@dimen/ITEM_NORMAL_SIZE"
+                android:layout_height="@dimen/ITEM_NORMAL_SIZE"
+                android:src="@drawable/cartoon_icon_default" />
+
+            <TextView
+                android:id="@+id/recommend_title_text"
+                style="@style/white_text_normal"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/recommend_linearlayout"
+            android:layout_alignRight="@id/recommend_linearlayout"
+            android:background="@drawable/recommand_blue" />
+    </RelativeLayout>
+</com.ivmall.android.app.views.FoucsLinearLayout>
+

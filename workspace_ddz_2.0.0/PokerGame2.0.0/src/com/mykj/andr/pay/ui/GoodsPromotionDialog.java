@@ -1,0 +1,354 @@
+package com.mykj.andr.pay.ui;
+
+import java.util.ArrayList;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.mykj.andr.model.GoodsItem;
+import com.mykj.andr.pay.model.AddGiftItem;
+import com.mykj.andr.pay.model.PromotionGoodsItem;
+import com.mykj.andr.pay.provider.AddGiftProvider;
+import com.mykj.andr.pay.provider.PromotionGoodsProvider;
+import com.mykj.andr.provider.GoodsItemProvider;
+import com.mykj.andr.ui.ServerDialog;
+import com.mykj.game.ddz.R;
+
+/**
+ * 加赠的弹出框,包括首充和推广的弹框
+ * 
+ * @author JianyYinZhi
+ * 
+ */
+public class GoodsPromotionDialog extends Dialog implements
+		View.OnClickListener {
+
+	private Context mContext;
+
+	private TextView tvTitle; // 标题
+	private TextView tvLedouPrompt;// 破产送，不够乐豆进房间相关提示
+	// private TextView tvPricePrompt;// 价格提示
+	// private TextView oldCoinNum;// 加赠之前原价乐豆
+	// private TextView currentCoinNum;// 加赠之后的乐豆
+	// private TextView tvGoodName;// 商品描述
+	// private TextView tvLedou;// 乐豆
+	private TextView tvPhone;// 电话
+
+	private String telPhone;
+
+	private TextView tvAddGifts; // 加赠道具列表
+
+	private RelativeLayout llCoinNum;// 乐豆折扣的布局
+
+	private Button btnPay;// 支付按钮
+	private ImageView ivCancel;// 取消图片
+
+	private int addGiftType = -1;// 加赠的类型 0为首充，1为其他
+	private GoodsItem goodsItem = null;
+	private String ledouPrompt;// 提示
+
+	private android.view.View.OnClickListener payBtnOnListener;
+	private android.view.View.OnClickListener cancelBtnOnListener;
+
+	private OnKeyListener backKeyOnListener;
+
+	/**
+	 * 
+	 * @param context
+	 * @param type
+	 *            0标识为首充，1标识为推广
+	 */
+	public GoodsPromotionDialog(Context context, int type, GoodsItem goodsItem,
+			String prompt) {
+		super(context, R.style.dialog);
+		this.mContext = context;
+		addGiftType = type;
+		this.goodsItem = goodsItem;
+		this.ledouPrompt = prompt;
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.goods_promption_dialog);
+		init();
+	}
+
+	public void init() {
+		tvTitle = (TextView) findViewById(R.id.title);
+		tvLedouPrompt = (TextView) findViewById(R.id.tv_ledou_prompt);
+		// tvPricePrompt = (TextView) findViewById(R.id.tv_price_prompt);
+		// oldCoinNum = (TextView) findViewById(R.id.tv_old_coin_num);
+		// currentCoinNum = (TextView) findViewById(R.id.tv_current_coin_num);
+		// tvGoodName = (TextView) findViewById(R.id.tv_goodName);
+		// tvLedou = (TextView) findViewById(R.id.tv_ledou);
+		tvPhone = (TextView) findViewById(R.id.tv_phone);
+		tvPhone.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+		tvAddGifts = (TextView) findViewById(R.id.add_gift_tv);
+		btnPay = (Button) findViewById(R.id.btn_pay);
+		ivCancel = (ImageView) findViewById(R.id.iv_cancel);
+
+		// llCoinNum = (RelativeLayout) findViewById(R.id.ll_coin_num);
+
+		if (ServerDialog.SERVER_PHONE != null) {
+			telPhone = ServerDialog.SERVER_PHONE;
+		} else {
+			telPhone = "400-777-9996";
+		}
+		tvPhone.setText(telPhone);
+		tvPhone.getPaint().setAntiAlias(true);
+
+		btnPay.setOnClickListener(this);
+		ivCancel.setOnClickListener(this);
+		tvPhone.setOnClickListener(this);
+		if (goodsItem == null) {
+			int goodsID = AddGiftProvider.getInstance().adviceGoodID;
+			if (goodsID == 0) {
+				return;
+			}
+			goodsItem = GoodsItemProvider.getInstance().findGoodsItemById(
+					goodsID);
+			if (goodsItem == null) {
+				return;
+			}
+		}
+
+		// 0为首充，1为其他
+		if (addGiftType == 0) {
+			tvTitle.setText("首充礼包");
+		} else if (addGiftType == 1) {
+			tvTitle.setText("商品促销");
+		}
+		if (ledouPrompt != null && ledouPrompt.length() > 0) {
+			tvLedouPrompt.setVisibility(View.VISIBLE);
+			tvLedouPrompt.setText(ledouPrompt);
+		} else {
+			tvLedouPrompt.setVisibility(View.GONE);
+		}
+		// tvPricePrompt.setText(getPricePromptSpan(goodsItem));
+		PromotionGoodsItem promotionGoodsItem = PromotionGoodsProvider
+				.getInstance().getPromotionGoodItem(goodsItem.shopID);
+		// if (promotionGoodsItem.oldCoinNum ==
+		// promotionGoodsItem.currentCoinNum) {
+		// llCoinNum.setVisibility(View.GONE);
+		// tvLedou.setVisibility(View.GONE);
+		// tvGoodName.setVisibility(View.VISIBLE);
+		// tvGoodName.setText(goodsItem.goodsName);
+		// } else {
+		// llCoinNum.setVisibility(View.VISIBLE);
+		// tvLedou.setVisibility(View.VISIBLE);
+		// tvGoodName.setVisibility(View.GONE);
+		// oldCoinNum.setText(promotionGoodsItem.oldCoinNum + "");
+		// oldCoinNum.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+		// oldCoinNum.getPaint().setAntiAlias(true);
+		// currentCoinNum.setText(promotionGoodsItem.currentCoinNum + "");
+		// }
+		// ArrayList<AddGiftItem> addGiftItems =
+		// AddGiftProvider.getInstance().addGiftItems;
+		// int gridSize = addGiftItems.size();
+		// if (gridSize <= 0) {
+		// return;
+		// }
+//		String str = "<font size='3' color='red'>4元秒杀20元</font><br><font size='3' color='chocolate'>现在仅需</font><font size='3' color='red'>4元</font><font size='3' color='chocolate'>,即可获得价值</font><font size='3' color='red'>20元</font><font size='3' color='chocolate'>的首充礼包,包含:</font><font size='3' color='cyan'>120,000金币，钻石vip(7天)</font>";
+		if (AddGiftProvider.getInstance().desc != null
+				&& AddGiftProvider.getInstance().desc.length() > 0) {
+			tvAddGifts
+					.setText(Html.fromHtml(AddGiftProvider.getInstance().desc));
+		}
+		// tvAddGifts.setText(getAddGiftPromtpSpan());
+
+		// gvAddGiftGoods.setNumColumns(gridSize);
+		// // 设置gridview的宽度
+		// ViewGroup.LayoutParams params = gvAddGiftGoods.getLayoutParams();
+		// BitmapDrawable mBitmap = (BitmapDrawable) mContext.getResources()
+		// .getDrawable(R.drawable.promotion_goods_gift_frame);
+		// int mWidth = (int) (mBitmap.getBitmap().getWidth());
+		// gvAddGiftGoods.setColumnWidth(mWidth + mWidth / 5);
+		// gvAddGiftGoods.setHorizontalSpacing(mWidth / 20);
+		// params.width = mWidth * addGiftItems.size() + mWidth
+		// * (addGiftItems.size() + 1) / 20 + mWidth / 4;
+		// gvAddGiftGoods.setLayoutParams(params);
+		// AddGiftfAdapter mAdapter = new AddGiftfAdapter(mContext,
+		// addGiftItems);
+		// gvAddGiftGoods.setAdapter(mAdapter);
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		switch (arg0.getId()) {
+		case R.id.btn_pay:
+			if (payBtnOnListener != null) {
+				payBtnOnListener.onClick(arg0);
+				dismiss();
+			}
+			break;
+		case R.id.iv_cancel:
+			if (cancelBtnOnListener != null) {
+				cancelBtnOnListener.onClick(arg0);
+			}
+			dismiss();
+			break;
+		case R.id.tv_phone:
+			Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
+					+ telPhone));
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			mContext.startActivity(intent);
+
+		default:
+			break;
+		}
+	}
+
+	public void setOnPayListener(
+			android.view.View.OnClickListener onClickListener) {
+		payBtnOnListener = onClickListener;
+	}
+
+	public void setOnCancelListener(
+			android.view.View.OnClickListener onClickListener) {
+		cancelBtnOnListener = onClickListener;
+	}
+
+	public void setOnBackKeyListener(OnKeyListener onKeyListener) {
+		backKeyOnListener = onKeyListener;
+	}
+
+	// public class AddGiftfAdapter extends BaseAdapter {
+	//
+	// private LayoutInflater inflater;
+	// private ArrayList<AddGiftItem> addGiftItems;
+	// private Context mContext;
+	//
+	// public AddGiftfAdapter(Context context,
+	// ArrayList<AddGiftItem> addGiftItems) {
+	// this.inflater = LayoutInflater.from(context);
+	// this.addGiftItems = addGiftItems;
+	// mContext = context;
+	// }
+	//
+	// @Override
+	// public int getCount() {
+	// return addGiftItems.size();
+	// }
+	//
+	// @Override
+	// public Object getItem(int position) {
+	// return addGiftItems.get(position);
+	// }
+	//
+	// @Override
+	// public long getItemId(int position) {
+	// return position;
+	// }
+	//
+	// @Override
+	// public View getView(int position, View convertView, ViewGroup parent) {
+	// ViewHolder holder;
+	// if (convertView == null) {
+	// holder = new ViewHolder();
+	// convertView = AddGiftfAdapter.this.inflater.inflate(
+	// R.layout.add_gift_goods_item, null);
+	// holder.iv = (ImageView) convertView.findViewById(R.id.iv_goods);
+	// holder.tv = (TextView) convertView
+	// .findViewById(R.id.tv_goods_name);
+	// holder.plusTV = (TextView) convertView
+	// .findViewById(R.id.tv_plus);
+	// if (addGiftItems.size() - 1 == position) {
+	// holder.plusTV.setVisibility(View.GONE);
+	// }
+	// convertView.setTag(holder);
+	// } else {
+	// holder = (ViewHolder) convertView.getTag();
+	// }
+	// AddGiftItem item = addGiftItems.get(position);
+	// item.getAddGiftIcon(mContext, holder.iv);
+	// holder.tv.setText(item.name + "Ｘ" + item.count);
+	// return convertView;
+	// }
+	//
+	// private class ViewHolder {
+	// ImageView iv;
+	// TextView tv;
+	// TextView plusTV;
+	// }
+	// }
+
+	public TextView getTVLedou() {
+		return tvLedouPrompt;
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		switch (keyCode) {
+		case KeyEvent.KEYCODE_BACK:
+			if (backKeyOnListener != null) {
+				backKeyOnListener.onKey(this, keyCode, event);
+			}
+			dismiss();
+			break;
+
+		default:
+			break;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	public SpannableString getPricePromptSpan(GoodsItem goodsItem) {
+		String pricePrompt = "仅需" + goodsItem.pointValue / 100 + "元即可获得";
+		SpannableString msp = new SpannableString(pricePrompt);
+		int color = mContext.getResources().getColor(
+				R.color.promption_text_color);
+		msp.setSpan(new ForegroundColorSpan(color), 2,
+				2 + (goodsItem.pointValue / 100 + "").length() + 1,
+				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		return msp;
+	}
+
+	public SpannableString getAddGiftPromtpSpan() {
+		String desc = AddGiftProvider.getInstance().desc;
+		ArrayList<AddGiftItem> addGiftItems = AddGiftProvider.getInstance().addGiftItems;
+		if (desc == null || desc.length() <= 0) {
+			desc = "赠送豪华礼包";
+		}
+		String addGiftDesc = "";
+		for (int i = 0; i < addGiftItems.size(); i++) {
+			addGiftDesc = addGiftDesc + addGiftItems.get(i).name;
+			if (i != addGiftItems.size() - 1) {
+				addGiftDesc = addGiftDesc + "、";
+			} else {
+				addGiftDesc = addGiftDesc + "。";
+			}
+		}
+		String prompt = desc + "包含:" + addGiftDesc;
+		SpannableString msp = new SpannableString(prompt);
+		int color = mContext.getResources().getColor(
+				R.color.promption_text_color3);
+		msp.setSpan(new ForegroundColorSpan(color), desc.length() + 3,
+				desc.length() + 3 + addGiftDesc.length(),
+				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		return msp;
+
+	}
+
+}

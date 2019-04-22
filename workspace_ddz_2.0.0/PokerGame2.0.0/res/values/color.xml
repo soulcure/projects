@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="dark_disabled">#80323232</color>
+    <color name="white">#ffffff</color>
+    <color name="bg_clolor">#ff0b4d77</color>
+    <color name="black">#000000</color>
+    <color name="share_bg_clolor">#ffc6dfee</color>
+    <color name="orange_btn_text_color">#853403</color>
+    <color name="blue_btn_text_color">#ff0b4a77</color>
+    <color name="area_bg_color">#b0c4d0</color>
+    <color name="transcolor">#00000000</color>
+    <color name="hilight_yellow">#ffff00</color>
+    <!-- 抽奖机相关color -->
+    <color name="winner_list_name_color">#ffed8b</color>
+    <color name="hint2_color">#81ddff</color>
+    <color name="hint3_color">#3de397</color>
+    <color name="pay_text_color">#00ffea</color>
+    <color name="pink">#FFCA66AC</color>
+    <color name="fuzzy">#33000000</color>
+    <color name="red">#ff0000</color>
+
+    <!--tab activity -->
+    <color name="tab_bar">#00599e</color>
+    <color name="tab_check">#fffbca</color>
+    <color name="tab_normal">#603600</color>
+
+
+    <!-- 比赛报名相关color-->
+    <color name="gray">#f1e3ab</color>
+    <!-- 第一次登录后show的dialog add by xsj -->
+    <color name="content_gray">#48341e</color>
+	<color name="dialog_translucence_bg">#88000000</color>
+    <!-- 个人中心相关color-->
+    <color name="userinfo_color">#ffdbb4</color>
+    <color name="user_label_color">#fee5b5</color>
+    <!-- 弹出框字体基本颜色 -->
+    <color name="dialog_text_color">#ffd27a</color>
+    <color name="dialog_text_color2">#ffd27a</color>
+    <color name="dialog_text_green">#8aff7a</color>
+    <color name="dialog_text_red">#ff3a26</color>
+    
+    
+    <!-- 推广相关颜色 -->
+    <color name="promption_text_color">#ff3a26</color>
+    <color name="promption_text_color2">#ffd27a</color>
+    <color name="promption_text_color3">#34fdff</color>
+    <color name="promption_text_color4">#696969</color>
+    
+    <!-- 支付提示弹框颜色 -->
+    <color name="pay_prompt_color">#ff1b03</color>
+    <color name="pay_prompt_color2">#48341e</color>
+</resources>

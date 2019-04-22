@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.applidium.nickelodeon.views.SubSeriesView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel_img"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:padding="@dimen/SUBSERIES_PADDING">
+
+    <ImageView
+        android:id="@+id/img_player"
+        android:layout_width="@dimen/SUBSERIES_SIZE_WIDTH"
+        android:layout_height="@dimen/SUBSERIES_SIZE_HEIGHT"
+        android:scaleType="fitXY"
+        android:src="@drawable/cartoon_icon_default" />
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/img_player"
+        android:layout_alignTop="@id/img_player"
+        android:gravity="center"
+        android:textColor="@color/font_white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_player"
+        android:layout_alignRight="@id/img_player"
+        android:background="#e8252723"
+        android:gravity="center"
+        android:padding="3dp"
+        android:textColor="@color/font_white"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/tv_player"
+        style="@style/gird_item_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/img_player"
+        android:layout_alignRight="@id/img_player"
+        android:layout_below="@id/img_player"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:maxLines="1" />
+</com.applidium.nickelodeon.views.SubSeriesView>

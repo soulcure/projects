@@ -1,0 +1,1034 @@
+package com.mykj.andr.pay;
+
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface.OnDismissListener;
+import android.content.DialogInterface.OnKeyListener;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Handler;
+import android.telephony.TelephonyManager;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+
+import com.mykj.andr.model.GoodsItem;
+import com.mykj.andr.model.HPropData;
+import com.mykj.andr.model.HallDataManager;
+import com.mykj.andr.model.UserInfo;
+import com.mykj.andr.pay.model.FastBuyModel;
+import com.mykj.andr.pay.model.PayWay;
+import com.mykj.andr.pay.model.PromotionGoodsItem;
+import com.mykj.andr.pay.model.SubScript;
+import com.mykj.andr.pay.provider.AddGiftProvider;
+import com.mykj.andr.pay.provider.PayWayProvider;
+import com.mykj.andr.pay.provider.PromotionGoodsProvider;
+import com.mykj.andr.pay.ui.GoodsPromotionDialog;
+import com.mykj.andr.pay.ui.MMPromptDialog;
+import com.mykj.andr.pay.ui.PayProgressDialog;
+import com.mykj.andr.pay.ui.SelectPayDialog;
+import com.mykj.andr.pay.ui.SinglePayDialog;
+import com.mykj.andr.provider.GoodsItemProvider;
+import com.mykj.andr.ui.CustomDialog;
+import com.mykj.andr.ui.ServerDialog;
+import com.mykj.andr.ui.fragment.CardZoneFragment;
+import com.mykj.andr.ui.tabactivity.MarketActivity;
+import com.mykj.andr.ui.widget.HallAssociatedWidget;
+import com.mykj.game.FiexedViewHelper;
+import com.mykj.game.ddz.R;
+import com.mykj.game.ddz.api.AnalyticsUtils;
+import com.mykj.game.utils.AppConfig;
+import com.mykj.game.utils.MobileHttpApiMgr;
+import com.mykj.game.utils.Util;
+import com.mykj.game.utils.UtilHelper;
+
+public class PayUtils {
+
+	/**
+	 * 购买数量限制
+	 * 
+	 * @param statusBit
+	 * @param isCmnetBuyLimited
+	 * @return
+	 */
+	public static int getCmnetBuyLimitedCount(int statusBit,
+			boolean isCmnetBuyLimited) {
+
+		int limited = 0;
+
+		limited = statusBit >> 8;
+
+		if (limited == 0 && isCmnetBuyLimited) {
+			limited = 5;
+		}
+		return limited;
+
+	}
+
+	/**
+	 * 购买次数限制
+	 * 
+	 * @param statusBit
+	 * @return
+	 */
+	public static int getBuyLimitTime(int statusBit) {
+		int limited;
+		limited = statusBit >> 16;
+		if (limited == 0) {
+			limited = 60;
+		}
+		return limited;
+	}
+
+	public static String getLocalIpAddress() {
+		try {
+			for (Enumeration<NetworkInterface> en = NetworkInterface
+					.getNetworkInterfaces(); en.hasMoreElements();) {
+				NetworkInterface intf = en.nextElement();
+				for (Enumeration<InetAddress> enumIpAddr = intf
+						.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+					InetAddress inetAddress = enumIpAddr.nextElement();
+					if (!inetAddress.isLoopbackAddress()) {
+						return inetAddress.getHostAddress().toString();
+					}
+				}
+			}
+		} catch (SocketException ex) {
+			Log.e("WifiPreference IpAddress", ex.toString());
+		}
+		return null;
+	}
+
+	public static String getLocalMacAddress(Context mContext) {
+		WifiManager wifi = (WifiManager) mContext
+				.getSystemService(Context.WIFI_SERVICE);
+		WifiInfo info = wifi.getConnectionInfo();
+		return info.getMacAddress();
+	}
+
+	public static String getLocalIccid(Context mContext) {
+		TelephonyManager tm = (TelephonyManager) mContext
+				.getSystemService(Context.TELEPHONY_SERVICE);
+		return tm.getSimSerialNumber();
+	}
+
+	public static String getStringmacAddress(String mac)
+			throws PatternSyntaxException {
+		if (mac == null) {
+			return "";
+		}
+		String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……& amp;*（）——+|{}【】‘；：”“’。，、？]";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(mac);
+		return m.replaceAll("").trim();
+	}
+
+	/**
+	 * 4.5.2.19.签名信息获取:附加数据
+	 * 
+	 * @param operatorId
+	 *            :运营商ID 1:移动 2:电信 3:联通
+	 * @param platId
+	 *            :平台ID 0：名游 2：百度 3：移动
+	 * @return
+	 */
+	public static String getPayExternal(short operatorId, Context mContext,
+			boolean isNeedPver, boolean isTry) {
+		// 系统id:此处02为android平台
+		String macaddress = PayUtils.getLocalMacAddress(mContext);
+		String versionName = AppConfig.getVersionName(mContext);
+		String imei = Util.getIMEI(mContext);
+		String imsi = Util.getIMSI(mContext);
+		String iccid = getLocalIccid(mContext);
+		String osId = "02";
+		int playid = FiexedViewHelper.getInstance().getGameType();
+		String ipaddress = getLocalIpAddress();
+		UserInfo myuserInfo = HallDataManager.getInstance().getUserMe();
+		String gameaccount = myuserInfo.userID + "";
+		// 组成信息
+		StringBuffer sb = new StringBuffer();
+		sb.append("<p>");
+		sb.append("<op>").append(operatorId).append("</op>");
+		sb.append("<pid>").append(AppConfig.plat_id).append("</pid>");
+		sb.append("<os>").append(osId).append("</os>");
+		sb.append("<cid>").append(AppConfig.channelId).append("</cid>");
+		sb.append("<scid>").append(AppConfig.childChannelId).append("</scid>");
+		sb.append("<gid>").append(AppConfig.gameId).append("</gid>");
+		sb.append("<playid>").append(playid).append("</playid>"); // 玩法选择
+		int isTryBoolean = 0;
+		if (isTry) {
+			isTryBoolean = 1;
+		} else {
+			isTryBoolean = 0;
+		}
+
+		if (isNeedPver) {
+			sb.append("<pver>").append(AppConfig.pay_version).append("</pver>");
+			sb.append("<plist>").append(PayManager.getPlistString())
+					.append("</plist>");
+			sb.append("<signtype>").append(PayManager.getSigntypeString())
+					.append("</signtype>");
+		}
+		/** 联通校验专用 **/
+		sb.append("<macaddress>").append(getStringmacAddress(macaddress))
+				.append("</macaddress>");// MAC玛
+		sb.append("<ipaddress>").append(ipaddress).append("</ipaddress>");// 网络IP
+		sb.append("<gameaccount>").append(gameaccount).append("</gameaccount>");// 用户ID
+		sb.append("<imei>").append(imei).append("</imei>"); // imei
+		sb.append("<imsi>").append(imsi).append("</imsi>");// imsi
+		sb.append("<iccid>").append(iccid).append("</iccid>");
+		if (isTry) {
+			sb.append("<istry>").append(isTryBoolean).append("</istry>");
+		}
+		sb.append("<versionName>").append(versionName).append("</versionName>");// 版本号
+		sb.append("</p>");
+		return sb.toString();
+	}
+
+	/**
+	 * 返回boolean类型的数组，支付入口，boolean[0]表示是否包含短信支付的入口,boolean[1]表示是否包含阿里支付的入口,
+	 * boolean[2]表示微信入口
+	 * 
+	 * @param payWays
+	 */
+	public static boolean[] getPayEnters(Context mContext,
+			ArrayList<PayWay> payWays) {
+		int mobileCardType = UtilHelper.getMobileCardType(mContext);
+		boolean isHasMessageType = false;
+		boolean isHasWeixinType = false;
+		boolean isHasAliBaodianType = false;
+		for (int i = 0; i < payWays.size(); i++) {
+			PayWay payWay = payWays.get(i);
+			if (payWay.payType == 0 && mobileCardType != UtilHelper.UNKNOW_TYPE) {
+				isHasMessageType = true;
+			} else if (payWay.payType == 1) {
+				isHasAliBaodianType = true;
+			} else if (payWay.payType == 147) {
+				isHasWeixinType = true;
+			}
+		}
+		if (isHasMessageType == false && isHasAliBaodianType == false
+				&& isHasWeixinType == false) {
+			if (mobileCardType == UtilHelper.UNKNOW_TYPE) {
+				isHasMessageType = false;
+				isHasWeixinType = true;
+				isHasAliBaodianType = true;
+			} else {
+				isHasMessageType = true;
+				isHasWeixinType = false;
+				isHasAliBaodianType = false;
+			}
+		}
+		return new boolean[] { isHasMessageType, isHasAliBaodianType,
+				isHasWeixinType };
+
+	}
+
+	/**
+	 * 根据paySign判断是否是sdk的支付方式
+	 * 
+	 * @param mContext
+	 * @param mPaySign
+	 * @return
+	 */
+	public static boolean isSDKWithPaySign(int mPaySign) {
+		if (mPaySign == PayManager.PAY_SIGN_MOBILE
+				|| mPaySign == PayManager.PAY_SIGN_TELECOM
+				|| mPaySign == PayManager.PAY_SIGN_UNICOM_SMS
+				|| mPaySign == PayManager.PAY_SIGN_MOBILE_WAP) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
+	 * 短信提示的弹出框，需求要求提示可控，按钮显示方式可控
+	 * 
+	 * @param mContext
+	 * @param goodsItem
+	 * @param promptTitle
+	 */
+	public static void showSMSPromptDialog(final Context mContext,
+			final GoodsItem goodsItem, OnClickListener payOnClickListener,
+			OnClickListener cancelListener) {
+		String telPhone = "400-777-9996";
+		if (ServerDialog.SERVER_PHONE != null) {
+			telPhone = ServerDialog.SERVER_PHONE;
+		}
+		String payPrompt = null;
+		payPrompt = "尊敬的用户,点击确认即同意购买" + "%s" + "(" + "%f" + ")\n" + "客服电话:"
+				+ telPhone + "\n" + "资费说明:信息费" + "%d" + "元,需要发送1条短信," + "%d"
+				+ "元/条(不含通信费),点击确认进行购买";
+		Spanned msp = getHtmlPrompt(mContext, goodsItem, payPrompt);
+		CustomDialog dialog = new CustomDialog(mContext, msp, false);
+		dialog.show();
+		dialog.setConfirmCallBack(payOnClickListener);
+		if (cancelListener != null) {
+			dialog.setCancelCallBack(cancelListener);
+		} else {
+			if (FastBuyModel.fastCancelPliston) {
+				dialog.setCancelCallBack(new OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+						showMMPayDialog(mContext, 2, "", goodsItem.shopID,
+								new OnClickListener() {
+
+									@Override
+									public void onClick(View arg0) {
+										showMutilPayDialog(mContext, goodsItem,
+												"", "", false, null);
+									}
+								}, null);
+					}
+				});
+
+			}
+		}
+
+	}
+
+	public static int getDefaultPaySign(Context mContext) {
+		int signType = 0;
+		String mobileUserId = MobileHttpApiMgr.getInstance()
+				.getOnlineGameUserId();
+		if (Util.isCMWap(mContext) && !Util.isEmptyStr(mobileUserId)) {
+			signType = PayManager.PAY_SIGN_MOBILE_WAP;
+		}
+		return signType;
+	}
+
+	/***
+	 * @Title: showBuyDialog
+	 * @Description: 普通弹出道具购买对话框，固定去登录送下发的快捷购买ID
+	 * @param act
+	 * @version: 2013-2-25 下午03:18:47
+	 */
+	public static void showBuyDialog(final Context context, int propid,
+			boolean isConfirm, String title, final String message) {
+		if (!PayWayProvider.getInstance(context).isPayWayREQFinish()) {
+			PayWayProvider.getInstance(context).reqPayWayList();
+		}
+		// TODO 立刻成为会员
+		final GoodsItem goodsItem = UtilHelper.getGoodsItem(propid);
+		if (goodsItem == null) {
+			if (AppConfig.debug) {
+				UtilHelper.showCustomDialog(context, "快捷购买下发的商品不存在,请找网站配置快捷道具");
+			}
+			return;
+		}
+		// 是首充或者推广弹首充推广界面，如果不是走正常支付流程
+		boolean isFirstCharge = false;
+		if (PromotionGoodsProvider.getInstance().type == 0) {
+			if (goodsItem != null && goodsItem.shopID != 0) {
+				isFirstCharge = showPromotionDialog(context, goodsItem.shopID,
+						title, null, null);
+			}
+		}
+		if (!isFirstCharge) {
+			PayManager.getInstance(context).requestFastBuyProp(goodsItem,
+					title, message, isConfirm,
+					SinglePayDialog.KAWAYI_MEINV_IMG, null);
+		}
+	}
+
+	/**
+	 * 带破产送的快捷购买
+	 * 
+	 * @param context
+	 * @param propid
+	 * @param info
+	 * @param cancelLis
+	 */
+	public static void showBuyDialog(final Context context, int propid,
+			boolean isConfirm, String title, final String message,
+			final OnClickListener cancelLis) {
+		if (!PayWayProvider.getInstance(context).isPayWayREQFinish()) {
+			PayWayProvider.getInstance(context).reqPayWayList();
+		}
+		// TODO 立刻成为会员
+		final GoodsItem goodsItem = UtilHelper.getGoodsItem(propid);
+		if (goodsItem == null) {
+			if (AppConfig.debug) {
+				UtilHelper.showCustomDialog(context, "快捷购买下发的商品不存在,请找网站配置快捷道具");
+			}
+			return;
+		}
+		// 是首充或者推广弹首充推广界面，如果不是走正常支付流程
+		boolean isFirstCharge = false;
+		if (PromotionGoodsProvider.getInstance().type == 0) {
+			if (goodsItem != null && goodsItem.shopID != 0) {
+				isFirstCharge = showPromotionDialog(context, goodsItem.shopID,
+						title, cancelLis, null);
+			}
+		}
+		if (!isFirstCharge) {
+			PayManager.getInstance(context).requestFastBuyProp(goodsItem,
+					title, message, isConfirm, SinglePayDialog.CRY_MEINV_IMG,
+					cancelLis);
+		}
+	}
+
+	/**
+	 * @Title: showBuyDialog
+	 * @Description: 弹出抽奖机的快捷购买，固定去登录送下发的快捷购买ID
+	 * @version: 2013-2-25 下午03:18:47
+	 */
+	public static void showLotteryBuyDialog(final Context context, String info,
+			int propid, final boolean isHide, final boolean isConfirm) {
+		// TODO 立刻成为会员
+		final GoodsItem goodsItem = UtilHelper.getGoodsItem(propid);
+		// 是首充或者推广弹首充推广界面，如果不是走正常支付流程
+		boolean isFirstCharge = false;
+		OnClickListener cancel = new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				// 关闭后调用破产赠送
+				if (HallAssociatedWidget.getInstance() != null) {
+					HallAssociatedWidget.getInstance().givingBankruptcy();
+				}
+			}
+		};
+		if (PromotionGoodsProvider.getInstance().type == 0) {
+			if (goodsItem != null && goodsItem.shopID != 0) {
+				isFirstCharge = showPromotionDialog(context, goodsItem.shopID,
+						info, cancel, null);
+			}
+		}
+		if (!isFirstCharge) {
+			PayManager.getInstance(context).requestFastBuyProp(goodsItem, "",
+					info, isConfirm, SinglePayDialog.KAWAYI_MEINV_IMG, cancel);
+		}
+	}
+
+	public static void setPayCorner(Context mContext, ImageView ivCorner,
+			SubScript subScript) {
+		PayWay payWay = subScript.payway;
+		int signType = payWay.payType;
+		byte subIcon = subScript.subIcon;
+		int ritio = subScript.ritio;
+		if (subIcon == 0 || (subIcon == 2 && ritio <= 0)) {
+			ivCorner.setVisibility(View.GONE);
+		} else if (subIcon == 1) {
+			ivCorner.setVisibility(View.VISIBLE);
+			ivCorner.setBackgroundResource(R.drawable.recommend_pay_corner);
+		} else if (subIcon == 2) {
+			Bitmap result = BitmapFactory.decodeResource(
+					mContext.getResources(), R.drawable.add_give_pay_corner)
+					.copy(Bitmap.Config.ARGB_8888, true);
+			Canvas canvas = new Canvas(result);
+			Paint mPaint = new Paint();
+			mPaint.setTextSize(27);
+			mPaint.setColor(Color.rgb(253, 255, 115));
+			canvas.drawText(ritio + "%", result.getWidth() * 3 / 10,
+					result.getHeight() * 3 / 4, mPaint);
+			ivCorner.setVisibility(View.VISIBLE);
+			Drawable bitmapDrawable = new BitmapDrawable(
+					mContext.getResources(), result);
+			ivCorner.setBackgroundDrawable(bitmapDrawable);
+		}
+	}
+
+	/**
+	 * 
+	 * @param goodsItem
+	 *            如果为null用推荐的默认商品弹出
+	 * @param promptTitle
+	 * @return 是否需要弹首充或者推广弹框
+	 */
+	public static boolean showPromotionDialog(final Context mContext,
+			int shopID, final String promptTitle,
+			final OnClickListener cancelClickListener,
+			OnKeyListener backKeyListener, OnDismissListener dismissLisner) {
+		if (shopID == 0) {
+			return false;
+		}
+		final GoodsItem goodsItem = GoodsItemProvider.getInstance()
+				.findGoodsItemById(shopID);
+		// 判断下发数据的完整性
+		PromotionGoodsProvider promotionGoddsProvider = PromotionGoodsProvider
+				.getInstance();
+		final AddGiftProvider addGiftProvider = AddGiftProvider.getInstance();
+		if (promotionGoddsProvider.type == -1 || addGiftProvider.type == -1
+				|| (promotionGoddsProvider.type != addGiftProvider.type)) {
+			return false;
+		}
+		ArrayList<PromotionGoodsItem> promotionGoodsItems = promotionGoddsProvider.promotionGoods;
+		if (promotionGoodsItems == null
+				|| promotionGoodsItems.size() == 0
+				|| (goodsItem != null && promotionGoddsProvider
+						.getPromotionGoodItem(goodsItem.shopID) == null)) {
+			return false;
+		}
+		// 显示首充或推广的弹框
+		GoodsPromotionDialog goodsPromotionDialog = new GoodsPromotionDialog(
+				mContext, promotionGoddsProvider.type, goodsItem, promptTitle);
+		goodsPromotionDialog.show();
+		if (cancelClickListener != null) {
+			goodsPromotionDialog.setOnCancelListener(cancelClickListener);
+		}
+		if (backKeyListener != null) {
+			goodsPromotionDialog.setOnBackKeyListener(backKeyListener);
+		}
+		goodsPromotionDialog.setOnPayListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				PayManager.getInstance(mContext).requestFastBuyProp(goodsItem,
+						promptTitle, "", FastBuyModel.isPromotionConfirm,
+						SinglePayDialog.KAWAYI_MEINV_IMG, cancelClickListener);
+			}
+		});
+		if (dismissLisner != null) {
+			goodsPromotionDialog.setOnDismissListener(dismissLisner);
+		}
+		return true;
+	}
+
+	/**
+	 * 
+	 * @param goodsItem
+	 *            如果为null用推荐的默认商品弹出
+	 * @param promptTitle
+	 * @return 是否需要弹首充或者推广弹框
+	 */
+	public static boolean showPromotionDialog(final Context mContext,
+			int shopID, final String promptTitle,
+			final OnClickListener cancelClickListener,
+			OnKeyListener backKeyListener) {
+		return showPromotionDialog(mContext, shopID, promptTitle,
+				cancelClickListener, backKeyListener, null);
+	}
+
+	/**
+	 * 显示单支付界面框
+	 * 
+	 * @param mContext
+	 * @param goodsItem
+	 * @param title
+	 * @param prompt
+	 * @param type
+	 * @param cancelClickListener
+	 */
+	public static void showSinglePayDialog(final Context mContext,
+			final GoodsItem goodsItem, final String title, final String prompt,
+			final int mvType, final boolean isConfirm, final boolean isFastBuy,
+			final OnClickListener cancelClickListener) {
+		SinglePayDialog mSinglePayDialog = new SinglePayDialog(mContext,
+				goodsItem, mvType, prompt, isFastBuy);
+		mSinglePayDialog.setSMSCallBack(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				if (isFastBuy == PayManager.MARKET_BUY_TAG) {
+					PayManager.getInstance(mContext).mSMSBuy(goodsItem, title,
+							prompt, false, cancelClickListener);
+				} else if (isFastBuy == PayManager.FAST_BUY_TAG) {
+					PayManager.getInstance(mContext).mSMSBuy(goodsItem, title,
+							prompt, true, cancelClickListener);
+				}
+			}
+		});
+		mSinglePayDialog.setAlipayCallBack(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				PayManager.getInstance(mContext).payWithNoPlist(goodsItem,
+						PayManager.PAY_SIGN_ALIPAY, title, prompt, isFastBuy);
+			}
+		});
+		mSinglePayDialog.setWXCallBack(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				PayManager.getInstance(mContext).payWithNoPlist(goodsItem,
+						PayManager.PAY_SIGN_WX_SDK, title, prompt, isFastBuy);
+			}
+		});
+		if (cancelClickListener != null) {
+			mSinglePayDialog.setCancelCallBack(cancelClickListener);
+		} else {
+			ArrayList<PayWay> payWays = getPayWays(goodsItem, isFastBuy);
+			if (FastBuyModel.fastCancelPliston && payWays != null
+					&& payWays.size() > 1) {
+				mSinglePayDialog.setCancelCallBack(new OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+						showMMPayDialog(mContext, 2, "", goodsItem.shopID,
+								new OnClickListener() {
+
+									@Override
+									public void onClick(View arg0) {
+										showMutilPayDialog(mContext, goodsItem,
+												title, prompt, isFastBuy, null);
+									}
+								}, cancelClickListener);
+					}
+				});
+
+			}
+		}
+		mSinglePayDialog.setCanceledOnTouchOutside(false);
+		mSinglePayDialog.show();
+		if (cancelClickListener != null
+				&& HallAssociatedWidget.getInstance().getQuickNode() != null) {
+			mSinglePayDialog.setGoToGameCallBack(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					FiexedViewHelper.getInstance().sHandler
+							.sendEmptyMessage(FiexedViewHelper.HANDLER_CHARGE_SUCCESS);
+				}
+			});
+		}
+	}
+
+	/**
+	 * 显示多支付框
+	 * 
+	 * @param mContext
+	 * @param goodsItem
+	 * @param title
+	 * @param prompt
+	 * @param isFastBuy
+	 * @param cancelClickListener
+	 */
+	public static void showMutilPayDialog(final Context mContext,
+			final GoodsItem goodsItem, final String title, final String prompt,
+			final boolean isFastBuy, final OnClickListener cancelClickListener) {
+		if (goodsItem == null) {
+			return;
+		}
+		SelectPayDialog buyDialog = new SelectPayDialog(mContext, goodsItem,
+				title, prompt, isFastBuy);
+		buyDialog.setAliPayBtnCallBack(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				PayManager.getInstance(mContext).payWithNoPlist(goodsItem,
+						PayManager.PAY_SIGN_ALIPAY, title, prompt, isFastBuy);
+				// 点击商城确认 购买统计事件--支付宝
+				AnalyticsUtils.onClickEvent(mContext, "017");
+			}
+		});
+		buyDialog.setSMSPayBtnCallBack(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (isFastBuy == PayManager.MARKET_BUY_TAG) {
+					PayManager.getInstance(mContext).mSMSBuy(goodsItem, title,
+							prompt, false, null);
+				} else if (isFastBuy == PayManager.FAST_BUY_TAG) {
+					PayManager.getInstance(mContext).mSMSBuy(goodsItem, title,
+							prompt, true, null);
+				}
+				// 点击商城确认 购买统计事件--短信
+				AnalyticsUtils.onClickEvent(mContext, "017");
+			}
+		});
+		buyDialog.setWXPayBtnCallBack(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				PayManager.getInstance(mContext).payWithNoPlist(goodsItem,
+						PayManager.PAY_SIGN_WX_SDK, title, prompt, isFastBuy);
+			}
+		});
+		buyDialog.setCancelBtnCallBack(cancelClickListener);
+		// 设置外面点击不关闭对话框
+		buyDialog.setCanceledOnTouchOutside(false);
+		buyDialog.show();
+	}
+
+	/**
+	 * 
+	 * @param mContext
+	 * @param failState
+	 *            失败状态，0为获取订单失败,1为支付失败，2为取消,3获取订单成功，4购买成功
+	 */
+	public static void showMMPayDialog(Context mContext, int failState,
+			CharSequence payPrompt, int goodsID,
+			OnClickListener confirmOnListener, OnClickListener cancelOnListener) {
+		String prompt = null;
+		String btnConfirmStr = null;
+		OnClickListener tempConfirListener = confirmOnListener;
+		int mmType = 1;
+		boolean isMutilPay = true;
+		GoodsItem goodsItem = GoodsItemProvider.getInstance()
+				.findGoodsItemById(goodsID);
+		ArrayList<PayWay> payWays = null;
+		if (goodsItem != null) {
+			// 判断是否为一种支付方式或者没有
+			payWays = (ArrayList<PayWay>) goodsItem.getPayWays();
+		}
+		if (payWays == null || payWays.size() <= 0) {
+			isMutilPay = false;
+		} else {
+			isMutilPay = true;
+		}
+		if (failState == 0) {
+			prompt = "主人,你购买的商品的订单处理失败,可能是您的余额不足或者手机被运营商设为保护状态。";
+			if (isMutilPay) {
+				btnConfirmStr = "换种方式";
+			} else {
+				tempConfirListener = null;
+				btnConfirmStr = "确定";
+			}
+			mmType = 2;
+		} else if (failState == 1) {
+			prompt = "主人,购买失败了!订购结果:支付失败!要不要咱们换种方式购买吧。";
+			if (isMutilPay) {
+				btnConfirmStr = "换种方式";
+			} else {
+				tempConfirListener = null;
+				prompt = "主人,你购买的商品的订单处理失败,可能是您的余额不足或者手机被运营商设为保护状态。";
+				btnConfirmStr = "确定";
+			}
+			mmType = 2;
+		} else if (failState == 2) {
+			if (!FastBuyModel.fastCancelPliston) {
+				return;
+			}
+			prompt = "主人,购买失败了!您中途取消!咱们要不要换种方式购买吧。";
+			if (isMutilPay) {
+				btnConfirmStr = "换种方式";
+			} else {
+				tempConfirListener = null;
+				btnConfirmStr = "确定";
+			}
+			mmType = 2;
+		} else if (failState == 3) {
+			prompt = "主人，您的订单已经提交。订单处理完成后，会自动通知您订单结果并发放购物品。如有疑问，请联系客服！";
+			btnConfirmStr = "确 定";
+			mmType = 1;
+		} else if (failState == 4) {
+			mmType = 1;
+			btnConfirmStr = "开始游戏";
+		} else if (failState == 5) {
+			mmType = 1;
+			btnConfirmStr = "知道啦";
+		}
+		SpannableString msp = null;
+		if (payPrompt == null || payPrompt.length() <= 0) {
+			msp = new SpannableString(prompt);
+			int color = mContext.getResources().getColor(
+					R.color.pay_prompt_color);
+			if (failState == 1) {
+				if (isMutilPay) {
+					msp.setSpan(new ForegroundColorSpan(color), 9, 19,
+							Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				} else {
+					msp.setSpan(new ForegroundColorSpan(color), 10, 16,
+							Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				}
+			} else if (failState == 2) {
+				msp.setSpan(new ForegroundColorSpan(color), 9, 15,
+						Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			}
+		}
+		MMPromptDialog mDialog = null;
+		if (payPrompt != null && payPrompt.length() > 0) {
+			mDialog = new MMPromptDialog(mContext, payPrompt, btnConfirmStr,
+					mmType);
+		} else {
+			mDialog = new MMPromptDialog(mContext, msp, btnConfirmStr, mmType);
+		}
+		if (confirmOnListener != null) {
+			mDialog.setConfirmBtnCallBack(confirmOnListener);
+		}
+		if (cancelOnListener != null) {
+			mDialog.setCancelBtnCallBack(cancelOnListener);
+		}
+		mDialog.show();
+	}
+
+	/**
+	 * 返回推广类型，0为首充，1为推广，-1为无效
+	 * 
+	 * @return
+	 */
+	public static int getPromptionType() {
+		if (PromotionGoodsProvider.getInstance().type == AddGiftProvider
+				.getInstance().type
+				&& PromotionGoodsProvider.getInstance().type != -1
+				&& AddGiftProvider.getInstance().type != -1) {
+			return PromotionGoodsProvider.getInstance().type;
+		} else {
+			return -1;
+		}
+	}
+
+	/**
+	 * 返回支付提示的span形式
+	 * 
+	 * @param mContext
+	 * @param goodsItem
+	 * @param payPrompt
+	 * @return
+	 */
+	public static Spanned getHtmlPrompt(Context mContext, GoodsItem goodsItem,
+			String payPrompt) {
+		String goodsPrice = goodsItem.pointValue / 100 + "元";
+		String goodsDescrip = goodsItem.goodsDescrip;
+		String goodsPresent = "赠" + goodsItem.goodsPresented;
+		String payString = payPrompt
+				.replace("%d元", "<font color='red'>" + goodsPrice + "</font>")
+				.replace("%s", "<font color='red'>" + goodsDescrip + "</font>")
+				.replace("%f", "<font color='red'>" + goodsPresent + "</font>")
+				.replace("\n", "<br>");
+		Spanned spanned = Html.fromHtml(payString);
+		return spanned;
+	}
+
+	/**
+	 * 判断是否为大额道具
+	 * 
+	 * @param shopID
+	 * @return
+	 */
+	public static boolean isLargeGoodsItem(int shopID) {
+		for (int i : FastBuyModel.largeIDs) {
+			if (shopID == i) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 获取商品适用的支付列表
+	 * 
+	 * @param goodsItem
+	 * @param isFastBuy
+	 * @return
+	 */
+	public static ArrayList<PayWay> getPayWays(GoodsItem goodsItem,
+			boolean isFastBuy) {
+		if (isFastBuy) {
+			ArrayList<PayWay> fastPayWays = (ArrayList<PayWay>) goodsItem
+					.getFastBuyPayWayList();
+			if (fastPayWays == null || fastPayWays.size() <= 0) {
+				return (ArrayList<PayWay>) goodsItem.getPayWays();
+			} else {
+				return fastPayWays;
+			}
+		} else {
+			return (ArrayList<PayWay>) goodsItem.getPayWays();
+		}
+	}
+
+	/**
+	 * 购买乐豆成功
+	 * 
+	 * @param mContext
+	 * @param addBean
+	 * @param goodsItem
+	 */
+	public static void mBuyLedouSuccess(Context mContext, int addBean,
+			GoodsItem goodsItem, BuyGoods buyGoods) {
+		String successPrompt = null;
+		UserInfo myuserInfo = HallDataManager.getInstance().getUserMe();
+		String vipName = myuserInfo.getVipName();
+		if (buyGoods != null && buyGoods.goodsInfo != null
+				&& buyGoods.goodsInfo.length() > 0) {
+			successPrompt = buyGoods.goodsInfo;
+		} else {
+			if (addBean <= 0) {
+				successPrompt = "主人，您购买的%s已到账,%f给您!现在就去大杀四方吧~";
+			} else {
+				successPrompt = "主人，您购买的%s已到账,%f给您!" + "<font color='red'>"
+						+ vipName + "</font>" + "给您加送" + "<font color='red'>"
+						+ addBean + "</font>" + ",现在就去大杀四方吧~";
+			}
+		}
+		Spanned msp = PayUtils
+				.getHtmlPrompt(mContext, goodsItem, successPrompt);
+		// int addBeanPostion = successPrompt.indexOf(addBean);
+		// int vipNamePositon = successPrompt.indexOf(vipName);
+		// int color = mContext.getResources().getColor(
+		// R.color.promption_text_color);
+		// if (addBeanPostion != -1 && addBeanPostion != 0) {
+		// msp.setSpan(new ForegroundColorSpan(color), addBeanPostion,
+		// addBeanPostion + (addBean + "").length() + 1,
+		// Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		// }
+		// if (vipNamePositon != -1 && vipNamePositon != 0) {
+		// msp.setSpan(new ForegroundColorSpan(color), vipNamePositon,
+		// vipNamePositon + vipName.length() + 1,
+		// Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		// }
+		PayUtils.showMMPayDialog(mContext, 4, msp, goodsItem.shopID,
+				new OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+						FiexedViewHelper.getInstance().sHandler
+								.sendEmptyMessage(FiexedViewHelper.HANDLER_CHARGE_SUCCESS);
+					}
+				}, null);
+		if (mContext instanceof MarketActivity) {
+			Handler handler = ((MarketActivity) mContext).getMarkHandler();
+			if (handler != null) {
+				FiexedViewHelper.getInstance().requestUserBean(handler);
+			}
+		} else {
+			FiexedViewHelper.getInstance().requestUserBean();
+		}
+	}
+
+	public static void mBuyPropSuccess(Context mContext, BuyGoods buyedGoods,
+			GoodsItem goodsItem) {
+		boolean isHasUsedProp = false;
+		final HPropData[] propDatas = buyedGoods.propData;
+		if (propDatas != null && propDatas.length > 0) {
+			for (HPropData hPropData : propDatas) {
+				if (hPropData.canUse) {
+					isHasUsedProp = true;
+					break;
+				}
+			}
+		}
+		String successPrompt = null;
+		if (buyedGoods != null && buyedGoods.goodsInfo != null
+				&& buyedGoods.goodsInfo.length() > 0) {
+			successPrompt = buyedGoods.goodsInfo;
+		} else {
+			if (!isHasUsedProp) {
+				successPrompt = "主人，好棒哟，您购买的%s已到帐。%f给您！";
+			} else {
+				successPrompt = "主人，您已成功购买%s,%f给您，是否立即享用特权，去游戏里大杀四方~";
+			}
+		}
+		Spanned msp = getHtmlPrompt(mContext, goodsItem, successPrompt);
+		if (isHasUsedProp) {
+			PayUtils.showMMPayDialog(mContext, 3, msp, goodsItem.shopID,
+					new OnClickListener() {
+
+						@Override
+						public void onClick(View arg0) {
+							for (HPropData hPropData : propDatas) {
+								FiexedViewHelper.getInstance()
+										.requestUsePropItem(hPropData.PropID);
+							}
+							FiexedViewHelper.getInstance().sHandler
+									.sendEmptyMessage(FiexedViewHelper.HANDLER_CHARGE_SUCCESS);
+						}
+					}, null);
+
+		} else {
+			PayUtils.showMMPayDialog(mContext, 5, msp, goodsItem.shopID, null,
+					null);
+		}
+	}
+
+	/**
+	 * 支付加载进度条
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static Dialog showProgress(Context context) {
+		PayProgressDialog dialog = new PayProgressDialog(context, 5 * 1000);
+		dialog.setCancelable(false);
+		dialog.setCanceledOnTouchOutside(false);
+		dialog.show();
+		return dialog;
+	}
+
+	/**
+	 * 用于sdk取消所做的操作
+	 * 
+	 * @param mContext
+	 * @param shopID商品id
+	 */
+	public static void SDKCancel(final Context mContext, final int shopID) {
+		final OnClickListener cancelOnclickListener = new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				CardZoneFragment frag = FiexedViewHelper.getInstance().cardZoneFragment;
+				if (frag != null) {
+					frag.requestBankruptcy();
+				}
+			}
+		};
+		GoodsItem goodsItem = GoodsItemProvider.getInstance()
+				.findGoodsItemById(shopID);
+		ArrayList<PayWay> payWays = PayUtils.getPayWays(goodsItem, false);
+		if (payWays != null && payWays.size() > 1) {
+			PayUtils.showMMPayDialog(mContext, 2, "", shopID,
+					new OnClickListener() {
+
+						@Override
+						public void onClick(View arg0) {
+							showMutilPayDialog(mContext, GoodsItemProvider
+									.getInstance().findGoodsItemById(shopID),
+									"", "", false, cancelOnclickListener);
+
+						}
+					}, cancelOnclickListener);
+		}
+	}
+
+	/**
+	 * 用于sdk订单提交成功
+	 * 
+	 * @param mContext
+	 * @param shopID商品id
+	 */
+	public static void SDKOrderOK(final Context mContext, final int shopID,
+			final int signType) {
+		PayManager.getInstance(mContext).netReceive(shopID, signType);
+		final OnClickListener cancelOnclickListener = new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				CardZoneFragment frag = FiexedViewHelper.getInstance().cardZoneFragment;
+				if (frag != null) {
+					frag.requestBankruptcy();
+				}
+			}
+		};
+		PayUtils.showMMPayDialog(mContext, 3, "", shopID, null,
+				cancelOnclickListener);
+	}
+
+	/**
+	 * 订单提交成功是否需要做超时处理
+	 * 
+	 * @return
+	 */
+	public static boolean isTimeOutOper(int signType) {
+		if (signType == PayManager.PAY_SIGN_ALIPAY
+				|| signType == PayManager.PAY_SIGN_WX_SDK
+				|| signType == PayManager.PAY_SIGN_SKYMOBILE) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+}

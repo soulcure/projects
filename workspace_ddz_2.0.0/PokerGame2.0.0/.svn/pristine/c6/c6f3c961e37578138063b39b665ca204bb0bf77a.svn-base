@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dialog_margin"
+    android:layout_gravity="center" >
+
+    <LinearLayout
+        android:id="@+id/first_login_show_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/first_login_show_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/first_login_show_title_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/first_login_title_bg"
+            android:gravity="center"
+            android:textColor="@color/title_deep_red"
+            android:textSize="@dimen/title_txt_size"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:id="@+id/first_login_content_TV"
+            android:layout_width="260dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/dialog_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/first_login_start_game_B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/snow_btn"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dialog_button_padding"
+            android:paddingRight="@dimen/dialog_button_padding"
+            android:shadowColor="@color/dialog_button_text_shad"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="4"
+            android:textColor="@color/dialog_button_text"
+            android:textSize="@dimen/title_txt_size"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/first_login_show_bg"
+        android:layout_marginRight="-10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_dlg_close" />
+
+</RelativeLayout>

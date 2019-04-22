@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bg_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/zone_bg" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/cardzone_bottom_bg" />
+
+    <View
+        android:id="@+id/below_man"
+        android:layout_width="1dp"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true" />
+
+    <ImageView
+        android:id="@+id/main_man"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/cardzone_main_man2"
+        android:background="@drawable/cardzone_main_man" />
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/layer1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <!-- 上部分 -->
+
+                <include layout="@layout/card_zone_top" />
+
+                <!-- 中间部分 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/relTop"
+                    android:gravity="center_horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/relContaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="70dp"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:id="@+id/tvOnline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="10dp"
+                        android:visibility="gone"
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layer2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/list_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cardzone_list_top_bg">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/cardzone_list_title"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:text="赢话费场"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/titlePic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:scaleType="center"
+                        android:paddingBottom="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/cardzone_list_title"
+                        android:src="@drawable/cardzone_title_jingdianchang" />
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:src="@drawable/btn_back" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/listContaner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/list_title"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="top" />
+
+                <ImageView
+                    android:id="@+id/toLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/listContaner"
+                    android:layout_alignTop="@id/listContaner"
+                    android:src="@drawable/btn_zone_switch_left" />
+
+                <ImageView
+                    android:id="@+id/toRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/toLeft"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/toLeft"
+                    android:src="@drawable/btn_zone_switch_right" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <!-- 下部分 -->
+
+        <include layout="@layout/card_zone_bottom" />
+    </LinearLayout>
+
+</RelativeLayout>

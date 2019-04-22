@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 背景图 -->
+
+    <!-- 全部能量图 -->
+   
+         <item android:id="@android:id/secondaryProgress"
+		  android:drawable="@color/live_sdk_transparent" />
+    <!-- 进和能量图 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <nine-patch android:src="@drawable/live_sdk_progress_bg" >
+            </nine-patch>
+        </clip>
+    </item>
+
+</layer-list>

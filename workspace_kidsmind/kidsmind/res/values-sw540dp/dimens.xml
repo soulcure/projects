@@ -1,0 +1,150 @@
+<resources>
+
+
+    <!-- pay Dialog -->
+    <dimen name="pay_secceed_margintop">25dp</dimen>
+    <dimen name="pay_secceed_padding_horizontal">40dp</dimen>
+    <dimen name="pay_secceed_padding_vertical">10dp</dimen>
+
+    <!-- exchange dialog -->
+    <dimen name="exchange_frame_width">420dp</dimen>
+
+    <!-- activity_player -->
+    <dimen name="serie_width">160dp</dimen>
+    <dimen name="serie_height">80dp</dimen>
+    <dimen name="playlist_width">175dp</dimen>
+
+    <dimen name="item_size">14sp</dimen>
+
+    <dimen name="play_history_height">90dp</dimen>
+    <dimen name="play_history_width">130dp</dimen>
+
+    <!--playlist activity-->
+    <dimen name="tabs_height">45dp</dimen>
+    <dimen name="tab_marginLeft">25dp</dimen>
+    <dimen name="tab_marginTop">60dp</dimen>
+    <dimen name="parent_image_width">87dp</dimen>
+    <dimen name="parent_image_height">70dp</dimen>
+    <dimen name="parent_image_margintop">8dp</dimen>
+    <dimen name="cartoon_image_item_width">91dp</dimen>
+    <dimen name="cartoon_image_item_height">105dp</dimen>
+    <dimen name="action_button_tips">8dp</dimen>
+
+    <!-- BuyVipDialog -->
+    <dimen name="vip_dialog_width">400dp</dimen>
+
+    <!--metro UI-->
+    <dimen name="image_round_size">10dp</dimen>
+    <dimen name="shape_round_size">8dp</dimen>
+    <dimen name="mirror_ref_height">40dp</dimen>
+    <dimen name="animation_offset_y">20dp</dimen>
+    <dimen name="ITEM_DIVIDE_SIZE">5dp</dimen>
+    <dimen name="ITEM_V_WIDTH">180dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">275dp</dimen>
+    <dimen name="ITEM_H_WIDTH">275dp</dimen>
+    <dimen name="ITEM_H_HEIGHT">135dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE">135dp</dimen>
+    <dimen name="OUT_ITEM_NORMAL_SIZE">165dp</dimen>
+    <dimen name="TEXT_SHAPE_HEIGHT">35dp</dimen>
+    <dimen name="item_text_height">32dp</dimen>
+
+    <!--MetroFragment-->
+    <dimen name="metro_paddingLeft">38dp</dimen>
+    <dimen name="metro_paddingRight">38dp</dimen>
+    <dimen name="metro_paddingTop">15dp</dimen>
+
+    <!--CartoonFragment-->
+    <dimen name="cartoon_item_padding">10dp</dimen>
+    <dimen name="h_gridview_padding_buttom">60dp</dimen>
+
+    <dimen name="cartoon_item_margin">60dp</dimen>
+
+    <!--ActionDialog-->
+    <dimen name="action_image_width">530dp</dimen>
+    <dimen name="action_image_height">320dp</dimen>
+
+    <!--ParentFragmentActivity-->
+    <dimen name="frame_paddingTop">40dp</dimen>
+
+    <dimen name="girdview_paddingTop">5dp</dimen>
+
+    <!--BabyInfoFragment-->
+    <dimen name="frame_padding_top">35dp</dimen>
+    <dimen name="frame_padding_buttom">80dp</dimen>
+    <dimen name="baby_info_marginTop">1dp</dimen>
+    <dimen name="ability_frame_marginTop">8dp</dimen>
+    <dimen name="ability_frame_paddingBottom">30dp</dimen>
+    <dimen name="ability_frame_paddingLeft">25dp</dimen>
+    <dimen name="ability_frame_paddingRight">25dp</dimen>
+    <dimen name="ability_frame_paddingTop">10dp</dimen>
+
+    <dimen name="ratingBar_marginTop">7dp</dimen>
+
+
+    <dimen name="back_button_size">35dp</dimen>
+    <dimen name="language_marginTop">10dp</dimen>
+    <dimen name="ability_text_marginTop">10dp</dimen>
+
+
+    <!--RecordPlayFragment-->
+    <dimen name="record_item_padding">35dp</dimen>
+    <dimen name="record_item_margin">15dp</dimen>
+    <!--LoginFragment-->
+
+    <dimen name="edit_text_width">380dp</dimen>
+    <dimen name="edit_text_height">50dp</dimen>
+    <dimen name="edit_marginTop">10dp</dimen>
+    <dimen name="countdownclock_marginTop">19dp</dimen>
+    <!--OrderFragment-->
+    <dimen name="order_container_width">450dp</dimen>
+    <dimen name="order_container_height">450dp</dimen>
+
+
+    <!--goods_item_v-->
+    <dimen name="goods_item_padding">8dp</dimen>
+    <!-- RecommendDetailsActivity -->
+    <dimen name="recommend_image_width">150dp</dimen>
+    <dimen name="recommend_image_height">150dp</dimen>
+    <dimen name="recommend_image_margin">6dp</dimen>
+    <dimen name="recomment_babyinfo_margin_top">15dp</dimen>
+    <dimen name="recommend_save_btn_width">144dp</dimen>
+    <dimen name="recommend_save_btn_hight">67dp</dimen>
+    <dimen name="recommend_name_editview_padding">1dp</dimen>
+    <dimen name="recommend_textview_width">95dp</dimen>
+    <dimen name="recommend_babyhead_width">80dp</dimen>
+
+    <dimen name="recommend_item_margin_left">15dp</dimen>
+    <dimen name="recommend_item_padding">10dp</dimen>
+    <dimen name="recommend_babyhead_paddingright">35dp</dimen>
+
+    <dimen name="recommend_video_info_height">60dp</dimen>
+    <dimen name="recommend_save_btn_marginTop">25dp</dimen>
+    <dimen name="recommend_radiobtn_marginleft">35dp</dimen>
+
+    <dimen name="play_setting_padding_hor">80dp</dimen>
+
+    <!--playsetting Fragment-->
+    <dimen name="setting_text_size">18sp</dimen>
+
+
+    <dimen name="record_item_spacing">15dp</dimen>
+
+
+    <!--navigation -->
+    <dimen name="img_head_width">100dp</dimen>
+    <dimen name="img_head_height">100dp</dimen>
+    <dimen name="navigation_head_height">200dp</dimen>
+    <dimen name="navigation_head_height_land">200dp</dimen>
+
+    <dimen name="toolbar_margin_left">70dp</dimen>
+
+    <!-- MineFragment -->
+    <dimen name="mine_btn_size">80dp</dimen>
+    <dimen name="item_space">20dp</dimen>
+
+    <!-- UserInfoFragment-->
+    <dimen name="info_save_width">380dp</dimen>
+
+    <!-- controlFragment-->
+    <dimen name="control_item_height">45dp</dimen>
+</resources>

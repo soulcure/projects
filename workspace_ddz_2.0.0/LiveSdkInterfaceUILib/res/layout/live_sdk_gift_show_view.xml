@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/live_sdk_transparent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/live_sdk_ll_gif_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/live_sdk_gift_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/live_sdk_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="笑笑"
+            android:textColor="#0c2947"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/live_sdk_iv_gif_show"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/live_sdk_gift_default_icon" />
+
+        <TextView
+            android:id="@+id/live_sdk_tv_gif_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30个"
+            android:textColor="#ff0000"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical" 
+        android:background="@drawable/market_title_bg">
+
+        <TextView
+            android:id="@+id/cur_vip_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cur_vip_level_tips"
+            android:textColor="@color/dialog_text_color2" />
+
+        <ImageView
+            android:id="@+id/cur_vip_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:contentDescription="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/expire_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/dialog_text_color2" />
+        
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        
+        <Button
+            android:id="@+id/to_be_vip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_noble"
+            android:textColor="#603c05"
+            android:textStyle="bold"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+<!--     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/usercenter_divider_horizontal" /> -->
+
+    <GridView 
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:numColumns="3"
+        android:listSelector="@android:color/transparent"
+        />
+</LinearLayout>

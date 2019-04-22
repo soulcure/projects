@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rel_bg"
+    style="@style/play_setting_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+
+    <TextView
+        android:id="@+id/tvVipInfo"
+        style="@style/play_setting_vip_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/more"
+        android:textColor="#B7E0FD" />
+
+    <com.ivmall.android.app.views.seekbar.ComboSeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:myColor="@color/seekbar_thumb"
+        app:textSize="@dimen/setting_text_size" />
+
+</LinearLayout>

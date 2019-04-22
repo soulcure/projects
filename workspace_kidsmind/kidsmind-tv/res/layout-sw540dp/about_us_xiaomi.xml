@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_about_us_title"
+            style="@style/white_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="1dp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="@string/about_us1" />
+
+        <LinearLayout
+            android:id="@+id/relative_version"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_about_us_title"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/version"
+                    style="@style/green_text_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/version_number" />
+
+                <TextView
+                    android:id="@+id/text_website"
+                    style="@style/green_text_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/website" />
+
+                <TextView
+                    android:id="@+id/text_qq"
+                    style="@style/green_text_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/server_qq_group" />
+
+                <TextView
+                    style="@style/green_text_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/server_phone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_qrcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/about_us_qrcode"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="5dp"
+                    android:src="@drawable/code" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/about_context" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_prd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative_version"
+            android:layout_marginTop="13dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/goods_cost_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:background="@drawable/bg_vip_normal"
+                android:gravity="center"
+                android:paddingLeft="17dp"
+                android:paddingRight="17dp"
+                android:text="@string/our_portfolio" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/about_us_line" />
+
+        </LinearLayout>
+
+
+        <com.ivmall.android.app.views.DownProgressView
+            android:id="@+id/image_icon_tongle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/linear_prd"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/kidsmind_icon" />
+
+        <TextView
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_icon_tongle"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/image_icon_tongle"
+            android:text="@string/tongle_title_xiaomi" />
+
+        <TextView
+            style="@style/white_small_normal_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image_icon_tongle"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/image_icon_tongle"
+            android:text="@string/tongle_content" />
+
+        <com.ivmall.android.app.views.DownProgressView
+            android:id="@+id/image_icon_dora"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/image_icon_tongle"
+            android:layout_below="@+id/image_icon_tongle"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/icon_dora" />
+
+        <TextView
+            android:id="@+id/text_dora_title"
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_icon_dora"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/image_icon_dora"
+            android:text="@string/dora_title_xiaomi" />
+
+        <TextView
+            android:id="@+id/text_dora_detail"
+            style="@style/white_small_normal_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_dora_title"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image_icon_dora"
+            android:text="@string/dora_detail" />
+
+        <TextView
+            style="@style/white_small_normal_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/text_dora_detail"
+            android:layout_below="@+id/text_dora_detail"
+            android:layout_toRightOf="@+id/image_icon_dora"
+            android:text="@string/dora_content_xiaomi" />
+
+    </RelativeLayout>
+</ScrollView>

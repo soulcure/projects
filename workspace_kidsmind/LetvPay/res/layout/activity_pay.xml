@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s_99"
+        android:background="@drawable/letv_pay_bg_menu"
+        android:paddingBottom="@dimen/s_22"
+        android:paddingTop="@dimen/s_41" >
+
+        <TextView
+            android:id="@+id/tv_auto_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/s_34"
+            android:layout_marginLeft="@dimen/s_99"
+            android:visibility="invisible"
+            android:textColor="@color/white"
+            android:textSize="@dimen/f_28" />
+
+        <TextView
+            android:id="@+id/tv_payment_type"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/s_34"
+            android:layout_marginLeft="@dimen/s_99"
+            android:textColor="@color/white"
+            android:textSize="@dimen/f_28" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/pay_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/letv_pay_bg" >
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,340 @@
+package com.mykj.andr.newsflash;
+
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Message;
+import android.view.View;
+
+import com.mykj.andr.model.HallDataManager;
+import com.mykj.andr.model.NodeData;
+import com.mykj.andr.pay.PayUtils;
+import com.mykj.andr.pay.model.FastBuyModel;
+import com.mykj.andr.provider.NewCardZoneProvider;
+import com.mykj.andr.ui.CustomActivity;
+import com.mykj.andr.ui.tabactivity.ExchangeTabActivity;
+import com.mykj.andr.ui.tabactivity.MarketActivity;
+import com.mykj.andr.ui.widget.CardZoneProtocolListener;
+import com.mykj.game.FiexedViewHelper;
+import com.mykj.game.utils.AppConfig;
+import com.mykj.game.utils.Toast;
+import com.mykj.game.utils.Util;
+import com.mykj.game.utils.UtilHelper;
+
+/**
+ * @author wanghj 快讯管理
+ */
+public class NewsFlashManager {
+	public static final int OPERATE_NOTHING = 0; // 不做操作
+	public static final int OPERATE_URL = 1; // 跳转url
+	public static final int OPERATE_NODE = 2; // 跳转节点
+	public static final int OPERATE_ROOM = 3; // 跳转房间
+	public static final int OPERATE_PACK = 4; // 进入背包
+	public static final int OPERATE_MARKET = 5; // 进入商城
+	public static final int OPERATE_QBUY = 6; // 打开快捷购买
+	public static final int OPERATE_QGAME = 7; // 快速开始游戏
+
+	private NewsFlashManager() {
+	}
+
+	private static NewsFlashManager instance = null;
+	private List<NewsFlashData> newsFlashData = new ArrayList<NewsFlashData>(); // 快讯数据
+	private String title;
+	private Activity act;
+
+	public static NewsFlashManager getInstance() {
+		if (instance == null) {
+			instance = new NewsFlashManager();
+		}
+		return instance;
+	}
+
+	/**
+	 * 显示快讯，有内容才显示
+	 * 
+	 * @param context
+	 * @return 是否显示成功
+	 */
+	public boolean displayNewsFlashDialog(Activity context, View anchor) {
+		return displayNewsFlashDialog(context, null, anchor);
+	}
+
+	public boolean displayNewsFlashDialog(Activity context,
+			Dialog.OnDismissListener lis, View anchor) {
+		if (newsFlashData.size() > 0) {
+			act = context;
+			NewsFlashDialog dlg = new NewsFlashDialog(context, title,
+					newsFlashData);
+			if (lis != null) {
+				dlg.setOnDismissListener(lis);
+			}
+			dlg.show();
+			readed(newsFlashData.get(0).subTitle);
+			return true;
+		} else {
+			if (lis == null) {
+				if (anchor != null) {
+					Util.displayCenterToast(anchor, "当前没有消息哦");
+				} else {
+					Toast.makeText(context, "当前没有消息哦", Toast.LENGTH_SHORT)
+							.show();
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 添加数据，传入xml格式字符串
+	 * 
+	 * @param data
+	 */
+	public void addData(String data) {
+		if (!Util.isEmptyStr(data)) {
+			if (!parseXml(data)) {
+				clearData();
+			}
+			initRead();
+		}
+	}
+
+	/**
+	 * 清除数据
+	 */
+	public void clearData() {
+		try {
+			newsFlashData.clear();
+			title = null;
+		} catch (UnsupportedOperationException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 是否接收了数据
+	 * 
+	 * @return
+	 */
+	public boolean isReceiveData() {
+		return !newsFlashData.isEmpty();
+	}
+
+	/**
+	 * 快讯点详情的操作
+	 * 
+	 * @param context
+	 * @param data
+	 *            快讯内容
+	 */
+	protected void operate(Activity context, NewsFlashData data) {
+		switch (data.type) {
+		case OPERATE_NOTHING:
+			break;
+		case OPERATE_URL: // 跳转url
+			String url = data.paramEx;
+			UtilHelper.onWeb(context, url);
+			break;
+		case OPERATE_NODE: // 跳转到节点
+			int nodeId = Integer.parseInt(data.paramEx);
+			int index = NewCardZoneProvider.getInstance()
+					.getFirstCardZoneIndex(nodeId); // 获得节点index
+			if (index >= 0) {
+				Message msg = FiexedViewHelper.getInstance().sHandler
+						.obtainMessage(
+								FiexedViewHelper.HANDLER_SHOW_CARDZONE_LIST,
+								index, 0);
+				FiexedViewHelper.getInstance().sHandler.sendMessage(msg);
+				/** 不在分区就退到分区 **/
+				if ((act != null) && !(act instanceof CustomActivity)) {
+					act.finish();
+				}
+				act = null;
+			}
+			break;
+		case OPERATE_ROOM:
+			int roomId = Integer.parseInt(data.paramEx);
+			NodeData node = NewCardZoneProvider.getInstance().getNodeDataById(
+					roomId); // 获得node
+			if (node != null) {
+				CardZoneProtocolListener.getInstance(context)
+						.invokeCardZoneListViewItem(node);
+				/** 不在分区就退到分区 **/
+				if ((act != null) && !(act instanceof CustomActivity)) {
+					act.finish();
+				}
+				act = null;
+			}
+			break;
+		case OPERATE_PACK: // 跳转到背包
+		{
+			Intent intent = new Intent(context, ExchangeTabActivity.class);
+			intent.putExtra("TAB_INDEX", 1);
+			context.startActivity(intent);
+		}
+			break;
+		case OPERATE_MARKET: // 跳转到商城
+			context.startActivity(new Intent(context, MarketActivity.class));
+			break;
+		case OPERATE_QBUY: // 打开快捷购买
+			// UtilHelper.showBuyDialog(context, AppConfig.propId,"");
+			// 快捷购买
+			PayUtils.showBuyDialog(context, FastBuyModel.propId,
+					FastBuyModel.isFastBuyConfirm, "", "");
+			break;
+		case OPERATE_QGAME: // 快速开始游戏
+			FiexedViewHelper.getInstance().quickGame();
+			/** 不在分区就退到分区 **/
+			if ((act != null) && !(act instanceof CustomActivity)) {
+				act.finish();
+			}
+			act = null;
+			break;
+		default:
+			break;
+		}
+
+	}
+
+	private boolean parseXml(String src) {
+		boolean isParseSuccess = false;
+		NewsFlashData data = null;
+		if (Util.isEmptyStr(src)) {
+			return false;
+		}
+		src = src.replaceAll("[\r\t\n]", "");
+		int xmlStart = src.indexOf("<?xml");
+		if (xmlStart > 0) {
+			src = src.substring(xmlStart);
+		}
+		try {
+			// 定义工厂
+			XmlPullParserFactory f = XmlPullParserFactory.newInstance();
+			// 定义解析器
+			XmlPullParser p = f.newPullParser();
+			// 获取xml输入数据
+			p.setInput(new StringReader(src));
+			// 解析事件
+			int eventType = p.getEventType();
+			while (eventType != XmlPullParser.END_DOCUMENT) {
+				switch (eventType) {
+				case XmlPullParser.START_DOCUMENT:
+					break;
+				case XmlPullParser.START_TAG:
+					String tag = p.getName();
+					if (tag.equals("title")) { // 标题
+						title = p.nextText();
+					} else if (tag.equals("message")) { // 大体数据
+						data = new NewsFlashData();
+					} else if (tag.equals("type")) {
+						data.type = Integer.parseInt(p.nextText());
+					} else if (tag.equals("content")) {
+						data.content = p.nextText();
+					} else if (tag.equals("url") || tag.equals("node_id")
+							|| tag.equals("room_id") || tag.equals("short_buy")
+							|| tag.equals("value")) {
+						data.paramEx = p.nextText();
+					} else if (tag.equals("EnterText")) {
+						data.btnText = p.nextText();
+					} else if (tag.equals("subT")) {
+						data.subTitle = p.nextText();
+					}
+					break;
+				case XmlPullParser.END_TAG:
+					if (p.getName().equals("message")) {
+						newsFlashData.add(data);
+						data = null;
+						isParseSuccess = true;
+					}
+					break;
+				case XmlPullParser.END_DOCUMENT:
+					break;
+				default:
+					break;
+				}
+				// 用next方法处理下一个事件，否则会造成死循环。
+				eventType = p.next();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			isParseSuccess = false;
+		}
+		if (isParseSuccess) {
+			newsFlashData.get(0).setExpand(true);
+		}
+		return isParseSuccess;
+	}
+
+	/**
+	 * 将条目设为已读
+	 * 
+	 * @param title
+	 */
+	public void readed(String title) {
+		if (!readed.contains(title)) {
+			readed.add(title);
+		}
+	}
+
+	/**
+	 * 保存已读
+	 */
+	public void savedReaded() {
+		StringBuffer sb = new StringBuffer();
+		if (readed.size() > 0) {
+			sb.append(readed.get(0));
+			for (int i = 1; i < readed.size(); i++) {
+				sb.append("##");
+				sb.append(readed.get(i));
+			}
+		}
+		String key = HallDataManager.getInstance().getUserMe().userID
+				+ "nfReaded";
+		Util.setStringSharedPreferences(AppConfig.mContext, key, sb.toString());
+	}
+
+	/**
+	 * 已读列表
+	 */
+	private ArrayList<String> readed = new ArrayList<String>();
+
+	/**
+	 * @return 未读数目
+	 */
+	public int getUnreadSum() {
+		if (newsFlashData != null && newsFlashData.size() >= readed.size()) {
+			return newsFlashData.size() - readed.size();
+		}
+		return 0;
+	}
+
+	/**
+	 * 初始化已读数据
+	 */
+	private void initRead() {
+		if (newsFlashData != null) {
+			readed.clear();
+			String key = HallDataManager.getInstance().getUserMe().userID
+					+ "nfReaded";
+			String reads = Util.getStringSharedPreferences(AppConfig.mContext,
+					key, "");
+			String[] readOld = reads.split("##");
+			for (int i = 0; i < newsFlashData.size(); i++) {
+				String title = newsFlashData.get(i).subTitle;
+				for (int j = 0; j < readOld.length; j++) {
+					if (title.equals(readOld[j])) {
+						readed.add(title);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+}

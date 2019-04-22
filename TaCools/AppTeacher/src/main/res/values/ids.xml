@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="key_position" type="id" />
+    <item name="key_id" type="id" />
+    <item name="menu_green_id" type="id" />
+</resources>

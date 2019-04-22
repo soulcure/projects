@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        style="@style/report_text_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.45"
+        android:background="@color/vip_bule_light"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="@string/tv_time"
+        android:textColor="@color/vip_bule_dark"
+        />
+
+    <TextView
+        style="@style/report_text_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.55"
+        android:background="@color/vip_bule_light"
+        android:gravity="left"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="@string/tv_operate"
+        android:textColor="@color/vip_bule_dark" />
+</LinearLayout>

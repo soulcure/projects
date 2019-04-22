@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/et_old_password"
+        style="@style/login_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_item_padding"
+        android:drawableLeft="@drawable/ic_pw_selector"
+        android:drawablePadding="@dimen/register_item_padding"
+        android:gravity="center_vertical"
+        android:hint="@string/input_old_password"
+        android:inputType="textPassword"
+        android:lines="1"
+        android:maxLength="20"
+        android:padding="@dimen/register_item_padding"
+        android:textColor="@color/color_blue" />
+
+    <EditText
+        android:id="@+id/et_new_password"
+        style="@style/login_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_item_padding"
+        android:drawableLeft="@drawable/ic_pw_selector"
+        android:drawablePadding="@dimen/register_item_padding"
+        android:gravity="center_vertical"
+        android:hint="@string/input_new_password"
+        android:inputType="textPassword"
+        android:lines="1"
+        android:maxLength="20"
+        android:padding="@dimen/register_item_padding"
+        android:textColor="@color/color_blue" />
+
+    <EditText
+        android:id="@+id/et_new_password_again"
+        style="@style/login_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_item_padding"
+        android:drawableLeft="@drawable/ic_pw_selector"
+        android:drawablePadding="@dimen/register_item_padding"
+        android:gravity="center_vertical"
+        android:hint="@string/input_new_password_again"
+        android:inputType="textPassword"
+        android:lines="1"
+        android:padding="@dimen/register_item_padding"
+        android:textColor="@color/color_blue" />
+
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/register_item_padding"
+        android:layout_marginRight="@dimen/register_item_padding"
+        android:layout_marginTop="@dimen/register_item_padding"
+        android:background="@drawable/btn_commit_selector"
+        android:text="@string/confirm_commit"
+        android:textColor="@color/color_white" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+</LinearLayout>

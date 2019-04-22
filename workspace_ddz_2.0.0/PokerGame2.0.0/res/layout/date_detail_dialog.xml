@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_dialog2_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ddz_huafeijuan_lable"
+        style="@style/dialogTitleStyle"
+         />
+
+    <FrameLayout
+        android:layout_width="389dp"
+        android:layout_height="128dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp" >
+
+        <ListView
+            android:id="@+id/date_list"
+            android:layout_width="389dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:cacheColorHint="#00000000"
+            android:divider="#FFCC00"
+            android:listSelector="#00000000"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp" >
+        </ListView>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="389dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/Ensure" 
+            style="@style/exit_2_style"
+             />
+    </RelativeLayout>
+
+</LinearLayout>

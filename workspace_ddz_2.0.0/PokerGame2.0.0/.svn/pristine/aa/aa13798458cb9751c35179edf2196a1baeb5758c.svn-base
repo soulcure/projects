@@ -1,0 +1,227 @@
+package com.mykj.andr.lottoround;
+
+import java.util.ArrayList;
+
+import com.mykj.andr.lottoround.LottoRoundManager.ResultData;
+import com.mykj.andr.lottoround.LottoRoundView.OnRoundFinishListener;
+import com.mykj.andr.model.HallDataManager;
+import com.mykj.andr.pay.PayUtils;
+import com.mykj.game.FiexedViewHelper;
+import com.mykj.game.MainApplication;
+import com.mykj.game.ddz.R;
+import com.mykj.game.utils.AppConfig;
+import com.mykj.game.utils.Util;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+
+@SuppressLint("NewApi")
+public class LottoRoundActivity extends Activity implements View.OnClickListener{
+	
+	private LottoRoundView mainView;  //主绘制view
+	private int freeTimes = 0;        //免费抽奖次数
+	private boolean timesFinish = false;  //次数加载是否完成
+	private LottoRoundManager.ResultData resultData = null;  //抽奖结果数据
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.lottoround_activity);
+		if(android.os.Build.VERSION.SDK_INT >= 11){
+			setFinishOnTouchOutside(false);
+		}
+		mainView = (LottoRoundView)findViewById(R.id.lottoround_drawview);
+		mainView.setCloseListener(this);
+		mainView.setStartListener(this);
+		mainView.setNoteStr("正在加载");
+		mainView.setFinishListener(finishListener);
+		LottoRoundManager.getInstance().requestLotteryConfig(hand);
+		LottoRoundManager.getInstance().requestLotteryNum(hand);
+		MainApplication.sharedApplication().addActivity(this);
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		mainView.onDestroy();
+		mainView = null;
+		MainApplication.sharedApplication().finishActivity(this);
+		super.onDestroy();
+	}
+	
+	/**
+	 * 关闭按钮响应
+	 */
+	void requestClose(){
+		finish();
+	}
+	
+	/**
+	 * 开始抽奖按钮响应
+	 */
+	void requestStart(){
+		
+		//检测配置是否加载完成
+		if(!timesFinish || !LottoRoundManager.getInstance().isMultiConfigFinish){
+//			Toast.makeText(this, "正在加载，请稍候", Toast.LENGTH_SHORT).show();
+			if(mainView != null){
+				Util.displayCenterToast(mainView, "正在加载，请稍候");
+			}
+			return;
+		}
+		
+		boolean enableLotto = false;  //是否可以抽奖
+		String msg = "";  //提示信息
+		if(mainView.isInRun()){  //正在抽奖
+			msg="正在抽奖，请稍候";
+		}else if(freeTimes > 0){
+			enableLotto = true;
+		}else{ //没有免费抽奖次数，查看是否可以乐豆抽奖
+			msg = "您没有抽奖次数";  
+			if(LottoRoundManager.getInstance().multiBCostPower == 1){//乐豆抽奖打开
+				msg = "";
+				int bean = HallDataManager.getInstance().getUserMe().bean;
+				if(bean >= LottoRoundManager.getInstance().multiBCost){
+					enableLotto = true;
+				}else{
+					PayUtils.showLotteryBuyDialog(this, "抽奖一次要消耗"
+							+ LottoRoundManager.getInstance().multiBCost + "乐豆.您的乐豆不足，是否购买乐豆？",
+							AppConfig.propId, false, AppConfig.isConfirmon);
+					return;
+				}
+			}
+		}
+		if(enableLotto){
+			mainView.startRun();
+			resultData = null;
+			LottoRoundManager.getInstance().requestLotteryResult(freeTimes > 0?1:0, hand);
+		}else if(!Util.isEmptyStr(msg)){
+//			Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+			if(mainView != null){
+			Util.displayCenterToast(mainView, msg);
+			}
+		}
+	}
+	
+	@Override
+	public void onClick(View v) {
+		FiexedViewHelper.getInstance().playKeyClick();
+		// TODO Auto-generated method stub
+		String tag = v.getTag().toString();
+		if("close".equals(tag)){
+			requestClose();
+		}else if("start".equals(tag)){
+			requestStart();
+		}
+	}
+	
+	/**
+	 * 设置信息，用于提示用户状态
+	 */
+	void setInfo(){
+		//配置没加载完成不设置
+		if(!timesFinish || !LottoRoundManager.getInstance().isMultiConfigFinish){
+			return;
+		}
+		
+		if(freeTimes > 0){ //有免费抽奖次数
+			mainView.setNoteStr("可抽"+freeTimes+"次");
+		}else if(LottoRoundManager.getInstance().multiBCostPower == 1){ //开启了乐豆抽奖
+			int cost = LottoRoundManager.getInstance().multiBCost;
+			String cs = "";
+			if (cost % 10000 == 0) {
+				cs = cost / 10000 + "万乐豆/次";
+			} else if (cost >= 1000) {
+				cs = cost / 1000 + "千乐豆/次";
+			} else {
+				cs = cost + "乐豆/次";
+			}
+			mainView.setNoteStr(cs);
+		} else {
+			mainView.setNoteStr("可抽0次");
+		}
+	}
+	
+	Handler hand = new Handler(){
+		public void dispatchMessage(android.os.Message msg) {
+			if(isFinishing()){ //已经结束，不需要接收
+				return;
+			}
+			switch(msg.what){
+			case LottoRoundManager.HANDLER_TIMES_REP:{  //抽奖次数返回
+				int times = msg.arg1;
+				if(times >= 0){
+					freeTimes = times;
+					timesFinish = true;
+					setInfo();
+				}else{
+					LottoRoundManager.getInstance().requestLotteryNum(hand);
+				}
+			}
+			break;
+			case LottoRoundManager.HANDLER_LOTTO_REP:{ //抽奖结果返回
+				resultData = (ResultData)msg.obj;
+				if(resultData.code==0){
+					mainView.setResultIndex(resultData.index);
+				}
+			}
+			break;
+			case LottoRoundManager.HANDLER_CONFIG_REP:{  //抽奖配置返回
+				setInfo();
+			}
+			break;
+			default:
+				break;
+			}
+		}
+	};
+	
+	OnRoundFinishListener finishListener = new OnRoundFinishListener() {
+		
+		@Override
+		public void onRoundFinish(int index) {
+			// TODO Auto-generated method stub
+			FiexedViewHelper.getInstance().requestUserBean();
+			String info = "";
+			if(resultData == null){
+				info = "结果接收失败了"; //没有结果
+			}else{
+				if(resultData.code == 0){  //成功
+					ArrayList<LottoRoundItem> list = LottoRoundManager.getInstance().getItemList();
+					if(list != null && list.size() > 0){
+						for(int i = 0; i < list.size();i++){
+							if(resultData.index == list.get(i).getIndex()){
+								info = "恭喜您获得了："+list.get(i).getDesc()/*+"x"+list.get(i).getNum()*/;
+								break;
+							}
+						}
+					}
+					freeTimes = resultData.leftTimes;
+				}else if(resultData.code == 4){  //已达最大次数
+					info = "今天次数用完了";
+					freeTimes = 0;
+					LottoRoundManager.getInstance().multiBCostPower = 0;
+				}else{
+					info = resultData.desc;
+				}
+			}
+			setInfo();
+//			Toast.makeText(LottoRoundActivity.this, info, Toast.LENGTH_SHORT).show();
+			if(resultData != null && (resultData.code == 10 || resultData.code == 15)){
+				PayUtils.showLotteryBuyDialog(LottoRoundActivity.this, info,
+						AppConfig.propId, false, AppConfig.isConfirmon);
+			}else if(mainView!=null){
+				Util.displayCenterToast(mainView, info);
+			}
+		}
+	};
+	
+	public void onBackPressed() {
+		requestClose();
+	};
+	
+}

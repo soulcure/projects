@@ -1,0 +1,266 @@
+<resources>
+
+
+    <!--LoginIvmallFragment-->
+    <dimen name="frame_padding_h">60dp</dimen>
+    <dimen name="frame_padding_v">50dp</dimen>
+    <dimen name="frame_mergin_top">20dp</dimen>
+
+    <dimen name="edittext_width">320dp</dimen>
+
+    <dimen name="edittext_padding_h">15dp</dimen>
+    <dimen name="edittext_padding_v">15dp</dimen>
+
+    <dimen name="textview_padding_left">20dp</dimen>
+    <dimen name="textview_padding_right">40dp</dimen>
+    <dimen name="textview_padding_top">20dp</dimen>
+    <dimen name="textview_padding_buttom">20dp</dimen>
+
+    <dimen name="textview_margin_top">20dp</dimen>
+    <dimen name="common_margin_top">10dp</dimen>
+
+    <dimen name="img_dora_width">179.2dp</dimen>
+    <dimen name="img_dora_height">265.6dp</dimen>
+    <dimen name="img_dora_margin_left">-135dp</dimen>
+
+    <dimen name="title_marginbottom">30dp</dimen>
+    <dimen name="textview_drawable_padding">10dp</dimen>
+
+    <dimen name="textview_padding">20dp</dimen>
+
+    <dimen name="textview_padding_h">20dp</dimen>
+    <dimen name="textview_padding_v">20dp</dimen>
+
+    <dimen name="button_login_width">320dp</dimen>
+    <dimen name="button_padding_h">15dp</dimen>
+    <dimen name="button_padding_v">10dp</dimen>
+
+    <dimen name="button_register_width">120dp</dimen>
+    <dimen name="button_margin_left">80dp</dimen>
+
+    <dimen name="button_back_margin_top">15dp</dimen>
+    <dimen name="button_back_margin_left">15dp</dimen>
+
+    <!-- AutoLoginFragment -->
+    <dimen name="login_image_width">306dp</dimen>
+    <dimen name="login_image_height">261dp</dimen>
+
+    <!--RegisterFragment && ForgetPasswordFragment-->
+    <dimen name="verify_code_width">170dp</dimen>
+    <dimen name="countdown_width">140dp</dimen>
+    <dimen name="countdown_margin_left">10dp</dimen>
+
+    <dimen name="agreement_form_width">740dp</dimen>
+    <dimen name="agreement_form_height">480dp</dimen>
+    <dimen name="agreement_form_padding_top">60dp</dimen>
+    <dimen name="agreement_form_padding_left">30dp</dimen>
+
+
+    <!--HasRegisterFragment-->
+    <dimen name="has_register_margin_top">20dp</dimen>
+    <dimen name="has_register_margin_left">20dp</dimen>
+
+    <dimen name="has_register_info_width">554dp</dimen>
+    <dimen name="has_register_info_height">105dp</dimen>
+
+    <dimen name="has_register_bg_width">534dp</dimen>
+    <dimen name="has_register_bg_height">257dp</dimen>
+
+    <!-- SubSeriesActivity-->
+    <dimen name="img_serie_width">136dp</dimen>
+    <dimen name="img_serie_height">175dp</dimen>
+
+    <dimen name="serie_play_width">133dp</dimen>
+    <dimen name="serie_play_height">50dp</dimen>
+    <dimen name="serie_image_margintop">10dp</dimen>
+
+    <dimen name="play_frame_width">590dp</dimen>
+    <dimen name="play_frame_height">380dp</dimen>
+    <dimen name="vipname_margin_top">40dp</dimen>
+    <dimen name="btn_margin_top">60dp</dimen>
+    <dimen name="btn_padding_v">15dp</dimen>
+    <dimen name="btn_padding_h">60dp</dimen>
+
+    <dimen name="baby_age_title_size">26sp</dimen>
+    <dimen name="qrcode_width">280dp</dimen>
+    <dimen name="qrcode_height">280dp</dimen>
+
+    <dimen name="phone_width">205dp</dimen>
+    <dimen name="phone_height">302dp</dimen>
+
+    <dimen name="img_ten_min_width">300dp</dimen>
+    <dimen name="img_ten_min_height">23dp</dimen>
+
+    <dimen name="title_cloud_width">130dp</dimen>
+    <dimen name="title_cloud_height">80dp</dimen>
+    <dimen name="title_cloud_paddingTop">10dp</dimen>
+    <dimen name="title_cloud_textSize">26dp</dimen>
+    <dimen name="title_cloud_paddingRight">5dp</dimen>
+    <dimen name="payment_text_size">25sp</dimen>
+    <dimen name="pay_money_text_size">18sp</dimen>
+    <dimen name="pay_btn_marginTop">20dp</dimen>
+    <dimen name="pay_img_marginLeft">20dp</dimen>
+    <dimen name="pay_text_size">22sp</dimen>
+
+    <!-- doyoulike_dialog -->
+    <dimen name="img_title_merginTop">30dp</dimen>
+    <dimen name="img_title_width">500dp</dimen>
+    <dimen name="img_title_height">148dp</dimen>
+
+    <!-- playlist_fragment -->
+    <dimen name="imageButton_marginLeft">20dp</dimen>
+    <dimen name="scrollGridView_verticalSpacing">4dp</dimen>
+
+    <!-- free_playing_activity -->
+    <dimen name="media_progress_paddingLeft">40dp</dimen>
+    <dimen name="media_progress_paddingRight">40dp</dimen>
+    <dimen name="pTextView_textSize">14sp</dimen>
+    <dimen name="pTextView_marginRight">20dp</dimen>
+
+    <!-- kidsinfo_fragment -->
+    <dimen name="kNumberPicker_width">100dp</dimen>
+    <dimen name="kNumberPicker_height">111dp</dimen>
+    <dimen name="kidsinfo_marin_left">50dp</dimen>
+    <dimen name="kidsinfo_marin_right">50dp</dimen>
+
+    <!-- activity_player -->
+    <dimen name="serie_width">187dp</dimen>
+    <dimen name="serie_height">92dp</dimen>
+    <dimen name="playlist_width">227dp</dimen>
+
+    <dimen name="play_history_height">60dp</dimen>
+    <dimen name="play_history_width">120dp</dimen>
+    <dimen name="control_bar_marginLeft">10dp</dimen>
+    <!-- payment_method -->
+    <dimen name="pImageView_height">3dp</dimen>
+    <dimen name="pImageView_marginTop">8dp</dimen>
+
+    <!--playlist activity-->
+    <dimen name="tab_marginLeft">25dp</dimen>
+    <dimen name="tab_marginTop">60dp</dimen>
+
+    <dimen name="baby_line_topHeight">20dp</dimen>
+    <dimen name="baby_line_buttomHeight">10dp</dimen>
+
+    <!--metro UI-->
+    <dimen name="image_round_size">10dp</dimen>
+    <dimen name="shape_round_size">20dp</dimen>
+
+    <dimen name="mirror_ref_height">40dp</dimen>
+    <dimen name="animation_offset_y">20dp</dimen>
+
+    <dimen name="ITEM_DIVIDE_SIZE">5dp</dimen>
+
+    <dimen name="ITEM_V_WIDTH">145dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">335dp</dimen>
+
+    <dimen name="ITEM_H_WIDTH">295dp</dimen>
+    <dimen name="ITEM_H_HEIGHT">165dp</dimen>
+
+    <dimen name="ITEM_NORMAL_SIZE_WIDTH">145dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE_HEIGHT">165dp</dimen>
+
+    <dimen name="SUBSERIES_ITEM_WIDTH">10dp</dimen>
+    <dimen name="RECYCLERVIEW_PADDING">10dp</dimen>
+    <dimen name="SUBSERIES_SIZE_WIDTH">135dp</dimen>
+    <dimen name="SUBSERIES_SIZE_HEIGHT">135dp</dimen>
+    <dimen name="SUBSERIES_PADDING">10dp</dimen>
+
+    <dimen name="TEXT_SHAPE_HEIGHT">35dp</dimen>
+
+    <dimen name="cloud_img_marginright">35dp</dimen>
+
+    <!--MetroFragment-->
+    <dimen name="metro_paddingLeft">50dp</dimen>
+    <dimen name="metro_head_size">56dp</dimen>
+    <dimen name="metro_paddingRight">50dp</dimen>
+    <dimen name="metro_paddingTop">20dp</dimen>
+
+    <dimen name="metro_action_btn_width">106dp</dimen>
+    <dimen name="metro_action_btn_height">71dp</dimen>
+    <dimen name="metro_btn_width">87dp</dimen>
+    <dimen name="metro_btn_height">84dp</dimen>
+
+    <dimen name="metro_cloud_width">130dp</dimen>
+    <dimen name="metro_cloud_height">76dp</dimen>
+
+    <dimen name="action_button_tips">10dp</dimen>
+
+    <!--CartoonFragment-->
+    <dimen name="cartoon_item_padding">10dp</dimen>
+    <dimen name="h_gridview_padding_buttom">20dp</dimen>
+
+    <!--ActionDialog-->
+    <dimen name="action_image_width">530dp</dimen>
+    <dimen name="action_image_height">320dp</dimen>
+
+    <!--ParentFragmentActivity-->
+    <dimen name="frame_paddingTop">40dp</dimen>
+
+    <!--BabyInfoFragment-->
+    <dimen name="frame_padding_top">35dp</dimen>
+    <dimen name="frame_padding_buttom">80dp</dimen>
+    <dimen name="baby_info_marginTop">20dp</dimen>
+    <dimen name="ability_frame_marginTop">15dp</dimen>
+    <dimen name="ability_frame_paddingBottom">40dp</dimen>
+    <dimen name="ability_frame_paddingLeft">35dp</dimen>
+    <dimen name="ability_frame_paddingRight">35dp</dimen>
+    <dimen name="ability_frame_paddingTop">20dp</dimen>
+
+    <dimen name="ratingBar_marginTop">5dp</dimen>
+
+    <dimen name="language_marginTop">30dp</dimen>
+    <dimen name="ability_text_marginTop">2dp</dimen>
+
+    <!--RecordPlayFragment-->
+    <dimen name="record_item_padding">70dp</dimen>
+
+
+    <!--LoginFragment-->
+    <dimen name="edit_text_width">380dp</dimen>
+    <dimen name="edit_text_height">70dp</dimen>
+    <dimen name="edit_marginTop">10dp</dimen>
+
+    <!--goods_item-->
+    <dimen name="goods_item_padding">10dp</dimen>
+
+    <!-- bug_vip_dialog-->
+    <dimen name="vip_privilege_shape_radius">30dp</dimen>
+
+    <!-- about us -->
+    <dimen name="qrcode_margin_top">20dp</dimen>
+
+    <!--PlaySettingFragment-->
+    <dimen name="comboseekbar_padding_top">5dp</dimen>
+    <dimen name="comboseekbar_padding_bottom">20dp</dimen>
+    <dimen name="comboseekbar_thumb_text_size">10sp</dimen>
+
+    <!-- pay Dialog -->
+    <dimen name="pay_secceed_margintop">25dp</dimen>
+    <dimen name="pay_secceed_padding_horizontal">40dp</dimen>
+    <dimen name="pay_secceed_padding_vertical">10dp</dimen>
+
+    <dimen name="recommend_item_margin_left">1dp</dimen>
+
+
+    <!-- BabyInfoActivity -->
+    <dimen name="babyinfo_save_btn_width">127dp</dimen>
+    <dimen name="babyinfo_save_btn_hight">53dp</dimen>
+    <dimen name="babyinfo_baby_img_width">50dp</dimen>
+    <dimen name="babyinfo_baby_img_height">43dp</dimen>
+    <dimen name="ability_img_width">95dp</dimen>
+    <dimen name="ability_img_height">51dp</dimen>
+    <dimen name="radio_btn_radius">20dp</dimen>
+    <dimen name="ability_img_margin_top">60dp</dimen>
+    <dimen name="ability_text_margin_top">35dp</dimen>
+    <dimen name="ability_edit_margin_top">10dp</dimen>
+    <dimen name="back_button_size">75dp</dimen>
+
+    <dimen name="parents_center_switch_btn_width">20dp</dimen>
+    <dimen name="parents_center_switch_btn_height">25dp</dimen>
+    <dimen name="parents_center_btn_radius">5dp</dimen>
+    <dimen name="parents_center_btn_stroke">2dp</dimen>
+
+    <dimen name="rating_button1_textSize">45dp</dimen>
+
+</resources>

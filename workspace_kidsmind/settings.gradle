@@ -1,0 +1,4 @@
+//include ':alipay_lib'
+include ':kidsmind'
+include ':kidsmind-tv'
+include ':MyNickJR'

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.taku.safe">
+
+    <!-- Normal Permissions start-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Normal Permissions end-->
+
+    <!-- Dangous Permissions start-->
+    <!--STORAGE-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--SMS-->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <!-- MICROPHONE -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--LOCATION-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--CAMERA-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Dangous Permissions end-->
+
+    <application
+        android:name=".TakuApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="TAKU_CHANNEL"
+            android:value="${TAKU_CHANNEL_VALUE}" />
+
+        <!-- 高德地图 APPKEY-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="df34c9859b9a3b08f36edde7cc616383" />
+        <!-- 高德地图 定位服务 -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <!-- 友盟 APPKEY-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="597992376e27a46d40000d42" />
+
+        <!-- 友盟 SECRET-->
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="77c414f907687386329fe5b480d6eea6" />
+
+
+        <activity
+            android:name=".TaKuTeacherActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AccountInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".campus.ToRectorActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".campus.NewTucaoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.ChangeMobileActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.MapActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.FeedBackActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+
+        <activity
+            android:name=".activity.TeacherApproveOnMapActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.WelcomeTakuActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.GuideActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".sos.SosInMapActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".sos.StartSosActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".action.JoinActionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".action.ActionDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".action.NewActionActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".campus.CommentEmojiActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.HardwareAnalyzeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.UnusualAnalysisActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.UserInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.MySchoolActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SignTrackActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.MessageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.UserProtoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.AboutTakuActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.WebViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SignCountActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SignInfoOnCalendarActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SignInfoOnMapActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.PictureIndicatorActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SosHistoryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SignAnalyzeInClassActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SignAnalyzeInCollegeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.HardwareAnalysisDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SosInfoOnMapActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.taku.safe.TaKuTeacherActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.taku.safe.TaKuTeacherActivity" />
+        </activity>
+
+        <!--crop image  -->
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <receiver
+            android:name=".receiver.TouCoolReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

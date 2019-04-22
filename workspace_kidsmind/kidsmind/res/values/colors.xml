@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 以下为自然颜色描述-->
+
+    <!--半透明 -->
+    <color name="h_transparent">#4006509d</color>
+
+    <!--透明 -->
+    <color name="transparent">#00000000</color>
+
+    <!--黑色 -->
+    <color name="black">#000000</color>
+
+    <!--关于我们-黑色 -->
+    <color name="black_gay">#151515</color>
+
+    <!--白色 -->
+    <color name="white">#ffffff</color>
+
+    <!--雪白色 -->
+    <color name="snow">#fffafa</color>
+
+    <!--绿色 -->
+    <color name="green">#008000</color>
+
+    <color name="ability">#563a2b</color>
+    <!--自定义绿色 -->
+    <color name="baby_green">#74D724</color>
+    <color name="little_green">#ee108e01</color>
+    <!--红色 -->
+    <color name="red">#ff0000</color>
+
+    <!--黄色 -->
+    <color name="yellow">#ffff00</color>
+    <!--自定义黄色 -->
+    <color name="little_yellow">#eedd8d03</color>
+
+    <!--定义黄色 -->
+    <color name="pay_bac_yellow">#f7ffe3</color>
+
+    <!--橙色 -->
+    <color name="orange">#ffa500</color>
+
+    <!--褐色 -->
+    <color name="brown">#a52a2a</color>
+
+    <!--蓝色 -->
+    <color name="blue">#0000ff</color>
+
+    <!--自定义蓝色 -->
+    <color name="light_blue">#004e76</color>
+
+    <!--灰色 -->
+    <color name="gray">#757575</color>
+
+    <!--紫色 -->
+    <color name="purple">#800080</color>
+
+    <!--暗蓝色 -->
+    <color name="darkblue">#00008b</color>
+
+    <!--海军色 -->
+    <color name="navy">#000080</color>
+
+    <!--暗绿色 -->
+    <color name="darkgreen">#006400</color>
+
+    <!--天蓝色 -->
+    <color name="skyblue">#87ceeb</color>
+
+    <!--橄榄色 -->
+    <color name="olive">#808000</color>
+
+
+    <!-- 以下为功能模块中的颜色描述-->
+    <color name="orange_text">#e65800</color>
+    <color name="blue_text">#1f80ad</color>
+    <color name="title_cloud_text">#cf397d</color>
+    <color name="jacinth">#ff4901</color>
+    <color name="font_white">#ffffff</color>
+    <color name="operator_title">#222222</color>
+    <color name="about_us_font_color">#24d774</color>
+    <color name="about_us_title_color">#20AF60</color>
+    <color name="about_us_text_color">#251919</color>
+
+    <!-- 家长中心-->
+    <color name="seekbar_thumb">#ff5a00</color>
+    <color name="seekbar_unselect">#eefc12</color>
+    <color name="list_select">#33003756</color>
+    <color name="birday_info_wheel">#ef6400</color>
+    <color name="birday_info">#0f97dd</color>
+    <!-- 支付界面-->
+    <color name="bg_payment">#34c2c226</color>
+    <color name="pay_line">#545454</color>
+    <color name="pay_title">#1b1b1b</color>
+    <color name="pay_value">#1c1c1c</color>
+
+    <color name="vip_row1_odd">#dba708</color>
+    <color name="vip_row1_even">#f4ba09</color>
+
+    <color name="vip_row2_odd">#e45f1e</color>
+    <color name="vip_row2_even">#fe6a21</color>
+
+    <color name="vip_row3_odd">#029db8</color>
+    <color name="vip_row3_even">#02adcd</color>
+
+    <color name="vip_bule_dark">#025385</color>
+    <color name="vip_bule_light">#b6e2ff</color>
+
+    <!-- 弹出框字体基本颜色 -->
+    <color name="dialog_text_color">#ffd27a</color>
+    <color name="dialog_text_color2">#ffd27a</color>
+    <color name="dialog_text_green">#8aff7a</color>
+    <color name="dialog_text_red">#ff3a26</color>
+
+    <!--智能推荐-->
+    <color name="recommend_text_color">#c1eac8</color>
+    <color name="recommend_text_bg">#1575db</color>
+
+    <!-- 登录界面-->
+    <color name="login_dialog_bg_color">#025385</color>
+
+    <!-- 设置 -->
+    <color name="control_white">#F5F5F5</color>
+    <color name="control_text_black">#080808</color>
+    <color name="control_line">#D7D7D7</color>
+    <color name="rippelColor">#bfe6f9</color>
+
+    <!-- 主页 -->
+    <color name="mian_yellow">#FFA439</color>
+    <color name="mian_gray">#c3c3c3</color>
+    <color name="tab_color">#ffaf32</color>
+
+    <!--<color name="primary">#009688</color>
+    <color name="primary_dark">#00897b</color>-->
+
+    <color name="primary">#FFA439</color>
+    <color name="primary_dark">#ffaf32</color>
+    <color name="primary_light">#B2DFDB</color>
+    <color name="accent">#ffb74d</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="window_background">#FFF5F5F5</color>
+    <color name="tab_bgcolor">#eeeeee</color>
+
+    <color name="system_blue_color">#18ABFF</color>
+
+    <color name="gay">#666666</color>
+    <color name="light_blue_ab">#38c7cd</color>
+
+    <color name="app_orange">#fabf01</color>
+
+    <color name="login_green">#3dc032</color>
+    
+    <color name="gray_line">#c2c2c2</color>
+
+    <color name="tv_selcet_blue">#0EB0FB</color>
+    
+    <color name="translucent">#55000000</color>
+
+    <color name="text_black">#686868</color>
+    
+    <color name="baby_info_brown">#B59378</color>
+
+    <color name="baby_info_red">#FF8006</color>
+
+    <color name="baby_info_line">#CFAC8E</color>
+
+    <color name="pink_background">#f6e1d0</color>
+
+    <color name="vip_table_title_color">#0b80b5</color>
+
+    <color name="vip_table_title_bg">#70d1fe</color>
+
+    <color name="vip_table_item_bg">#bce9fe</color>
+    <color name="vip_table_item_color">#229ee8</color>
+
+    <color name="hint_orange_color">#fbdab9</color>
+    <color name="title_bar_orange">#f57c07</color>
+
+    <color name="app_player_orange">#fb8b13</color>
+    <color name="control_bg">#33BAFE</color>
+</resources>

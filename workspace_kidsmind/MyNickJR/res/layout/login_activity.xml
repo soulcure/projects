@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/common_bg">
+
+    <LinearLayout
+        android:id="@+id/linear_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_register"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/frame_padding_v"
+        android:paddingLeft="@dimen/frame_padding_h"
+        android:paddingRight="@dimen/frame_padding_h"
+        android:paddingTop="@dimen/frame_padding_v">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                style="@style/black_text_normal"
+                android:layout_width="@dimen/edittext_width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_register"
+                android:hint="@string/username"
+                android:paddingBottom="@dimen/edittext_padding_v"
+                android:paddingLeft="@dimen/edittext_padding_h"
+                android:paddingRight="@dimen/edittext_padding_h"
+                android:paddingTop="@dimen/edittext_padding_v" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_top"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/black_text_normal"
+                android:layout_width="@dimen/edittext_width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_register"
+                android:hint="@string/input_password"
+                android:inputType="textPassword"
+                android:paddingBottom="@dimen/edittext_padding_v"
+                android:paddingLeft="@dimen/edittext_padding_h"
+                android:paddingRight="@dimen/edittext_padding_h"
+                android:paddingTop="@dimen/edittext_padding_v" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/white_text_bold"
+            android:layout_width="@dimen/button_login_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/frame_mergin_top"
+            android:background="@drawable/btn_green_w"
+            android:paddingBottom="@dimen/button_padding_v"
+            android:paddingLeft="@dimen/button_padding_h"
+            android:paddingRight="@dimen/button_padding_h"
+            android:paddingTop="@dimen/button_padding_v"
+            android:text="@string/login" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/frame_mergin_top"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_register"
+                style="@style/white_text_bold"
+                android:layout_width="@dimen/button_register_width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green"
+                android:paddingBottom="@dimen/button_padding_v"
+                android:paddingLeft="@dimen/button_padding_h"
+                android:paddingRight="@dimen/button_padding_h"
+                android:paddingTop="@dimen/button_padding_v"
+                android:text="@string/register" />
+
+            <Button
+                android:id="@+id/btn_forget"
+                style="@style/white_text_bold"
+                android:layout_width="@dimen/button_register_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/button_margin_left"
+                android:background="@drawable/btn_orange"
+                android:paddingBottom="@dimen/button_padding_v"
+                android:paddingLeft="@dimen/button_padding_h"
+                android:paddingRight="@dimen/button_padding_h"
+                android:paddingTop="@dimen/button_padding_v"
+                android:text="@string/forget_pw" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_default_login"
+        style="@style/white_big_text_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/textview_margin_top"
+        android:background="@drawable/btn_free_try"
+        android:clickable="true"
+        android:drawableLeft="@drawable/img_default_login"
+        android:drawablePadding="@dimen/textview_drawable_padding"
+        android:focusable="true"
+        android:gravity="center"
+        android:paddingBottom="@dimen/textview_padding_buttom"
+        android:paddingLeft="@dimen/textview_padding_left"
+        android:paddingRight="@dimen/textview_padding_right"
+        android:paddingTop="@dimen/textview_padding_top"
+        android:text="@string/free_try" />
+
+
+    <ImageView
+        android:layout_width="@dimen/img_dora_width"
+        android:layout_height="@dimen/img_dora_height"
+        android:layout_alignLeft="@id/linear_center"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/img_dora_margin_left"
+        android:src="@drawable/dora_pic" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/button_back_margin_left"
+        android:layout_marginTop="@dimen/button_back_margin_top"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/btn_back" />
+</RelativeLayout>

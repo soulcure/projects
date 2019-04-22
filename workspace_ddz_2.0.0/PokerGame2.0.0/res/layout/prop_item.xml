@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/market_item_bg" >
+
+    <RelativeLayout 
+        android:id="@+id/ll_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp">
+	    <LinearLayout
+	        android:id="@+id/market_content"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+      	 	android:layout_gravity="center_horizontal"	        
+	        android:orientation="horizontal" >
+	
+	        <ImageView
+	            android:id="@+id/prop_icon"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="10dp"
+	            android:layout_marginLeft="5dp"
+	            android:adjustViewBounds="true"
+	            android:src="@drawable/market_icon" 
+	            android:contentDescription="@string/app_name"/>
+	
+	        <LinearLayout
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:layout_marginLeft="5dp"
+	            android:orientation="vertical" >
+	
+	            <TextView
+	                android:id="@+id/prop_content"
+	                android:layout_width="@dimen/prop_content_width"
+	                android:layout_height="wrap_content"
+	                android:ellipsize="end"
+	                android:singleLine="true"
+	                android:textColor="#ffef96"
+	                android:textSize="12sp" />
+	
+	            <TextView
+	                android:id="@+id/prop_award"
+	                android:layout_width="@dimen/prop_award_width"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="3dp"
+	                android:drawableLeft="@drawable/market_present"
+	                android:ellipsize="end"
+	                android:maxLines="2"
+	                android:paddingRight="3dp"
+	                android:textColor="@color/white"
+	                android:textSize="10dp" />
+	        </LinearLayout>
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:layout_width="@dimen/prop_ll_price_width"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="8dp"
+	        android:layout_below="@id/market_content"
+	        android:layout_marginTop="3dp"
+	        android:orientation="horizontal" >
+	
+	        <TextView
+	            android:id="@+id/prop_name"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="2"
+	            android:singleLine="true"
+	            android:textColor="#ffef96" />
+	
+	        <TextView
+	            android:id="@+id/prop_price"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center_horizontal"
+	            android:singleLine="true"
+	            android:textColor="#ffef96" />
+	    </LinearLayout>
+	</RelativeLayout>
+    <TextView
+        android:id="@+id/tag_recommend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-40dp"
+        android:layout_toLeftOf="@id/ll_main"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/tag_hot"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

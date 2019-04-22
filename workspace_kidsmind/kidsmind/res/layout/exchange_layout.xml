@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="@dimen/exchange_frame_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+
+        <LinearLayout
+            android:id="@+id/linear_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_box_exchange"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:paddingTop="60dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/exchange_title" />
+
+            <EditText
+                android:id="@+id/edit_exchange_num"
+                style="@style/gay_text_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/exchange_input_box"
+                android:hint="@string/text_input_interNum"
+                android:paddingLeft="25dp"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_do_exg"
+                style="@style/white_text_large_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_exchange_do"
+                android:gravity="center"
+                android:text="@string/text_click_exchange" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/linear_main"
+            android:layout_alignTop="@id/linear_main"
+            android:background="@color/transparent"
+            android:paddingRight="15dp"
+            android:paddingTop="15dp"
+            android:src="@drawable/btn_exchange_close" />
+    </RelativeLayout>
+
+
+    <ImageButton
+        android:id="@+id/image_exchange_succes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/tip_exchange_succes"
+        android:visibility="gone" />
+
+</FrameLayout>

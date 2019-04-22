@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content" >
+	<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    android:id="@+id/mm_img"
+	    android:src="@drawable/meinv_happy"
+	    android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_below="@id/mm_img"
+        android:id="@+id/main_layout"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_dialog2_bg_notitle"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/tvMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingBottom="25dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="25dp"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:text="主人，终于等到您来啦！我是 Baby， 天天陪你斗地主哟。" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:baselineAligned="false"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btnConfir"
+                style="@style/exit_2_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/Ensure"
+                 />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/ryCardZoneGridViewItem1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/room_selected_bg_xml"
+            android:descendantFocusability="blocksDescendants" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/cardzone_common_item_bg" />
+
+            <ImageView
+                android:id="@+id/pic"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="5dp"
+                android:scaleType="fitCenter"
+                android:layout_centerVertical="true"
+                android:src="@drawable/lianxichang_icon" />
+
+            <ImageView
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:shadowColor="#1c4969"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="3"
+                android:text="@string/ddz_ledou_match_difen"
+                android:textColor="#d7eeff"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@id/pic"
+                android:background="@drawable/cardzone_match_green_bg"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3" >
+
+                    <ImageView
+                        android:id="@+id/ivName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/cardzone_dashichang" />
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:maxEms="10"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou_match"
+                        android:textColor="#ffeca2"
+                        android:textSize="22sp"
+                        android:textStyle="normal"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+					<TextView 
+					    android:layout_width="0dp"
+					    android:layout_weight="0.1"
+					    android:layout_height="wrap_content"
+					    android:visibility="invisible"/>
+                    <TextView
+                        android:id="@+id/tvInCondition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvOnLineUsers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="xxxx"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/attend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/cardzone_list_attend" />
+
+            <TextView
+                android:id="@+id/iconImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/cardzone_corner_blue"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textColor="#fff991"
+                android:text="荐" />
+
+            <TextView
+                android:id="@+id/iconImg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iconImg"
+                android:background="@drawable/cardzone_corner_blue"
+                android:maxLines="2"
+                android:paddingLeft="11dp"
+                android:paddingTop="3dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ryCardZoneGridViewItem2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/room_selected_bg_xml"
+            android:descendantFocusability="blocksDescendants" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/cardzone_common_item_bg" />
+
+            <ImageView
+                android:id="@+id/pic"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="7dp"
+                android:scaleType="fitCenter"
+                android:layout_centerVertical="true"
+                android:src="@drawable/chujichang_icon" />
+
+            <ImageView
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone" />
+			<TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:shadowColor="#1c4969"
+                android:layout_centerInParent="true"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="3"
+                android:text="@string/ddz_ledou_match_difen"
+                android:textColor="#d7eeff"
+                android:visibility="invisible" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@id/pic"
+                android:background="@drawable/cardzone_match_blue_bg"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3" >
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:maxEms="15"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou_match"
+                        android:textColor="#ffeca2"
+                        android:textSize="22sp"
+                        android:textStyle="normal"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/ivName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/cardzone_zongshichang" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+					<TextView 
+					    android:layout_width="0dp"
+					    android:layout_weight="0.1"
+					    android:layout_height="wrap_content"
+					    android:visibility="invisible"/>
+					
+                    <TextView
+                        android:id="@+id/tvInCondition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvOnLineUsers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="xxxx"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/attend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/cardzone_list_attend" />
+
+            <TextView
+                android:id="@+id/iconImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/cardzone_corner_blue"
+                android:gravity="center"
+                android:textColor="#fff991"
+                android:maxLines="2"
+                android:text="荐" />
+
+            <TextView
+                android:id="@+id/iconImg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iconImg"
+                android:background="@drawable/cardzone_corner_blue"
+                android:maxLines="2"
+                android:paddingLeft="11dp"
+                android:paddingTop="3dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/ryCardZoneGridViewItem3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/room_selected_bg_xml"
+            android:descendantFocusability="blocksDescendants" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/cardzone_common_item_bg" />
+
+            <ImageView
+                android:id="@+id/pic"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="5dp"
+                android:scaleType="fitCenter"
+                android:layout_centerVertical="true"
+                android:src="@drawable/zhongjichang_icon" />
+
+            <ImageView
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone" />
+			<TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:shadowColor="#1c4969"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="3"
+                android:text="@string/ddz_ledou_match_difen"
+                android:textColor="#d7eeff"
+                android:visibility="invisible" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@id/pic"
+                android:background="@drawable/cardzone_match_red_bg"
+                android:orientation="vertical" >
+				
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3" >
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:maxEms="15"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou_match"
+                        android:textColor="#ffeca2"
+                        android:textSize="22sp"
+                        android:textStyle="normal"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/ivName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/cardzone_yuanbaochang" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+					<TextView 
+					    android:layout_width="0dp"
+					    android:layout_weight="0.1"
+					    android:layout_height="wrap_content"
+					    android:visibility="invisible"/>
+                    <TextView
+                        android:id="@+id/tvInCondition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvOnLineUsers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="xxxx"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/attend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/cardzone_list_attend" />
+
+            <TextView
+                android:id="@+id/iconImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/cardzone_corner_blue"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textColor="#fff991"
+                android:text="荐" />
+
+            <TextView
+                android:id="@+id/iconImg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iconImg"
+                android:background="@drawable/cardzone_corner_blue"
+                android:maxLines="2"
+                android:paddingLeft="11dp"
+                android:paddingTop="3dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ryCardZoneGridViewItem4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/room_selected_bg_xml"
+            android:descendantFocusability="blocksDescendants" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/cardzone_common_item_bg" />
+
+            <ImageView
+                android:id="@+id/pic"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/gaojichang_icon" />
+
+            <ImageView
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone" />
+			
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:shadowColor="#1c4969"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="3"
+                android:text="@string/ddz_ledou_match_difen"
+                android:textColor="#d7eeff"
+                android:visibility="invisible" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@id/pic"
+                android:background="@drawable/cardzone_match_purple_bg"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3" >
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:maxEms="15"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou_match"
+                        android:textColor="#ffeca2"
+                        android:textSize="22sp"
+                        android:textStyle="normal"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/ivName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/cardzone_zhadanchang" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+					
+                    <TextView 
+					    android:layout_width="0dp"
+					    android:layout_weight="0.1"
+					    android:layout_height="wrap_content"
+					    android:visibility="invisible"/>
+                    
+                    <TextView
+                        android:id="@+id/tvInCondition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="@string/ddz_gift_ledou"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvOnLineUsers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="xxxx"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/attend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/cardzone_list_attend" />
+
+            <TextView
+                android:id="@+id/iconImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/cardzone_corner_blue"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textColor="#fff991"
+                android:text="荐" />
+
+            <TextView
+                android:id="@+id/iconImg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iconImg"
+                android:background="@drawable/cardzone_corner_blue"
+                android:maxLines="2"
+                android:paddingLeft="11dp"
+                android:paddingTop="3dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

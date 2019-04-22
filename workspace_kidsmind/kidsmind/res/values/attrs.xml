@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BabayAblity">
+        <attr name="ablity" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="FoucsLinearBorder">
+        <attr name="drawable_border" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FontEditText">
+        <attr name="customEditFont" format="string" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ComboSeekBar">
+        <attr name="multiline" format="boolean" />
+        <attr name="myColor" format="color" />
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SwipyRefreshLayout">
+        <attr name="direction">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="both" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="onDrawable" format="reference" />
+        <attr name="offDrawable" format="reference" />
+        <attr name="thumbDrawable" format="reference" />
+        <attr name="thumb_margin" format="dimension|reference" />
+        <attr name="thumb_marginTop" format="dimension|reference" />
+        <attr name="thumb_marginBottom" format="dimension|reference" />
+        <attr name="thumb_marginLeft" format="dimension|reference" />
+        <attr name="thumb_marginRight" format="dimension|reference" />
+        <attr name="thumb_width" format="dimension|reference" />
+        <attr name="thumb_height" format="dimension|reference" />
+        <attr name="onColor" format="color|reference" />
+        <attr name="offColor" format="color|reference" />
+        <attr name="thumbColor" format="color|reference" />
+        <attr name="thumbPressedColor" format="color|reference" />
+        <attr name="animationVelocity" format="integer" />
+        <attr name="radius" format="integer" />
+        <attr name="measureFactor" format="float" />
+        <attr name="insetLeft" format="dimension|reference" />
+        <attr name="insetRight" format="dimension|reference" />
+        <attr name="insetTop" format="dimension|reference" />
+        <attr name="insetBottom" format="dimension|reference" />
+    </declare-styleable>
+
+    <!--slideview-->
+    <declare-styleable name="CircleFlowIndicator">
+        <attr name="activeColor" format="color" />
+        <attr name="inactiveColor" format="color" />
+        <attr name="circleradius" format="dimension" />
+        <attr name="centered" format="boolean" />
+        <attr name="fadeOut" format="integer" />
+        <attr name="inactiveType">
+            <flag name="stroke" value="0" />
+            <flag name="fill" value="1" />
+        </attr>
+        <attr name="activeType">
+            <flag name="stroke" value="0" />
+            <flag name="fill" value="1" />
+        </attr>
+        <attr name="circleSeparation" format="dimension" />
+        <attr name="activeRadius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ViewFlow">
+        <attr name="sidebuffer" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="IosCheckBox">
+        <attr name="bmWidth" format="dimension" />
+        <attr name="bmHeight" format="dimension" />
+
+    </declare-styleable>
+
+
+    <declare-styleable name="SettingItemView">
+        <attr name="imageSrc" format="reference" />
+        <attr name="itemText" format="reference|string" />
+        <attr name="type" format="enum" >
+            <enum name="arrow" value="1"/>
+            <enum name="button" value="2"/>
+            <enum name="radio" value="3"/>
+            </attr>
+        <attr name="rightItemText" format="reference|string" />
+
+    </declare-styleable>
+
+    <declare-styleable name="RippleView">
+        <attr name="rv_alpha" format="integer" />
+        <attr name="rv_framerate" format="integer" />
+        <attr name="rv_rippleDuration" format="integer" />
+        <attr name="rv_zoomDuration" format="integer" />
+        <attr name="rv_color" format="color" />
+        <attr name="rv_centered" format="boolean" />
+        <attr name="rv_type" format="enum">
+            <enum name="simpleRipple" value="0" />
+            <enum name="doubleRipple" value="1" />
+            <enum name="rectangle" value="2" />
+        </attr>
+        <attr name="rv_ripplePadding" format="dimension" />
+        <attr name="rv_zoom" format="boolean" />
+        <attr name="rv_zoomScale" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="TopRadioButton">
+        <attr name="top_width" format="dimension" />
+        <attr name="top_height" format="dimension" />
+        <attr name="top_drawable" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="SmoothCheckBox">
+        <attr name="duration" format="integer"/>
+        <attr name="stroke_width" format="dimension"/>
+        <attr name="color_tick" format="color"/>
+        <attr name="color_checked" format="color"/>
+        <attr name="color_unchecked" format="color"/>
+        <attr name="color_unchecked_stroke" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SlideBottomPanel">
+        <attr name="sbp_background_layout" format="reference"/>
+        <attr name="sbp_title_height_no_display" format="dimension"/>
+        <attr name="sbp_panel_height" format="dimension"/>
+        <attr name="sbp_boundary" format="boolean"/>
+        <attr name="sbp_move_distance_trigger" format="dimension"/>
+        <attr name="sbp_animation_duration" format="integer"/>
+        <attr name="sbp_fade" format="boolean"/>
+        <attr name="sbp_hide_panel_title" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="GalleryView">
+        <attr name="itemWidth" format="dimension" />
+    </declare-styleable>
+    
+    <declare-styleable name="DeteleEditText" >
+        <attr name="left_drawable" format="reference"/>
+        <attr name="left_text" format="reference"/>
+    </declare-styleable>
+</resources>

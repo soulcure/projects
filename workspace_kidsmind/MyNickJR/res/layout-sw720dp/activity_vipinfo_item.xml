@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.applidium.nickelodeon.views.percent.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btn_vip_bar"
+    android:gravity="center"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textTitle"
+        style="@style/vipinfo_text_white"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textLastPrice"
+        style="@style/vipinfo_text_white"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textPrice"
+        style="@style/vipinfo_text_yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="" />
+</com.applidium.nickelodeon.views.percent.PercentLinearLayout>

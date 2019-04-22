@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="letv_pay_sdk_app_name">QRcodeDemo</string>
+    <string name="letv_pay_sdk_menu_settings">Settings</string>
+    <string name="letv_pay_sdk_hello_world">Hello world!</string>
+	<string name="letv_pay_sdk_loading_text">加载中</string>
+	<string name="letv_pay_sdk_paymentType">选择支付方式</string>
+	
+	<!-- 支付信息 -->
+	 <string name="letv_pay_sdk_pay_tv_subject" formatted="false"><![CDATA[<font color="#8e8f91">商品 :</font>&#160;<font color="#ffffff">icefrog(SKDAppName)</font>]]></string>
+	 <string name="letv_pay_sdk_pay_tv_price" formatted="false"><![CDATA[<font color="#8e8f91">单价 :</font>&#160;<font color="#ffffff">icefrog元</font>]]></string>
+	 <string name="letv_pay_sdk_pay_tv_username" formatted="false"><![CDATA[<font color="#8e8f91">用户名  :</font>&#160;<font color="#ffffff">icefrog</font>]]></string>
+	 <string name="letv_pay_sdk_pay_tv_sumprice" formatted="false"><![CDATA[<font color="#8e8f91">总金额 :</font>&#160;<font color="#ffffff">icefrog元</font>]]></string>
+	 <string name="letv_pay_sdk_pay_tv_order" formatted="false"><![CDATA[<font color="#8e8f91">订单号 :</font>&#160;<font color="#ffffff">icefrog</font>]]></string>
+	 <string name="letv_pay_sdk_pay_tv_quality" formatted="false"><![CDATA[<font color="#8e8f91">数量 :</font>&#160;<font color="#ffffff">icefrog</font>]]></string>
+	 <string name="letv_pay_sdk_pay_tv_desc" formatted="false"><![CDATA[<font color="#ffffff">请使用icefrog扫描二维码支付</font>]]></string>
+	
+	 <string name="letv_pay_sdk_tv_pay_sucess">支付完成</string>
+	 <string name="letv_pay_sdk_tv_pay_failure">支付未完成</string>
+	 <string name="letv_pay_sdk_continue_pay">没,继续支付</string>
+	 <string name="letv_pay_sdk_is_continue_pay">您是否已经支付完成?</string>
+	 <string name="letv_pay_sdk_load_failure">加载失败</string>
+	 <string name="letv_pay_sdk_reload">重新加载</string>
+	 <string name="letv_pay_sdk_sure">确定</string>
+	 <string name="letv_pay_sdk_default_order">订单号:</string>
+	 <string name="letv_pay_sdk_retry_pay">是,支付完成</string>
+	 <string name="letv_pay_sdk_username">用户名:</string>
+	 <string name="letv_pay_sdk_total_price">总金额:</string>
+	 <string name="letv_pay_sdk_price">单价:</string>
+	 <string name="letv_pay_sdk_quality">数量:</string>
+	 <string name="letv_pay_sdk_product">商品:</string>
+	 <string name="letv_pay_sdk_order_deprecated_time">该订单10分钟内有效</string>
+	 <string name="letv_pay_sdk_customer_service_phone">客服电话:4009009000</string>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="lay_card_leftMargin">5.0dip</dimen>
+    <dimen name="topbar_height">48.0dip</dimen>
+    <dimen name="dropmenu_width">110dip</dimen>
+   
+    
+    <!-- 大乐透 -->
+    <dimen name="lotto_bet_width">60dp</dimen>
+    <dimen name="lotto_bet_height">80dp</dimen>
+    <dimen name="lotto_bet_pic_size">50dp</dimen>
+	
+    <!-- vip -->
+    <dimen name="vip_left_width">110dp</dimen>
+    
+    <!-- 第一次登录后show的dialog add by xsj -->
+    <dimen name="title_margin_top">35dp</dimen>
+    <dimen name="title_txt_size">28sp</dimen>
+	<dimen name="dialog_margin">10dp</dimen>
+	<dimen name="dialog_content_margin_top">50dp</dimen>
+	<dimen name="dialog_button_padding">30dp</dimen>
+    
+    <!-- 比赛报名-->
+    <dimen name="attend_person_text_size">18sp</dimen>
+    <!-- 商城 -->
+    <dimen name="prop_content_width">80dp</dimen>
+	<dimen name="prop_award_width">80dp</dimen>
+	<dimen name="prop_ll_price_width">140dp</dimen>
+    
+	<!-- 右上叉按钮弹框设定 -->
+	<dimen name="close_left">-40dp</dimen>
+	<dimen name="close_main_top">15dp</dimen>
+</resources>

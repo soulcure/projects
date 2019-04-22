@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/actionToggleValues"
+        android:title="Toggle Values" />
+    <item
+        android:id="@+id/actionToggleIcons"
+        android:title="Toggle Icons" />
+    <item
+        android:id="@+id/actionToggleHighlight"
+        android:title="Toggle Highlight" />
+    <item
+        android:id="@+id/animateX"
+        android:title="Animate X" />
+    <item
+        android:id="@+id/animateY"
+        android:title="Animate Y" />
+    <item
+        android:id="@+id/animateXY"
+        android:title="Animate XY" />
+    <item
+        android:id="@+id/actionToggleAdjustXLegend"
+        android:title="Toggle AdjustXLegend" />
+    <item
+        android:id="@+id/actionSave"
+        android:title="Save to Gallery" />
+    <item
+        android:id="@+id/actionTogglePinch"
+        android:title="Toggle PinchZoom" />
+    <item
+        android:id="@+id/actionToggleAutoScaleMinMax"
+        android:title="Toggle auto scale min/max" />
+    <item
+        android:id="@+id/actionToggleBarBorders"
+        android:title="Show Bar Borders" />
+
+</menu>

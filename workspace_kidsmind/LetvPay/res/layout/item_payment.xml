@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/s_35"
+    android:paddingRight="@dimen/s_35" >
+
+    <com.letv.tvos.paysdk.widget.AsyncImageView
+        android:id="@+id/aiv_logo"
+        android:layout_width="@dimen/s_250"
+        android:layout_height="@dimen/s_141"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/s_13" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="支付方式"
+        android:textColor="#8e8f91"
+        android:textSize="@dimen/f_24" />
+
+</LinearLayout>

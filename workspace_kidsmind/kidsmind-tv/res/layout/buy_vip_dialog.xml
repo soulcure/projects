@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_vip_top"
+        android:orientation="vertical"
+        android:paddingLeft="90dp"
+        android:paddingRight="90dp"
+        android:paddingTop="30dp">
+
+
+        <ImageView
+            android:id="@+id/img_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_vip_title"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="35dp"
+            android:paddingTop="5dp" />
+
+        <LinearLayout
+            android:id="@+id/vip_container"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vip_content"
+                android:textColor="#555555"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/btn_join" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/linear_top"
+        android:layout_alignRight="@id/linear_top"
+        android:layout_below="@id/linear_top"
+        android:background="@drawable/bg_vip_buttom"
+        android:orientation="vertical"
+        android:paddingBottom="35dp"
+        android:paddingLeft="75dp"
+        android:paddingRight="75dp">
+
+        <TextView
+            android:id="@+id/tvVipTime"
+            style="@style/white_text_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/tvVipBuyInfo"
+            style="@style/white_text_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:visibility="gone" />
+
+    <include layout="@layout/vip_right_table" />
+
+    </LinearLayout>
+</RelativeLayout>

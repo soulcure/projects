@@ -1,0 +1,350 @@
+package com.mykj.andr.ui.fragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.cocos2dx.util.GameUtilJni;
+
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.mingyou.accountInfo.AccountItem;
+import com.mingyou.accountInfo.LoginInfoManager;
+import com.mingyou.community.Community;
+import com.mingyou.distributor.NetPrivateListener;
+import com.mingyou.distributor.NetSocketPak;
+import com.mykj.andr.model.HallDataManager;
+import com.mykj.andr.model.UserCenterData;
+import com.mykj.andr.model.UserInfo;
+import com.mykj.andr.net.NetSocketManager;
+import com.mykj.andr.provider.UserCenterProvider;
+import com.mykj.comm.io.TDataInputStream;
+import com.mykj.comm.io.TDataOutputStream;
+import com.mykj.game.FiexedViewHelper;
+import com.mykj.game.ddz.R;
+import com.mykj.game.utils.Log;
+import com.mykj.game.utils.Toast;
+import com.mykj.game.utils.Util;
+import com.mykj.game.utils.UtilHelper;
+
+
+//临时账号转注册账号请求
+public class NodifyPasswordFragmentDialog extends AlertDialog implements View.OnClickListener {
+    private final static String TAG = "NodifyPasswordFragmentDialog";
+
+    // ------------------------------协议主-子码--------------------------------
+    private static final short MDM_LOGIN = 12;
+
+    private static final short MSUB_CMD_TAT_TO_AT = 15;
+
+    // 失败：返回
+    private static final short SUB_CMD_LOGIN_V2_ERR = 6;
+
+    // 返回数据格式与上相同 错误编码103--注册账号绑定失败
+    // 成功：返回
+    private static final short MSUB_CMD_LOGIN_V2_USERINFO = 7;
+
+
+    // ------------------------------handler what--------------------------------
+    /**
+     * 修改账号密码成功 *
+     */
+    private static final int HANDLER_ACCOUNT_SUCCESS = 0;
+
+    /**
+     * 修改账号密码失败 *
+     */
+    private static final int HANDLER_ACCOUNT_FAIL = 1;
+
+    /**
+     * 倒计时结束 *
+     */
+    private static final int HANDLER_TIMER_END = 2;
+
+
+    // ------------------------------------显示UI控件--------------------------------
+
+    private Context mContext;
+
+    private Resources mResource;
+    /**
+     * 密码
+     */
+    private String mNewPassword = null;
+
+    /**
+     * 用户Token
+     */
+    private String userToken = "";
+
+    private EditText edt_account;
+
+    private EditText edt_password;
+
+    // 进度条框
+    private ProgressDialog proDialog;
+
+    //修改账号密码后是否退出游戏
+    private boolean mIsNeedQuit = true;
+
+    private BindSucessListener bindSucessListener;
+
+
+    public NodifyPasswordFragmentDialog(Context context) {
+        super(context);
+        mContext = context;
+        mResource = mContext.getResources();
+    }
+
+
+    public NodifyPasswordFragmentDialog(Context context, boolean isNeedQuit) {
+        super(context);
+        mContext = context;
+        mResource = mContext.getResources();
+        mIsNeedQuit = isNeedQuit;
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+        setContentView(R.layout.a_nodify_account_password_fragment);
+        initView();
+    }
+
+
+    private void initView() {
+        edt_account = (EditText) findViewById(R.id.edt_account);
+        edt_password = (EditText) findViewById(R.id.edt_password);
+        findViewById(R.id.btnConfirm).setOnClickListener(this);
+        findViewById(R.id.btnCancel).setOnClickListener(this);
+
+    }
+
+
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case HANDLER_ACCOUNT_SUCCESS:
+
+
+                    if (proDialog != null) {
+                        proDialog.dismiss();
+                        proDialog = null;
+                    }
+
+                    String douCount = null; //赠送乐豆数量
+                    final UserInfo userInfo = HallDataManager.getInstance().getUserMe();
+                    if (msg.obj != null) {
+                    	douCount = msg.obj.toString();
+                    	UserCenterData userData = UserCenterProvider.getInstance()
+                                .getUserCenterData();
+                        if (userData != null) {
+                            userData.setLeDou(userInfo.getBean());
+                        }
+                    }
+
+                    AccountItem accountItem = new AccountItem(userInfo.account, mNewPassword, userInfo.Token, AccountItem.ACC_TYPE_COMM, userInfo.userID);
+                    LoginInfoManager.getInstance().updateAccInfo(accountItem);
+                    //final boolean isBindAcc = LoginInfoManager.getInstance().isHasAccontCMCC();
+                    NodifyPasswordFragmentDialog.this.dismiss();
+                    String count=accountItem.getUsername();
+                    UtilHelper.showAccountNodifySuccess(mContext, count, userInfo.nickName, douCount, null, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                        	FiexedViewHelper.getInstance().playKeyClick();
+                            // 退出程序
+                            onBackPressed();
+                        }
+                    });
+                    if (bindSucessListener != null) {
+                        bindSucessListener.bindSucess(count);
+                    }
+
+                    break;
+
+                case HANDLER_ACCOUNT_FAIL: // 接受错误数据
+                    if (proDialog != null) {
+                        proDialog.dismiss();
+                        proDialog = null;
+                    }
+                    // Toast.makeText(mContext, (String)(msg.obj),
+                    // Toast.LENGTH_SHORT).show();
+                    UtilHelper.showCustomDialog(mContext, (String) (msg.obj));
+
+                    break;
+                case HANDLER_TIMER_END:
+                    if (proDialog != null && proDialog.isShowing()) {
+                        proDialog.dismiss();
+                        proDialog = null;
+                    }
+                    break;
+            }
+        }
+    };
+
+
+    /**
+     * @param spKey
+     * @Title: sendMSUB_CMD_TAT_TO_AT
+     * @Description: 发送临时账号转注册账号请求
+     * @author Link
+     * @version: 2011-8-25 上午09:28:31
+     */
+    private void sendMSUB_CMD_TAT_TO_AT(final String account, final String password, String spKey) {
+        receiveLoginListener();
+        TDataOutputStream tdos = new TDataOutputStream(false);
+        tdos.writeInt(Community.gamePlatform);
+        tdos.writeUTFByte(HallDataManager.getInstance().getUserMe().Token);
+        tdos.writeUTFByte(password);
+        tdos.writeUTFByte(account);
+        tdos.writeUTFByte(spKey);
+
+        NetSocketPak sockData = new NetSocketPak(MDM_LOGIN, MSUB_CMD_TAT_TO_AT, tdos);
+        // 发送协议
+        NetSocketManager.getInstance().sendData(sockData);
+    }
+
+    private void receiveLoginListener() {
+        short parseProtocol[][] = new short[][]{{MDM_LOGIN, SUB_CMD_LOGIN_V2_ERR}, {MDM_LOGIN, MSUB_CMD_LOGIN_V2_USERINFO}};
+        // 创建协议解析器
+        NetPrivateListener nPListener = new NetPrivateListener(parseProtocol) {
+            public boolean doReceive(NetSocketPak netSocketPak) {
+                if (netSocketPak.getSub_gr() == MSUB_CMD_LOGIN_V2_USERINFO) { // 修改账号密码成功
+                	/***********************************************
+					 *  NOTICE:
+					 *  这协议在登录模块里面也有一个，请保持解析一致
+					 ***********************************************/
+                    TDataInputStream dis = netSocketPak.getDataInputStream();
+                    dis.setFront(false);
+                    /** 添加玩家信息完整性检查 11-11-02 */
+                    UserInfo userInfo = new UserInfo();
+                    /** 用户ID */
+                    userInfo.userID = dis.readInt();
+                    /** 用户头像索引 */
+                    userInfo.setFaceId((short) dis.readInt());
+                    /** 用户性别 */
+                    userInfo.gender = dis.readByte();
+                    /** 用户会员等级 */
+                    userInfo.memberOrder = (byte) dis.readInt();
+                    /** 用户经验 */
+                    userInfo.experience = dis.readInt();
+                    /** 用户密码 */
+                    userInfo.password = dis.readUTFByte();
+                    /** 用户账号 */
+                    userInfo.account = dis.readUTFByte();
+                    /** 用户昵称 */
+                    userInfo.nickName = dis.readUTFByte();
+                    /**
+                     * StatusBit 状态位定义（32个bit中） 第 1 bit: 0-表示不能购买道具
+                     * 1-可以购买道具（PC为0x00000001） 第 2 bit: 0-表示MTK购买走社区流程
+                     * 1-可以MTK购买走MTK流程（PC为0x00000002）
+                     */
+                    final int statusBit = dis.readInt();
+                    /** 省市编码 */
+                    dis.readUTF(4);
+                    /** 用户token串 */
+                    final String Token = dis.readUTFByte();
+                    userInfo.Token = Token;
+                    /** 登录类型 */
+                    final byte loginType = dis.readByte();
+                    userInfo.loginType = loginType;
+                    /** 用户乐豆 */
+                    userInfo.setBean(dis.readInt());
+                    userInfo.masterRight = dis.readInt();// 用户管理权限
+                    userInfo.muid = dis.readInt();// 移动社区ID(MUID)
+                    userInfo.guid = dis.readLong();//用户Guid
+                    int dou = 0;
+                    Message msg = mHandler.obtainMessage(HANDLER_ACCOUNT_SUCCESS, null);
+
+                    try {
+                    	userInfo.nickColor=dis.readInt();
+                    	userInfo.isVipExpired = dis.readByte();
+                    	userInfo.faceIdValue = dis.readByte();
+                    	dou = dis.readInt(); // 赠送乐豆数量
+                        msg.obj = String.valueOf(dou);
+                        Log.v(TAG, "dou:" + dou);
+                    } catch (Exception e) {
+                        Log.e(TAG, "info:失败");
+                    }
+                    HallDataManager.getInstance().setUserMe(userInfo);
+                    Log.v(TAG, "修改账号密码成功");
+                    mHandler.sendMessage(msg);
+
+                } else if (netSocketPak.getSub_gr() == SUB_CMD_LOGIN_V2_ERR) { // 修改账号密码失败
+                    TDataInputStream tdis = netSocketPak.getDataInputStream();
+                    tdis.setFront(false);
+                    final byte err_code = tdis.readByte();
+                    String msgStr = mResource.getString(R.string.info_net_busy);
+                    if (err_code != 0) {
+                        msgStr = tdis.readUTFByte();
+                    }
+                    // 发送handler消息
+                    Message msg = mHandler.obtainMessage(HANDLER_ACCOUNT_FAIL, msgStr);
+                    mHandler.sendMessage(msg);
+                }
+                // 数据处理完成，终止继续解析
+                return true;
+            }
+        };
+        // 注册协议解析器到网络数据分发器中
+        NetSocketManager.getInstance().addPrivateListener(nPListener);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+    	FiexedViewHelper.getInstance().playKeyClick();
+        int id = v.getId();
+        if (id == R.id.btnConfirm) {
+            String account = edt_account.getText().toString();
+            mNewPassword = edt_password.getText().toString();
+            if (account.trim().length() < 6) {
+            	Util.displayCenterToast(edt_account ,mResource.getString(R.string.info_account_error));
+//                Toast.makeText(mContext, mResource.getString(R.string.info_account_error), Toast.LENGTH_SHORT).show();
+            } else if (mNewPassword.trim().length() < 6) {
+            	Util.displayCenterToast(edt_account ,mResource.getString(R.string.info_password_error));
+//                Toast.makeText(mContext, mResource.getString(R.string.info_password_error), Toast.LENGTH_SHORT).show();
+            } else {
+                // 新增进度框屏蔽
+                proDialog = ProgressDialog.show(mContext, "", mResource.getString(R.string.info_connecting), true, false);
+                sendMSUB_CMD_TAT_TO_AT(account, mNewPassword, null);
+                mHandler.sendEmptyMessageDelayed(HANDLER_TIMER_END, 15000);
+            }
+        } else if (id == R.id.btnCancel) {
+            // 退出程序
+            onBackPressed();
+        }
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (mIsNeedQuit) {
+            GameUtilJni.exitApplication();
+        }
+        super.onBackPressed();
+    }
+
+
+    public void setBindSucessListener(BindSucessListener listener) {
+        bindSucessListener = listener;
+    }
+
+
+    public interface BindSucessListener {
+        public void bindSucess(String count);
+    }
+
+}

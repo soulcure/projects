@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_background"
+    android:padding="1dp" >
+
+    <ImageView
+        android:id="@+id/ivActionImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="5dp"
+        android:contentDescription="@string/action"
+        android:scaleType="centerCrop"
+        android:src="@drawable/replace_icon" />
+
+    <RelativeLayout
+        android:id="@+id/act_rel"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/ivActionImage"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp" >
+
+        <TextView
+            android:id="@+id/tvActionDetails"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvActionDate"
+            android:ellipsize="end"
+            android:maxLength="50"
+            android:text="@string/action_content"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/tvActionDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvActionName"
+            android:layout_marginTop="8dp"
+            android:text="@string/action_time"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvActionName"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/tvActionState"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/action"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffc600"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvActionState"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/tvActionName"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/bg_action_state"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/action_state"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/ivActionjoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/bg_joinaction"
+        android:clickable="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/action_join"
+        android:textColor="#603c05" />
+
+</RelativeLayout>

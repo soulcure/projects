@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffefefef"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/live_sdk_ll_choice_gift_count"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#cdcdcd"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择礼物数量"
+            android:textColor="#464646"
+            android:textSize="@dimen/live_sdk_content_size_15" />
+
+        <TextView
+            android:id="@+id/live_sdk_txt_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/live_sdk_txt_count_bg"
+            android:gravity="center"
+            android:textColor="#464646"
+            android:textSize="@dimen/live_sdk_content_size_15" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+        
+        <Button
+	        android:id="@+id/live_sdk_btn_recharge"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/live_sdk_btn_recharge_bg"
+	        android:layout_marginRight="10dp"
+	        />
+
+        <Button
+            android:id="@+id/live_sdk_btn_give_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/live_sdk_btn_give_gift_bg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/live_sdk_ll_choice_what_gift"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#cdcdcd"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择座驾"
+            android:textColor="#464646"
+            android:textSize="@dimen/live_sdk_content_size_15" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/live_sdk_btn_buy_car_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/live_sdk_btn_buy_gift_bg"
+            android:visibility="gone" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/live_sdk_ll_choice_what_car_togo"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#cdcdcd"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择出场座驾"
+            android:textColor="#464646"
+            android:textSize="@dimen/live_sdk_content_size_15" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+       
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/live_sdk_layout_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/live_sdk_txt_balance1_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的豆芽: "
+                android:textSize="12sp"
+                android:textColor="#464646" />
+
+            <TextView
+                android:id="@+id/live_sdk_txt_balance1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textSize="12sp"
+                android:textColor="#ffe73737" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/live_sdk_txt_balance2_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的金币: "
+                android:textSize="12sp"
+                android:textColor="#464646" />
+
+            <TextView
+                android:id="@+id/live_sdk_txt_balance2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textSize="12sp"
+                android:textColor="#ffe73737" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.yunva.live.sdk.ui.widget.ScrollLayout
+        android:id="@+id/live_sdk_scrollLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp" />
+
+    <com.yunva.live.sdk.ui.widget.PageControlView
+        android:id="@+id/live_sdk_pageControl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="bottom|center" />
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/live_sdk_btn_check_gift"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/live_sdk_btn_check_gif_bg"
+            android:gravity="center"
+            android:text="礼物"
+            android:textSize="@dimen/live_sdk_content_size_16" />
+
+        <Button
+            android:id="@+id/live_sdk_btn_check_car_gift"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/live_sdk_btn_check_gif_bg"
+            android:gravity="center"
+            android:text="座驾"
+            android:textSize="@dimen/live_sdk_content_size_16" />
+        <Button
+            android:id="@+id/live_sdk_btn_my_car"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/live_sdk_btn_check_gif_bg"
+            android:gravity="center"
+            android:text="我的座驾"
+            android:textSize="@dimen/live_sdk_content_size_16" />
+    </LinearLayout>
+
+</LinearLayout>

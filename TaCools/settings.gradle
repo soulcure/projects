@@ -1,0 +1,2 @@
+//include ':AppStudent', ':AppTeacher', ':PushSDK'
+include ':AppStudent', ':PushSDK'

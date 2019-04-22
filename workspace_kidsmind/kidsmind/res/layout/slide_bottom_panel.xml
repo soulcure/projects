@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ivmall.android.app.views.SlideBottomPanel
+        android:id="@+id/slide_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:sbp_title_height_no_display="50dp"
+        app:sbp_panel_height="300dp"
+        app:sbp_background_layout="@layout/post_fragment_layout">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/white">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/selected_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <!--<ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <ImageButton
+                    android:id="@+id/select_car"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_container_program"
+                    android:layout_marginLeft="35dp"/>
+
+                <Button
+                    style="@android:style/MediaButton"
+                    android:id="@+id/program_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="35dp"
+                    android:text="@string/send"/>
+            </RelativeLayout>
+        </FrameLayout>
+    </com.ivmall.android.app.views.SlideBottomPanel>
+</LinearLayout>

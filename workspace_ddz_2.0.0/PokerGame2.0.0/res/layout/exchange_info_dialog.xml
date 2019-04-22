@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="440dp"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/ll_content_main"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/close_main_top"
+        android:background="@drawable/custom_dialog2_bg"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/dialogTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!-- 填写收货人信息对话框 -->
+
+        <LinearLayout
+            android:id="@+id/show_address_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/ex_goods_addr_info"
+                android:textColor="@color/dialog_text_color"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_goods_addr"
+                    android:textColor="@color/dialog_text_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/consignee_address"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/exchange_info_dialog_edit_bg"
+                    android:imeOptions="flagNoFullscreen"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_goods_receiver"
+                    android:textColor="@color/dialog_text_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/consignee_name"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/exchange_info_dialog_edit_bg"
+                    android:imeOptions="flagNoFullscreen"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_goods_tel_phone"
+                    android:textColor="@color/dialog_text_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/consignee_cellphone"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/exchange_info_dialog_edit_bg"
+                    android:imeOptions="flagNoFullscreen"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/exchange_info_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_dialog_info_confirm"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/ex_goods_commit_info"
+                android:textColor="@color/dialog_text_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/exchange_info_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/ex_goods_bottom_tips"
+                android:textColor="#1f8402"
+                android:textSize="12sp" />
+        </LinearLayout>
+        <!-- 兑换成功对话框 -->
+
+        <LinearLayout
+            android:id="@+id/show_exchange_success"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tv_exchange_success_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/dialog_text_color"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/exchange_success_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/btn_dialog_info_confirm"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/Ensure"
+                android:textColor="@color/dialog_text_color"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- 话费券兑换对话框 -->
+
+        <LinearLayout
+            android:id="@+id/show_phone_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:visibility="visible" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/ex_goods_phone_tips"
+                android:textColor="@color/dialog_text_color2"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_goods_input_phone"
+                    android:textColor="@color/dialog_text_color2"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/mobile_phone"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ex_goods_input_phone_hint"
+                    android:imeOptions="flagNoFullscreen"
+                    android:inputType="phone"
+                    style="@style/dialog_edit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ex_goods_input_phone_repeat"
+                    android:textColor="@color/dialog_text_color2"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/mobile_phone_confirm"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoFullscreen"
+                    android:inputType="phone"
+                    style="@style/dialog_edit" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/exchange_phone_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:text="@string/ex_goods_commit_info"
+                style="@style/exit_2_style" />
+
+            <TextView
+                android:id="@+id/exchange_phone_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/ex_goods_bottom_tips"
+                android:textColor="@color/dialog_text_green"
+                android:textSize="12sp" />
+        </LinearLayout>
+        <!-- 元宝不足提示对话框 -->
+
+        <LinearLayout
+            android:id="@+id/show_yuan_bao_lack"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tv_exchange_yuan_bao_lack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/dialog_text_color"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/exchange_obtain_yuanbao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/obtain"
+                style="@style/exit_2_style" />
+        </LinearLayout>
+        <!-- 正在兑换 -->
+
+        <LinearLayout
+            android:id="@+id/show_exchanging"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tv_exchanging_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="@string/exchanging_content"
+                android:textColor="@color/dialog_text_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <!-- 选择数量提示兑换框 -->
+
+        <LinearLayout
+            android:id="@+id/show_choose_goods_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/ex_goods_prop_tips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/dialog_text_color"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <EditText
+                    android:id="@+id/ex_choose_goods_content"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/exchange_info_dialog_edit_bg"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="3dp"
+                    android:paddingTop="3dp"
+                    android:inputType="number"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/ex_goods_sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/ex_choose_goods_content"
+                    android:background="@drawable/btn_ex_goods_sub" />
+
+                <Button
+                    android:id="@+id/ex_goods_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/ex_choose_goods_content"
+                    android:background="@drawable/btn_ex_goods_add" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/exchange_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/ex_confirm"
+                style="@style/exit_2_style" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="@string/ex_goods_bottom_tips"
+                android:textColor="#1f8402"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_closed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/ll_content_main"
+        android:layout_alignTop="@id/ll_content_main"
+        android:background="@drawable/btn_dlg_close" />
+
+</RelativeLayout>

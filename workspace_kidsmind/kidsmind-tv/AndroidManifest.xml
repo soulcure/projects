@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.smit.android.ivmall.stb"
+    android:versionCode="4400"
+    android:versionName="4.4.0">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 系统无法进入休眠 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+
+    <!-- 小米TV平台要求添加 -->
+    <uses-permission android:name="com.xiaomi.permission.AUTH_THIRDPAY" />
+
+    <!-- 联通支付要求添加 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+
+
+    <uses-feature
+        android:name="android.hardware.type.television"
+        android:required="true" />
+
+    <application
+        android:name="com.ivmall.android.app.KidsMindApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.ivmall.android.app.KidsMindFragmentActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.ivmall.android.app.MainFragmentActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name="com.ivmall.android.app.MallActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- 播放界面 -->
+        <activity
+            android:name="com.ivmall.android.app.player.SmartPlayingActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.ivmall.android.app.player.FreePlayingActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <!-- 活动页面 -->
+        <activity
+            android:name="com.ivmall.android.app.ActionActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+
+        <!-- 家长中心 -->
+        <activity
+            android:name="com.ivmall.android.app.ParentFragmentActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+
+        <!-- 智能推荐  -->
+
+        <activity
+            android:name="com.ivmall.android.app.RecommendDetailsActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <!-- 支付页面 -->
+        <activity
+            android:name="com.ivmall.android.app.pay.payment.QrcodePayActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.ivmall.android.app.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name="com.ivmall.android.app.pay.payment.DomyPayActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="com.ivmall.android.app.pay.payment.UnicomPayActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <!-- 移动控制TV 处理广播 -->
+        <receiver android:name="com.ivmall.android.app.receiver.ControlHandlerReceiver">
+            <intent-filter>
+                <action android:name="com.ivmall.android.app.action.CloseApp" />
+                <action android:name="com.ivmall.android.app.action.Play" />
+            </intent-filter>
+        </receiver>
+
+
+        <!-- 支付宝快捷支付 -->
+        <activity
+            android:name="com.alipay.android.app.sdk.WapPayActivity"
+            android:screenOrientation="landscape" />
+
+        <!-- 乐视支付  begin-->
+        <activity
+            android:name="com.letv.tvos.paysdk.appmodule.PayActivity"
+            android:screenOrientation="landscape" />
+
+        <meta-data
+            android:name="LetvSDKAppKey"
+            android:value="222099" />
+
+        <meta-data
+            android:name="LetvSDKSecretKey"
+            android:value="d1cc72e60b8149d29b3548bb8b750934" />
+
+        <meta-data
+            android:name="LetvSDKCallbackUrl"
+            android:value="http://api.ikidsmind.com/payment/letv/notify.do" />
+
+        <!-- 乐视支付  end-->
+
+
+        <!-- 联通支付  begin -->
+        <activity
+            android:name="com.sdk.commplatform.ProxyActivity"
+            android:configChanges="orientation|navigation|screenSize|keyboardHidden|keyboard"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustPan" />
+
+        <service android:name="com.sdk.commplatform.ProxyService" />
+        <service android:name="com.sdk.commplatform.ProxyServicePlusA" />
+        <service android:name="com.sdk.commplatform.ProxyServicePlusB" />
+        <service android:name="com.sdk.commplatform.ProxyServicePlusC" />
+
+        <!-- 联通支付  end -->
+
+        <service android:name="com.ivmall.android.app.service.MediaPlayerService" />
+
+        <!-- 百度统计SDK添加 -->
+        <!-- 百度统计APP KEY -->
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="f05ed81923" />
+
+        <!-- 百度消息推送begin -->
+        <!-- push应用定义消息receiver声明 -->
+        <receiver android:name="com.ivmall.android.app.receiver.MyPushMessageReceiver">
+            <intent-filter>
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <!-- push service start -->
+        <!-- 用于接收系统消息以保证PushService正常运行 -->
+        <receiver
+            android:name="com.baidu.android.pushservice.PushServiceReceiver"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+                <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <!-- Push服务接收客户端发送的各种请求-->
+        <receiver
+            android:name="com.baidu.android.pushservice.RegistrationReceiver"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.baidu.android.pushservice.PushService"
+            android:exported="true"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
+            </intent-filter>
+        </service>
+        <!-- 4.4版本新增的CommandService声明，提升小米和魅族手机上的实际推送到达率 -->
+        <service
+            android:name="com.baidu.android.pushservice.CommandService"
+            android:exported="true" />
+
+        <!-- 百度消息推送 end -->
+    </application>
+
+</manifest>

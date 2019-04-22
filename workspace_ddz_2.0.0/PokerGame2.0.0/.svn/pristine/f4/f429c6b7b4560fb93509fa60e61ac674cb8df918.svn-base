@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="480dp"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout  android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/main"
+    android:layout_marginTop="60dp"
+    android:background="@drawable/custom_dialog_bg"
+    android:layout_centerHorizontal="true"
+    android:paddingBottom="10dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="今日必得"
+        android:id="@+id/title"
+        style="@style/dialogTitleStyle"
+        android:layout_centerHorizontal="true" />
+<RelativeLayout android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@id/title"
+     android:layout_marginLeft="10dp"
+     android:layout_marginRight="10dp"
+     android:layout_marginTop="10dp"
+     android:padding="10dp"
+     >
+    
+
+    <RelativeLayout
+        android:id="@+id/exit_main_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextView
+            android:id="@+id/single_text"
+            android:layout_width="370dp"
+            android:layout_height="100dp"
+            android:padding="5dp"
+            android:maxLines="6"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:text="文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长文字很长很长"
+            android:textColor="#48341e" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/multi_contain" >
+
+            <RelativeLayout
+                android:id="@+id/item1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/item1_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/exit_dlg_item_bg" />
+
+                <TextView
+                    android:id="@+id/item1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="11dp"
+                    android:text="任务名字"
+                    android:textColor="#ffedc7"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/item1_todo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/item1_bg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:text="立即去做"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/item1_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/exit_dlg_task_text_bg"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="10dp"
+                    android:text="0/0"
+                    android:textColor="#ffffff" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:background="@drawable/bean" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/item2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp" >
+
+                <ImageView
+                    android:id="@+id/item2_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/exit_dlg_item_bg" />
+
+                <TextView
+                    android:id="@+id/item2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="11dp"
+                    android:text="任务名字"
+                    android:textColor="#ffedc7"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/item2_todo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/item2_bg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:text="立即去做"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/item2_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+	<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    android:orientation="horizontal" 
+	    android:layout_below="@id/exit_main_content"
+	    android:layout_centerHorizontal="true" 
+	    android:layout_marginTop="5dp">
+	    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	        android:background="@drawable/btn_exit_1"
+	        android:text="退出"
+	        android:id="@+id/exit_button"
+	        android:textSize="18sp"
+	        android:textColor="#08620e"/>
+	    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	        android:background="@drawable/btn_exit_2"
+	        android:text="绑定账号"
+	        android:textColor="#603c05"
+	        android:layout_marginLeft="30dp"
+	        android:textSize="18sp"
+	        android:id="@+id/complete_button"/>
+	    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	        android:background="@drawable/btn_exit_2"
+	        android:text="继续游戏"
+	        android:textColor="#603c05"
+	        android:layout_marginLeft="30dp"
+	        android:textSize="18sp"
+	        android:id="@+id/button_3"/>
+	</LinearLayout>
+	</RelativeLayout>
+	</RelativeLayout>
+	<ImageView android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/exit_dlg_mm"
+	    android:id="@+id/exit_dlg_mm"/>
+		<TextView android:layout_width="370dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="-30dp"
+	    android:layout_marginTop="5dp"
+	    android:textColor="#ffcc00"
+	    android:shadowColor="#703a00"
+	    android:shadowDx="1"
+	    android:shadowDy="1"
+	    android:shadowRadius="1"
+	    android:id="@+id/exit_tomorrow"
+	    android:textSize="20sp"
+	    android:singleLine="true"
+	    android:paddingTop="5dp"
+	    android:paddingLeft="5dp"
+	    android:background="@drawable/exit_tomorrow_bg"
+	    android:layout_toRightOf="@id/exit_dlg_mm" />
+	<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    android:src="@drawable/btn_dlg_close"
+	    android:layout_toRightOf="@id/main"
+	    android:layout_marginLeft="@dimen/close_left"
+	    android:layout_marginTop="45dp"
+	    android:id="@+id/close"/>
+	<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    android:layout_below="@id/main"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="3dp"
+	    android:textColor="#9bff1a"
+	    android:id="@+id/complete_tips"
+	    />
+</RelativeLayout>

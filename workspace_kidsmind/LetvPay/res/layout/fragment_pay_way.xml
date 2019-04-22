@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <com.letv.tvos.paysdk.widget.PaymentScrollView
+        android:id="@+id/psv_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/s_160"
+        android:paddingTop="@dimen/s_64" >
+    </com.letv.tvos.paysdk.widget.PaymentScrollView>
+
+    <View
+        android:id="@+id/vw_focus_move"
+        android:layout_width="@dimen/s_277"
+        android:layout_height="@dimen/s_164"
+        android:layout_marginLeft="@dimen/s_181"
+        android:layout_marginTop="@dimen/s_54"
+        android:background="@drawable/letv_payment_focus"
+        android:focusable="false"
+        android:visibility="invisible" />
+
+</FrameLayout>

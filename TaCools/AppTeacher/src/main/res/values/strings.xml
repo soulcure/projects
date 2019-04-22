@@ -1,0 +1,254 @@
+<resources>
+    <string name="app_name">平安e校园</string>
+
+    <!-- 引导页 -->
+    <string name="guide_title_1">一键签到</string>
+    <string name="guide_title_2">遇到危险</string>
+    <string name="guide_title_3">安全问题大于天！</string>
+
+    <string name="guide_content_1">老师再也不用挨个查宿舍了～</string>
+    <string name="guide_content_2">长按救援</string>
+    <string name="guide_content_3">遇到了及时告诉校长吧！校长在这里倾听每一位学生的声音～</string>
+
+
+    <!-- 老师首页 -->
+    <string name="title_home">首页</string>
+    <string name="title_practice">实习</string>
+    <string name="title_analyse">分析</string>
+    <string name="title_mine">我的</string>
+    <string name="sos_history">救援历史</string>
+    <string name="sos_detail">救援详情</string>
+    <string name="percentage">%.2f%%</string>
+    <string name="unusual_analysis">异常分析</string>
+    <string name="no_sign_analysis">未签到分析</string>
+
+    <!-- 学生首页 -->
+    <string name="campus">校园</string>
+    <string name="save_info">校园安全指数</string>
+    <string name="main_kb">我的库币</string>
+    <string name="my_trace">我的足迹</string>
+    <string name="student_sign">作息签到</string>
+    <string name="my_message">我的消息</string>
+    <string name="cur_time">2017-05-13</string>
+    <string name="cur_msg">校园的美好生活，从良好的作息习惯开始！</string>
+
+    <string name="action">活动</string>
+    <string name="complaint">吐槽</string>
+    <string name="evaluation">测评</string>
+
+    <!-- 足迹 -->
+    <string name="trace">足迹</string>
+
+    <!-- SOS 救援-->
+    <string name="sos_title">SOS救援</string>
+    <string name="send_sos_time">申请救援时间:</string>
+    <string name="sos_from">来自&#160;&#160;%1s&#160;&#160;的救援</string>
+    <string name="sos_voice_time">%1d\&#034;</string>
+
+    <!--SOS Dialog-->
+    <string name="sos_msg">收到1条SOS\n紧急请求</string>
+
+    <!-- 登录 -->
+    <string name="login">登录</string>
+    <string name="login_immediate">立即登录</string>
+    <string name="login_phone_hint">手机号码</string>
+    <string name="password_hint">密码</string>
+    <string name="password_forget">忘记密码?</string>
+    <string name="password_error">你输入的密码有误</string>
+    <string name="register_fast">快速注册</string>
+    <string name="login_third">第三方登录</string>
+    <string name="teacher_first_login">首次登录需验证手机号码</string>
+    <string name="qq">QQ</string>
+    <string name="wechat">微信</string>
+    <string name="weibo">微博</string>
+
+    <!-- 注册 -->
+    <string name="register">注册</string>
+    <string name="sms_code_hint">请输入验证码</string>
+    <string name="req_sms_code">获取验证码</string>
+    <string name="input_password">输入密码</string>
+    <string name="input_pw_check">确认密码</string>
+    <string name="commit">提交</string>
+    <string name="agree">我已阅读并同意</string>
+    <string name="user_protocol">《塔库用户许可协议》</string>
+    <string name="sms_valid_txt">%1$d秒</string>
+
+    <!-- 忘记密码 -->
+    <string name="forget_password">找回密码</string>
+    <string name="input_new_password">输入新密码</string>
+    <string name="forget_password_info">无法通过手机验证码找回密码？点击 </string>
+    <string name="forget_password_appeal">我要申诉！</string>
+    <string name="confirm_commit">确认修改</string>
+
+    <!-- 修改密码 -->
+    <string name="change_password">修改密码</string>
+    <string name="input_old_password">输入原密码</string>
+    <string name="input_new_password_again">确认新密码</string>
+
+    <!-- 绑定 -->
+    <string name="bind">绑定</string>
+    <string name="bind_title">绑定学号信息后能进入App，请确保以下信息正确、真实、有效。</string>
+    <string name="sms_code_second">%1d秒</string>
+
+    <!-- 修改绑定设备 -->
+    <string name="change_device">更改绑定设备</string>
+    <string name="change_device_info">说明：\n1.手机号与此设备绑定后，只允许在此设备登录。\n2.每个手机只允许登录一个账号。不允许再登录其他账号。\n3.每个账号一天只允许更换一次登录手机。</string>
+    <string name="change_device_msg">账号%1$s已经绑定了其他手机，你是否需要重新绑定到此手机？</string>
+    <string name="change_device_confirm">绑定</string>
+
+    <!-- 修改手机号 -->
+    <string name="change_mobile">更改手机号</string>
+    <string name="new_phone_hint">新手机号码</string>
+    <string name="change_mobile_msg">您确认重新设置此设备的登录手机号码吗？</string>
+    <string name="change_mobile_info">说明：\n1.设备更换新手机号后，只允许新手机号在此设备登录。\n2.每个手机只允许登录一个账号。不允许再登录其他账号。\n3.每个设备一天只允许更换一次登录手机。</string>
+
+    <!-- 签到 -->
+    <string name="sign_info">签到详情</string>
+    <string name="sign">签到</string>
+    <string name="count_end">%1$s结束签到</string>
+    <string name="count_start">%1$s开始签到</string>
+    <string name="pic_num">上传图片超过了%1d张!</string>
+    <string name="sign_time">签到时间：</string>
+
+    <!-- 申诉 -->
+    <string name="service_phone_number">400&#8211;520&#8211;134</string>
+    <string name="call_dialog_title">拨打%1$s进行申诉？</string>
+    <string name="appeal_info">申诉适用范围：不能通过塔库绑定的手机号码成功登录，提示账号或密码错误的用户请致电客户电话：%1$s</string>
+
+
+    <!-- 异常分析 -->
+    <string name="unusual_title">异常分析</string>
+    <string name="no_sign_title">未签到分析</string>
+    <string name="unusual_number">异常人数</string>
+    <string name="no_sign_number">未签到人数</string>
+    <string name="unusual_rank">异常排行</string>
+    <string name="no_sign_rank">未签到排行</string>
+    <string name="college_name">学院名称</string>
+    <string name="rest_unusual_sign_number">作息签到异常人数</string>
+    <string name="rest_no_sign_number">作息未签到人数</string>
+    <string name="practice_unusual_sign_number">实习签到异常人数</string>
+    <string name="practice_no_sign_number">实习未签到人数</string>
+    <string name="week_of_year" formatted="false">%1d年第%1d周</string>
+    <string name="sum_times">%1d次</string>
+    <string name="unusual_times">异常次数</string>
+    <string name="no_sign_times">未签到次数</string>
+
+    <!-- 实习跟踪-->
+    <string name="shixi_genzong">实习跟踪</string>
+
+    <!-- 校长直通车 -->
+    <string name="to_rector">校长直通车</string>
+    <string name="response_info">学校的各个安全设施有没有隐患？食堂里饮食卫生不卫生？其他安全问题？安全问题大于天，校长在这里倾听每一位学生的声音！</string>
+    <string name="type">类型</string>
+    <string name="response_type">请选择类型</string>
+    <string name="response_title">请输入标题</string>
+    <string name="response_content">输入内容</string>
+    <string name="title">标题</string>
+    <string name="content">内容</string>
+
+    <!-- dialog-->
+    <string name="btn_confirm">确认</string>
+    <string name="btn_cancel">取消</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+
+    <!-- SchoolDialog-->
+    <string name="school_choice_title">选择查询的机构</string>
+    <string name="school_choice">选择</string>
+
+    <!-- 实习 -->
+    <string name="practice_sign_time">签到时间：</string>
+    <string name="practice_company">实习企业：</string>
+    <string name="practice_teach">指导老师：</string>
+    <string name="teach_number">18664923439</string>
+    <string name="sign_now">现在去签到</string>
+    <string name="signed_normal">今日已签到</string>
+    <string name="signed_unusual">已异常签到</string>
+
+    <string name="practice_sign">实习签到</string>
+    <string name="practice_sign_info">今天你还没有签到</string>
+
+    <string name="sign_normal">已签到</string>
+    <string name="no_sign">未签到</string>
+    <string name="sign_unusual">异常签到</string>
+
+    <!-- 意见反馈 -->
+    <string name="response">意见反馈</string>
+
+
+    <!-- 个人信息 -->
+    <string name="user_info">个人信息</string>
+
+
+    <string name="hxm_tbmine_settings">设置</string>
+    <string name="tv_college">苏州大学</string>
+    <string name="tv_field">计算机科学与技术</string>
+
+    <!-- 学生首页 -->
+    <string name="sign_start">开始签到</string>
+    <string name="no_need_sign">无需签到</string>
+    <string name="sign_end">结束签到</string>
+    <string name="has_signed">已完成签到</string>
+    <string name="sign_out_time">签到已结束</string>
+
+    <!-- 校园 -->
+    <string name="bbs_content">现在很多宿舍用热得快烧水，甚至在宿舍用电磁炉做菜，有很大的安全隐患，上次有个人差点将宿舍点着，希望学校可以规范学生电器的使用</string>
+    <string name="rector_response">校长:%1$s</string>
+    <string name="bbs_response">这位同学的反应很及时，校方将采取最快的措施来解决学生安全隐患</string>
+
+    <string name="catalog_url">https://storage.googleapis.com/android-tv/android_tv_videos_new.json</string>
+    <string name="rent_1">Rent By Day</string>
+    <string name="rent_2">From $1.99</string>
+    <string name="buy_1">Buy and Own</string>
+    <string name="buy_2">AT $9.99</string>
+    <string name="global_search">GLOBALSEARCH</string>
+
+    <!-- 消息 -->
+    <string name="message">消息</string>
+
+    <!-- 关于我们 -->
+    <string name="about_us">关于我们</string>
+    <string name="about_title">邀请您加入【平安e校园】，平安e校园是一款校园安全app，帮助学生降低各种安全风险的的神器！</string>
+    <string name="useful_sign">一键签到，老师再也不用挨个查寝了～</string>
+    <string name="useful_sos">sos即时求救，遇到危险紧急求援！</string>
+
+    <!-- 塔库用户协议 -->
+    <string name="taku_proto">塔库用户协议</string>
+
+    <!-- 实习每日统计 -->
+    <string name="sign_rest_count">作息每日统计</string>
+    <string name="sign_practice_count">实习每日统计</string>
+    <string name="person">%1d人</string>
+    <string name="days">%1d天</string>
+    <string name="times">%1d次</string>
+
+    <!-- 下拉刷新的文本 -->
+    <string name="pull_to_refresh_header_text">下拉可以刷新&#8230;</string>
+    <string name="pull_to_refresh_header_hint_ready">松开即可刷新&#8230;</string>
+    <!--上拉加载更多的文本-->
+    <string name="pull_to_refresh_bottom_hint_normal">上拉可以刷新&#8230;</string>
+    <string name="pull_to_refresh_bottom_hint_onclick">点击加载更多&#8230;</string>
+    <string name="pull_to_refresh_bottom_no_more_msg">我是有底线的&#8230;</string>
+
+    <string name="pull_to_refresh_update_time">最后更新时间:</string>
+    <string name="pull_to_refresh_load_more_text">努力加载中&#8230;</string>
+
+    <!-- 硬件分析 -->
+    <string name="not_out">累计宅</string>
+    <string name="not_class">未上课</string>
+    <string name="unusual_out_times">次数</string>
+    <string name="last_time" formatted="false">最后一次签到时间：%1s</string>
+    <string name="last_place" formatted="false">校内最后一次出现时间：%1s  地点:%2s</string>
+
+    <string name="unusual_out_place">疑似出入地点</string>
+    <string name="unusual_out_time">时间</string>
+
+    <string name="not_class_range">逃课时间段</string>
+    <string name="not_class_days">天数</string>
+    <string name="not_class_last_time">最后进出教学楼时间</string>
+
+    <string name="indoor_place">宅地点</string>
+    <string name="indoor_range">宅时间段</string>
+    <string name="indoor_days">宅天数</string>
+    <string name="indoor_last_time">最后一次进出宿舍时间</string>
+</resources>

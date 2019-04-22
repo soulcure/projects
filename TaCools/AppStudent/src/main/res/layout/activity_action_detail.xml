@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="关于心理安全教育的活动" />
+
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2017-12-29 10:00-12:00" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="变量到一个被@NonNull修饰（标记）的参数的方法中时，开发工具IDE会警告程序可能会有崩溃的风险" />
+
+    <TextView
+        android:id="@+id/tv_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="活动组织人：李老师" />
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_commit_selector"
+        android:text="活动签到" />
+
+
+    <TextView
+        android:id="@+id/tv_sign_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="可签到时间：2017-12-29 10:00-12:00" />
+
+    <TextView
+        android:id="@+id/tv_sign_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="签到地点：南京大学产学研基地" />
+
+</LinearLayout>

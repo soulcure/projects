@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- NickelFragmentActivity -->
+    <string name="app_name">我的小尼克学堂</string>
+    <string name="quit_msg">再按一次退出教学</string>
+
+    <!-- HasRegisterFragment -->
+    <string name="login_welcome_title">欢迎来到</string>
+    <string name="has_register">您的设备已经注册过账号，账号信息如下</string>
+    <string name="has_register_info">请返回登录页面&#160;&#160;&#160;&#160;使用该账号登录</string>
+
+    <!-- metro_fragment_tv-->
+    <string name="cartoon_houses">晨晨</string>
+    <string name="year_old">岁</string>
+
+    <!-- 宝宝信息  kidsinfo_fragment.xml -->
+    <string name="age_text">年龄</string>
+    <string name="sex_text">性别</string>
+    <string name="birthday_info">【确认键】&#160;&#160;将保存您宝宝的生日信息</string>
+
+
+    <!-- WXEntryActivity -->
+    <string name="errcode_success">分享成功</string>
+    <string name="errcode_cancel">分享取消</string>
+    <string name="errcode_deny">分享被拒绝</string>
+    <string name="errcode_unknown">分享返回</string>
+
+    <!-- 支付方式 payment_method.xml -->
+    <string name="parment_method">请选择支付方式</string>
+    <string name="pay_money">共需支付：</string>
+    <string name="yunpay_text">阿里TV支付</string>
+    <string name="alipay_text">支付宝支付</string>
+    <string name="huanpay_text">欢网支付</string>
+    <string name="domypay_text">大麦支付</string>
+    <string name="coocaatvpay_text">酷开支付</string>
+    <string name="mitvpay_text">米币支付</string>
+    <string name="wechat_text">微信支付</string>
+    <string name="yun_os_tv_text">云TV支付宝扫码支付</string>
+    <string name="alipay_qrcode_text">支付宝扫二维码支付</string>
+    <string name="wechat_qrcode_text">微信扫二维码支付</string>
+    <string name="alipay_text_des">请用支付宝扫描二维码</string>
+    <string name="wechat_text_des">请用微信扫描二维码</string>
+    <string name="not_install_wxapp">您尚未安装微信应用。</string>
+    <string name="unsupported_pay_wxapp">您的微信应用版本太低, 未支持支付功能。</string>
+    <string name="pay">支付</string>
+    <string name="cny">¥</string>
+    <!-- alipay -->
+    <string name="alipay_time_hint">温馨提示：请在10分钟内支付</string>
+
+
+    <!-- activity_parents_center -->
+    <string name="server_phone">客服电话：400-990-4909</string>
+    <string name="server_qq">客服QQ：2363775691</string>
+
+    <!-- babyInfo 页面标题 -->
+    <string name="baby_name">姓&#160;&#160;名</string>
+    <string name="baby_birday">生&#160;&#160;日</string>
+
+    <string name="baby_default_name">宝宝</string>
+
+    <string name="male">男孩</string>
+    <string name="female">女孩</string>
+    <string name="save">保存</string>
+
+    <string name="health">健康</string>
+    <string name="science">科学</string>
+    <string name="society">社会</string>
+    <string name="language">语言</string>
+    <string name="art">艺术</string>
+
+    <!-- 播放错误提示 -->
+    <string name="wifi_strength_poor">检查到您的wifi信号强度较差</string>
+    <string name="check_connect">当前网络不可用，请检查网络！</string>
+    <string name="net_timeout">缓冲播放数据出错或网络连接超时， 将自动切换清晰度！</string>
+    <string name="playing_error">播放出错啦，请重新尝试！</string>
+    <string name="is_last_page">已经刷新到最后一页啦！</string>
+    <string name="play_url_empty">未获取到播放地址！</string>
+    <string name="favorite_empty">您还没有收藏剧集哦！</string>
+    <string name="prompt">提示</string>
+    <string name="setting_network">设置网络</string>
+    <string name="empress_retry">稍后重试</string>
+    <string name="connect_error">服务器连接失败</string>
+
+    <!-- 关于我们 -->
+    <string name="about_us">\"我的小尼克学堂\"，由美国维亚康姆国际传媒集团重磅打造的一款，寓教于乐的儿童动画早教软件。现由深圳市童心网络有限公司独家运营（中国区）。
+    \n\"我的小尼克学堂\"，是全球首个可以完全由家长定制学习内容的幼教服务型产品。可根据孩子年龄、性别、5大领域能力发展，来量身定制专属的早教频道。
+    </string>
+    <string name="version_number">版本号：</string>
+
+    <!-- buy_vip -->
+    <string name="vip_end_time">VIP会员到期时间:&#160;&#160;</string>
+    <string name="recommend_heart">开通VIP服务后:\n1.你每天的观看时长将不受限制。\n2.你可以使用中英切换功能，看原版动画，学地道英语。</string>
+    <string name="recommend_trial">开通VIP服务后:\n*所有动画剧集，无限制观看；\n*开启中英切换功能，BBC原版配音，原汁原味的英文动画；</string>
+    <string name="recommend_parents">开通VIP服务后:\n1.所有动画剧集，无限制观看；\n2.开启中英切换功能，BBC原版配音，原汁原味的英文动画；</string>
+
+    <!-- doyoulike -->
+    <string name="countdown">倒计时</string>
+    <string name="c_number">6</string>
+    <string name="rating_no">不喜欢</string>
+    <string name="rating_question">你喜欢这个视频吗？</string>
+    <string name="rating_yes">喜欢</string>
+
+    <!-- free_play -->
+    <string name="recommend_context">推荐内容 </string>
+    <string name="free">免费</string>
+    <string name="skip_head">已经自动跳过片头！</string>
+    <string name="zuokuohao">《</string>
+    <string name="youkuohao">》</string>
+    <string name="video_loading">视频加载中...&#160;&#160;</string>
+    <string name="unit">KB/S</string>
+    <string name="free_time">此集是VIP内容，只能免费观看前2分钟！</string>
+
+    <string name="channel">我的尼克频道</string>
+    <string name="action_channel">专题频道</string>
+    <string name="global_channel">宝宝秀</string>
+    <string name="my_channel">我的频道</string>
+
+
+    <!-- 注册 -->
+    <string name="phone_number">手机号码</string>
+    <string name="username">用户名或手机号码</string>
+    <string name="password">密码至少6位</string>
+    <string name="password_pc">密&#160;&#160;&#160;&#160;码:</string>
+    <string name="input_password">请输入密码</string>
+    <string name="input_new_password">请输入新密码</string>
+    <string name="input_verify_code">请输入验证码</string>
+    <string name="get_verify_code">获取验证码</string>
+    <string name="agree_clause">同意以下协议并注册</string>
+    <string name="user_clause">《用户条款》</string>
+    <string name="phone_num_empty">手机号或用户名不能为空！</string>
+    <string name="phone_num_err">手机号码格式错误！</string>
+    <string name="password_length_err">密码长度至少6位！</string>
+    <string name="password_err">密码格式错误！</string>
+    <string name="verifycode_err">验证码格式错误！</string>
+    <string name="register_sucess">用户注册成功！</string>
+    <string name="change_pw_sucess">修改密码成功！</string>
+
+
+    <!-- 登录 -->
+    <string name="login">登录</string>
+    <string name="register">会员注册</string>
+    <string name="forget_pw">忘记密码</string>
+    <string name="free_try">免费试用</string>
+    <string name="confirm">确定</string>
+    <string name="leapfrog">跳过</string>
+    <string name="about_mnj">关于我们</string>
+    <string name="send_again">秒后重试</string>
+    <string name="login_in">登&#160;&#160;&#160;&#160;录</string>
+    <string name="login_in_info">输入手机号,短信获取动态密码并登录，即可观看信息在电视,电脑,平板,手机同步</string>
+    <string name="login_out_info">您已经成功登录，当前登录手机号：</string>
+    <string name="is_register">您的设备已经注册过账号，请使用此账号登录</string>
+    <!--绑定-->
+    <string name="bingding_recovery_password">亲，您已经成功绑定账号</string>
+    <string name="bingding_initial">初始密码为</string>
+    <string name="bingding_hint">(使用初始密码无需输入新密码，点击确定即可)</string>
+    <string name="bingding_initial_password">000000</string>
+    <string name="bingding_change_password">, 您也可以修改密码</string>
+
+    <!-- bind_vip -->
+    <string name="phone">手机号</string>
+    <string name="thanks_join_vip">非常感谢您加入我们的VIP俱乐部</string>
+    <string name="security_code">验证码</string>
+    <string name="function">您将可以在电视、电脑\n平板、手机同步您的观\n看信息</string>
+
+    <!-- 家长控制 -->
+    <string name="parrents_answer">请家长回答问题</string>
+    <string name="mod">÷</string>
+    <string name="equal">=&#160;&#160;&#160;&#160;?</string>
+
+    <!-- 智能推荐播放 -->
+    <string name="will_play">即将播放</string>
+    <string name="training_target">培养目标</string>
+
+    <!-- time_dialog -->
+    <string name="time_play">观看时长设置 (分钟)</string>
+    <string name="more">设置的观看时间到后，将停止播放</string>
+    <string name="vip_more">提示：您的VIP过期时间</string>
+    <string name="vip_more2">&#160;在此期间观看时长不受限制</string>
+    <string name="play_skip_head">播放时自动跳过片头</string>
+
+    <!-- vip 权益表格 -->
+    <string name="vip_right">VIP权益</string>
+    <string name="vip_user">VIP用户</string>
+    <string name="normal_user">普通用户</string>
+    <string name="watch_all">观看所有动画</string>
+    <string name="watch_free">仅免费动画</string>
+    <string name="zh_eng">观看英文动画</string>
+    <string name="thirty_min_a_day">每天30分钟</string>
+
+    <!-- pay_secceed -->
+    <string name="thanks_open">感谢您的开通</string>
+    <string name="you_have_pay">你已经购买了</string>
+    <string name="menber_server">会员服务</string>
+    <string name="menber_server_time">会员到期：</string>
+    <string name="i_know">我知道了</string>
+
+
+    <!-- baby ablity -->
+    <string name="login_out">退出</string>
+    <string name="bind">绑定</string>
+    <string name="change">修改</string>
+    <string name="dredge">续费</string>
+    <string name="user_name">用户名:</string>
+    <string name="phone_num">手机号:</string>
+    <string name="password_info">密&#160;&#160;&#160;&#160;码:</string>
+    <string name="vip_time">VIP时间:</string>
+
+    <!-- 版本升级 -->
+    <string name="login_find_out_new_verson">发现更新</string>
+    <string name="login_find_out_new_verson_gift">更新就送</string>
+    <string name="download_error">升级包下载失败，请稍后再试!</string>
+    <string name="login_download_doing">开始升级&#8230;</string>
+    <string name="login_downloaded">下载了</string>
+    <string name="login_game_downloaded_1">游戏更新了</string>
+    <string name="login_game_downloaded_2">请稍后&#8230;</string>
+    <string name="login_game_begin_download">游戏更新了0%，请稍后&#8230;</string>
+    <string name="download_title">正在下载更新包，请稍后 &#8230;</string>
+    <string name="update_title">升级啦</string>
+    <string name="update_Install">安装</string>
+    <string name="update_close">关闭</string>
+    <string name="update_Confir">马上升级</string>
+    <string name="update_Cancel">残忍拒绝</string>
+    <string name="version_title">检测到新版本： </string>
+    <string name="file_size_title">文件大小： </string>
+    <string name="no_wifi">您现在使用的是移动数据网络，升级将会消耗较多流量，您确定要更新吗？</string>
+    <string name="download_success">新版本已经为您准备好了，咱们赶紧更新吧~</string>
+    <string name="renewal_qrcode_des">*请牢记用户名或者手机号，一旦丢失将无法登录</string>
+    <string name="edittext_digits">._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
+</resources>

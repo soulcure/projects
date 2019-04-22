@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_do_you_like_pad"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="@string/do_you_like_this_video" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_like"
+            android:layout_width="270dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_like" />
+
+        <Button
+            android:id="@+id/btn_unlike"
+            android:layout_width="270dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_unlike" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:paddingRight="40dp"
+        android:paddingTop="20dp">
+
+
+        <TextView
+            android:id="@+id/time_over"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/bac_countdown"
+            android:gravity="center"
+            android:text="@string/c_number"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/countdown"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+</RelativeLayout>

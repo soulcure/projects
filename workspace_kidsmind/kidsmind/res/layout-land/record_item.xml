@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+        <RelativeLayout
+            android:id="@+id/record_img_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/record_item_margin">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/play_history_width"
+                android:layout_height="@dimen/play_history_height"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_h_default" />
+
+            <TextView
+                android:id="@+id/tv_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/image"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/font_white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_sequence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/img_frame"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textColor="@color/snow"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/record_img_layout"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/gay_text_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxEms="10"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/istime"
+                style="@style/gay_small_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/record_item_margin"
+                android:layout_alignParentRight="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_below="@+id/name"
+                android:layout_marginTop="25dp"
+                android:weightSum="10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/preferences1"
+                    style="@style/blue_small_normal"
+                    android:layout_width="55dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/bg_ability"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/preferences2"
+                    style="@style/blue_small_normal"
+                    android:layout_width="55dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/bg_ability"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/preferences3"
+                    style="@style/blue_small_normal"
+                    android:layout_width="55dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/bg_ability"
+                    android:gravity="center" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

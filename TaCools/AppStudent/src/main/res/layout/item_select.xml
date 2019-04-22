@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_white"
+        android:gravity="center"
+        android:padding="@dimen/select_item_padding"
+        android:text="@string/btn_cancel"
+        android:textColor="@drawable/gender_txt_selector"
+        android:textSize="18sp" />
+
+</LinearLayout>

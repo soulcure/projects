@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <ImageView
+        android:id="@+id/mm_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/meinv_happy" />
+
+    <LinearLayout
+        android:id="@+id/buy_dialog_main"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mm_img"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_dialog2_bg_notitle"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <!--
+             <TextView
+            android:id="@+id/tv_title"
+            style="@style/dialogTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:text="@string/ddz_pay_confirm" />        -->
+
+        <TextView
+            android:id="@+id/tv_buy_prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:includeFontPadding="false"
+            android:paddingBottom="10dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="17sp"
+            android:textStyle="normal" />
+
+        <RelativeLayout
+            android:id="@+id/rl_pay_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:clickable="false"
+            android:visibility="visible" >
+
+            <RelativeLayout
+                android:id="@+id/rl_pay_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" >
+
+                <Button
+                    android:id="@+id/btn_pay_confirm"
+                    style="@style/exit_2_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/Ensure" />
+
+                <ImageView
+                    android:id="@+id/pay_corner_mark_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/goto_game_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/rl_pay_confirm"
+                android:layout_alignParentRight="true"
+                android:paddingRight="15dp"
+                android:text="去低一级的场玩"
+                android:textColor="#218e00"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="15dp"
+            android:paddingTop="10dp" >
+
+            <LinearLayout
+                android:id="@+id/ll_phone_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="客服电话:"
+                    android:textColor="@color/dialog_text_color2"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/phone_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/dialog_text_color2"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_advice_pay_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:includeFontPadding="false"
+                    android:textColor="#41a5fe"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_pay_prompt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="#218e00"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_pay_prompt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:includeFontPadding="false"
+                    android:textColor="#218e00"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:includeFontPadding="false"
+                    android:textColor="#41a5fe"
+                    android:textSize="12sp"
+                    android:textStyle="normal" >
+                </TextView>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/buy_dialog_main"
+        android:layout_alignTop="@id/buy_dialog_main"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/btn_dlg_close" />
+
+</RelativeLayout>

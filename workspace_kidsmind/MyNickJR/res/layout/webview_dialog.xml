@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+
+    <RelativeLayout
+        android:id="@+id/agreement_form"
+        android:layout_width="@dimen/agreement_form_width"
+        android:layout_height="@dimen/agreement_form_height"
+        android:layout_centerInParent="true"
+        android:background="@drawable/agreement_box"
+        android:paddingBottom="@dimen/agreement_form_padding_left"
+        android:paddingLeft="@dimen/agreement_form_padding_left"
+        android:paddingRight="@dimen/agreement_form_padding_left"
+        android:paddingTop="@dimen/agreement_form_padding_top">
+
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+
+    <com.applidium.nickelodeon.views.TextProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+
+    <com.applidium.nickelodeon.views.ApplidiumTextView
+        style="@style/agreement_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/agreement_form"
+        android:layout_centerHorizontal="true"
+        android:text="@string/user_clause"
+        android:textColor="@color/font_white"
+        app:customFont="GothamRnd-Bold.otf" />
+
+    <ImageButton
+        android:id="@+id/btn_cancel"
+        style="@style/agreement_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/agreement_form"
+        android:layout_alignTop="@id/agreement_form" />
+
+</RelativeLayout>

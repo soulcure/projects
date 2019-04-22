@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/common_bg">
+
+    <ImageView
+        android:id="@+id/logo_channel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/xiaomi_logo"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/welcome_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <com.applidium.nickelodeon.views.ApplidiumTextView
+            android:id="@+id/welcomeTitle"
+            style="@style/white_big_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_welcome_title"
+            app:customFont="GothamRnd-Bold.otf" />
+
+        <com.applidium.nickelodeon.views.ApplidiumTextView
+            android:id="@+id/welcomeTitle2"
+            style="@style/white_big_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            app:customFont="GothamRnd-Bold.otf" />
+
+    <ImageView
+        android:id="@+id/logo_img"
+        android:layout_width="@dimen/login_image_width"
+        android:layout_height="@dimen/login_image_height"
+        android:layout_marginTop="@dimen/title_marginbottom"
+        android:src="@drawable/pic_loading" />
+    </LinearLayout>
+</RelativeLayout>

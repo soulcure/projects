@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:listDivider"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/btn_save_male"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_white_corner_up"
+        android:padding="15dp"
+        android:text="@string/male"
+        android:textColor="@drawable/gender_txt_selector"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/btn_save_female"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/shape_rectangle_white_corner_down"
+        android:padding="15dp"
+        android:text="@string/female"
+        android:textColor="@drawable/gender_txt_selector"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_rectangle_white"
+        android:padding="15dp"
+        android:text="@string/btn_cancel"
+        android:textColor="@drawable/gender_txt_selector"
+        android:textSize="18sp" />
+
+</LinearLayout>

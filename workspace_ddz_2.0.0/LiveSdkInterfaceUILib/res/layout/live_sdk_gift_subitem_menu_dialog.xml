@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/live_sdk_pay_bg" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp"
+        android:background="#cdcdcd"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择礼物数量"
+            android:textColor="#464646"
+            android:visibility="visible"
+            android:textSize="@dimen/live_sdk_content_size_15"
+            />
+        <TextView 
+            android:id="@+id/live_sdk_txt_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="2dp"
+            android:textColor="#464646"
+            android:textSize="@dimen/live_sdk_content_size_15"
+            android:background="@drawable/live_sdk_txt_count_bg"
+            />
+        <View 
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            />
+        <Button
+	        android:id="@+id/live_sdk_btn_recharge"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/live_sdk_btn_recharge_bg"
+	        android:layout_marginRight="10dp"
+	        />
+        <Button 
+            android:id="@+id/live_sdk_btn_give_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/live_sdk_btn_give_gift_bg"
+            />
+    </LinearLayout>
+    
+    <com.yunva.live.sdk.ui.widget.ScrollLayout
+        android:id="@+id/live_sdk_scrollLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="135dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        />
+    
+    <com.yunva.live.sdk.ui.widget.PageControlView
+        android:id="@+id/live_sdk_pageControl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="bottom|center"
+        />
+    
+</LinearLayout>

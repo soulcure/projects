@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- playlist_fragment -->
+    <dimen name="imageButton_marginLeft">20dp</dimen>
+    <dimen name="gridview_spacing">5dp</dimen>
+    <!--playlist activity-->
+    <dimen name="cartoon_image_padding">0dp</dimen>
+
+    <dimen name="action_button_tips">5dp</dimen>
+
+    <!--metro UI-->
+    <dimen name="image_round_size">10dp</dimen>
+    <dimen name="shape_round_size">8dp</dimen>
+    <dimen name="mirror_ref_height">55dp</dimen>
+    <dimen name="animation_offset_y">25dp</dimen>
+    <dimen name="ITEM_DIVIDE_SIZE">5dp</dimen>
+    <dimen name="ITEM_V_WIDTH">240dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">365dp</dimen>
+    <dimen name="ITEM_H_WIDTH">405dp</dimen>
+    <dimen name="ITEM_H_HEIGHT">200dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE">190dp</dimen>
+    <dimen name="OUT_ITEM_NORMAL_SIZE">165dp</dimen>
+    <dimen name="TEXT_SHAPE_HEIGHT">30dp</dimen>
+
+
+    <dimen name="back_button_size">30dp</dimen>
+</resources>

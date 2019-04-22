@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameTitle"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cardzone_list_top_bg">
+    <!-- android:text="@string/returnStr" -->
+
+
+    <!--
+     <TextView
+        android:id="@+id/tvTitle"
+        style="@style/titileStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tvBack"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:shadowColor="#FF000000"
+        android:shadowDx="1.0"
+        android:shadowDy="2.0"
+        android:shadowRadius="2.0"
+        android:text="@string/actioncenter"
+        android:visibility="gone" />
+    -->
+
+    <TextView
+        android:id="@+id/txt_actioncenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:paddingBottom="5dp"
+        android:shadowColor="#FF000000"
+        android:shadowDx="1.0"
+        android:shadowDy="2.0"
+        android:shadowRadius="2.0"
+        android:text="@string/actioncenter"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/btn_back"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:paddingBottom="5dp" />
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="live_sdk_content_padding_bottom_8">8dp</dimen>
+    <dimen name="live_sdk_content_size_10">10dp</dimen>
+	<dimen name="live_sdk_content_size_9">9dp</dimen>
+    <dimen name="live_sdk_content_size_12">12dp</dimen>
+    <dimen name="live_sdk_content_size_13">13dp</dimen>
+    <dimen name="live_sdk_content_size_14">14dp</dimen>
+    <dimen name="live_sdk_content_size_15">15dp</dimen>
+    <dimen name="live_sdk_content_size_16">16dp</dimen>
+    <dimen name="live_sdk_content_size_19">19dp</dimen>
+</resources>

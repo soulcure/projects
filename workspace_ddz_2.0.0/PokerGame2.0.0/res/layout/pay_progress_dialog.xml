@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/mm_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/meinv_kawayi" />
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mm_img"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_dialog2_bg_notitle"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:id="@+id/tv_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@anim/pay_progress" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/common_bg">
+
+    <LinearLayout
+        android:id="@+id/linear_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_register"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/frame_padding_v"
+        android:paddingLeft="@dimen/frame_padding_h"
+        android:paddingRight="@dimen/frame_padding_h"
+        android:paddingTop="@dimen/frame_padding_v">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                style="@style/black_text_normal"
+                android:layout_width="@dimen/edittext_width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_register"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:paddingBottom="@dimen/edittext_padding_v"
+                android:paddingLeft="@dimen/edittext_padding_h"
+                android:paddingRight="@dimen/edittext_padding_h"
+                android:paddingTop="@dimen/edittext_padding_v" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_top"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/black_text_normal"
+                android:layout_width="@dimen/edittext_width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_register"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingBottom="@dimen/edittext_padding_v"
+                android:paddingLeft="@dimen/edittext_padding_h"
+                android:paddingRight="@dimen/edittext_padding_h"
+                android:paddingTop="@dimen/edittext_padding_v" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_top"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/et_verify_code"
+                style="@style/black_text_normal"
+                android:layout_width="@dimen/verify_code_width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_register"
+                android:hint="@string/input_verify_code"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingBottom="@dimen/edittext_padding_v"
+                android:paddingLeft="@dimen/edittext_padding_h"
+                android:paddingRight="@dimen/edittext_padding_h"
+                android:paddingTop="@dimen/edittext_padding_v" />
+
+            <com.applidium.nickelodeon.views.CountDownClock
+                android:id="@+id/tv_countdown"
+                style="@style/white_text_normal"
+                android:layout_width="@dimen/countdown_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/countdown_margin_left"
+                android:background="@drawable/btn_brown"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingBottom="@dimen/edittext_padding_v"
+                android:paddingLeft="@dimen/edittext_padding_h"
+                android:paddingRight="@dimen/edittext_padding_h"
+                android:paddingTop="@dimen/edittext_padding_v"
+                android:text="@string/get_verify_code" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_agree_clause"
+            style="@style/white_text_bold"
+            android:layout_width="@dimen/edittext_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_top"
+            android:background="@drawable/btn_green_w"
+            android:paddingBottom="@dimen/edittext_padding_v"
+            android:paddingLeft="@dimen/edittext_padding_h"
+            android:paddingRight="@dimen/edittext_padding_h"
+            android:paddingTop="@dimen/edittext_padding_v"
+            android:text="@string/agree_clause" />
+
+        <com.applidium.nickelodeon.views.FoucsTextView
+            android:id="@+id/tv_user_clause"
+            style="@style/brown_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_top"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="5dp"
+            android:text="@string/user_clause" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/img_dora_width"
+        android:layout_height="@dimen/img_dora_height"
+        android:layout_alignLeft="@id/linear_center"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/img_dora_margin_left"
+        android:src="@drawable/dora_pic" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/button_back_margin_left"
+        android:layout_marginTop="@dimen/button_back_margin_top"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/btn_back" />
+</RelativeLayout>

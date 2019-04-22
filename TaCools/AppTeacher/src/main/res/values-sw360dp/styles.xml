@@ -1,0 +1,44 @@
+<resources>
+
+   
+    <!--以下分辨率适配size-->
+
+
+    <!--size-->
+    <style name="txt_black_normal">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/material_textBlack_black</item>
+    </style>
+
+
+    <style name="txt_white_big">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_white</item>
+    </style>
+
+    <style name="login_edit">
+        <item name="android:textColorHint">@color/color_gray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_black</item>
+        <!--<item name="android:padding">10dp</item>-->
+    </style>
+
+
+    <!--fragment_main_teacher-->
+    <style name="txt_grey_small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="txt_grey_middle">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="txt_grey_large">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="txt_grey_large_x">
+        <item name="android:textSize">30sp</item>
+    </style>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/btn_buy_vip_item_phone_selector"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="8dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="10dp"
+    android:paddingTop="8dp">
+
+    <TextView
+        android:id="@+id/tv_discount"
+        style="@style/goods_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/bg_coin"
+        android:gravity="center" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="55dp"
+        android:layout_marginLeft="60dp"
+        android:background="#2ca9e3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_vipName"
+            style="@style/goods_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tv_cost"
+            style="@style/goods_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+
+    </LinearLayout>
+</LinearLayout>
+

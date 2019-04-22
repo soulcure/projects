@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/common_bg"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/linear_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp">
+
+        <com.applidium.nickelodeon.views.FoucsLinearLayout
+            android:id="@+id/baby_info_layout"
+            android:layout_width="@dimen/metro_cloud_width"
+            android:layout_height="@dimen/metro_cloud_height"
+            android:layout_marginLeft="55dp"
+            android:background="@drawable/img_cloud"
+            android:focusable="true"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/metro_title_textSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="4"
+                    android:singleLine="true"
+                    android:text="@string/cartoon_houses"
+                    android:layout_above="@+id/tv_age"
+                    android:layout_alignLeft="@+id/tv_age"/>
+
+                <TextView
+                    android:id="@+id/tv_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/year_old"
+                    android:textColor="@color/black"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/img_baby"
+                    android:layout_width="@dimen/metro_head_size"
+                    android:layout_height="@dimen/metro_head_size"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="26dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/baby_head"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/head_boy" />
+
+            </RelativeLayout>
+
+        </com.applidium.nickelodeon.views.FoucsLinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_action"
+            android:layout_width="@dimen/metro_action_btn_width"
+            android:layout_height="@dimen/metro_action_btn_height"
+            android:background="@drawable/btn_action" />
+
+        <Button
+            android:id="@+id/btn_vip"
+            android:layout_width="@dimen/metro_btn_width"
+            android:layout_height="@dimen/metro_btn_height"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btn_vip" />
+
+        <Button
+            android:id="@+id/btn_parent"
+            android:layout_width="@dimen/metro_btn_width"
+            android:layout_height="@dimen/metro_btn_height"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btn_parent" />
+    </LinearLayout>
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:scrollbars="none">
+
+        <com.applidium.nickelodeon.views.MetroLayout
+            android:id="@+id/metrolayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/metro_paddingLeft"
+            android:paddingRight="@dimen/metro_paddingRight"
+            android:paddingTop="@dimen/metro_paddingTop" />
+    </HorizontalScrollView>
+
+</LinearLayout>

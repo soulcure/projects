@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_content"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <ListView
+        android:id="@+id/server_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="3dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/server_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/btn_server_send"
+            android:shadowColor="#cb7d00"
+            android:shadowDx="8"
+            android:shadowDy="8"
+            android:shadowRadius="3"
+            android:text="发送"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/server_getscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/server_send"
+            android:layout_marginLeft="3dp"
+            android:layout_toLeftOf="@id/server_send"
+            android:background="@drawable/btn_server_getscreen"
+            android:gravity="bottom|center_horizontal"
+            android:paddingBottom="3dp"
+            android:shadowColor="#227c09"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="3"
+            android:text="提供截图"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/server_edit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="top"
+            android:layout_marginLeft="40dp"
+            android:layout_toLeftOf="@id/server_getscreen"
+            android:background="@drawable/server_input_frame"
+            android:gravity="center_vertical|left"
+            android:hint="请输入您的问题或意见，我们会尽快答复"
+            android:imeOptions="flagNoExtractUi|flagNoFullscreen"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="#ffdbb4"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="18dp">
+
+        <TextView
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="客服热线:" />
+
+        <TextView
+            android:id="@+id/server_tel"
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="400-777-9996" />
+
+        <TextView
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="12sp"
+            android:text="官方QQ群:" />
+
+        <TextView
+            android:id="@+id/server_qqgroup"
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="233721138" />
+
+        <TextView
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="12sp"
+            android:text="官方微信:" />
+
+        <TextView
+            android:id="@+id/server_weixin"
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="mykjgame" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/img_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@anim/loading_play"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/speed"
+        style="@style/white_text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/h_transparent"
+        android:visibility="gone" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listview"
+        android:layout_width="@dimen/playlist_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="#90000000"
+        android:scrollbars="none" />
+
+    <ImageView
+        android:id="@+id/ad_bar"
+        android:layout_width="@dimen/ad_image_width"
+        android:layout_height="@dimen/ad_image_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/controlbar"
+        layout="@layout/freeplay_control_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/listview" />
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/play_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/listview"/>
+
+
+    <ImageButton
+        android:id="@+id/btn_play_unlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:src="@drawable/bg_play_unlock_selector"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_free_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/pay_value"
+        android:text="@string/free_time"
+        android:textColor="@color/little_yellow"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

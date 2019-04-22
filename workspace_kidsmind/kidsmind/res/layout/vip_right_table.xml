@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:background="@color/vip_table_title_bg"
+                android:text="@string/vip_right" />
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:background="@color/vip_table_title_bg"
+                android:text="@string/vip_user" />
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:background="@color/vip_table_title_bg"
+                android:text="@string/normal_user" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:text="@string/watch_all" />
+
+            <ImageView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:src="@drawable/tip_right" />
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:text="@string/watch_free" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:text="@string/zh_eng" />
+
+            <ImageView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:src="@drawable/tip_right" />
+
+            <ImageView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:src="@drawable/tip_wrong" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:text="@string/channel" />
+
+            <ImageView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:src="@drawable/tip_right" />
+
+            <TextView
+                style="@style/VipTableStyle"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/vip_table_item_bg"
+                android:text="@string/thirty_min_a_day" />
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</LinearLayout>
+
+

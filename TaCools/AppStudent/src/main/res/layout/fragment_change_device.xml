@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        style="@style/login_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_account_selector"
+        android:drawablePadding="@dimen/register_item_padding"
+        android:gravity="center_vertical"
+        android:hint="@string/login_phone_hint"
+        android:inputType="phone"
+        android:lines="1"
+        android:maxLength="11"
+        android:padding="@dimen/register_item_padding"
+        android:textColor="@color/color_blue" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/register_item_padding"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_sms_code"
+            style="@style/login_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_sms_selector"
+            android:drawablePadding="@dimen/register_item_padding"
+            android:hint="@string/sms_code_hint"
+            android:inputType="number"
+            android:lines="1"
+            android:padding="@dimen/register_item_padding"
+            android:textColor="@color/color_blue" />
+
+        <Button
+            android:id="@+id/btn_sms_code"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sms_btn_height"
+            android:layout_alignBottom="@id/et_sms_code"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="@dimen/register_item_padding"
+            android:background="@drawable/btn_commit_selector"
+            android:gravity="center"
+            android:paddingLeft="@dimen/register_item_padding"
+            android:paddingRight="@dimen/register_item_padding"
+            android:text="@string/req_sms_code"
+            android:textColor="@color/color_white" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/register_item_padding"
+        android:layout_marginRight="@dimen/register_item_padding"
+        android:layout_marginTop="@dimen/register_item_padding"
+        android:background="@drawable/btn_commit_selector"
+        android:text="@string/commit"
+        android:textColor="@color/color_white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/register_item_padding"
+        android:text="@string/change_device_info" />
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+</LinearLayout>

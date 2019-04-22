@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ivmall.android.app.views.SerieItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:paddingBottom="6dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="6dp">
+
+    <RelativeLayout
+        android:id="@+id/relative_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/img_frame"
+            android:layout_width="@dimen/serie_width"
+            android:layout_height="@dimen/serie_height"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_h_default" />
+
+
+        <TextView
+            android:id="@+id/tv_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_frame"
+            android:layout_alignLeft="@id/img_frame"
+            android:layout_alignRight="@id/img_frame"
+            android:background="@drawable/bg_serie_shape"
+            android:gravity="center"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:text="@string/recommend_context"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_collect"
+            android:layout_alignRight="@id/img_frame"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="@color/font_white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_sequence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/img_frame"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/snow"
+            android:textSize="18sp" />
+    </RelativeLayout>
+</com.ivmall.android.app.views.SerieItemView>
+

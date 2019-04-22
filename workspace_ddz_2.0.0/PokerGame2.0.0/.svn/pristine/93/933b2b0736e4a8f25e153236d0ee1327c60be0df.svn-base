@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/custom_dialog2_bg"
+        android:paddingBottom="10dp" >
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/dialogTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="今日必得" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp" >
+
+            <RelativeLayout
+                android:id="@+id/exit_main_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" >
+
+                <TextView
+                    android:id="@+id/single_text"
+                    android:layout_width="390dp"
+                    android:layout_height="100dp"
+                    android:gravity="center_vertical"
+                    android:maxLines="6"
+                    android:layout_centerHorizontal="true"
+                    android:text="再玩5局就可以领10元话费券了，仅此一次，就这么放弃了吗？"
+                    android:textColor="@color/dialog_text_color2"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/multi_contain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true"
+                     >
+
+                    <RelativeLayout
+                        android:id="@+id/item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <ImageView
+                            android:id="@+id/item1_bg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/exit_dlg_item_bg" />
+
+                        <TextView
+                            android:id="@+id/item1_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="11dp"
+                            android:text="任务名字"
+                            android:textColor="#ffedc7"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/item1_todo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@id/item1_bg"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="立即去做"
+                            android:textColor="#ffffff"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/item1_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/exit_dlg_task_text_bg"
+                            android:gravity="center_vertical|right"
+                            android:paddingRight="10dp"
+                            android:text="0/0"
+                            android:textColor="#ffffff" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="13dp"
+                            android:background="@drawable/exit_dlg_item_box" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/item2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp" >
+
+                        <ImageView
+                            android:id="@+id/item2_bg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/exit_dlg_item_bg" />
+
+                        <TextView
+                            android:id="@+id/item2_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="11dp"
+                            android:text="任务名字"
+                            android:textColor="#ffedc7"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/item2_todo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@id/item2_bg"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="立即去做"
+                            android:textColor="#ffffff"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/item2_img"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/exit_main_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/exit_button"
+                    style="@style/exit_1_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="要走了" />
+
+                <Button
+                    android:id="@+id/complete_button"
+                    style="@style/exit_2_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="绑定账号" />
+
+                <Button
+                    android:id="@+id/button_3"
+                    style="@style/exit_2_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="再玩会" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/exit_dlg_mm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/exit_dlg_mm" />
+
+    <TextView
+        android:id="@+id/exit_tomorrow"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-30dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/exit_dlg_mm"
+        android:background="@drawable/exit_tomorrow_bg"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:shadowColor="#703a00"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:singleLine="true"
+        android:textColor="#34fdff"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:layout_alignRight="@id/main"
+        android:layout_marginRight="-10dp"
+        android:src="@drawable/btn_dlg_close" />
+
+    <TextView
+        android:id="@+id/complete_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:textColor="#9bff1a" />
+
+</RelativeLayout>

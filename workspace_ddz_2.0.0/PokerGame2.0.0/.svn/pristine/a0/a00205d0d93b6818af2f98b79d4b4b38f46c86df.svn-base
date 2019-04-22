@@ -1,0 +1,79 @@
+package com.mykj.andr.pay.payment;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
+import android.content.Context;
+import android.util.Log;
+
+import com.mykj.andr.pay.PayManager;
+import com.mykj.game.ddz.R;
+import com.mykj.game.utils.Toast;
+import com.mykj.game.utils.Util;
+import com.mykj.game.utils.UtilHelper;
+
+public class TelecomPayment {
+	private final static String TAG = "AlixPayment";
+
+	private static TelecomPayment instance = null;
+
+	private static Context mContext;
+
+	private TelecomPayment(Context context){
+	}
+	public static TelecomPayment getInstance(Context context) {
+		if (instance == null) {
+			instance = new TelecomPayment(context);
+		}
+		mContext=context;
+		return instance;
+	}
+
+	/**
+	 * 初始化支付
+	 */
+	public void initPayment() {
+
+	}
+
+	/**
+	 * 获取支付参数
+	 */
+	@SuppressWarnings("deprecation")
+	public void Analytical(int shopID,String signParam) {
+		if (!Util.isEmptyStr(signParam)) {
+			// 发送至号码
+			String telSmsPhoneNumber = UtilHelper.parseStatusXml(signParam, "num");
+			// 短信内容:其中包括订单号
+			String telSmsContent = UtilHelper.parseStatusXml(signParam, "msg");
+			String telSmsContentDecoder = null;
+			try {
+				telSmsContentDecoder=URLDecoder.decode(telSmsContent,"utf-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String telSmsOrder = UtilHelper.parseStatusXml(signParam, "orderId");
+			CallPayment(shopID,telSmsPhoneNumber,telSmsContentDecoder,telSmsOrder);
+		} else {
+			Toast.makeText(mContext, mContext.getString(R.string.pay_error),Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	/***
+	 * 调用支付SDK
+	 */
+	public void CallPayment(int shopID,String telSmsPhoneNumber,String telSmsContent,String telSmsOrder) {
+		Log.v(TAG, "TelecomPayment CallPayment start...");
+		//短信购买成功回调
+		PayManager.getInstance(mContext).netReceive(shopID);
+		// 发送短信购买
+		Util.sendTextSMS(telSmsPhoneNumber, telSmsContent, mContext);
+		long startTime = System.currentTimeMillis();
+		PayManager.setBuyingRecord(shopID, startTime);
+		// 提示支付
+		UtilHelper.showCustomDialog(mContext,
+				mContext.getString(R.string.buysuccess));
+	}
+
+}

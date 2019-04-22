@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:paddingLeft="@dimen/s_304"
+    android:paddingTop="@dimen/s_43" >
+
+    <com.letv.tvos.paysdk.widget.AsyncImageView
+        android:id="@+id/pay_iv_order"
+        android:layout_width="@dimen/s_280"
+        android:layout_height="@dimen/s_156"
+        android:background="@drawable/letv_product"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/pay_iv_show2dCode"
+        android:layout_width="@dimen/s_280"
+        android:layout_height="@dimen/s_280"
+        android:layout_below="@id/pay_iv_order"
+        android:layout_marginTop="@dimen/s_13"
+        android:background="@drawable/letv_qr_init"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/pay_tv_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/s_49"
+        android:layout_toRightOf="@id/pay_iv_order"
+        android:gravity="center"
+        android:text="@string/letv_pay_sdk_product"
+        android:textSize="@dimen/f_24" />
+
+    <TextView
+        android:id="@+id/pay_tv_quality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/pay_tv_subject"
+        android:layout_below="@id/pay_tv_subject"
+        android:layout_marginTop="@dimen/s_12"
+        android:gravity="center"
+        android:text="@string/letv_pay_sdk_quality"
+        android:textSize="@dimen/f_24" />
+
+    <TextView
+        android:id="@+id/pay_tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/pay_tv_subject"
+        android:layout_below="@id/pay_tv_quality"
+        android:layout_marginTop="@dimen/s_12"
+        android:gravity="center"
+        android:text="@string/letv_pay_sdk_price"
+        android:textSize="@dimen/f_24" />
+
+    <TextView
+        android:id="@+id/pay_tv_sumprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/pay_tv_subject"
+        android:layout_below="@id/pay_tv_price"
+        android:layout_marginTop="@dimen/s_12"
+        android:gravity="center"
+        android:text="@string/letv_pay_sdk_total_price"
+        android:textSize="@dimen/f_24" />
+
+    <TextView
+        android:id="@+id/pay_tv_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/pay_tv_subject"
+        android:layout_below="@id/pay_tv_sumprice"
+        android:layout_marginTop="@dimen/s_12"
+        android:gravity="center"
+        android:text="@string/letv_pay_sdk_default_order"
+        android:textSize="@dimen/f_24" />
+
+    <TextView
+        android:id="@+id/pay_tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/pay_tv_subject"
+        android:layout_below="@id/pay_tv_order"
+        android:layout_marginTop="@dimen/s_12"
+        android:gravity="center"
+        android:text="@string/letv_pay_sdk_username"
+        android:textSize="@dimen/f_24" />
+
+    <RelativeLayout
+        android:id="@+id/rl_scan_sucess"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/s_49"
+        android:layout_alignLeft="@id/pay_tv_subject"
+        android:layout_below="@id/pay_tv_username"
+        android:layout_marginTop="@dimen/s_27"
+        android:background="@drawable/letv_scan_sucess_background"
+        android:paddingLeft="@dimen/s_23"
+        android:paddingRight="@dimen/s_23" >
+
+        <ImageView
+            android:id="@+id/scan_sucess"
+            android:layout_width="@dimen/s_27"
+            android:layout_height="@dimen/s_27"
+            android:layout_centerVertical="true"
+            android:background="@drawable/letv_scan_sucess"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/tv_start_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/s_9"
+            android:layout_toRightOf="@id/scan_sucess"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/f_24" />
+    </RelativeLayout>
+
+   
+
+    <ImageView
+        android:id="@+id/iv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_iv_show2dCode"
+        android:layout_marginLeft="@dimen/s_118"
+        android:layout_marginTop="@dimen/s_76"
+        android:background="@drawable/letv_info_icon"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/pay_tv_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/s_25"
+        android:layout_below="@id/pay_iv_show2dCode"
+        android:layout_marginLeft="@dimen/s_7"
+        android:layout_marginTop="@dimen/s_68"
+        android:layout_toRightOf="@id/iv_info"
+        android:text="@string/letv_pay_sdk_order_deprecated_time"
+        android:textSize="@dimen/f_22" />
+
+    <ImageView
+        android:id="@+id/iv_info1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_iv_show2dCode"
+        android:layout_marginLeft="@dimen/s_35"
+        android:layout_marginTop="@dimen/s_76"
+        android:layout_toRightOf="@id/pay_tv_notice"
+        android:background="@drawable/letv_phone_icon"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/pay_tv_notice1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/s_25"
+        android:layout_alignTop="@id/pay_tv_notice"
+        android:layout_below="@id/pay_iv_show2dCode"
+        android:layout_marginLeft="@dimen/s_7"
+        android:layout_toRightOf="@id/iv_info1"
+        android:text="@string/letv_pay_sdk_customer_service_phone"
+        android:textSize="@dimen/f_22" />
+
+</RelativeLayout>

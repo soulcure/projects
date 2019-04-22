@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/live_sdk_layout_record_voice_state"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:visibility="gone"
+	android:layout_centerInParent="true" >
+	
+	<LinearLayout
+		android:id="@+id/live_sdk_layout_record_voice_xinhao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+ 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/live_sdk_talk_sing_icon" />
+
+            <ImageView
+                android:id="@+id/live_sdk_iv_talk_single_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+				android:src="@drawable/live_sdk_record_state_anim" />
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/live_sdk_txt_record_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="60秒"
+        android:textColor="@color/live_sdk_white"
+        android:textSize="@dimen/live_sdk_content_size_13" />
+
+</LinearLayout>

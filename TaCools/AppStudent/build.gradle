@@ -1,0 +1,212 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+// import aar lib
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "com.taku.safe"
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        versionCode 10
+        versionName "1.1.0"
+        // Enabling multidex support.
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'toucool'
+            keyPassword 'touCool'
+            storeFile file('../touCool.jks')
+            storePassword 'yueguangbaohe'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
+
+        release {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+            jniDebuggable false
+            zipAlignEnabled true
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType.name == "release") {
+                outputFileName = "taku_student_v${defaultConfig.versionName}_${getPackageInfo(variant)}_${releaseTime()}" + ".apk"
+            } else {
+                outputFileName = "taku_student_v${defaultConfig.versionName}_debug.apk"
+            }
+            variant.assemble.doLast {
+                copyBuildApk(variant)
+            }
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        common {}
+        wandoujia {}
+        _360 {}
+        baidu {}
+        xiaomi {}
+        tencent {}
+
+        productFlavors.all {
+            flavor ->
+                flavor.manifestPlaceholders = [TAKU_CHANNEL_VALUE: name]
+        }
+    }
+
+}
+
+greendao {
+    schemaVersion 1
+    daoPackage 'com.taku.safe.db.dao'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':PushSDK')
+
+    implementation 'com.google.code.gson:gson:2.8.1'  //gson
+    implementation 'com.github.bumptech.glide:glide:4.0.0'  //glide
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1' //okhttp
+    implementation 'org.greenrobot:greendao:3.2.2'  //greendao
+
+    implementation 'com.amap.api:3dmap:5.7.0'   //高德3d地图
+    implementation 'com.amap.api:location:3.7.0' //高德定位
+    implementation 'com.amap.api:search:5.3.1'
+
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.3.4'  //wechat sdk
+    implementation 'com.github.lovetuzitong:MultiImageSelector:1.2' //仿微信图片选择器
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7'  //gif view
+    implementation 'com.github.czy1121:update:1.1.1'
+    implementation 'com.vanniktech:emoji-ios:0.5.1'   //emoji 表情库
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+
+    //implementation 'com.droidninja:filepicker:2.0.7' //图片,文件选择器
+    //implementation 'com.sina.weibo.sdk:core:2.0.3:openDefaultRelease@aar'     //weibo sdk
+    //implementation 'com.google.zxing:core:3.3.0'   //zxing
+    //implementation 'com.aliyun.dpa:oss-android-sdk:2.3.0'//aliyun oss
+    //implementation 'com.rengwuxian.materialedittext:library:2.1.4'                 //EditText实现右下角计数控件
+
+    implementation 'com.youth.banner:banner:1.4.9'    //banner公告
+    implementation 'com.github.ceryle:SegmentedButton:v2.0.1' //switch button
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'  //图表控件
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.7' //图片剪裁
+    implementation 'com.github.paolorotolo:appintro:4.1.0'  //app welcome引导图
+    implementation 'com.zzhoujay.materialcolors:materialcolors:1.0.0' //material风格 颜色值
+    implementation 'com.github.vipulasri:timelineview:1.0.5'  //time line
+
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.1'  //BottomNavigationView
+    implementation 'com.contrarywind:Android-PickerView:3.2.5'//三级联动滑轮
+    implementation 'com.github.clans:fab:1.6.4'    //FloatingActionButton
+    implementation 'com.makeramen:roundedimageview:2.3.0'   //圆形imageview
+    implementation 'com.jzxiang.pickerview:TimePickerDialog:1.0.1' //日期选择器
+
+    implementation 'pub.devrel:easypermissions:0.4.0' //easy permissions
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'   //圆形进度条
+    implementation 'com.romandanylyk:pageindicatorview:1.0.0'  //能够指示选定页的ViewPage
+
+    implementation 'com.afollestad.material-dialogs:commons:0.9.4.5'         //material-dialogs
+    implementation 'com.jaredrummler:material-spinner:1.1.0'               //Spinner
+    implementation 'q.rorbin:badgeview:1.1.3'                                //Badge数字
+    implementation 'com.prolificinteractive:material-calendarview:1.4.3'     //日历
+    implementation 'com.umeng.analytics:analytics:6.1.3'     //友盟统计
+    implementation 'com.yuan.library.selector:selectordrawable-release:1.0.3'   //selector factory
+    implementation 'com.android.support:multidex:1.0.2'
+
+    implementation "com.android.support:support-v4:${SUPPORT_VERSION}"
+    implementation "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
+    implementation "com.android.support:cardview-v7:${SUPPORT_VERSION}"
+    implementation "com.android.support:design:${SUPPORT_VERSION}"
+    implementation "com.android.support:support-v13:${SUPPORT_VERSION}"
+    implementation "com.android.support:exifinterface:${SUPPORT_VERSION}"
+
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+}
+
+project.afterEvaluate {
+    handleBuildTag()
+}
+
+def copyBuildApk(variant) {
+    copy {
+        from("${buildDir}/outputs/apk/${variant.productFlavors[0].name}/release") {
+            include "*.apk"
+        }
+        into '../dist'
+    }
+}
+
+
+def handleBuildTag() {
+    def launch = getLaunchMode()
+    if (launch != null) {
+        def appCfgFilePath = "./src/main/java/com/taku/safe/config/AppConfig.java"
+        def appCfgRegexStr = "private\\s+final\\s+static\\s+int\\s+LAUNCH_MODE\\s+=\\s+[01];"
+        def appCfgReplaceStr = "private final static int LAUNCH_MODE = " + launch + ";"
+        handleReplaceSrc project, appCfgRegexStr, appCfgReplaceStr, appCfgFilePath
+
+    }
+}
+
+/*def getChannel() {
+    if (project.hasProperty('channel')) {
+        return project.getProperties().getAt('channel')
+    } else {
+        return "1000"   //default 1000 渠道号
+    }
+}*/
+
+
+def getLaunchMode() {
+    if (project.hasProperty('launch_mode')) {
+        return project.getProperties().getAt('launch_mode')
+    } else {
+        return 1      //default 正式环境
+    }
+}
+
+def getPackageInfo(variant) {
+    def launch = getLaunchMode()
+
+    if (launch == "1") {
+        return variant.productFlavors[0].name
+    } else {
+        return "test"
+    }
+}
+
+
+def static handleReplaceSrc(project, regexStr, replaceStr, filePath) {
+    def srcFile = project.file filePath
+    def newReplaceStr = srcFile.text.replaceAll regexStr, replaceStr
+    srcFile.write newReplaceStr, "UTF-8"
+}
+
+def static releaseTime() {
+    return new Date().format("MMdd_HHmm")
+}
+

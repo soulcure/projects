@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.ivmall.android.app.views.FoucsLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:padding="@dimen/recommend_item_padding">
+
+    <ImageView
+        android:id="@+id/recommend_image"
+        android:layout_width="@dimen/recommend_image_width"
+        android:layout_height="@dimen/recommend_image_height"
+        android:src="@drawable/cartoon_icon_default"/>
+
+    <TextView
+        android:id="@+id/recommend_title_text"
+        style="@style/recommend_video_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/recommend_text_bg"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:singleLine="true"/>
+
+    <ScrollView
+        android:id="@+id/recommend_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/recommend_video_info_height"
+        android:background="@drawable/recommend_text_shape"
+        android:paddingBottom="10dp"
+        android:scrollbars="none">
+
+
+        <TextView
+            android:id="@+id/recommend_info_text"
+            style="@style/recommend_video_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"/>
+
+    </ScrollView>
+
+</com.ivmall.android.app.views.FoucsLinearLayout>
+

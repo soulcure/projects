@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- pressed -->
+    <item android:drawable="@drawable/btn_tab_bg_press" android:state_pressed="true" />
+    <!-- focused -->
+    <item android:drawable="@drawable/btn_tab_bg_press" android:state_focused="true" />
+    <!-- selected -->
+    <item android:drawable="@drawable/btn_tab_bg_select" android:state_selected="true" />
+    <!-- hovered -->
+    <item android:drawable="@drawable/btn_tab_bg_press" android:state_hovered="true" />
+    <!-- default -->
+    <item android:drawable="@drawable/btn_tab_bg_normal" />
+
+</selector>

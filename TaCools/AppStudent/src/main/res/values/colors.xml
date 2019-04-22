@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--app主题标题栏颜色 -->
+    <color name="colorPrimary">#0098fe</color>
+    <!--app主题通知栏颜色 -->
+    <color name="colorPrimaryDark">#0098fe</color>
+    <!--app主题标题默认控件颜色 -->
+    <color name="colorAccent">#0098fe</color>
+
+    <!--通用背景白色 -->
+    <color name="bg_white">#f5f5f5</color>
+
+    <!--通用背景白色普通 -->
+    <color name="bg_white_normal">#fafafa</color>
+
+    <!--通用背景白色按下 -->
+    <color name="bg_white_press">#f0f0f0</color>
+
+    <!--通用背景灰色 -->
+    <color name="bg_gray">#757575</color>
+
+    <!--通用字体灰色 -->
+    <color name="text_gray_30">#4c000000</color>
+    <color name="text_gray_54">#89000000</color>
+    <color name="text_gray_87">#dd000000</color>
+
+    <!--通用字体黑色 -->
+    <color name="text_black">#ff000000</color>
+
+    <!--通用字体红色 -->
+    <color name="text_red">#d0011b</color>
+
+    <!--通用字体白色 -->
+    <color name="text_white">#fafafa</color>
+
+    <!--通用分割线灰色 -->
+    <color name="divide_gray">#31000000</color>
+
+    <!--半透明 -->
+    <color name="h_transparent">#4006509d</color>
+
+    <!--透明 -->
+    <color name="transparent">#00000000</color>
+
+    <color name="color_white">#ffffff</color>
+    <color name="color_black">#000000</color>
+    <color name="color_green">#45af08</color>
+    <color name="color_gray">#757575</color>
+    <color name="color_red">#ff0000</color>
+    <color name="color_blue">#0098fe</color>
+    <color name="color_orange">#e65100</color>
+
+    <color name="cursor_color">#3bdcff</color>
+
+
+    <color name="color_blue_press">#33000000</color>
+
+    <!--内容-->
+    <color name="color_content">#8a000000</color>
+
+    <!--标题-->
+    <color name="color_title">#df000000</color>
+
+
+    <color name="color_normal">#4b89dc</color>
+    <color name="color_unusual">#db4453</color>
+    <color name="color_nosign">#f6a623</color>
+    <color name="color_noregedit">#ac92ed</color>
+
+    <color name="color_bar_chart">#f6a623</color>
+
+    <!--IconSwitch-->
+    <color name="isw_defaultBg">#302F31</color>
+    <color name="informationPrimary">#673AAA</color>
+    <color name="informationPrimaryDark">#63329B</color>
+    <color name="mapPrimary">#F34E4E</color>
+    <color name="mapPrimaryDark">#C0394F</color>
+
+</resources>

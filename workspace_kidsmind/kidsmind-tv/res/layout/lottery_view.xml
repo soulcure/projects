@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#de3637"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/iamge_LeftCount"
+        android:layout_width="372dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/lottery_img_width"
+                android:layout_height="@dimen/lottery_img_height"
+                android:layout_marginTop="15dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/wuji_yuandansong" />
+
+            <ImageView
+                android:layout_width="@dimen/lottery_name_width"
+                android:layout_height="@dimen/lottery_name_height"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/img_lottery_name" />
+
+            <ListView
+                android:id="@+id/lottery_info"
+                android:layout_width="@dimen/lottery_listview_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/lottery_padding_top"
+                android:layout_marginTop="@dimen/lottery_padding_top"
+                android:divider="@color/transparent"
+                android:listSelector="@color/transparent"
+                android:scrollbars="none"
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4">
+
+            <com.ivmall.android.app.views.LuckyPanView
+                android:id="@+id/luckyPan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/start_btn"
+                android:layout_width="@dimen/lottery_button_width"
+                android:layout_height="@dimen/lottery_button_height"
+                android:layout_centerInParent="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:src="@drawable/lucky_btn_selector" />
+
+            <LinearLayout
+                android:id="@+id/lottery_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-15dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/lottery_title_img_width"
+                    android:layout_height="@dimen/lottery_title_img_height"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/lottery_title" />
+
+                <ImageView
+                    android:id="@+id/lottery_ticket"
+                    android:layout_width="@dimen/lottery_ticket_img_width"
+                    android:layout_height="@dimen/lottery_ticket_img_height"
+                    android:layout_centerInParent="true" />
+
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/btn_vip_use"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/btn_vip_use" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.1" />
+    </LinearLayout>
+
+    <!--<include layout="@layout/lottery_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />-->
+</RelativeLayout>

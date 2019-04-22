@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content" >
+	<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    android:src="@drawable/meinv_kawayi" android:id="@+id/mm_img"
+	    android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_below="@id/mm_img"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_dialog2_bg_notitle"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:id="@+id/main_layout" >
+
+        <TextView
+            android:id="@+id/first_login_content_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="18sp"
+            android:text="aaaaaaaaaaaaaaa" />
+
+        <Button
+            android:id="@+id/first_login_start_game_B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            style="@style/exit_2_style"
+            android:text="下一步"
+             />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/main_layout"
+        android:layout_alignTop="@id/main_layout"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/btn_dlg_close"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="420dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal" >
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_dialog2_bg"
+        android:paddingBottom="10dp" >
+
+        <ImageButton
+            android:id="@+id/ib_login3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/btn_login_3" />
+
+        <ImageButton
+            android:id="@+id/ib_login5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ib_login3"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/ib_login3"
+            android:background="@drawable/btn_login_5" />
+
+        <ImageButton
+            android:id="@+id/ib_login7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ib_login5"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/ib_login5"
+            android:background="@drawable/btn_login_7" />
+
+        <ImageButton
+            android:id="@+id/ib_login15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/ib_login3"
+            android:layout_below="@id/ib_login3"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_login_15" />
+
+        <ImageButton
+            android:id="@+id/ib_loginall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login15"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/ib_login15"
+            android:background="@drawable/btn_login_all" />
+
+        <TextView
+            android:id="@+id/login3_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login3"
+            android:layout_alignLeft="@id/ib_login3"
+            android:layout_alignRight="@id/ib_login3"
+            android:layout_marginBottom="3dp"
+            android:gravity="center_horizontal"
+            android:text="价值100元"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/login5_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login5"
+            android:layout_alignLeft="@id/ib_login5"
+            android:layout_alignRight="@id/ib_login5"
+            android:layout_marginBottom="3dp"
+            android:gravity="center_horizontal"
+            android:text="价值100元"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/login7_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login7"
+            android:layout_alignLeft="@id/ib_login7"
+            android:layout_alignRight="@id/ib_login7"
+            android:layout_marginBottom="3dp"
+            android:gravity="center_horizontal"
+            android:text="价值100元"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/login15_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login15"
+            android:layout_alignLeft="@id/ib_login15"
+            android:layout_alignRight="@id/ib_login15"
+            android:layout_marginBottom="3dp"
+            android:gravity="center_horizontal"
+            android:text="价值100元"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/loginall_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_loginall"
+            android:layout_alignLeft="@id/ib_loginall"
+            android:layout_alignRight="@id/ib_loginall"
+            android:layout_marginBottom="3dp"
+            android:gravity="center_horizontal"
+            android:text="价值100元"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/login3_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login3"
+            android:layout_alignLeft="@id/ib_login3"
+            android:layout_alignRight="@id/ib_login3"
+            android:layout_alignTop="@id/ib_login3" />
+
+        <ImageView
+            android:id="@+id/login5_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login5"
+            android:layout_alignLeft="@id/ib_login5"
+            android:layout_alignRight="@id/ib_login5"
+            android:layout_alignTop="@id/ib_login5" />
+
+        <ImageView
+            android:id="@+id/login7_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login7"
+            android:layout_alignLeft="@id/ib_login7"
+            android:layout_alignRight="@id/ib_login7"
+            android:layout_alignTop="@id/ib_login7" />
+
+        <ImageView
+            android:id="@+id/login15_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_login15"
+            android:layout_alignLeft="@id/ib_login15"
+            android:layout_alignRight="@id/ib_login15"
+            android:layout_alignTop="@id/ib_login15" />
+
+        <ImageView
+            android:id="@+id/loginall_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ib_loginall"
+            android:layout_alignLeft="@id/ib_loginall"
+            android:layout_alignRight="@id/ib_loginall"
+            android:layout_alignTop="@id/ib_loginall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/ib_login3"
+            android:layout_alignRight="@id/ib_login7"
+            android:layout_below="@id/ib_login15"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="礼包各奖项随机开出，拼人品的时候到了！"
+            android:textColor="@color/dialog_text_color2"
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@id/ib_login7"
+            android:background="@drawable/login_info_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/login_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="本月签到：20天"
+                android:textColor="@color/dialog_text_color2"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/login_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_login_sign"
+                android:text="签到"
+                android:textColor="#603c05" />
+
+            <TextView
+                android:id="@+id/login_forget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="本月漏签：19天"
+                android:textColor="@color/dialog_text_color2"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/card_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="签到卡剩：111张"
+                android:textColor="@color/dialog_text_color2"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/forget_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_login_sign_forget"
+                android:text="补签"
+                android:textColor="#08620e" />
+        </LinearLayout>
+        <!--
+        参考点，不做显示用，因为需要以父右边对齐，但是text根据文字长度会变动，所以先用最长做参考
+        天数是2位数，然后以此左对齐，当天数是1位时布局就无需变化了
+        -->
+
+        <TextView
+            style="@style/dialogTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="签到有礼" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/mainLayout"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/btn_dlg_close" />
+
+</RelativeLayout>

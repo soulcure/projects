@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/play_frame_width"
+    android:layout_height="@dimen/play_frame_height"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_parent_frame"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/buy_vip_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:text="@string/thanks_open" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:gravity="center">
+
+        <TextView
+            style="@style/buy_vip_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/you_have_pay" />
+
+        <TextView
+            android:id="@+id/vip_name"
+            style="@style/buy_vip_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/buy_vip_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menber_server" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <TextView
+            style="@style/buy_vip_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menber_server_time" />
+
+        <TextView
+            android:id="@+id/vip_time"
+            style="@style/buy_vip_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_know"
+        style="@style/normal_blue_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/pay_secceed_margintop"
+        android:gravity="center"
+        android:paddingBottom="@dimen/pay_secceed_padding_vertical"
+        android:paddingLeft="@dimen/pay_secceed_padding_horizontal"
+        android:paddingRight="@dimen/pay_secceed_padding_horizontal"
+        android:paddingTop="@dimen/pay_secceed_padding_vertical"
+        android:text="@string/i_know" />
+</LinearLayout>
+

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:listDivider"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/teacher_mine_title_height"
+        android:background="@color/color_blue"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/cropImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher"
+            app:riv_border_color="@color/color_white"
+            app:riv_border_width="2dp"
+            app:riv_corner_radius="50dp"
+            app:riv_mutate_background="true"
+            app:riv_oval="true" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_school"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_white"
+        android:drawableLeft="@mipmap/ic_school"
+        android:drawablePadding="10dp"
+        android:drawableRight="@mipmap/ic_next"
+        android:gravity="center_vertical"
+        android:padding="@dimen/teacher_mine_item_padding"
+        android:text="我的学校"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/tv_share"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:background="@color/color_white"
+        android:drawableLeft="@mipmap/ic_share"
+        android:drawablePadding="10dp"
+        android:drawableRight="@mipmap/ic_next"
+        android:gravity="center_vertical"
+        android:padding="@dimen/teacher_mine_item_padding"
+        android:text="分享"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/tv_response"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:background="@color/color_white"
+        android:drawableLeft="@mipmap/ic_feedback"
+        android:drawablePadding="10dp"
+        android:drawableRight="@mipmap/ic_next"
+        android:gravity="center_vertical"
+        android:padding="@dimen/teacher_mine_item_padding"
+        android:text="反馈"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/tv_change_pw"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:background="@color/color_white"
+        android:drawableLeft="@mipmap/ic_setting"
+        android:drawablePadding="10dp"
+        android:drawableRight="@mipmap/ic_next"
+        android:gravity="center_vertical"
+        android:padding="@dimen/teacher_mine_item_padding"
+        android:text="修改密码"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_app_update"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:background="@color/color_white"
+        android:drawableLeft="@mipmap/ic_update"
+        android:drawablePadding="10dp"
+        android:drawableRight="@mipmap/ic_next"
+        android:gravity="center_vertical"
+        android:padding="@dimen/teacher_mine_item_padding"
+        android:text="版本更新"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:background="@color/color_white"
+        android:drawableLeft="@mipmap/ic_about"
+        android:drawablePadding="10dp"
+        android:drawableRight="@mipmap/ic_next"
+        android:gravity="center_vertical"
+        android:padding="@dimen/teacher_mine_item_padding"
+        android:text="关于平安e校园"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_exit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:background="@color/color_white"
+        android:drawableLeft="@mipmap/ic_logout"
+        android:drawablePadding="10dp"
+        android:drawableRight="@mipmap/ic_next"
+        android:gravity="center_vertical"
+        android:padding="@dimen/teacher_mine_item_padding"
+        android:text="退出"
+        android:textSize="18sp" />
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/linear_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="90dp"
+        android:paddingRight="90dp">
+
+        <ImageView
+            android:id="@+id/img_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_selector"
+            android:padding="10dp"
+            android:src="@mipmap/ic_forward_black" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017.4" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/img_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_selector"
+            android:padding="10dp"
+            android:src="@mipmap/ic_next_black" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_choose_school"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_title"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_white_selector"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="选择学校" />
+
+
+    <com.taku.safe.refresh.RefreshRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_choose_school" />
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menu_green"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/recycler_view"
+        android:layout_alignTop="@id/recycler_view"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="-40dp"
+        fab:menu_animationDelayPerItem="0"
+        fab:menu_colorNormal="#00000000"
+        fab:menu_colorPressed="#00000000"
+        fab:menu_colorRipple="#00000000"
+        fab:menu_labels_ellipsize="end"
+        fab:menu_labels_maxLines="2"
+        fab:menu_openDirection="down">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab3"
+            style="@style/MenuButtonsNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab2"
+            style="@style/MenuButtonsNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab1"
+            style="@style/MenuButtonsNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</RelativeLayout>

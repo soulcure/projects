@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="420dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal" >
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_dialog2_bg"
+        android:paddingBottom="8dp" >
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:text="签到有礼"
+            style="@style/dialogTitleStyle"
+            android:layout_centerHorizontal="true" />
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_margin="8dp"
+            android:paddingTop="30dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView android:layout_width="300dp" android:layout_height="wrap_content"
+                android:text="aaaa"
+                android:textColor="@color/dialog_text_color2"
+                android:textSize="18sp"
+                android:padding="3dp"
+                android:id="@+id/text1"
+                />
+            <TextView android:layout_width="300dp" android:layout_height="wrap_content"
+                android:text="bbbb"
+                android:textColor="@color/dialog_text_color2"
+                android:textSize="18sp"
+                android:padding="3dp"
+                android:id="@+id/text2"
+                />
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                 <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/exit_2_style"
+                android:text="确定"
+                android:id="@+id/btn_ok"
+                android:layout_marginRight="30dp" />
+                  <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/exit_2_style"
+                android:text="开始游戏"
+                android:id="@+id/btn_start" />
+            </LinearLayout>
+            <View android:layout_width="20dp"
+                android:layout_height="10dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <ImageView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_dlg_close"
+        android:layout_alignRight="@id/mainLayout"
+        android:id="@+id/btn_close"/>
+</RelativeLayout>

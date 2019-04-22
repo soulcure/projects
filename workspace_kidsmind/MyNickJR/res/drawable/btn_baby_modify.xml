@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- focused -->
+    <item android:drawable="@drawable/btn_baby_modify_focus" android:state_focused="true" />
+    <item android:drawable="@drawable/btn_baby_modify_down" android:state_pressed="true" />
+    <!-- default -->
+    <item android:drawable="@drawable/btn_baby_modify_normal" />
+    <!--&lt;!&ndash; pressed &ndash;&gt;-->
+    <!--<item android:state_pressed="true">-->
+    <!--<shape>-->
+    <!--<corners android:radius="@dimen/parents_center_btn_radius"></corners>-->
+    <!--<solid android:color="#DBDBDB"></solid>-->
+    <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:state_focused="false" android:state_pressed="false">-->
+    <!--<shape>-->
+    <!--<corners android:radius="@dimen/parents_center_btn_radius"></corners>-->
+    <!--<solid android:color="#EEEEEE"></solid>-->
+    <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:state_focused="true" android:state_pressed="false">-->
+    <!--<shape>-->
+    <!--<corners android:radius="@dimen/parents_center_btn_radius"></corners>-->
+    <!--<solid android:color="#EEEEEE"></solid>-->
+    <!--<stroke android:width="@dimen/parents_center_btn_stroke" android:color="#0c8a00"></stroke>-->
+    <!--</shape>-->
+    <!--</item>-->
+    <!--&lt;!&ndash; default &ndash;&gt;-->
+
+</selector>

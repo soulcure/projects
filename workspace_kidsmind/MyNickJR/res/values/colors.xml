@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 以下为自然颜色描述-->
+
+    <!--半透明 -->
+    <color name="h_transparent">#4006509d</color>
+
+    <!--透明 -->
+    <color name="transparent">#00000000</color>
+
+    <!--黑色 -->
+    <color name="black">#000000</color>
+
+    <!--关于我们-黑色 -->
+    <color name="black_gay">#151515</color>
+
+    <!--白色 -->
+    <color name="white">#ffffff</color>
+
+    <!--雪白色 -->
+    <color name="snow">#fffafa</color>
+
+    <!--绿色 -->
+    <color name="green">#008000</color>
+
+    <color name="ability">#563a2b</color>
+    <!--自定义绿色 -->
+    <color name="baby_green">#74D724</color>
+    <color name="login_green">#73D723</color>
+    <color name="little_green">#ee108e01</color>
+    <!--红色 -->
+    <color name="red">#ff0000</color>
+
+    <!--黄色 -->
+    <color name="yellow">#ffff00</color>
+    <!--自定义黄色 -->
+    <color name="little_yellow">#eedd8d03</color>
+
+    <!--定义黄色 -->
+    <color name="pay_bac_yellow">#f7ffe3</color>
+
+    <!--橙色 -->
+    <color name="orange">#ffa500</color>
+
+    <!--褐色 -->
+    <color name="brown">#a52a2a</color>
+
+    <!--蓝色 -->
+    <color name="blue">#0000ff</color>
+
+    <!--自定义蓝色 -->
+    <color name="light_blue">#004e76</color>
+
+    <!--灰色 -->
+    <color name="gray">#5d5d5d</color>
+
+    <!--紫色 -->
+    <color name="purple">#800080</color>
+
+    <!--暗蓝色 -->
+    <color name="darkblue">#00008b</color>
+
+    <!--海军色 -->
+    <color name="navy">#000080</color>
+
+    <!--暗绿色 -->
+    <color name="darkgreen">#006400</color>
+
+    <!--天蓝色 -->
+    <color name="skyblue">#87ceeb</color>
+
+    <!--橄榄色 -->
+    <color name="olive">#808000</color>
+
+
+    <!-- A light Holo shade of blue -->
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <!-- A light Holo shade of gray -->
+    <color name="holo_gray_light">#33999999</color>
+    <!-- A light Holo shade of green -->
+    <color name="holo_green_light">#ff99cc00</color>
+    <!-- A light Holo shade of red -->
+    <color name="holo_red_light">#ffff4444</color>
+    <!-- A dark Holo shade of blue -->
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <!-- A dark Holo shade of green -->
+    <color name="holo_green_dark">#ff669900</color>
+    <!-- A dark Holo shade of red -->
+    <color name="holo_red_dark">#ffcc0000</color>
+    <!-- A Holo shade of purple -->
+    <color name="holo_purple">#ffaa66cc</color>
+    <!-- A light Holo shade of orange -->
+    <color name="holo_orange_light">#ffffbb33</color>
+    <!-- A dark Holo shade of orange -->
+    <color name="holo_orange_dark">#ffff8800</color>
+    <!-- A really bright Holo shade of blue -->
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <!-- A really bright Holo shade of gray -->
+    <color name="holo_gray_bright">#33CCCCCC</color>
+
+    <!-- 以下为功能模块中的颜色描述-->
+    <color name="orange_text">#e65800</color>
+    <color name="title_cloud_text">#cf397d</color>
+    <color name="jacinth">#ff4901</color>
+    <color name="font_white">#ffffff</color>
+    <color name="operator_title">#222222</color>
+    <color name="about_us_font_color">#24d774</color>
+    <color name="about_us_title_color">#20AF60</color>
+    <color name="about_us_text_color">#90D8FD</color>
+
+    <!-- 家长中心-->
+    <color name="seekbar_thumb">#ff5a00</color>
+    <color name="seekbar_unselect">#eefc12</color>
+    <color name="list_select">#33003756</color>
+    <color name="birday_info_wheel">#ef6400</color>
+    <color name="birday_info">#0f97dd</color>
+    <!-- 支付界面-->
+    <color name="bg_payment">#34c2c226</color>
+    <color name="pay_line">#545454</color>
+    <color name="pay_title">#1b1b1b</color>
+    <color name="pay_value">#1c1c1c</color>
+
+    <color name="vip_row1_odd">#F7F4F0</color>
+    <color name="vip_row1_even">#FFFFFF</color>
+
+    <color name="vip_row2_odd">#F7EECE</color>
+    <color name="vip_row2_even">#FFF9DB</color>
+
+    <color name="vip_row3_odd">#F7F4F0</color>
+    <color name="vip_row3_even">#FFFFFF</color>
+
+    <!-- 弹出框字体基本颜色 -->
+    <color name="dialog_text_color">#ffd27a</color>
+    <color name="dialog_text_color2">#ffd27a</color>
+    <color name="dialog_text_green">#8aff7a</color>
+    <color name="dialog_text_red">#ff3a26</color>
+
+    <!--智能推荐-->
+    <color name="recommend_text_color">#c1eac8</color>
+    <color name="recommend_text_bg">#052a4b</color>
+    <color name="blue_green_text">#1cc1cf</color>
+    <!-- 登录界面-->
+    <color name="login_dialog_bg_color">#025385</color>
+
+    <color name="login_et_textcolor">#999999</color>
+    <color name="bind_mobile_recovery_password_text">#17C0D8</color>
+    
+    <!-- 播放 -->
+    <color name="player_green">#dd1b8e9b</color>
+</resources>

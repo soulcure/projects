@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/speed"
+        style="@style/white_text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/h_transparent"
+        android:visibility="gone" />
+
+
+    <include layout="@layout/before_smart_play" />
+
+
+    <ImageButton
+        android:id="@+id/btn_smartplay_unlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:src="@drawable/bg_play_unlock_selector"
+        android:visibility="gone" />
+
+    <!-- 底部控制条-->
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/play_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <include layout="@layout/smart_play_control_bar" />
+</RelativeLayout>
+
+

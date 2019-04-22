@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">童乐玩教</string>
+    <!-- 首页 playlist_fragment.xml -->
+    <string name="cartoon_houses">晨晨</string>
+    <string name="year_old">5岁</string>
+    <string name="year_old_1">0-3岁</string>
+    <string name="year_old_2">3-6岁</string>
+    <string name="year_old_3">6-8岁</string>
+    <string name="text_ting">听</string>
+    <string name="text_gaoqing">高清</string>
+    <string name="text_chaoqing">超清</string>
+    <string name="text_biaoqing">标清</string>
+    <string name="text_new">new</string>
+    <string name="text_input_interNum">请输入推荐号</string>
+    <string name="text_click_exchange">点我兑换</string>
+    <string name="text_exchange_success">兑换成功</string>
+    <string name="text_not_logged_in">未登录</string>
+    <string name="test_host_info">正在连接测试服务器</string>
+
+    <!-- 返回  back_btn_register.xml -->
+    <string name="navigation_back">返回</string>
+
+    <!-- 宝宝信息  kidsinfo_fragment.xml -->
+    <string name="age_text">年龄</string>
+    <string name="sex_text">性别</string>
+    <string name="birthday_info">【确认键】&#160;&#160;将保存您宝宝的生日信息</string>
+
+    <!-- 开通会员 open_members.xml -->
+    <string name="open_members">开通会员</string>
+    <string name="open_members_des">解除每天30分钟、英文语音、课程随选和回看限制</string>
+    <string name="new_open">立即开通</string>
+
+    <!-- 支付 pay.xml -->
+    <string name="price_365">￥600元</string>
+    <string name="price_year">365元/年</string>
+    <string name="price_30">￥40元</string>
+    <string name="price_month">30元/月</string>
+    <string name="price_name">体验包</string>
+    <string name="price_365_des">(365天无限制使用)</string>
+    <string name="price_30_des">(30天无限制使用)</string>
+    <string name="gift_des">现在订购年会员可免费领取超值大礼</string>
+    <string name="ktm_text">开通码</string>
+    <string name="ktm_des">（已购买乐学派或乐学包用户使用）</string>
+    <string name="money_ticket">代金券 -</string>
+    <string name="cny">元</string>
+    <!-- 分享 -->
+    <string name="errcode_success">分享成功</string>
+    <string name="errcode_cancel">分享取消</string>
+    <string name="errcode_deny">分享被拒绝</string>
+    <string name="errcode_unknown">分享返回</string>
+
+    <!-- 支付方式 payment_method.xml -->
+    <string name="parment_method">请选择支付方式</string>
+    <string name="pay_money">共需支付：</string>
+    <string name="yunpay_text">阿里TV支付</string>
+    <string name="alipay_text">支付宝支付</string>
+    <string name="huanpay_text">欢网支付</string>
+    <string name="domypay_text">大麦支付</string>
+    <string name="coocaatvpay_text">酷开支付</string>
+    <string name="mitvpay_text">米币支付</string>
+    <string name="wechat_text">微信支付</string>
+    <string name="yun_os_tv_text">云TV支付宝扫码支付</string>
+    <string name="alipay_qrcode_text">支付宝扫二维码支付</string>
+    <string name="wechat_qrcode_text">微信扫二维码支付</string>
+    <string name="alipay_text_des">请用支付宝扫描二维码</string>
+    <string name="wechat_text_des">请用微信扫描二维码</string>
+    <string name="not_install_wxapp">您尚未安装微信应用。</string>
+    <string name="unsupported_pay_wxapp">您的微信应用版本太低, 未支持支付功能。</string>
+    <string name="pay">支付</string>
+
+    <!-- alipay -->
+    <string name="alipay_time_hint">温馨提示：请在10分钟内支付</string>
+
+    <!-- 续费 renewal_ktm.xml -->
+    <string name="rdredge_id_text">请输入开通码</string>
+    <string name="rdredge_id_is_null">开通码不能为空</string>
+    <string name="dredge_btn_text">开通</string>
+    <string name="dredge">续费</string>
+    <string name="dredge_method1">方法一</string>
+    <string name="dredge_method2">方法二</string>
+    <string name="dredge_method1_info1">点击按钮到淘宝的</string>
+    <string name="dredge_method1_info2">爱V猫官方旗舰店续费</string>
+    <string name="dredge_method1_btn">立即前往</string>
+    <string name="dredge_method2_info1">用手机淘宝扫描二维码</string>
+    <string name="dredge_method2_info2">到爱V猫官方旗舰店续费</string>
+    <string name="renewal_qrcode_des">*请牢记用户名或者手机号，一旦丢失将无法登录</string>
+    <string name="skip">跳过</string>
+
+    <!-- title_cloud.xml -->
+    <string name="stub_string"></string>
+    <string name="server_phone">客服电话：4009904909</string>
+    <string name="server_qq_group">QQ群：195481932</string>
+
+    <!-- babyInfor.xml 页面标题 -->
+    <string name="baby_name">姓&#160;&#160;名</string>
+    <string name="baby_default_name">宝宝</string>
+    <string name="baby_birday">生&#160;&#160;日</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="save_alter">保存</string>
+    <string name="change">修改</string>
+    <string name="baby_yearandmonth_is">2013/06/15</string>
+    <string name="baby_sex">性&#160;&#160;别</string>
+    <string name="baby_sex_is">男</string>
+    <string name="baby_ability">五项能力学习主题推荐</string>
+    <string name="agility">推理分析</string>
+    <string name="bilingual_comm">肢体旋律</string>
+    <string name="imag_creativity">想象创造</string>
+    <string name="num_math">数字数学</string>
+    <string name="own_perception">双语沟通</string>
+    <string name="reasoning">自我认知</string>
+    <string name="wildlife_nature">生物自然</string>
+
+    <string name="health">健康</string>
+    <string name="science">科学</string>
+    <string name="society">社会</string>
+    <string name="language">语言</string>
+    <string name="art">艺术</string>
+    <!-- 通用 -->
+    <string name="wifi_strength_poor">检查到您的wifi信号强度较差</string>
+    <string name="check_connect">当前网络不可用，请检查网络！</string>
+    <string name="net_timeout">缓冲播放数据出错或网络连接超时， 正在自动切换线路</string>
+    <string name="playing_error">播放出错啦，请重新尝试！</string>
+    <string name="is_last_page">已经刷新到最后一页啦！</string>
+    <string name="play_url_empty">未获取到播放地址！</string>
+    <string name="favorite_empty">您还没有收藏剧集哦！</string>
+    <string name="prompt">提示</string>
+    <string name="setting_network">设置网络</string>
+    <string name="empress_retry">稍后重试</string>
+    <string name="quit">退出</string>
+    <string name="login_sucess">登录成功</string>
+
+    <!-- 关于我们 -->
+    <string name="about_us">&#160;&#160;&#160;&#160;\"童乐玩教\"&#160;是一款由深圳童心网络有限公司精心打磨，专为2-7岁孩子启蒙早教而设计的儿童应用。寓教于乐的方式，让孩子认知世界、学习知识。应用操作简单，无广告和暴力内容，可放心让孩子独自观看学习。</string>
+    <string name="about_us1">&#160;&#160;&#160;&#160;\"童乐玩教\"&#160;是一款由深圳市童心网络有限公司重磅打造，专为2-7岁孩子启蒙早教而设计的儿童应用。寓教于乐的方式，让孩子开心的学习知识。操作简单，绝无广告和不良内容。</string>
+    <string name="version_number">版本号：</string>
+    <string name="website">网址：www.huhakids.com</string>
+    <string name="official_weixin">官方微信号</string>
+    <string name="our_portfolio">我们的产品</string>
+    <string name="tv_version">TV版本</string>
+    <string name="mobile_version">移动版</string>
+    <string name="btn_download">下载</string>
+    <string name="tongle_title">童乐玩教&#160;&#160;&#160;&#160;移动版</string>
+    <string name="dora_title">我的小尼克学堂&#160;&#160;&#160;&#160;TV版</string>
+    <string name="tongle_title_xiaomi">童乐玩教</string>
+    <string name="dora_title_xiaomi">我的小尼克学堂</string>
+    <string name="fnf_title">纷分英语&#160;&#160;&#160;&#160;移动版</string>
+    <string name="tongle_content">在应用市场内搜索&#160;&#160;&#160;&#160;\"童乐玩教\"&#160;&#160;&#160;&#160;，即可下载安装。</string>
+    <string name="dora_detail">由美国维亚康姆公司开发，一款寓教于乐的儿童软件。有《爱探险的朵拉》、《数字城》、《迪亚哥》等动画。</string>
+    <string name="fnf_detail">一款打破传统的英语教学软件，让孩子跟随朵拉、海绵宝宝，一起在动画的场景中，由浅入深的学习英文字母、单词、发音和交流。</string>
+    <string name="dora_content">&#160;&#160;&#160;&#160;在应用市场内搜索&#160;&#160;&#160;&#160;\"我的小尼克学堂\"&#160;&#160;&#160;&#160;即可下载安装。</string>
+    <string name="dora_content_xiaomi">在应用市场内搜索&#160;&#160;&#160;&#160;\"我的小尼克学堂\"&#160;&#160;&#160;&#160;即可下载安装。</string>
+    <!-- buy_vip -->
+    <string name="year_money">288元1年</string>
+    <string name="day_3_money">3元1天</string>
+    <string name="day_5_money">5元2天</string>
+    <string name="month_money">30元1个月</string>
+    <string name="day_6_money_money">6元3天</string>
+    <string name="vip_end_time">VIP会员到期时间:&#160;&#160;</string>
+    <string name="vip_end_time2">VIP到期时间:&#160;&#160;</string>
+    <string name="no_vip">您还不是VIP</string>
+    <string name="recommend_heart">开通VIP服务后:\n1.你每天的观看时长将不受限制。\n2.你可以使用中英切换功能，看原版动画，学地道英语。</string>
+    <string name="recommend_trial">开通VIP服务后:\n*所有动画剧集，无限制观看；\n*开启中英切换功能，BBC原版配音，原汁原味的英文动画；</string>
+    <string name="recommend_parents">开通VIP服务后:\n1.所有动画剧集，无限制观看；\n2.开启中英切换功能，BBC原版配音，原汁原味的英文动画；</string>
+    <string name="share_action">别着急，我们还有“分享送月VIP”活动</string>
+    <string name="join_action">立即参与</string>
+    <string name="join_action_sucess">参与活动报名成功!</string>
+
+    <!-- doyoulike -->
+    <string name="countdown">倒计时</string>
+    <string name="c_number">5</string>
+
+    <!-- 家长中心 -->
+    <string name="parrents_center">家长中心</string>
+    <string name="open_vip">开通VIP</string>
+    <string name="baby_info">宝宝信息</string>
+    <string name="play_setting">播放设置</string>
+    <string name="record">播放记录</string>
+    <string name="study_report">学习报告</string>
+    <string name="response">我要吐槽</string>
+    <string name="p_about_us">关于我们</string>
+    <string name="order_inquiry">订单查询</string>
+    <string name="login">登录</string>
+    <string name="exchange">兑换</string>
+    <string name="action">活动</string>
+    <string name="mall">商城</string>
+    <string name="close">关闭</string>
+    <string name="open">打开</string>
+    <string name="user_name">昵称</string>
+
+    <!-- 我要吐槽 -->
+    <string name="commit">提交</string>
+    <string name="common_response">常用吐槽语</string>
+    <string name="content_response">有想法就告诉童乐吧</string>
+    <string name="info_response">童乐移动版&#160;&#160;走到哪都能看\n更多精彩内容，尽在童乐移动版...</string>
+
+    <!-- free_play -->
+    <string name="recommend_context">推荐内容 </string>
+    <string name="recommend_title">看过该动画的人还喜欢</string>
+    <string name="skip_head">已经自动跳过片头！</string>
+    <string name="zuokuohao">《</string>
+    <string name="youkuohao">》</string>
+    <string name="video_loading">视频加载中...&#160;&#160;</string>
+    <string name="unit">KB/S</string>
+    <string name="free_time">此集是VIP内容，只能免费观看前2分钟！</string>
+
+    <!-- grid_top -->
+    <string name="channel">童乐幼教频道</string>
+    <string name="action_channel">专题频道</string>
+    <string name="global_channel">宝宝秀</string>
+    <string name="my_channel">我的收藏</string>
+
+    <!-- 历史记录 -->
+    <string name="play_time">播放时间:</string>
+    <string name="thinking">想象</string>
+    <string name="hanlde">动手</string>
+    <string name="talking">沟通</string>
+
+
+    <!-- 登陆 -->
+    <string name="phone_number">手机号</string>
+    <string name="password">动态密码</string>
+    <string name="get_password">获取动态密码</string>
+    <string name="get_verify_code">获取验证码</string>
+    <string name="send_again">秒后重新获取</string>
+    <string name="login_in">登&#160;&#160;&#160;&#160;录</string>
+    <string name="login_out">退出登录</string>
+    <string name="login_in_info">输入手机号,短信获取动态密码并登录，即可观看信息在电视,电脑,平板,手机同步</string>
+    <string name="login_out_info">您已经成功登录，当前登录手机号：</string>
+
+    <string name="login_out_msg">您确定退出登录吗?</string>
+    <string name="login_out_sucess">确定退出登录成功</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+
+    <!-- 家长回答问题 -->
+    <string name="parrents_answer">请家长回答问题</string>
+    <string name="mod">÷</string>
+    <string name="equal">=&#160;&#160;&#160;&#160;?</string>
+
+    <!-- 视频观后评价 -->
+    <string name="will_play">即将播放</string>
+    <string name="training_target">培养目标</string>
+
+    <!-- time_dialog -->
+    <string name="time_play">课程时长设置</string>
+    <string name="more">设置的观看时间到后，将停止播放</string>
+    <string name="vip_more">提示：您的VIP过期时间</string>
+    <string name="vip_more2">&#160;在此期间观看时长不受限制</string>
+    <string name="play_skip_head">播放时自动跳过片头</string>
+
+    <string name="vip_right">VIP权益</string>
+    <string name="vip_user">VIP用户</string>
+    <string name="normal_user">普通用户</string>
+    <string name="watch_all">观看所有动画</string>
+    <string name="watch_free">仅免费动画</string>
+    <string name="zh_eng">观看英文动画</string>
+    <string name="thirty_min_a_day">每天30分钟</string>
+
+    <!-- pay_secceed -->
+    <string name="thanks_open">感谢您的开通</string>
+    <string name="you_have_pay">你已经购买了</string>
+    <string name="menber_server">会员服务</string>
+    <string name="menber_server_time">会员到期：</string>
+    <string name="i_know">我知道了</string>
+
+    <!-- bind_vip -->
+    <string name="phone">手机号</string>
+    <string name="thanks_join_vip">非常感谢您加入我们的VIP俱乐部</string>
+    <string name="bind">绑定手机号，您的VIP服务将可以在电视、平板、手机同步</string>
+    <string name="security_code">验证码</string>
+    <string name="function">您将可以在电视、电脑\n平板、手机同步您的观\n看信息</string>
+    <string name="to_bind">绑定</string>
+
+    <!-- 版本升级 -->
+    <string name="login_find_out_new_verson">发现更新</string>
+    <string name="login_find_out_new_verson_gift">更新就送</string>
+    <string name="download_error">升级包下载失败，请稍后再试!</string>
+    <string name="login_download_doing">开始升级&#8230;</string>
+    <string name="login_downloaded">下载了</string>
+    <string name="login_game_downloaded_1">游戏更新了</string>
+    <string name="login_game_downloaded_2">请稍后&#8230;</string>
+    <string name="login_game_begin_download">游戏更新了0%，请稍后&#8230;</string>
+    <string name="download_title">正在下载更新包，请稍后 &#8230;</string>
+    <string name="update_title">升级啦</string>
+    <string name="update_Install">安装</string>
+    <string name="update_close">关闭</string>
+    <string name="update_Confir">马上升级</string>
+    <string name="update_Cancel">残忍拒绝</string>
+    <string name="version_title">检测到新版本： </string>
+    <string name="file_size_title">文件大小： </string>
+    <string name="no_wifi">您现在使用的是移动数据网络，升级将会消耗较多流量，您确定要更新吗？</string>
+    <string name="download_success">新版本已经为您准备好了，咱们赶紧更新吧~</string>
+
+    <!--百度统计事件id-->
+    <string name="camera_preview">点击摄像头自预览</string>
+    <string name="web_action">点击活动中心</string>
+    <string name="parent_center">点击家长中心</string>
+    <string name="cartoon_image">点击卡通人物形象</string>
+    <string name="smart_play_session">点击智能播放模式</string>
+    <string name="golbal_kids">点击global童乐</string>
+    <string name="topic_channel">点击专题频道</string>
+    <string name="favorite_channel">点击我的频道</string>
+    <string name="free_play_item">点击点播剧集</string>
+    <string name="smart_add_favorite">智能播放中添加收藏</string>
+    <string name="smart_remove_favorite">智能播放中取消收藏</string>
+    <string name="smart_pause">智能播放中暂停</string>
+    <string name="smart_play">智能播放中播放</string>
+    <string name="smart_next">智能播放中下一集播放</string>
+    <string name="smart_set_playtime">智能播放中设置观看时长</string>
+    <string name="smart_english">智能播放中切换英语</string>
+    <string name="smart_chinese">智能播放中切换中文</string>
+    <string name="smart_parent">智能播放中进入家长中心</string>
+    <string name="smart_seek">智能播放中拖动进度条</string>
+    <string name="free_add_favorite">点播中添加收藏</string>
+    <string name="free_remove_favorite">点播中取消收藏</string>
+    <string name="free_pause">点播中暂停</string>
+    <string name="free_play">点播中播放</string>
+    <string name="free_set_playtime">点播中设置观看时长</string>
+    <string name="free_english">点播中切换英语</string>
+    <string name="free_chinese">点播中切换中文</string>
+    <string name="free_parent">点播中进入家长中心</string>
+    <string name="free_seek">点播中拖动进度条</string>
+    <string name="free_click_item">点播中自由选集</string>
+    <string name="goto_vip">点击开通VIP</string>
+    <string name="buy_vip_goods">点击购买VIP商品</string>
+    <string name="goto_babyinfo">点击宝宝信息</string>
+    <string name="click_baby_name">点击宝宝名字</string>
+    <string name="click_baby_birthday">点击宝宝生日</string>
+    <string name="click_baby_sex">点击宝宝性别</string>
+    <string name="baby_seven_ability">点击宝宝七项能力</string>
+    <string name="baby_info_save">点击保存宝宝信息</string>
+    <string name="goto_play_setting">进入播放设置</string>
+    <string name="goto_play_history">进入播放记录</string>
+    <string name="play_history_item">点击播放记录项播放</string>
+    <string name="goto_study_report">点击学习报告</string>
+    <string name="goto_user_response">点击我要吐槽</string>
+    <string name="user_response_chioce">点击吐槽内容选择</string>
+    <string name="user_response_input">点击吐槽内容输入</string>
+    <string name="user_response_commit">提交吐槽内容</string>
+    <string name="goto_about_us">点击关于我们</string>
+    <string name="goto_login">点击登录</string>
+    <string name="login_mobim">点击输入手机号</string>
+    <string name="login_password">点击输入验证码</string>
+    <string name="login_get_password">点击获取验证码</string>
+    <string name="click_login">点击登录</string>
+    <string name="click_logout">点击注销登录</string>
+
+    <string name="entry_toy_mall">点击玩具商城</string>
+    <string name="click_hover_toy">点击玩具商城浮动入口</string>
+    <string name="click_pause_toy">点击玩具商城暂停入口</string>
+
+
+    <!--智能推荐-->
+    <string name="baby_name_ind">姓&#160;&#160;名:</string>
+    <string name="baby_birth_ind">生&#160;&#160;日:</string>
+    <string name="baby_sex_ind">性&#160;&#160;别:</string>
+
+    <!-- 抽奖 -->
+    <string name="lottery_info">说明:代金券在2016年1月1号-2016年1月6日使用有效,升级到4.3.1版本才能抽奖哦！</string>
+    <string name="code_sucess">兑换码开通成功！</string>
+    <string name="kids_fun">童乐</string>
+    <string name="community">社区</string>
+    <string name="upload_error_info">设备厂商基于安全因素考虑,禁止了上传图片功能</string>
+
+    <!-- 控制 -->
+    <string name="control">控制</string>
+    <string name="tv_control_report">TV操作汇报</string>
+    <string name="close_app_remotely">远程关闭应用</string>
+    <string name="skip_intro">跳过片头</string>
+    <string name="set_playback_duration">设置播放时长</string>
+    <string name="custom_program_listing">定制节目列表</string>
+    <string name="custom_program_listing_sucess">定制节目列表成功！</string>
+    <string name="tv_report">TV操作汇报</string>
+    <string name="null_string"> </string>
+    <string name="send">发送</string>
+    <string name="close_title">关闭提示 </string>
+    <string name="close_content">确定关闭TV上的童乐播放吗?</string>
+    <string name="login_title">登录提示</string>
+    <string name="login_content">控制功能需要使用手机号登录后才能使用</string>
+    <string name="close_tv_sucess">成功远程关闭TV童乐</string>
+    <string name="tv_no_login">TV上童乐未使用相同手机号登录</string>
+
+    <string name="please_choose_program">请选择节目</string>
+    <string name="vip_title">开通VIP提示</string>
+    <string name="vip_content">只有登录后才能购买VIP</string>
+
+    <string name="pic_title">图片提示</string>
+    <string name="pic_content">请选择获取图片的方式</string>
+
+    <string name="camera">相机</string>
+    <string name="photo">相册</string>
+
+    <string name="tv_time">时间</string>
+    <string name="tv_operate">操作</string>
+    <string name="tv_format">&#058;&#160;</string>
+
+    <!-- 我的 -->
+    <string name="mine">我的</string>
+    <string name="general_user">普通用户</string>
+    <string name="my_post">我的帖子</string>
+    <string name="modify_baby_info">修改宝宝信息</string>
+    <string name="please_login">请登录</string>
+    <string name="babyinfo">孩子信息</string>
+    <string name="my_post_detail">帖子详情</string>
+    <string name="user_info">个人信息</string>
+    <string name="save_success">保存成功！</string>
+
+    <string name="my_bbs_empty">您还没有发布过帖子！</string>
+    <string name="report_empty">您还没有回复过帖子！</string>
+
+    <!-- 下拉刷新的文本 -->
+    <string name="pull_to_refresh_header_text">下拉可以刷新&#8230;</string>
+    <string name="pull_to_refresh_header_hint_ready">松开即可刷新&#8230;</string>
+    <!--上拉加载更多的文本-->
+    <string name="pull_to_refresh_bottom_hint_normal">上拉可以刷新</string>
+    <string name="pull_to_refresh_bottom_hint_onclick">点击加载更多</string>
+    <string name="pull_to_refresh_bottom_no_more_msg">已经到底啦</string>
+
+    <string name="pull_to_refresh_update_time">最后更新时间:</string>
+    <string name="pull_to_refresh_load_more_text">努力加载中&#8230;</string>
+
+    <!-- title bar -->
+
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Share</string>
+    <string name="action_edit">Edit</string>
+
+    <!--宝宝信息-->
+    <string name="babyinfo_introduction">快速获得适合宝宝的幼教动画</string>
+    <string name="baby_ability_introduction">宝宝能力值选择</string>
+    <string name="babyinfo_add_head">添加头像</string>
+    <string name="babyinfo_update_head">修改头像</string>
+    <string name="babyinfo_button_add">添加</string>
+
+
+    <!-- 家长中心 tab 页面标题 -->
+    <string-array name="tab_parent">
+        <item>开通VIP</item>
+        <item>宝宝信息</item>
+        <item>播放记录</item>
+        <item>学习报告</item>
+        <item>我要吐槽</item>
+        <item>关于我们</item>
+        <item>登&#160;&#160;&#160;&#160;录</item>
+    </string-array>
+    <string-array name="what_context">
+        <item>播放太卡啦！</item>
+        <item>动画内容太少啦！</item>
+        <item>太复杂不会用！</item>
+        <item>操作太多，用起来不方便</item>
+        <item>每天可观看的时间太短了</item>
+    </string-array>
+
+    <!--主页tab 页面标题-->
+    <string-array name="tab_bbs">
+        <item>发布的帖子</item>
+        <item>我的回复</item>
+    </string-array>
+
+    <string-array name="tab_community">
+        <item>动画赏析</item>
+        <item>玩具</item>
+        <item>育儿知识</item>
+        <item>常见问题</item>
+    </string-array>
+
+
+</resources>

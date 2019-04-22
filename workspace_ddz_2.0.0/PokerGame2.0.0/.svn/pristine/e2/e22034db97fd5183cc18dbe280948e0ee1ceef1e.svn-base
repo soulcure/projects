@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/zone_bg2"
+    android:orientation="vertical">
+
+    <!-- title头部 -->
+
+    <include
+        android:id="@+id/titlePart"
+        layout="@layout/common_title_layout" />
+
+    <LinearLayout
+        android:id="@+id/lyListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/titlePart"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="-5dp"
+        android:orientation="vertical">
+
+
+        <ListView
+            android:id="@id/android:list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:dividerHeight="10dp"
+            android:listSelector="#00000000">
+
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lygoGame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/actionisnull"
+            android:textColor="@color/white"
+            android:textAppearance="?android:attr/textAppearanceLarge" 
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/go_quick_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_orange"
+            android:gravity="center"
+            android:text="@string/goquickgame" 
+            android:textColor="@color/orange_btn_text_color" 
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

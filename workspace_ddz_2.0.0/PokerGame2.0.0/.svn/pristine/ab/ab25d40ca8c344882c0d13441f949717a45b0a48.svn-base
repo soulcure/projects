@@ -1,0 +1,290 @@
+package com.mykj.andr.pay.payment;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Map;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.Toast;
+
+import com.mykj.andr.pay.PayManager;
+import com.mykj.game.utils.UtilHelper;
+import com.skymobi.pay.sdk.SkyPayServer;
+import com.skymobi.pay.sdk.SkyPaySignerInfo;
+
+public class SkyMobilePay {
+
+	private static SkyMobilePay instance;
+	private static Context mContext;
+
+	// 订单参数
+	private static final String ORDER_INFO_PAY_METHOD = "payMethod";
+	private static final String ORDER_INFO_METHOD_ID = "merchantId";
+	private static final String ORDER_INFO_METHOD_SIGN = "merchantSign";
+	private static final String ORDER_INFO_MERCHANT_PASSWRD = "key";
+	private static final String ORDER_INFO_APP_ID = "appId";
+	private static final String ORDER_INFO_APP_NAME = "appName";
+	private static final String ORDER_INFO_ORDER_ID = "orderId";
+	private static final String ORDER_INFO_PRICE = "price";
+	private static final String ORDER_INFO_PAY_TYPE = "payType";
+	private static final String ORDER_INFO_SYSTEM_ID = "systemId";
+	private static final String ORDER_INFO_PAY_POINT_NUM = "payPointNum";
+	private static final String ORDER_INFO_ORDER_DESC = "orderDesc";
+	private static final String ORDER_INFO_PRODUCT_NAME = "productName";
+	private static final String ORDER_INFO_CHANNEL_ID = "channelId";
+	private static final String ORDER_INFO_GAME_TYPE = "gameType";
+	private static final String ORDER_INFO_NOTIFY_ADDRESS = "notifyAddress";
+	// private static final String ORDER_INFO_
+	private static final String RESERVED1 = "reserved1";
+	private static final String RESERVED2 = "reserved2";
+	private static final String RESERVED3 = "reserved3";
+
+	private static String CHANNEL_ID = "daiji_ddz";
+	private static String APP_VERSION = "26";
+
+	private static String mOrderInfo = null;
+	private static SkyPayServer mSkyPayServer = null;
+
+	private static PackageManager packageManager = null;
+	private static PackageInfo packInfo = null;
+
+	public static final String STRING_MSG_CODE = "msg_code";
+	public static final String STRING_ERROR_CODE = "error_code";
+	public static final String STRING_PAY_STATUS = "pay_status";
+	public static final String STRING_PAY_PRICE = "pay_price";
+	public static final String STRING_CHARGE_STATUS = "3rdpay_status";
+
+	private static Handler mPayHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			if (msg.what == SkyPayServer.MSG_WHAT_TO_APP) {
+				String retInfo = (String) msg.obj;
+				Map<String, String> map = new HashMap<String, String>();
+
+				// callpay.mHinTextView.setText(callpay.mHinTextView.getText() +
+				// "\n" + "\n" + retInfo);
+
+				String[] keyValues = retInfo.split("&|=");
+				for (int i = 0; i < keyValues.length; i = i + 2) {
+					map.put(keyValues[i], keyValues[i + 1]);
+				}
+
+				int msgCode = Integer.parseInt(map.get(STRING_MSG_CODE));
+				// 解析付费状态和已付费价格
+				// 使用其中一种方式请删掉另外一种
+				if (msgCode == 100) {
+
+					// 短信付费返回
+					if (map.get(STRING_PAY_STATUS) != null) {
+						int payStatus = Integer.parseInt(map
+								.get(STRING_PAY_STATUS));
+						int payPrice = Integer.parseInt(map
+								.get(STRING_PAY_PRICE));
+						int errcrCode = 0;
+						if (map.get(STRING_ERROR_CODE) != null) {
+							errcrCode = Integer.parseInt(map
+									.get(STRING_ERROR_CODE));
+						}
+
+						switch (payStatus) {
+						case 102:
+							Toast.makeText(SkyMobilePay.instance.mContext,
+									"付费成功" + payPrice / 100 + "元",
+									Toast.LENGTH_LONG).show();
+							break;
+						case 101:
+							Toast.makeText(SkyMobilePay.instance.mContext,
+									"付费失败！原因：" + errcrCode, Toast.LENGTH_LONG)
+									.show();
+							break;
+						}
+					}
+
+				} else {
+					// 解析错误码
+					int errcrCode = Integer
+							.parseInt(map.get(STRING_ERROR_CODE));
+					if (errcrCode == 208 || errcrCode == 503
+							|| errcrCode == 505 || errcrCode == 1001
+							|| errcrCode == 205) {
+					}
+					Toast.makeText(SkyMobilePay.instance.mContext,
+							"付费失败！原因：" + errcrCode, Toast.LENGTH_LONG).show();
+				}
+			}
+		}
+	};
+
+	public static SkyMobilePay getInstance(Context mContext) {
+
+		if (instance == null) {
+			instance = new SkyMobilePay();
+			/*
+			 * 1.获取付费实例并初始化
+			 */
+			mSkyPayServer = SkyPayServer.getInstance();
+			int initRet = mSkyPayServer.init(mPayHandler);
+		}
+		SkyMobilePay.instance.mContext = mContext;
+		InputStream is = null;
+		try {
+			is = mContext.getAssets().open("ZYF_ChannelID");
+			int size = is.available();
+			byte[] buffer = new byte[size];
+			is.read(buffer);
+			is.close();
+			String text = new String(buffer,"utf-8");
+			CHANNEL_ID = text;
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			if(is!=null){
+				try {
+					is.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return instance;
+	}
+
+	public void pay(String signParam,int shopID) {
+
+		PayManager.getInstance(mContext).netReceive(shopID,PayManager.PAY_SIGN_SKYMOBILE);
+		// 付费方式 sms 短代
+		String payMethod = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_PAY_METHOD);
+		// 商户号
+		String merchantId = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_METHOD_ID);
+		// 商户秘钥
+		String merchantSign = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_METHOD_SIGN);
+		// 在斯凯申请APPID 请准确填写，这个影响到后期结算
+		String appId = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_APP_ID);
+		String appName = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_APP_NAME);
+		// 订单号 CP需保存，订单有疑问需通过orderId进行检查
+		String orderId = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_ORDER_ID);
+
+		// 价格以分为单位。请求价格1元：price=100 短信付费定价（日限75元，月限150元，单次请求上限15元）
+		String price = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_PRICE);
+		// 计费类型： 0=注册 1=道具 2=积分 3=充值
+		String payType = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_PAY_TYPE);
+		// 系统号 如果是通过冒泡市场接入：300021 如果是通过支付中心接入：300024
+		String systemId = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_SYSTEM_ID);
+		// payPointNum的值为整数，要和申请xml表里计费点编号相对应
+		String payPointNum = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_PAY_POINT_NUM);
+		// orderDesc里必须把价格写成N.NN 不需要写成数字。在显示时会自动被price替换掉
+		String orderDesc = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_ORDER_DESC);
+		String productName = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_PRODUCT_NAME);
+		// GAMETYPE： 0：单机 1：联网 2：弱联网
+		String gameType = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_GAME_TYPE);
+		// 应用服务端通知地址 第三方付费时必须填写
+		String notifyAddress = URLDecoder.decode(UtilHelper.parseStatusXml(
+				signParam, SkyMobilePay.ORDER_INFO_NOTIFY_ADDRESS));
+		// 用于签名的秘钥
+		String merchantPWD = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.ORDER_INFO_MERCHANT_PASSWRD);
+		/*
+		 * 留给cp存储自己的变量,通知cp服务端的时候，会把该变量保持不变的传回去。如果不需要可注释掉该参数
+		 */
+		String reserved1 = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.RESERVED1);
+		String reserved2 = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.RESERVED2);
+		String reserved3 = UtilHelper.parseStatusXml(signParam,
+				SkyMobilePay.RESERVED3);
+
+		if (merchantId == null || merchantSign == null) {
+			return;
+		}
+
+		// appVersion的值为不能含有特殊符号的整数，如：1.0 会报非法的appversion
+		String appVersion = SkyMobilePay.APP_VERSION; // packInfo.versionCode +
+														// "";
+
+		/*
+		 * 8.渠道号：若应用在斯凯渠道推广，则选择填写下列预定义值 a. 冒泡市场：1_zhiyifu_ b. 冒泡游戏：9_zhiyifu_
+		 * 
+		 * 如果在斯凯以外的渠道推广，以daiji_打头，后面自定义（自定义内容不能含有‘zhiyifu’）
+		 */
+		String channelId = CHANNEL_ID;
+
+		/*
+		 * 11.自动生成订单签名
+		 */
+		SkyPaySignerInfo skyPaySignerInfo = new SkyPaySignerInfo();
+
+		skyPaySignerInfo.setMerchantPasswd(merchantPWD);
+		skyPaySignerInfo.setMerchantId(merchantId);
+		skyPaySignerInfo.setAppId(appId);
+		skyPaySignerInfo.setNotifyAddress(notifyAddress);
+		skyPaySignerInfo.setAppName(appName);
+		skyPaySignerInfo.setAppVersion(appVersion);
+		skyPaySignerInfo.setPayType(payType);
+		skyPaySignerInfo.setPrice(price);
+		skyPaySignerInfo.setOrderId(orderId);
+
+		/*
+		 * 13.如reserved1、reserved2、reserved3字段中包含“=”、“
+		 * ”、“/”等转义字符时，需要进行URLEncode操作 调用setReserved函数时，boolean类型的参数
+		 * true代表需要URLEncode操作，false反之
+		 */
+		skyPaySignerInfo.setReserved1(reserved1, false);
+		skyPaySignerInfo.setReserved2(reserved2, false);
+		skyPaySignerInfo.setReserved3(reserved3, true);
+
+		/*
+		 * 调用getOrderString函数生成签名相关信息
+		 */
+		String signOrderInfo = mSkyPayServer
+				.getSignOrderString(skyPaySignerInfo);
+
+		mOrderInfo = ORDER_INFO_PAY_METHOD + "=" + payMethod + "&"
+				+ ORDER_INFO_SYSTEM_ID + "=" + systemId + "&"
+				+ ORDER_INFO_CHANNEL_ID + "=" + channelId + "&"
+				+ ORDER_INFO_PAY_POINT_NUM + "=" + payPointNum + "&"
+				+ ORDER_INFO_GAME_TYPE + "=" + gameType + "&"
+				+ ORDER_INFO_ORDER_DESC + "=" + orderDesc + "&" 
+				+ ORDER_INFO_PRODUCT_NAME + "=" + productName + "&" // 新增商品名称
+				+ "useAppUI" + "=" + "true" + "&" // 新增useAppUI
+				+ signOrderInfo;
+
+		Activity mActivity = (Activity) mContext;
+
+		// 开始计费
+		int payRet = mSkyPayServer.startActivityAndPay(mActivity, mOrderInfo);
+
+		if (SkyPayServer.PAY_RETURN_SUCCESS == payRet) {
+			// 初始化成功
+			Toast.makeText(mActivity, "接口斯凯付费调用成功", Toast.LENGTH_LONG).show();
+
+		} else {
+			// 未初始化 \ 传入参数有误 \ 服务正处于付费状态
+			Toast.makeText(mActivity, "调用接口失败" + payRet, Toast.LENGTH_LONG)
+					.show();
+		}
+	}
+}

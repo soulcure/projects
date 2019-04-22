@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <LinearLayout
+        android:id="@+id/linear_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:paddingRight="30dp"
+        android:paddingTop="30dp" >
+
+        <com.applidium.nickelodeon.views.FoucsActionView
+            android:id="@+id/rel_foucs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/img_action"
+                android:layout_width="@dimen/action_image_width"
+                android:layout_height="@dimen/action_image_height"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_action" />
+        </com.applidium.nickelodeon.views.FoucsActionView>
+
+        <LinearLayout
+            android:id="@+id/linearInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_action_input"
+                android:clickable="true"
+                android:focusable="true"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:nextFocusDown="@+id/tv_sms_code"
+                android:paddingLeft="15dp"
+                android:singleLine="true"
+                android:textColor="@color/orange_text" />
+
+            <Button
+                android:id="@+id/btn_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/btn_commit" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_cacel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/linear_content"
+        android:layout_alignTop="@id/linear_content"
+        android:background="@drawable/btn_cancel" />
+
+</RelativeLayout>

@@ -1,0 +1,117 @@
+<resources>
+
+    <!-- doyoulike_dialog -->
+    <dimen name="img_title_merginTop">100dp</dimen>
+    <!-- activity_player -->
+    <dimen name="serie_width">240dp</dimen>
+    <dimen name="serie_height">120dp</dimen>
+    <dimen name="playlist_width">280dp</dimen>
+
+    <!--playlist activity-->
+    <dimen name="tab_marginLeft">35dp</dimen>
+    <dimen name="tab_marginTop">80dp</dimen>
+
+    <dimen name="baby_line_topHeight">20dp</dimen>
+    <dimen name="baby_line_buttomHeight">10dp</dimen>
+
+    <!--metro UI-->
+    <dimen name="mirror_ref_height">55dp</dimen>
+    <dimen name="animation_offset_y">25dp</dimen>
+    <dimen name="ITEM_DIVIDE_SIZE">5dp</dimen>
+    <dimen name="ITEM_V_WIDTH">240dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">365dp</dimen>
+    <dimen name="ITEM_H_WIDTH">365dp</dimen>
+    <dimen name="ITEM_H_HEIGHT">180dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE">180dp</dimen>
+    <dimen name="TEXT_SHAPE_HEIGHT">40dp</dimen>
+
+    <!--MetroFragment-->
+    <dimen name="metro_paddingLeft">50dp</dimen>
+    <dimen name="metro_paddingRight">50dp</dimen>
+    <dimen name="metro_paddingTop">30dp</dimen>
+    <dimen name="metro_paddingBottom">70dp</dimen>
+    <dimen name="cartoon_paddingtop">60dp</dimen>
+
+    <!--CartoonFragment-->
+    <dimen name="cartoon_item_padding">11dp</dimen>
+    <dimen name="h_gridview_padding_buttom">80dp</dimen>
+
+    <!--ActionDialog-->
+    <dimen name="action_image_width">708dp</dimen>
+    <dimen name="action_image_height">430dp</dimen>
+
+    <!--ParentFragmentActivity-->
+    <dimen name="frame_paddingTop">100dp</dimen>
+
+    <dimen name="action_button_tips">14dp</dimen>
+
+    <!--BabyInfoFragment-->
+    <dimen name="baby_info_marginTop">20dp</dimen>
+    <dimen name="ability_frame_marginTop">15dp</dimen>
+    <dimen name="ability_frame_paddingBottom">40dp</dimen>
+    <dimen name="ability_frame_paddingLeft">35dp</dimen>
+    <dimen name="ability_frame_paddingRight">35dp</dimen>
+    <dimen name="ability_frame_paddingTop">20dp</dimen>
+
+    <dimen name="ratingBar_marginTop">1dp</dimen>
+
+    <dimen name="language_marginTop">30dp</dimen>
+    <dimen name="ability_text_marginTop">2dp</dimen>
+
+    <!--RecordPlayFragment-->
+    <dimen name="record_item_padding">90dp</dimen>
+    <!--LoginFragment-->
+
+    <dimen name="edit_text_width">480dp</dimen>
+    <dimen name="edit_text_height">90dp</dimen>
+    <dimen name="edit_marginTop">20dp</dimen>
+
+    <!--OrderFragment-->
+    <dimen name="order_container_width">450dp</dimen>
+    <dimen name="order_container_height">450dp</dimen>
+
+
+    <!--goods_item-->
+    <dimen name="goods_item_padding">25dp</dimen>
+
+    <!-- pay dialog -->
+    <dimen name="pay_secceed_margintop">60dp</dimen>
+    <dimen name="pay_secceed_padding_horizontal">60dp</dimen>
+    <dimen name="pay_secceed_padding_vertical">15dp</dimen>
+
+    <!-- RecommendDetailsActivity -->
+    <dimen name="recommend_image_width">90dp</dimen>
+    <dimen name="recommend_image_height">90dp</dimen>
+    <dimen name="recommend_image_margin">6dp</dimen>
+    <dimen name="recommend_imgview_total_height">148dp</dimen>
+    <dimen name="recommend_ratingbtn_padding">25dp</dimen>
+    <dimen name="recommend_ratingbtn_margin_top">20dp</dimen>
+    <dimen name="recomment_babyinfo_margin_top">7dp</dimen>
+    <dimen name="recommend_ratingbtn_margin_left">45dp</dimen>
+
+    <dimen name="recommend_item_margin_left">1dp</dimen>
+    <dimen name="recommend_item_padding">10dp</dimen>
+
+    <dimen name="item_padding">30dp</dimen>
+
+    <!--抽奖 -->
+    <dimen name="lottery_img_width">557dp</dimen>
+    <dimen name="lottery_img_height">438dp</dimen>
+
+    <dimen name="lottery_button_width">128dp</dimen>
+    <dimen name="lottery_button_height">156dp</dimen>
+    <dimen name="lottery_padding_top">25dp</dimen>
+    <dimen name="lottery_padding">110dp</dimen>
+    <dimen name="lottery_black_text_size">24sp</dimen>
+    <dimen name="lottery_listview_width">400dp</dimen>
+
+    <dimen name="lottery_name_width">225dp</dimen>
+    <dimen name="lottery_name_height">39dp</dimen>
+
+    <dimen name="lottery_title_img_width">516dp</dimen>
+    <dimen name="lottery_title_img_height">253dp</dimen>
+
+    <dimen name="lottery_ticket_img_width">491dp</dimen>
+    <dimen name="lottery_ticket_img_height">243dp</dimen>
+
+</resources>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.applidium.nickelodeon.views.percent.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#14BEE1">
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_back"
+        app:layout_marginPercent="4%h" />
+
+    <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bag_partents_bottom"
+        app:layout_heightPercent="35%h"
+        app:layout_widthPercent="100%w" />
+
+    <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical">
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/vip_privilege_shape"-->
+        <!--android:text="尊享会员特权"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="15sp"-->
+        <!--android:textStyle="bold" />-->
+
+        <include
+            layout="@layout/vip_right_table"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="26%h"
+            app:layout_marginBottomPercent="2%h"
+            app:layout_widthPercent="80%w" />
+    </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/vip_gold_left"
+        app:layout_marginBottomPercent="12%h"
+        app:layout_marginLeftPercent="5%w" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:background="@drawable/vip_gold_right"
+        app:layout_marginBottomPercent="12%h"
+        app:layout_marginRightPercent="5%w" />
+
+    <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_user_info"
+            android:orientation="vertical"
+            app:layout_heightPercent="27%h"
+            app:layout_marginTopPercent="9%h"
+            app:layout_paddingLeftPercent="8%"
+            app:layout_paddingRightPercent="6%"
+            app:layout_widthPercent="120%h">
+
+            <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/vipinfo_text_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_name" />
+
+                <TextView
+                    android:id="@+id/textUsname"
+                    style="@style/vipinfo_text_white"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="暂无"
+                    android:textColor="#FFE55A" />
+
+                <Button
+                    android:id="@+id/btn_modify"
+                    style="@style/vipinfo_text_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_baby_modify"
+                    android:gravity="center"
+                    android:text="@string/change"
+                    app:layout_marginTopPercent="3%h"
+                    app:layout_paddingBottomPercent="6%h"
+                    app:layout_paddingLeftPercent="50%h"
+                    app:layout_paddingRightPercent="50%h"
+                    app:layout_paddingTopPercent="6%h" />
+            </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+            <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/vipinfo_text_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_num"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/textPhone"
+                    style="@style/vipinfo_text_white"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:textColor="#FFE55A" />
+
+                <Button
+                    android:id="@+id/btn_bind"
+                    style="@style/vipinfo_text_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_baby_modify"
+                    android:gravity="center"
+                    android:text="@string/bind"
+                    app:layout_marginTopPercent="3%h"
+                    app:layout_paddingBottomPercent="6%h"
+                    app:layout_paddingLeftPercent="50%h"
+                    app:layout_paddingRightPercent="50%h"
+                    app:layout_paddingTopPercent="6%h" />
+            </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/vipinfo_text_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vip_end_time"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/textTime"
+                    style="@style/vipinfo_text_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FFE55A" />
+            </LinearLayout>
+        </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+
+        <com.applidium.nickelodeon.views.percent.PercentLinearLayout
+            android:id="@+id/linear_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:animateLayoutChanges="true"
+            android:orientation="horizontal"
+            app:layout_marginTopPercent="2%h">
+
+            <!--<include-->
+
+            <!--layout="@layout/activity_vipinfo_item"-->
+            <!--app:layout_heightPercent="51%h"-->
+            <!--app:layout_marginLeftPercent="5%h"-->
+            <!--app:layout_widthPercent="46%h"></include>-->
+
+        </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+    </com.applidium.nickelodeon.views.percent.PercentLinearLayout>
+</com.applidium.nickelodeon.views.percent.PercentFrameLayout>

@@ -1,0 +1,12 @@
+<resources>
+
+    <!--ActionDialog-->
+    <dimen name="action_image_width">850dp</dimen>
+    <dimen name="action_image_height">430dp</dimen>
+
+    <!--LoginFragment-->
+    <dimen name="edit_text_width">720dp</dimen>
+    <dimen name="edit_text_height">90dp</dimen>
+    <dimen name="edit_marginTop">20dp</dimen>
+
+</resources>

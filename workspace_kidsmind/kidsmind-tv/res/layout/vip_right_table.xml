@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp">
+
+    <TableRow>
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@drawable/bg_vip_left_top_shape"
+            android:text="@string/vip_right" />
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row2_odd"
+            android:text="@string/vip_user" />
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@drawable/bg_vip_right_top_shape"
+            android:text="@string/normal_user" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row1_even"
+            android:text="@string/watch_all" />
+
+        <ImageView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row2_even"
+            android:src="@drawable/tip_right" />
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row3_even"
+            android:text="@string/watch_free" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row1_odd"
+            android:text="@string/zh_eng" />
+
+        <ImageView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row2_odd"
+            android:src="@drawable/tip_right" />
+
+        <ImageView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row3_odd"
+            android:src="@drawable/tip_wrong" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@drawable/bg_vip_left_buttom_shape"
+            android:text="@string/channel" />
+
+        <ImageView
+            style="@style/VipTableStyle"
+            android:background="@color/vip_row2_even"
+            android:src="@drawable/tip_right" />
+
+        <TextView
+            style="@style/VipTableStyle"
+            android:background="@drawable/bg_vip_right_buttom_shape"
+            android:text="@string/thirty_min_a_day" />
+    </TableRow>
+</TableLayout>
+
+

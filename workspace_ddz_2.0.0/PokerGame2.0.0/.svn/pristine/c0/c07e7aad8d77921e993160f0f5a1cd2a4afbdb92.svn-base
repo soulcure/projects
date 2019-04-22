@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_tu_hao_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+    <RelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp" >
+
+        <!-- 目前只最多只支持两位数 -->
+
+        <ImageView
+            android:id="@+id/player_rank_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/player_rank_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/player_rank_2"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/player_name"
+        style="@style/baseStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/ll" />
+
+    <TextView
+        android:id="@+id/player_bean_count"
+        style="@style/baseStyle"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:drawableLeft="@drawable/bean"
+        android:drawablePadding="10dp" />
+
+    <TextView
+        android:id="@+id/player_vip_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="60dp"
+        android:layout_toLeftOf="@id/player_bean_count" />
+
+    <ImageView
+        android:id="@+id/player_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="60dp"
+        android:layout_toLeftOf="@id/player_vip_level"
+        android:contentDescription="@string/app_name" />
+
+</RelativeLayout>

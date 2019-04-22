@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c0000000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/live_sdk_tv_day_rank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/live_sdk_rank_title_bg"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="日榜"
+                    android:textColor="#ffdf2b"
+                    android:textSize="@dimen/live_sdk_content_size_14" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/live_sdk_rank_divider" />
+
+            <LinearLayout
+                android:id="@+id/live_sdk_tv_week_rank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/live_sdk_rank_title_bg"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="周榜"
+                    android:textColor="#ffdf2b"
+                    android:textSize="@dimen/live_sdk_content_size_14" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/live_sdk_rank_divider" />
+
+            <LinearLayout
+                android:id="@+id/live_sdk_tv_month_rank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/live_sdk_rank_title_bg"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="月榜"
+                    android:textColor="#ffdf2b"
+                    android:textSize="@dimen/live_sdk_content_size_14" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/live_sdk_rank_divider"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/live_sdk_tv_total_rank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/live_sdk_rank_title_bg"
+                android:gravity="center"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="总榜"
+                    android:textColor="#ffdf2b"
+                    android:textSize="@dimen/live_sdk_content_size_14" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/live_sdk_rank_title_bottom_divider" />
+
+        <ListView
+            android:id="@+id/live_sdk_lv_rank_list"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:cacheColorHint="@color/live_sdk_transparent"
+            android:divider="@drawable/live_sdk_rank_list_divider"
+            android:fadeScrollbars="false"
+            android:fadingEdge="none"
+            android:listSelector="@color/live_sdk_transparent"
+            android:scrollbars="none"
+            android:scrollingCache="false" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

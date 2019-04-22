@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:id="@+id/linear_top"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.7">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_vip_dialog"
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/vip_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="65dp"
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/vip_privilege_shape"
+                android:text="尊享会员特权"
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+            <include layout="@layout/vip_right_table" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_title"
+            android:layout_width="145dp"
+            android:layout_height="90dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="60dp"
+            android:src="@drawable/bg_vip_title" />
+
+        <ImageButton
+            android:id="@+id/vip_dialog_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_cancel" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="117dp"
+            android:layout_marginLeft="28dp"
+            android:src="@drawable/vip_gold_left" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="86dp"
+            android:layout_marginRight="33dp"
+            android:src="@drawable/vip_gold_right" />
+    </RelativeLayout>
+</LinearLayout>

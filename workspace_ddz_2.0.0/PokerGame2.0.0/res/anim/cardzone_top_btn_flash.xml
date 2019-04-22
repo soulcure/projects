@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash1"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash2"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash3"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash4"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash5"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash6"
+        android:duration="100"/>
+        <item
+        android:drawable="@drawable/cardzone_top_btn_flash7"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash8"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash9"
+        android:duration="100"/>
+        <item
+        android:drawable="@drawable/cardzone_top_btn_flash10"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash11"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash12"
+        android:duration="100"/>
+        <item
+        android:drawable="@drawable/cardzone_top_btn_flash13"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash14"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/cardzone_top_btn_flash15"
+        android:duration="100"/>
+        <item
+        android:drawable="@drawable/cardzone_top_btn_flash16"
+        android:duration="100"/>
+</animation-list>

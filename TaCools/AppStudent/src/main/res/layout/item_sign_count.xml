@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="二丫"
+        android:textColor="@color/color_black"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/tv_class"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="计算机2班"
+        android:textColor="@color/color_black"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableRight="@mipmap/ic_next_black"
+        android:gravity="center"
+        android:text="18664923439"
+        android:textColor="@color/text_gray_87"
+        android:textSize="12sp" />
+
+</LinearLayout>

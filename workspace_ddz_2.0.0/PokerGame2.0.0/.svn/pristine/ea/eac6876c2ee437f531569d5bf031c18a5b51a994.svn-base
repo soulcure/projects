@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="480dp"
+    android:layout_height="wrap_content"
+    android:gravity="center" >
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_dialog_bg"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="22dp"
+        android:layout_marginTop="@dimen/close_main_top"
+         >
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        style="@style/dialogTitleStyle"
+        android:text="公告" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginTop="10dp"
+            android:padding="3dp"
+             >
+
+            <ListView
+                android:id="@+id/lvNoticeSystem"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:cacheColorHint="#00000000"
+                android:listSelector="#00000000"
+                android:dividerHeight="0dp"
+                android:scrollbarThumbVertical="@drawable/vscroll" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvBack"
+        style="@style/returnTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_dlg_close"
+        android:clickable="true"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:gravity="center" />
+
+
+</RelativeLayout>

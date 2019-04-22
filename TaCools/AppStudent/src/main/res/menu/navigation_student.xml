@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/img_main_selector"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_practice"
+        android:icon="@drawable/img_practice_selector"
+        android:title="@string/action" />
+
+    <item
+        android:id="@+id/navigation_school"
+        android:icon="@drawable/img_campus_selector"
+        android:title="@string/complaint" />
+
+    <item
+        android:id="@+id/navigation_mine"
+        android:icon="@drawable/img_mine_selector"
+        android:title="@string/evaluation" />
+</menu>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvGuid"
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我" />
+
+        <TextView
+            android:id="@+id/tvReferTime"
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:text="2014/11/18 11:27:11" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/server_msg_left"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="8dp"
+        android:paddingTop="14dp"
+        android:text="左边的消息，左边的消息，左边的消息，左边的消息，左边的消息，左边的消息，左边的消息，"
+        android:textColor="#633800"
+        android:textSize="12sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tvOperateTime"
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:text="2014/11/18 11:30:22" />
+
+        <TextView
+            android:id="@+id/tvOperator"
+            style="@style/serverceter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="官方客服" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@drawable/server_msg_right"
+        android:gravity="right|center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="10dp"
+        android:paddingTop="14dp"
+        android:text="这事右边的消息"
+        android:textColor="#633800"
+        android:textSize="12sp" />
+
+</LinearLayout>

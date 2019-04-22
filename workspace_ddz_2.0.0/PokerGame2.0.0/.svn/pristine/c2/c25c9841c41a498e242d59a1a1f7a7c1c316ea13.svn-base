@@ -1,0 +1,24 @@
+package com.mykj.andr.model;
+
+import java.util.Map;
+
+/**
+ * 
+ * @author JiangYinZhi
+ * 
+ */
+public class FastBuyModel {
+
+	public static int propID;// 快捷购买道具
+	public static boolean isConfirmon;// 是否2次确认
+	public static boolean isShowCancel;// 是否显示取消按钮
+	public static boolean singlePayOn;// 是否使用单支付
+	public static int defaultSinglePaySign1;// 默认单支付1
+	public static int defaultSinglePaySign2;// 默认单支付2
+	public static boolean fastTipOn;// 支付提示开关
+	public static String fastTip1;// 提示1
+	public static String fastTip2;// 提示2
+	public static boolean lastPayOn;// 是否要使用上次成功的购买支付
+	public static boolean fastCancelPliston;// 是否要使用点击取消按钮多次支付
+	public static Map<Integer, Integer> lastPayGoods;// 上次购买成功的支付列表,map键表示商品id，map值表示上次成功的支付方式
+}

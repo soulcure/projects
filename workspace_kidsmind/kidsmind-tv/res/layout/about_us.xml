@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp">
+
+
+        <TextView
+            android:id="@+id/text_about_us_title"
+            style="@style/white_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="1dp"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingRight="30dp"
+            android:text="@string/about_us1" />
+
+        <LinearLayout
+            android:id="@+id/linear_prd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_about_us_title"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="-20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/goods_cost_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_vip_normal"
+                    android:gravity="center"
+                    android:paddingLeft="17dp"
+                    android:paddingRight="17dp"
+                    android:text="@string/our_portfolio" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/about_us_line" />
+
+                <ImageView
+                    android:id="@+id/about_us_qrcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/code" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/about_context" />
+        </LinearLayout>
+
+
+        <com.ivmall.android.app.views.DownProgressView
+            android:id="@+id/image_icon_tongle"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/linear_prd"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="-40dp"
+            android:src="@drawable/kidsmind_icon" />
+
+        <TextView
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_icon_tongle"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/image_icon_tongle"
+            android:text="@string/tongle_title" />
+
+        <TextView
+            style="@style/white_small_normal_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image_icon_tongle"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/image_icon_tongle"
+            android:text="@string/tongle_content" />
+
+        <com.ivmall.android.app.views.DownProgressView
+            android:id="@+id/image_icon_dora"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignLeft="@+id/image_icon_tongle"
+            android:layout_below="@+id/image_icon_tongle"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/icon_dora" />
+
+        <TextView
+            android:id="@+id/text_dora_title"
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_icon_dora"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/image_icon_dora"
+            android:text="@string/dora_title" />
+
+        <TextView
+            android:id="@+id/text_dora_detail"
+            style="@style/white_small_normal_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_dora_title"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image_icon_dora"
+            android:text="@string/dora_detail" />
+
+        <TextView
+            android:id="@+id/text_tv"
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_dora_detail"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image_icon_dora"
+            android:text="@string/mobile_version" />
+
+        <TextView
+            style="@style/white_small_normal_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/text_tv"
+            android:layout_toRightOf="@+id/text_tv"
+            android:text="@string/dora_content" />
+
+        <Button
+            android:id="@+id/btn_downNj"
+            style="@style/white_small_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/text_dora_detail"
+            android:layout_alignRight="@+id/linear_prd"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_download_us"
+            android:paddingBottom="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            android:text="@string/btn_download" />
+
+        <com.ivmall.android.app.views.DownProgressView
+            android:id="@+id/image_icon_en"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignLeft="@+id/image_icon_dora"
+            android:layout_below="@+id/text_tv"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/icon_english" />
+
+        <TextView
+            android:id="@+id/text_fnf_title"
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_icon_en"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/image_icon_en"
+            android:text="@string/fnf_title" />
+
+        <TextView
+            android:id="@+id/text_fnf_detail"
+            style="@style/white_small_normal_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_fnf_title"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image_icon_en"
+            android:text="@string/fnf_detail" />
+
+        <Button
+            android:id="@+id/btn_downFnf"
+            style="@style/white_small_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/text_fnf_detail"
+            android:layout_alignRight="@+id/linear_prd"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_download_us"
+            android:paddingBottom="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            android:text="@string/btn_download" />
+
+        <ImageView
+            android:id="@+id/img_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/text_fnf_detail"
+            android:layout_alignRight="@id/text_fnf_detail"
+            android:layout_below="@+id/text_fnf_detail"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/about_us_line" />
+
+        <TextView
+            android:id="@+id/version"
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/text_fnf_title"
+            android:layout_below="@+id/img_line"
+            android:layout_marginTop="10dp"
+            android:text="@string/version_number" />
+
+        <TextView
+            android:id="@+id/text_website"
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/version"
+            android:layout_below="@+id/version"
+            android:layout_marginTop="10dp"
+            android:text="@string/website" />
+
+        <TextView
+            android:id="@+id/text_qq"
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/version"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/text_website"
+            android:text="@string/server_qq_group" />
+
+        <TextView
+            style="@style/green_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/text_qq"
+            android:layout_below="@+id/version"
+            android:layout_marginTop="10dp"
+            android:text="@string/server_phone" />
+    </RelativeLayout>
+</ScrollView>

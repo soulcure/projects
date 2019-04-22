@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/custom_dialog_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/color_blue"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:text="@string/teacher_first_login"
+        android:textColor="@color/color_white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:id="@+id/rel_sms_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_sms_code"
+            style="@style/login_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_sms_selector"
+            android:drawablePadding="@dimen/register_item_padding"
+            android:hint="@string/sms_code_hint"
+            android:inputType="number"
+            android:lines="1"
+            android:padding="@dimen/register_item_padding"
+            android:textColor="@color/color_blue" />
+
+        <Button
+            android:id="@+id/btn_sms_code"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sms_btn_height"
+            android:layout_alignBottom="@id/et_sms_code"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="@dimen/register_item_padding"
+            android:background="@drawable/btn_commit_selector"
+            android:gravity="center"
+            android:paddingLeft="@dimen/register_item_padding"
+            android:paddingRight="@dimen/register_item_padding"
+            android:text="@string/req_sms_code"
+            android:textColor="@color/color_white" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_pw_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/color_red"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="20dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/color_gray" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:padding="5dp"
+            android:text="@string/btn_confirm"
+            android:textColor="@color/color_blue" />
+    </LinearLayout>
+
+
+</LinearLayout>

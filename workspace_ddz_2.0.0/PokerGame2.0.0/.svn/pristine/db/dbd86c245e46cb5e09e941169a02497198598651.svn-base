@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vip_backgroud"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <LinearLayout
+        android:id="@+id/info_line"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您当前是"
+            android:id="@+id/user_label"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vip_level"
+            android:textColor="#ffc000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/exp_time"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TableLayout
+            android:id="@+id/icon_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/vip_top_background"
+            android:gravity="center_vertical"
+            android:shrinkColumns="1,2,3,4,5,6"
+            android:stretchColumns="1,2,3,4,5,6" >
+
+            <TableRow>
+
+                <View
+                    android:layout_width="@dimen/vip_left_width"
+                    android:layout_height="20dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vip_huiyuan" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vip_nanjue" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vip_zijue" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vip_bojue" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vip_houjue" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vip_gongjue" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/button_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/vip_bottom_background"
+            android:shrinkColumns="1,2,3,4,5,6"
+            android:stretchColumns="1,2,3,4,5,6"
+            android:paddingTop="5dp"
+            android:paddingBottom="15dp" >
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="@dimen/vip_left_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="立即开通"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                   	android:background="@drawable/btn_vip_charge"
+                   	android:textColor="#ffffff"
+                   	android:id="@+id/buy_btn1"
+                     />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_vip_charge"
+                    android:textColor="#ffffff"
+                    android:id="@+id/buy_btn2" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_vip_charge"
+                    android:textColor="#ffffff"
+                    android:id="@+id/buy_btn3" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_vip_charge"
+                    android:textColor="#ffffff"
+                    android:id="@+id/buy_btn4" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_vip_charge"
+                    android:textColor="#ffffff"
+                    android:id="@+id/buy_btn5" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_vip_charge"
+                    android:textColor="#ffffff"
+                    android:id="@+id/buy_btn6" />
+            </TableRow>
+        </TableLayout>
+
+        <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+            android:layout_below="@id/icon_line"
+            android:layout_above="@id/button_line">
+            <TableLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="1,2,3,4,5,6"
+            	android:stretchColumns="1,2,3,4,5,6"
+            	android:id="@+id/vip_table_container">
+                
+            </TableLayout>
+        </ScrollView>
+        
+        <LinearLayout
+            android:id="@+id/drawline_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <View
+                android:layout_width="@dimen/vip_left_width"
+                android:layout_height="1dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/vip_divider" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/vip_divider" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/vip_divider" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/vip_divider" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/vip_divider" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/vip_divider" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" 
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:text="贵族有效期：31天"
+            android:layout_alignRight="@id/button_line"
+            android:layout_alignBottom="@id/button_line"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

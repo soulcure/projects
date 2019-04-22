@@ -1,0 +1,768 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+	package
+		ADDED from AndroidManifest.xml:3:5
+	android:versionName
+		ADDED from AndroidManifest.xml:5:5
+	android:versionCode
+		ADDED from AndroidManifest.xml:4:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-sdk
+ADDED from AndroidManifest.xml:7:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:7:5
+MERGED from workspace_ddz_2.0.0:alipay_lib:unspecified:7:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:7:5
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:9:9
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:8:9
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from AndroidManifest.xml:11:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:16:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:23:5
+	android:name
+		ADDED from AndroidManifest.xml:11:22
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from AndroidManifest.xml:12:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:13:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:12:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:22:5
+	android:name
+		ADDED from AndroidManifest.xml:12:22
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from AndroidManifest.xml:13:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:12:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:27:5
+	android:name
+		ADDED from AndroidManifest.xml:13:22
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:14:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:11:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:11:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:21:5
+	android:name
+		ADDED from AndroidManifest.xml:14:22
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:15:5
+	android:name
+		ADDED from AndroidManifest.xml:15:22
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:16:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:10:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:9:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:15:5
+	android:name
+		ADDED from AndroidManifest.xml:16:22
+uses-permission#android.permission.SEND_SMS
+ADDED from AndroidManifest.xml:17:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:18:5
+	android:name
+		ADDED from AndroidManifest.xml:17:22
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from AndroidManifest.xml:18:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:14:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:10:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:14:5
+	android:name
+		ADDED from AndroidManifest.xml:18:22
+uses-permission#android.permission.GET_TASKS
+ADDED from AndroidManifest.xml:19:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:18:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:35:5
+	android:name
+		ADDED from AndroidManifest.xml:19:22
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from AndroidManifest.xml:20:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:17:5
+	android:name
+		ADDED from AndroidManifest.xml:20:22
+uses-permission#android.permission.VIBRATE
+ADDED from AndroidManifest.xml:21:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:30:5
+	android:name
+		ADDED from AndroidManifest.xml:21:22
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from AndroidManifest.xml:22:5
+	android:name
+		ADDED from AndroidManifest.xml:22:22
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from AndroidManifest.xml:24:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:9:5
+	android:name
+		ADDED from AndroidManifest.xml:24:22
+uses-permission#android.permission.READ_CONTACTS
+ADDED from AndroidManifest.xml:26:5
+	android:name
+		ADDED from AndroidManifest.xml:26:22
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from AndroidManifest.xml:30:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:15:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:25:5
+	android:name
+		ADDED from AndroidManifest.xml:30:22
+uses-permission#android.permission.PROCESS_OUTGOING_CALLS
+ADDED from AndroidManifest.xml:31:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:19:5
+	android:name
+		ADDED from AndroidManifest.xml:31:22
+uses-permission#com.android.launcher.permission.INSTALL_SHORTCUT
+ADDED from AndroidManifest.xml:32:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:20:5
+	android:name
+		ADDED from AndroidManifest.xml:32:22
+uses-permission#com.android.launcher.permission.UNINSTALL_SHORTCUT
+ADDED from AndroidManifest.xml:33:5
+MERGED from workspace_ddz_2.0.0:LiveSdkInterfaceUILib:unspecified:21:5
+	android:name
+		ADDED from AndroidManifest.xml:33:22
+uses-permission#android.permission.WAKE_LOCK
+ADDED from AndroidManifest.xml:36:5
+	android:name
+		ADDED from AndroidManifest.xml:36:22
+uses-permission#android.permission.READ_LOGS
+ADDED from AndroidManifest.xml:37:5
+	android:name
+		ADDED from AndroidManifest.xml:37:22
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from AndroidManifest.xml:38:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:33:5
+	android:name
+		ADDED from AndroidManifest.xml:38:22
+uses-permission#org.agoo.android.permission.MESSAGE
+ADDED from AndroidManifest.xml:39:5
+	android:name
+		ADDED from AndroidManifest.xml:39:22
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from AndroidManifest.xml:40:5
+	android:name
+		ADDED from AndroidManifest.xml:40:22
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from AndroidManifest.xml:42:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:24:5
+	android:name
+		ADDED from AndroidManifest.xml:42:22
+uses-permission#android.permission.REORDER_TASKS
+ADDED from AndroidManifest.xml:44:5
+	android:name
+		ADDED from AndroidManifest.xml:44:22
+permission#org.agoo.android.permission.MESSAGE
+ADDED from AndroidManifest.xml:46:5
+	android:name
+		ADDED from AndroidManifest.xml:46:17
+uses-permission#android.permission.CHANGE_CONFIGURATION
+ADDED from AndroidManifest.xml:49:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:13:5
+	android:name
+		ADDED from AndroidManifest.xml:49:22
+uses-permission#android.permission.READ_SMS
+ADDED from AndroidManifest.xml:50:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:16:5
+	android:name
+		ADDED from AndroidManifest.xml:50:22
+uses-permission#android.permission.WRITE_SMS
+ADDED from AndroidManifest.xml:51:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:17:5
+	android:name
+		ADDED from AndroidManifest.xml:51:22
+uses-permission#android.permission.RECEIVE_SMS
+ADDED from AndroidManifest.xml:52:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:19:5
+	android:name
+		ADDED from AndroidManifest.xml:52:22
+uses-permission#android.permission.RUN_INSTRUMENTATION
+ADDED from AndroidManifest.xml:53:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:31:5
+	android:name
+		ADDED from AndroidManifest.xml:53:22
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from AndroidManifest.xml:54:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:20:5
+	android:name
+		ADDED from AndroidManifest.xml:54:22
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from AndroidManifest.xml:55:5
+MERGED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:26:5
+	android:name
+		ADDED from AndroidManifest.xml:55:22
+supports-screens
+ADDED from AndroidManifest.xml:57:5
+	android:largeScreens
+		ADDED from AndroidManifest.xml:59:9
+	android:anyDensity
+		ADDED from AndroidManifest.xml:58:9
+	android:normalScreens
+		ADDED from AndroidManifest.xml:60:9
+	android:xlargeScreens
+		ADDED from AndroidManifest.xml:62:9
+	android:smallScreens
+		ADDED from AndroidManifest.xml:61:9
+application
+ADDED from AndroidManifest.xml:63:5
+	android:label
+		ADDED from AndroidManifest.xml:67:9
+	android:allowBackup
+		ADDED from AndroidManifest.xml:65:9
+	android:icon
+		ADDED from AndroidManifest.xml:66:9
+	android:theme
+		ADDED from AndroidManifest.xml:68:9
+	android:name
+		ADDED from AndroidManifest.xml:64:9
+activity#com.mykj.game.ddz.DDZ
+ADDED from AndroidManifest.xml:70:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:75:13
+	android:label
+		ADDED from AndroidManifest.xml:73:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:72:13
+	android:name
+		ADDED from AndroidManifest.xml:71:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:74:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:76:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:77:17
+	android:name
+		ADDED from AndroidManifest.xml:77:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:79:17
+	android:name
+		ADDED from AndroidManifest.xml:79:27
+intent-filter#android.intent.action.CHINAMOBILE_GAMEHALL_ONLINE_GAME+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:81:13
+action#android.intent.action.CHINAMOBILE_GAMEHALL_ONLINE_GAME
+ADDED from AndroidManifest.xml:82:17
+	android:name
+		ADDED from AndroidManifest.xml:82:25
+category#android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:84:17
+	android:name
+		ADDED from AndroidManifest.xml:84:27
+activity#com.mykj.andr.ui.tabactivity.UserCenterActivity
+ADDED from AndroidManifest.xml:87:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:91:13
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:90:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:89:13
+	android:name
+		ADDED from AndroidManifest.xml:88:13
+activity#com.mykj.andr.ui.tabactivity.ServerCenterTabActivity
+ADDED from AndroidManifest.xml:92:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:96:13
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:95:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:94:13
+	android:name
+		ADDED from AndroidManifest.xml:93:13
+activity#com.mykj.andr.ui.tabactivity.MarketActivity
+ADDED from AndroidManifest.xml:97:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:100:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:99:13
+	android:name
+		ADDED from AndroidManifest.xml:98:13
+activity#com.mykj.andr.ui.tabactivity.ExchangeTabActivity
+ADDED from AndroidManifest.xml:101:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:104:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:103:13
+	android:name
+		ADDED from AndroidManifest.xml:102:13
+activity#com.mykj.andr.ui.tabactivity.RankListActivity
+ADDED from AndroidManifest.xml:105:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:108:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:107:13
+	android:name
+		ADDED from AndroidManifest.xml:106:13
+activity#com.mykj.andr.ui.ModifyPasswordActivity
+ADDED from AndroidManifest.xml:109:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:112:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:111:13
+	android:name
+		ADDED from AndroidManifest.xml:110:13
+activity#com.mykj.andr.ui.FeedbackInfoActivity
+ADDED from AndroidManifest.xml:113:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:116:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:115:13
+	android:name
+		ADDED from AndroidManifest.xml:114:13
+activity#com.mykj.andr.ui.VersionInfoActivity
+ADDED from AndroidManifest.xml:117:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:120:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:119:13
+	android:name
+		ADDED from AndroidManifest.xml:118:13
+activity#com.mykj.andr.ui.GetTicketActivity
+ADDED from AndroidManifest.xml:121:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:124:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:123:13
+	android:name
+		ADDED from AndroidManifest.xml:122:13
+activity#com.mykj.andr.ui.BackPackActivity
+ADDED from AndroidManifest.xml:125:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:128:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:127:13
+	android:name
+		ADDED from AndroidManifest.xml:126:13
+activity#com.mykj.andr.ui.ActionActivity
+ADDED from AndroidManifest.xml:129:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:132:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:131:13
+	android:name
+		ADDED from AndroidManifest.xml:130:13
+activity#com.mykj.andr.ui.MixActivity
+ADDED from AndroidManifest.xml:133:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:136:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:135:13
+	android:name
+		ADDED from AndroidManifest.xml:134:13
+activity#com.mykj.andr.ui.MixGridActivity
+ADDED from AndroidManifest.xml:137:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:140:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:139:13
+	android:name
+		ADDED from AndroidManifest.xml:138:13
+activity#com.mykj.andr.ui.ShareActivity
+ADDED from AndroidManifest.xml:141:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:144:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:143:13
+	android:name
+		ADDED from AndroidManifest.xml:142:13
+activity#com.mykj.andr.ui.PopularizeActivity
+ADDED from AndroidManifest.xml:145:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:148:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:147:13
+	android:name
+		ADDED from AndroidManifest.xml:146:13
+activity#com.mykj.game.ddz.wxapi.WXEntryActivity
+ADDED from AndroidManifest.xml:149:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:152:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:151:13
+	android:theme
+		ADDED from AndroidManifest.xml:153:13
+	android:name
+		ADDED from AndroidManifest.xml:150:13
+activity#com.mykj.game.moregame.MoregameActivity
+ADDED from AndroidManifest.xml:154:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:157:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:156:13
+	android:name
+		ADDED from AndroidManifest.xml:155:13
+activity#com.mykj.andr.lottoround.LotteryDrowActivity
+ADDED from AndroidManifest.xml:158:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:161:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:160:13
+	android:name
+		ADDED from AndroidManifest.xml:159:13
+activity#com.mykj.andr.lottoround.LottoRoundActivity
+ADDED from AndroidManifest.xml:162:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:165:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:164:13
+	android:theme
+		ADDED from AndroidManifest.xml:166:13
+	android:name
+		ADDED from AndroidManifest.xml:163:13
+activity#com.mykj.andr.ui.EverydayTaskActivity
+ADDED from AndroidManifest.xml:167:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:170:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:169:13
+	android:name
+		ADDED from AndroidManifest.xml:168:13
+activity#com.mykj.andr.lotto.LottoActivity
+ADDED from AndroidManifest.xml:172:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:175:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:174:13
+	android:name
+		ADDED from AndroidManifest.xml:173:13
+activity#com.mykj.andr.lotto.LottoIntroActivity
+ADDED from AndroidManifest.xml:176:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:179:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:178:13
+	android:name
+		ADDED from AndroidManifest.xml:177:13
+activity#com.mykj.andr.lotto.LottoRankActivity
+ADDED from AndroidManifest.xml:180:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:183:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:182:13
+	android:name
+		ADDED from AndroidManifest.xml:181:13
+activity#com.mykj.andr.lotto.LottoRecordActivity
+ADDED from AndroidManifest.xml:184:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:187:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:186:13
+	android:name
+		ADDED from AndroidManifest.xml:185:13
+activity#com.mykj.andr.lotto.LottoResultActivity
+ADDED from AndroidManifest.xml:188:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:191:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:190:13
+	android:name
+		ADDED from AndroidManifest.xml:189:13
+meta-data#UMENG_APPKEY
+ADDED from AndroidManifest.xml:197:9
+	android:name
+		ADDED from AndroidManifest.xml:198:13
+	android:value
+		ADDED from AndroidManifest.xml:199:13
+meta-data#UMENG_MESSAGE_SECRET
+ADDED from AndroidManifest.xml:200:9
+	android:name
+		ADDED from AndroidManifest.xml:201:13
+	android:value
+		ADDED from AndroidManifest.xml:202:13
+receiver#com.umeng.message.NotificationProxyBroadcastReceiver
+ADDED from AndroidManifest.xml:204:9
+	android:exported
+		ADDED from AndroidManifest.xml:206:13
+	android:name
+		ADDED from AndroidManifest.xml:205:13
+receiver#com.umeng.message.RegistrationReceiver
+ADDED from AndroidManifest.xml:207:9
+	android:name
+		ADDED from AndroidManifest.xml:207:19
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from AndroidManifest.xml:208:13
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from AndroidManifest.xml:209:17
+	android:name
+		ADDED from AndroidManifest.xml:209:25
+intent-filter#android.intent.action.PACKAGE_REMOVED
+ADDED from AndroidManifest.xml:211:13
+action#android.intent.action.PACKAGE_REMOVED
+ADDED from AndroidManifest.xml:212:17
+	android:name
+		ADDED from AndroidManifest.xml:212:25
+data
+ADDED from AndroidManifest.xml:214:17
+	android:scheme
+		ADDED from AndroidManifest.xml:214:23
+receiver#com.umeng.message.UmengBroadcastReceiver
+ADDED from AndroidManifest.xml:217:9
+	android:name
+		ADDED from AndroidManifest.xml:217:19
+intent-filter#org.agoo.android.intent.action.RECEIVE
+ADDED from AndroidManifest.xml:218:13
+action#org.agoo.android.intent.action.RECEIVE
+ADDED from AndroidManifest.xml:219:17
+	android:name
+		ADDED from AndroidManifest.xml:219:25
+intent-filter#com.mykj.game.ddz.intent.action.COMMAND
+ADDED from AndroidManifest.xml:221:13
+action#com.mykj.game.ddz.intent.action.COMMAND
+ADDED from AndroidManifest.xml:222:17
+	android:name
+		ADDED from AndroidManifest.xml:222:25
+intent-filter#org.agoo.android.intent.action.RE_ELECTION_V2
+ADDED from AndroidManifest.xml:224:13
+action#org.agoo.android.intent.action.RE_ELECTION_V2
+ADDED from AndroidManifest.xml:225:17
+	android:name
+		ADDED from AndroidManifest.xml:225:25
+service#com.umeng.message.UmengService
+ADDED from AndroidManifest.xml:229:9
+	android:process
+		ADDED from AndroidManifest.xml:232:13
+	android:exported
+		ADDED from AndroidManifest.xml:231:13
+	android:name
+		ADDED from AndroidManifest.xml:230:13
+intent-filter#com.mykj.game.ddz.intent.action.START
+ADDED from AndroidManifest.xml:233:13
+action#com.mykj.game.ddz.intent.action.START
+ADDED from AndroidManifest.xml:234:17
+	android:name
+		ADDED from AndroidManifest.xml:234:25
+intent-filter#com.mykj.game.ddz.intent.action.COCKROACH
+ADDED from AndroidManifest.xml:236:13
+action#com.mykj.game.ddz.intent.action.COCKROACH
+ADDED from AndroidManifest.xml:237:17
+	android:name
+		ADDED from AndroidManifest.xml:237:25
+intent-filter#org.agoo.android.intent.action.PING
+ADDED from AndroidManifest.xml:239:13
+action#org.agoo.android.intent.action.PING
+ADDED from AndroidManifest.xml:240:17
+	android:name
+		ADDED from AndroidManifest.xml:240:25
+service#org.android.agoo.service.ElectionService
+ADDED from AndroidManifest.xml:243:9
+	android:process
+		ADDED from AndroidManifest.xml:246:13
+	android:exported
+		ADDED from AndroidManifest.xml:245:13
+	android:name
+		ADDED from AndroidManifest.xml:244:13
+intent-filter#org.agoo.android.intent.action.ELECTION_V2
+ADDED from AndroidManifest.xml:247:13
+action#org.agoo.android.intent.action.ELECTION_V2
+ADDED from AndroidManifest.xml:248:17
+	android:name
+		ADDED from AndroidManifest.xml:248:25
+service#com.umeng.message.UmengIntentService
+ADDED from AndroidManifest.xml:251:9
+	android:name
+		ADDED from AndroidManifest.xml:251:18
+service#com.yunva.live.sdk.interfaces.service.VioceService
+ADDED from AndroidManifest.xml:256:9
+	android:name
+		ADDED from AndroidManifest.xml:256:18
+receiver#com.yunva.live.sdk.interfaces.android.receiver.YunvaReceiver
+ADDED from AndroidManifest.xml:257:9
+	android:name
+		ADDED from AndroidManifest.xml:257:19
+intent-filter#android.intent.action.NEW_OUTGOING_CALL+android.intent.action.PHONE_STATE+android.net.conn.CONNECTIVITY_CHANGE
+ADDED from AndroidManifest.xml:258:13
+	android:priority
+		ADDED from AndroidManifest.xml:258:28
+action#android.intent.action.PHONE_STATE
+ADDED from AndroidManifest.xml:259:17
+	android:name
+		ADDED from AndroidManifest.xml:259:25
+action#android.intent.action.NEW_OUTGOING_CALL
+ADDED from AndroidManifest.xml:260:17
+	android:name
+		ADDED from AndroidManifest.xml:260:25
+meta-data#wostore_billing_otherpay
+ADDED from AndroidManifest.xml:269:9
+	android:name
+		ADDED from AndroidManifest.xml:270:13
+	android:value
+		ADDED from AndroidManifest.xml:271:13
+meta-data#wostore_billing_chinaunicom
+ADDED from AndroidManifest.xml:272:9
+	android:name
+		ADDED from AndroidManifest.xml:273:13
+	android:value
+		ADDED from AndroidManifest.xml:274:13
+activity#cn.egame.terminal.paysdk.EgamePayActivity
+ADDED from AndroidManifest.xml:277:9
+	android:theme
+		ADDED from AndroidManifest.xml:279:13
+	android:name
+		ADDED from AndroidManifest.xml:278:13
+activity#com.alipay.android.app.sdk.WapPayActivity
+ADDED from AndroidManifest.xml:283:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:285:13
+	android:name
+		ADDED from AndroidManifest.xml:284:13
+activity#com.skymobi.pay.sdk.SkyPayActivity
+ADDED from AndroidManifest.xml:288:9
+	android:label
+		ADDED from AndroidManifest.xml:291:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:290:13
+	android:theme
+		ADDED from AndroidManifest.xml:292:13
+	android:name
+		ADDED from AndroidManifest.xml:289:13
+activity#com.skymobi.pay.third.activity.impl.EnterChargeCenter
+ADDED from AndroidManifest.xml:293:9
+	android:windowSoftInputMode
+		ADDED from AndroidManifest.xml:298:13
+	android:label
+		ADDED from AndroidManifest.xml:296:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:295:13
+	android:theme
+		ADDED from AndroidManifest.xml:297:13
+	android:name
+		ADDED from AndroidManifest.xml:294:13
+intent-filter#android.intent.action.MAIN+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:299:13
+activity#com.skymobi.pay.third.activity.impl.QueryChargeResultActivity
+ADDED from AndroidManifest.xml:304:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:308:13
+	android:label
+		ADDED from AndroidManifest.xml:307:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:306:13
+	android:theme
+		ADDED from AndroidManifest.xml:309:13
+	android:name
+		ADDED from AndroidManifest.xml:305:13
+activity#com.skymobi.pay.third.activity.impl.HelpActivity
+ADDED from AndroidManifest.xml:310:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:314:13
+	android:label
+		ADDED from AndroidManifest.xml:313:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:312:13
+	android:theme
+		ADDED from AndroidManifest.xml:315:13
+	android:name
+		ADDED from AndroidManifest.xml:311:13
+service#com.skymobi.pay.sms.service.SmsService
+ADDED from AndroidManifest.xml:317:9
+	android:name
+		ADDED from AndroidManifest.xml:317:18
+service#com.skymobi.pay.sms.service.SynService
+ADDED from AndroidManifest.xml:318:9
+	android:name
+		ADDED from AndroidManifest.xml:318:18
+service#com.skymobi.pay.common.service.PayCtrlService
+ADDED from AndroidManifest.xml:319:9
+	android:name
+		ADDED from AndroidManifest.xml:319:18
+service#com.skymobi.pay.services.SkyPayRemoteService
+ADDED from AndroidManifest.xml:320:9
+	android:name
+		ADDED from AndroidManifest.xml:320:18
+intent-filter#com.skymobi.pay.sdk.ISkyPayRemoteService
+ADDED from AndroidManifest.xml:321:13
+action#com.skymobi.pay.sdk.ISkyPayRemoteService
+ADDED from AndroidManifest.xml:322:17
+	android:name
+		ADDED from AndroidManifest.xml:322:25
+service#com.skymobi.pay.third.service.CheckResultBackgroundService
+ADDED from AndroidManifest.xml:325:9
+	android:name
+		ADDED from AndroidManifest.xml:325:18
+receiver#com.skymobi.pay.sms.receiver.BootReceiver
+ADDED from AndroidManifest.xml:327:9
+	android:name
+		ADDED from AndroidManifest.xml:327:19
+intent-filter#android.bluetooth.adapter.action.STATE_CHANGED+android.intent.action.ANY_DATA_STATE+android.intent.action.BATTERY_CHANGED+android.intent.action.BOOT_COMPLETED+android.intent.action.NOTIFICATION_ADD+android.intent.action.NOTIFICATION_REMOVE+android.intent.action.NOTIFICATION_UPDATE+android.intent.action.SCREEN_ON+android.intent.action.SERVICE_STATE+android.intent.action.SIM_STATE_CHANGED+android.intent.action.USER_PRESENT+android.intent.category.DEFAULT+android.net.wifi.STATE_CHANGE+android.net.wifi.WIFI_STATE_CHANGED
+ADDED from AndroidManifest.xml:328:13
+	android:priority
+		ADDED from AndroidManifest.xml:328:28
+action#android.intent.action.BATTERY_CHANGED
+ADDED from AndroidManifest.xml:329:17
+	android:name
+		ADDED from AndroidManifest.xml:329:25
+action#android.intent.action.SIM_STATE_CHANGED
+ADDED from AndroidManifest.xml:330:17
+	android:name
+		ADDED from AndroidManifest.xml:330:25
+action#android.intent.action.NOTIFICATION_ADD
+ADDED from AndroidManifest.xml:331:17
+	android:name
+		ADDED from AndroidManifest.xml:331:25
+action#android.intent.action.SERVICE_STATE
+ADDED from AndroidManifest.xml:332:17
+	android:name
+		ADDED from AndroidManifest.xml:332:25
+action#android.intent.action.NOTIFICATION_REMOVE
+ADDED from AndroidManifest.xml:333:17
+	android:name
+		ADDED from AndroidManifest.xml:333:25
+action#android.intent.action.NOTIFICATION_UPDATE
+ADDED from AndroidManifest.xml:334:17
+	android:name
+		ADDED from AndroidManifest.xml:334:25
+action#android.bluetooth.adapter.action.STATE_CHANGED
+ADDED from AndroidManifest.xml:335:17
+	android:name
+		ADDED from AndroidManifest.xml:335:25
+action#android.net.wifi.WIFI_STATE_CHANGED
+ADDED from AndroidManifest.xml:336:17
+	android:name
+		ADDED from AndroidManifest.xml:336:25
+action#android.intent.action.ANY_DATA_STATE
+ADDED from AndroidManifest.xml:337:17
+	android:name
+		ADDED from AndroidManifest.xml:337:25
+action#android.net.wifi.STATE_CHANGE
+ADDED from AndroidManifest.xml:338:17
+	android:name
+		ADDED from AndroidManifest.xml:338:25
+action#android.intent.action.BOOT_COMPLETED
+ADDED from AndroidManifest.xml:339:17
+	android:name
+		ADDED from AndroidManifest.xml:339:25
+action#android.intent.action.SCREEN_ON
+ADDED from AndroidManifest.xml:343:17
+	android:name
+		ADDED from AndroidManifest.xml:343:25
+action#android.intent.action.USER_PRESENT
+ADDED from AndroidManifest.xml:344:17
+	android:name
+		ADDED from AndroidManifest.xml:344:25
+receiver#com.skymobi.pay.sms.receiver.SmsReceiver
+ADDED from AndroidManifest.xml:347:9
+	android:name
+		ADDED from AndroidManifest.xml:347:19
+intent-filter#android.provider.Telephony.SMS_RECEIVED
+ADDED from AndroidManifest.xml:348:13
+	android:priority
+		ADDED from AndroidManifest.xml:348:28
+action#android.provider.Telephony.SMS_RECEIVED
+ADDED from AndroidManifest.xml:349:17
+	android:name
+		ADDED from AndroidManifest.xml:349:25
+receiver#com.skymobi.pay.sms.receiver.NetworkReceiver
+ADDED from AndroidManifest.xml:352:9
+	android:name
+		ADDED from AndroidManifest.xml:352:19
+uses-permission#android.permission.UPDATE_DEVICE_STATS
+ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:28:5
+	android:name
+		ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:28:22
+uses-permission#android.permission.WRITE_APN_SETTINGS
+ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:29:5
+	android:name
+		ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:29:22
+uses-permission#android.permission.MODIFY_PHONE_STATE
+ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:32:5
+	android:name
+		ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:32:22
+uses-permission#android.permission.WRITE_SECURE_SETTINGS
+ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:34:5
+	android:name
+		ADDED from workspace_ddz_2.0.0:OptimizationSKAndroidPayRes:unspecified:34:22
