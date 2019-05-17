@@ -1,0 +1,18 @@
+<!--pages/charge/my/walllet.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit='true'>
+  <view class='container'>
+    <view class='item'>
+      <view style='margin-left:50rpx;'>
+        <view>余额</view>
+        <view>¥{{balence/100}}</view>
+      </view>
+      <button class='rechargeBtn' type='primary' form-type='submit' bindtap='goRecharge'>充值</button>
+    </view>
+
+    <!-- <button class='withdrawBtn' type='default' form-type='submit' bindtap='withdraw'>提现</button> -->
+  </view> 
+  <view class='menu_item' bindtap='chargeDetail'>
+    <text class='detail'>充值明细</text>
+    <view class='arrow' />
+  </view>
+</form>

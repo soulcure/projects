@@ -1,0 +1,100 @@
+/* pages/login/login.wxss */
+
+.container {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.logo {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.company {
+  font-weight: bold;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.permContainer {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.permTitle {
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.permItem {
+  color: #b2b2b2;
+  font-size: 10pt;
+  margin-top: 40rpx;
+}
+
+.loginBtn {
+  width: 100%;
+  margin-top: 100rpx;
+}
+
+.agreement {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  bottom: 20rpx;
+  font-size: 8pt;
+  color: #b2b2b2;
+}
+
+.agreement .after {
+  color: #6ca9ee;
+}
+
+.isAuthShow {
+  display: block;
+}
+
+.isAuthHide {
+  display: none;
+}
+
+.authWindow {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.authContent {
+  padding: 40rpx;
+  width: 60%;
+  background: white;
+  margin: 40% auto;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+/* .authTitle{
+  
+} */
+
+.authMessage {
+  margin-top: 60rpx;
+  font-size: 10pt;
+  color: #b2b2b2;
+}
+
+.authOtherNumber {
+  margin-top: 60rpx;
+  font-size: 8pt;
+  color: #3f78f3;
+}

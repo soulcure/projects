@@ -1,0 +1,15 @@
+<!--pages/charge/activityDetail/activityDetail.wxml-->
+<scroll-view>
+  <image src="../resources/activity.jpg" mode='widthFix'></image>
+  <view class="title">{{activity.title}}</view>
+  <view class="detail">
+    <view class="tip">活动状态：</view>
+    <view class="content">{{activity.status == 1 ? "火热进行中" : "已停止"}}</view>
+    <view class="tip">活动时间：</view>
+    <view class="content">{{activity.startTime}} - {{activity.endTime}}</view>
+    <view class="tip">活动详情：</view>
+    <view class="content"><text>{{activity.detail}}</text></view>
+    <!-- <view class="content"></view> -->
+  </view>
+</scroll-view>
+<button wx:if="{{activity.type == 1}}" class="btn" bindtap="goCharge">马上充值</button>  

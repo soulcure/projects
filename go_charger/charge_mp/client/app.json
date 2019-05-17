@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/charge/map",
+    "pages/charge/my/my",
+    "pages/charge/my/chargeOrderList/chargeOrderList",
+    "pages/charge/my/chargeOrderList/chargeDetail/chargeDetail",
+    "pages/charge/my/wallet/wallet",
+    "pages/charge/my/wallet/recharge/recharge",
+    "pages/charge/my/wallet/rechargeOrder/rechargeOrder",
+    "pages/charge/chargerList",
+    "pages/charge/service/serviceCenter",
+    "pages/charge/login/login",
+    "pages/charge/login/userAgreement",
+    "pages/charge/activity/activity",
+    "pages/charge/activityDetail/activityDetail"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00a2ea",
+    "navigationBarTitleText": "小蓝快充",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取附近充电桩！"
+    }
+  }
+}

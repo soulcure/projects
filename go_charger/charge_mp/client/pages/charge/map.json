@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "wave": "../../components/wave/wave",
+    "circleProgress": "../../components/circleProgress/circleProgress"
+  }
+}

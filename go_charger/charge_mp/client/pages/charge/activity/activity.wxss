@@ -1,0 +1,15 @@
+/* pages/charge/activity/activity.wxss */
+.arow{
+  border-bottom:10rpx solid #ccc;
+  padding:20rpx 10rpx;
+}
+
+.atitle{
+  font-size:30rpx;
+}
+
+.atime{
+  margin-top:20rpx;
+  font-size:25rpx;
+  color:lightgrey;
+}

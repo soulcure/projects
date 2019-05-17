@@ -1,0 +1,9 @@
+<!--pages/charge/chargerList.wxml-->
+<view wx:for="{{markers}}" wx:if="{{index>0}}" class="{{index==1?'charger-item charger-first-item':'charger-item'}}">
+  <image class="charger-image" src='./resources/charger.png'></image>
+  <view class='charger-text' bindtap='naviTo' data-index='{{index}}'>
+    <view class="charger-title">{{item.title}}</view>
+    <view class="charger-address">{{item.address}}</view>
+  </view>
+</view>
+<view class="empty" wx:if="{{markers.length==1}}">未找到充电桩</view>

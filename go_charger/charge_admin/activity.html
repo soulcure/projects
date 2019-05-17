@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+		<div id="activityToolbar" class="toolbar">
+			<a href="#" class="icon-reload activityReload"></a>
+			<a href="#" class="icon-add activityAdd"></a>
+            <a href="#" class="icon-edit activityEdit"></a>
+            <a href="#" class="icon-delete activityDelete"></a>
+		</div>
+		<table id="activityList" class="easyui-datagrid js-activityList" data-options="title:'活动列表',tools:'#activityToolbar',pagination:true,singleSelect:true">
+			<thead>
+				<tr>
+					<th data-options="field:'id',frozen:true">ID</th>
+					<!-- <th data-options="field:'type',formatter:getActivityTypeText">活动类型</th> -->
+					<th data-options="field:'title'">活动标题</th>
+					<th data-options="field:'startTime',formatter:timestamp2date">开始时间</th>
+					<th data-options="field:'endTime',formatter:timestamp2date">结束时间</th>
+					<th data-options="field:'status',formatter:getActivityStatusText">状态</th>
+					<th data-options="field:'stationId',formatter:getStationName">充电站ID</th>
+					<!-- <th data-options="field:'createTime',formatter:timestamp2date">添加时间</th> -->
+				</tr>
+			</thead>
+		</table>
+		<form id="activityEditor" class="easyui-dialog" data-options="title:'详细信息',closed:true,draggable:false,modal:true,shadow:false" style="width:280px;">
+			<table>
+				<tr>
+					<td align="right">活动标题：</td>
+					<td><input class="easyui-textbox" id="activity-title" name="title" maxlength="20" data-options="required:true"></td>
+				</tr>
+				<tr>
+					<td align="right">开始时间：</td>
+					<td><input class="easyui-datebox" id="activity-startTime" name="startTime" data-options="required:true"></td>
+				</tr>
+				<tr>
+					<td align="right">结束时间：</td>
+					<td><input class="easyui-datebox" id="activity-endTime" name="endTime" data-options="required:true"></td>
+				</tr>
+				<!-- <tr>
+					<td align="right">活动类型：</td>
+					<td><input class="easyui-combobox" id="activity-type" name="type"></td>
+				</tr> -->
+				<tr>
+					<td align="right">折扣率：</td>
+					<td>
+						 <input class="easyui-numberbox" min="0" max="100" id="activity-discount" name="discount" data-options="required:true" style="width:60px">%
+					</td>
+				</tr>
+				<tr>
+					<td align="right">详情：</td>
+					<td><input class="easyui-textbox" id="activity-detail" name="detail" data-options="required:true,validType:'minLength[30]'" multiline='true' style="height:60px;"></td>
+				</tr>
+				<tr id="activity-station">
+					<td align="right">充电站：</td>
+					<td><input class="easyui-combobox" id="activity-stationId" name="stationId" style="width:174px;"></td>
+				</tr>
+				<tr>
+					<td align="right">状态：</td>
+					<td><input class="easyui-combobox" id="activity-status" name="status"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="hidden" id="activity-action" name="action">
+						<input type="hidden" id="activity-id" name="id">
+						<a href="#" class="easyui-linkbutton js-activityOk" data-options="iconCls:'icon-ok'">确定</a>
+						<a href="#" class="easyui-linkbutton js-activityCancel" data-options="iconCls:'icon-cancel'">取消</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+
+		<script type="text/javascript">
+			// 获取活动类型数组
+			function getActivityTypes(){
+				return [
+					{value:1,text:'充值优惠',text0:'1-充值优惠'},
+					{value:2,text:'服务费打折',text0:'1-服务费打折'}
+				];
+			}
+
+			// 获取活动类型文字
+			function getActivityTypeText(v){
+				var rt = "充值优惠";
+				if(v == 2){
+					rt = "服务费打折";
+				}
+				return rt;
+			}
+
+			// 获取活动状态数组
+			function getActivityStatus(){
+				return [
+						{value:0,text:'停止',text0:'0-停止'},
+						{value:1,text:'进行中',text0:'1-进行中'}
+					];
+			}
+
+			// 获取活动状态文字
+			function getActivityStatusText(v){
+				var rt = "停止";
+				if(v == 1){
+					rt = "进行中";
+				}
+				return rt;
+			}
+
+				setTimeout(function(){
+					// 字段类型定义
+					var pt = {
+						id:"int",
+						// type:"int",
+						title:"string",
+						startTime:"string",
+						endTime:"string",
+						detail:"string",
+						stationId:"int",
+						status:"int",
+						// amount:"int",
+						// gift:"int",
+						discount:"int"
+					};
+
+					// maxlength
+					maxlength();
+
+					//列表
+					var rs = list("mgr/activity/type/2/",0);
+					$('#activityList').datagrid('loadData', rs);
+
+					//列表分页
+					$('#activityList').datagrid("getPager").pagination({
+						layout: ['first','links','last'],
+						pageSize:20,
+						onSelectPage: function(n,s){
+							var rt = list("mgr/activity/type/2/",n-1);
+							$('#activityList').datagrid("loadData", rt);
+						}
+					});
+					
+					// 重载数据
+					$('.activityReload').unbind('click');
+					$('.activityReload').bind('click',function(){
+						var pn = $('#activityList').datagrid("getPager").data("pagination").options.pageNumber - 1;
+						var rs = list("mgr/activity/type/2/",pn);
+						$('#activityList').datagrid('loadData', rs);
+					});
+					
+					// 添加
+					$('.activityAdd').unbind('click');
+					$('.activityAdd').bind('click',function(){
+						$('#activity-action').val('add');
+						$('#activityEditor').dialog('open');
+						setTimeout(function(){
+							var ss = getStationComboData();
+							$('#activity-stationId').combobox({
+								valueField: 'value',
+								textField: 'text',
+							    panelHeight: 'auto',
+								data: ss
+							});
+							$('#activity-stationId').combobox("setValue",ss[0]['value']);							
+							$('#activity-status').combobox({
+								valueField: 'value',
+								textField: 'text',
+							    panelHeight: 'auto',
+								data: getActivityStatus()
+							});
+						},100);
+					});
+
+					// 修改
+					$('.activityEdit').unbind('click');
+					$('.activityEdit').bind('click',function(){
+						var rt = false;
+						$('#activity-action').val('edit');
+
+						var r = $('#activityList').datagrid('getSelected');
+						if(r){
+							$('#activityEditor').dialog('open');	
+							rt = one("mgr/activity/",r.id);
+							if(rt){
+								rt.startTime = timestamp2date(rt.startTime);
+								rt.endTime = timestamp2date(rt.endTime);
+								setTimeout(function(){
+									var ss = getStationComboData();
+									$('#activity-stationId').combobox({
+										valueField: 'value',
+										textField: 'text',
+									    panelHeight: 'auto',
+										data: ss
+									});	
+									$('#activity-stationId').combobox("setValue",ss[0]['value']);						
+									$('#activity-status').combobox({
+										valueField: 'value',
+										textField: 'text',
+									    panelHeight: 'auto',
+										data: getActivityStatus()
+									});
+
+									setFormData(rt,"activity");
+								},100);
+							}							
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+
+					});
+
+					// 删除
+					$('.activityDelete').unbind('click');
+					$('.activityDelete').bind('click',function(){
+						var rt = false;
+						var r = $('#activityList').datagrid('getSelected');
+						if(r){
+							$.messager.confirm('提醒','确认要删除活动吗？',function(y){
+								if(y){
+									rt = del("mgr/activity/",r.id)
+									/*if(rt){
+										$.messager.alert("提醒","删除成功");
+									}else{
+										$.messager.alert("提醒","删除失败");
+									}*/
+									var rs = list("mgr/activity/type/2/",0);
+									$('#activityList').datagrid('loadData', rs);									
+								}
+							});			
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+					});
+
+					// 确定
+					$('.js-activityOk').unbind('click');
+					$('.js-activityOk').bind('click',function(){
+						var valid = formValidate('activityEditor');
+						if(!valid){
+							return;
+						}							
+						var t = $('#activity-action').val();
+						var v = getFormData($('#activityEditor').serializeArray(),pt);
+						var st = $('#activity-startTime').datebox('getValue');
+						var et = $('#activity-endTime').datebox('getValue');
+						var discount = $('#activity-discount').numberbox('getValue');
+						v.startTime = getTimestamp(st);
+						v.endTime = getTimestamp(et);
+						v.rule = JSON.stringify({rules:[]});
+						v.type = 2;
+						var rt = false;
+						if(t == "add"){
+							delete v.id;
+							rt = add("mgr/activity/",v);
+							if(!rt){
+								$.messager.alert("警告","添加失败，每个充电站只能有一个打折活动！");
+							}
+						}else{
+							rt = edit("mgr/activity/",v.id,v);
+							if(!rt){
+								$.messager.alert("警告","修改失败，每个充电站只能有一个打折活动！");
+							}
+						}
+						if(rt){							
+							$('#activityEditor').dialog("close");
+
+							var rs = list("mgr/activity/type/2/",0);
+							$('#activityList').datagrid('loadData', rs);
+						}
+					});
+
+					// 取消
+					$('.js-activityCancel').unbind('click');
+					$('.js-activityCancel').bind('click',function(){
+						clearFormData(pt,"activity");
+						$('#activityEditor').dialog("close");
+					});
+
+					// 关闭
+					$('#activityEditor').dialog({
+						onClose:function(){
+							clearFormData(pt,"activity");
+						}
+					});
+
+				},100);
+		</script>
+		<style>
+		</style>
+	</body>
+</html>

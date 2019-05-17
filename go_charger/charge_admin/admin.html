@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+		<div id="adminToolbar" class="toolbar">
+			<a href="#" class="icon-add adminAdd"></a>
+            <a href="#" class="icon-edit adminEdit"></a>
+            <a href="#" class="icon-delete adminDelete"></a>
+		</div>
+		<table id="adminList" class="easyui-datagrid js-adminList" data-options="title:'管理员列表',tools:'#adminToolbar',pagination:true,singleSelect:true">
+			<thead>
+				<tr>
+					<!-- <th data-options="field:'id',frozen:true">ID</th> -->
+					<th data-options="field:'code'">用户名</th>
+					<th data-options="field:'name'">昵称</th>
+					<!-- <th data-options="field:'createTime',formatter:timestamp2date">添加时间</th> -->
+				</tr>
+			</thead>
+		</table>
+		<form id="adminEditor" class="easyui-dialog" data-options="title:'详细信息',closed:true,draggable:false,modal:true">
+			<table>
+				<tr>
+					<td align="right">用户名：</td>
+					<td><input class="easyui-textbox" id="admin-userName" name="userName"></td>
+				</tr>
+				<tr>
+					<td align="right">昵称：</td>
+					<td><input class="easyui-textbox" id="admin-nickName" name="nickName"></td>
+				</tr>
+				<tr>
+					<td align="right">密码：</td>
+					<td><input class="easyui-numberbox" id="admin-pwd" name="pwd"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="hidden" id="admin-action" name="admin-action">
+						<a href="#" class="easyui-linkbutton js-adminOk" data-options="iconCls:'icon-ok'">确定</a>
+						<a href="#" class="easyui-linkbutton js-adminCancel" data-options="iconCls:'icon-cancel'">取消</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+
+		<script type="text/javascript">
+				setTimeout(function(){
+					// 字段类型定义
+					var pt = {
+						id:"int",
+						userName:"string",
+						nickName:"string",
+						pwd:"string"
+					};
+
+					//列表
+					var rs = list("mgr/charge/all/",0);
+					$('#adminList').datagrid('loadData', rs);
+
+					//列表分页
+					$('#adminList').datagrid("getPager").pagination({
+						layout: ['first','links','last'],
+						// pageSize:1,
+						onSelectPage: function(n,s){
+							var rt = list("mgr/charge/all/",n-1);
+							$('#adminList').datagrid("loadData", rt);
+						}
+					});
+					
+					// 添加
+					$('.adminAdd').unbind('click');
+					$('.adminAdd').bind('click',function(){
+						$('#admin-action').val('add');
+						$('#adminEditor').dialog('open');
+					});
+
+					// 修改
+					$('.adminEdit').unbind('click');
+					$('.adminEdit').bind('click',function(){
+						var rt = false;
+						$('#admin-action').val('edit');
+
+						var r = $('#adminList').datagrid('getSelected');
+						if(r){
+							$('#adminEditor').dialog('open');	
+							rt = one("mgr/charge/",r.code);
+							if(rt){
+								setTimeout(function(){
+									setFormData(rt,"admin");
+								},100);
+							}							
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+
+					});
+
+					// 删除
+					$('.adminDelete').unbind('click');
+					$('.adminDelete').bind('click',function(){
+						var rt = false;
+						var r = $('#adminList').datagrid('getSelected');
+						if(r){
+							$.messager.confirm('提醒','确认要删除充电桩吗？',function(y){
+								if(y){
+									rt = del("mgr/charge/",r.code)
+									/*if(rt){
+										$.messager.alert("提醒","删除成功");
+									}else{
+										$.messager.alert("提醒","删除失败");
+									}*/
+									var rs = list("mgr/charge/all/",0);
+									$('#adminList').datagrid('loadData', rs);									
+								}
+							});			
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+					});
+
+					// 确定
+					$('.js-adminOk').unbind('click');
+					$('.js-adminOk').bind('click',function(){
+						var t = $('#admin-action').val();
+						var v = getFormData($('#adminEditor').serializeArray(),pt);
+						var rt = false;
+						if(t == "add"){
+							rt = add("mgr/charge/",v);
+							if(!rt){
+								$.messager.alert("警告","添加失败！");
+							}
+						}else{
+							rt = edit("mgr/charge/",v.code,v);
+							if(!rt){
+								$.messager.alert("警告","修改失败！");
+							}
+						}
+						if(rt){							
+							$('#adminEditor').dialog("close");
+
+							var rs = list("mgr/charge/all/",0);
+							$('#adminList').datagrid('loadData', rs);
+						}						
+					});
+
+					// 取消
+					$('.js-adminCancel').unbind('click');
+					$('.js-adminCancel').bind('click',function(){
+						clearFormData(pt,"admin");
+						$('#adminEditor').dialog("close");
+					});
+
+					// 关闭
+					$('#adminEditor').dialog({
+						onClose:function(){
+							clearFormData(pt,"admin");
+						}
+					});
+
+				},100);
+		</script>
+	</body>
+</html>

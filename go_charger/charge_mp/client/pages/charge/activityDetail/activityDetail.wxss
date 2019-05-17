@@ -1,0 +1,42 @@
+/* pages/charge/activityDetail/activityDetail.wxss */
+page{
+  height:100%;
+  background-color: #e7222c;
+}
+
+scroll-view{
+  color:#fff;
+  padding-bottom:120rpx;
+}
+
+image{
+  width:100%;
+}
+
+.title{
+  text-align: center;
+  margin:30rpx 0;
+}
+
+.detail{
+  padding:10rpx;
+}
+
+.tip{
+  float:left;
+  width:190rpx;
+  overflow: hidden;
+}
+
+.content{
+  padding-left:200rpx;
+}
+
+.btn{
+  width:100%;
+  background-color:dodgerblue;
+  color:#fff;
+  position: fixed;
+  bottom:0;
+}
+

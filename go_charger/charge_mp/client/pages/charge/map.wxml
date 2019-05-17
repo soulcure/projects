@@ -1,0 +1,81 @@
+<!--pages/charge/map.wxml-->
+<view style="width: 100%; height: 100%;" wx:if="{{isCharging==0}}">
+  <view class='searchBar'>
+    <view bindtap='goMy' class="userinfo-avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="searchText" bindtap='chooseLocation'>搜索位置查找附近充电桩</view>
+    <image class="list" bindtap='goChargerList' src='./resources/chargeList.png'></image>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset" report-submit='true'>
+    <map id="mapId" longitude="{{currLongitude}}" latitude="{{currLatitude}}" scale="12" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" class='map' bindtap='maptap'>
+      <cover-view class="sidebar">
+          <cover-image class="item" src="./resources/locate.png" bindtap='getLocation'></cover-image>
+          <button open-type='contact'><cover-image class="item" src="./resources/serviceCenter.png"></cover-image></button>
+          <cover-image wx:if="{{hasActivities == 1}}"  class="item" src="./resources/gift.png" bindtap='toActivities'></cover-image>
+      </cover-view>
+      <cover-view class='btnBar'>
+        <button class='btnBg' form-type='submit' bindtap='scanCode'>
+          <cover-view class='btnBg'>
+            <cover-image class='scanBtn' src='./resources/scanCode.png'></cover-image>
+            <!-- <cover-view class='scanText '>扫码充电</cover-view> -->
+          </cover-view>
+        </button>
+      </cover-view>
+      <cover-view class='chargerBar chargerAnimationSlow' wx:if="{{isShowChagerLoc}}" bindtap='naviTo'>
+        <cover-image class="charger-image" src='./resources/charger.png'></cover-image>
+        <cover-view class='charger-text'>
+          <cover-view class="charger-title">{{markers[currentMarkerId].title}}</cover-view>
+          <cover-view class="charger-address">{{markers[currentMarkerId].address}}</cover-view>
+        </cover-view>
+      </cover-view>
+    </map>
+  </form>
+</view>
+
+<view wx:if="{{isCharging!=0}}" style='width: 100%; height: 100vh; overflow：hidden' catchtouchmove='preventTouchMove'>
+  <view class='searchBar'>
+    <view bindtap='goMy' class="userinfo-avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+  </view>
+  <view class='progress_box'>
+    <view class='chargingState'>{{chargingState}}</view>
+    <!-- <circleProgress id='circleProgress' bg='circle_bg' draw='circle_draw' bind:runEvent="_runEvent">
+      <view class="circle_info" bindtap="changeTime">
+        <view class='circle_txt'>{{chargingDegree}}% </view>
+        <view class='circle_txt'>{{timeCounter}}</view>
+      </view>
+    </circleProgress> -->
+    <wave id='chargeWave'>
+    <view class="circle_info" bindtap="changeTime">
+      <!-- <view class='circle_txt'>{{chargingDegree}}% </view> -->
+      <cover-view class='circle_txt'>{{timeCounter}} </cover-view>
+    </view>
+    </wave>
+    <!-- <view class='chargingData chargingCat'>
+      <view>预计剩余</view>
+      <view class='chargingValue'>{{chargingRemainTime/100}}分钟</view>
+      <view>完成</view>
+    </view> -->
+
+    <view class='chargingData'>
+      <!-- <view class='chargingItem'>
+        <view class=''>{{chargingTime.hour?chargingTime.hour+'时':''}}{{chargingTime.minute}}分</view>
+        <view class='chargingCat'>时长</view>
+      </view>
+      <view class='chargingItemSep'> </view> -->
+      <view class='chargingItem'>
+        <view class=''>{{chargingWatt/100}}</view>
+        <view class='chargingCat'>度数</view>
+      </view>
+      <view class='chargingItemSep'> </view>
+      <view class='chargingItem'>
+        <view class=''>{{chargingFee/100}}</view>
+        <view class='chargingCat'>费用</view>
+      </view>
+    </view>
+  </view>
+
+  <button class="powerBtn" type="warn" bindtap='stopCharge'>结束充电</button>
+</view>

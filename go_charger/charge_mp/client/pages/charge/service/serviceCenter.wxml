@@ -1,0 +1,7 @@
+<!--pages/charge/serviceCenter.wxml-->
+<view class='container'>
+  <view class='item' wx:for='{{msgs}}'>
+    <image class='avater' src='../login/logo.png'></image>
+    <text class='msg'>{{item.msg}}</text>
+  </view>
+</view>

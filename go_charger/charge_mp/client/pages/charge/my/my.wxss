@@ -1,0 +1,18 @@
+/* pages/charge/my.wxss */
+
+.userBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 50rpx;
+  align-items: center;
+  border-top: solid 10rpx #f6f6f6;
+  border-bottom: solid 10rpx #f6f6f6;
+}
+
+.userinfo-avatar {
+  margin-left: 20rpx;
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+  overflow: hidden; /*圆角*/
+}

@@ -1,0 +1,74 @@
+/* pages/charge/my/wallet/rechare/rechare.wxss */
+
+.title {
+  font-size: 12pt;
+  margin-left: 30rpx;
+}
+
+.weui-grids {
+  position: relative;
+  overflow: hidden;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.weui-grid {
+  position: relative;
+  float: left;
+  padding: 20px 10px;
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px #b2b2b2 solid;
+  margin: 1.6%;
+}
+
+.weui-grid:active {
+  background-color: #ececec;
+}
+
+.weui-grid-select {
+  border: 1px #e04848 solid;
+  color: #e04848;
+}
+
+.weui-grid__bg {
+  position: relative;
+  float: left;
+  padding: 0px 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.weui-grid__label {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.rechargeBtn {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 100rpx;
+}
+
+.otherContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.other {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
+  padding: 20rpx;
+  border-radius: 10px;
+  border: 1px #b2b2b2 solid;
+}

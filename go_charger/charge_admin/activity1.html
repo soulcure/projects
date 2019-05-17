@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+		<form id="activity1Editor" class="easyui-panel" data-options="draggable:false,shadow:false" style="width:400px;border:none;">
+			<table>
+				<tr>
+					<td align="right">活动标题：</td>
+					<td><input class="easyui-textbox" id="activity1-title" name="title" maxlength="20" data-options="required:true"></td>
+				</tr>
+				<tr>
+					<td align="right">开始时间：</td>
+					<td><input class="easyui-datebox" id="activity1-startTime" name="startTime" data-options="required:true"></td>
+				</tr>
+				<tr>
+					<td align="right">结束时间：</td>
+					<td><input class="easyui-datebox" id="activity1-endTime" name="endTime" data-options="required:true"></td>
+				</tr>
+				<tr>
+					<td align="right">规则：</td>
+					<td>
+						<div class="activity1RuleRow">
+							充 <input class="easyui-numberbox" id="activity1-amount" name="amount[]" data-options="required:true,min:0,max:1000000" style="width:50px"> 分
+							送 <input class="easyui-numberbox" id="activity1-gift" name="gift[]" data-options="required:true,min:0,max:1000000" style="width:50px"> 分
+							<a href="#" class="easyui-linkbutton activity1RuleClone" data-options="iconCls:'icon-add'"></a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">详情：</td>
+					<td><input class="easyui-textbox" id="activity1-detail" name="detail" data-options="required:true,validType:'minLength[30]'" multiline='true' style="height:60px;"></td>
+				</tr>
+				<tr>
+					<td align="right">状态：</td>
+					<td><input class="easyui-combobox" id="activity1-status" name="status"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="hidden" id="activity1-action" name="action">
+						<input type="hidden" id="activity1-id" name="id">
+						<a href="#" class="easyui-linkbutton js-activity1Ok" data-options="iconCls:'icon-ok'">确定</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+
+		<script type="text/javascript">
+			// 获取活动状态数组
+			function getActivity1Status(){
+				return [
+						{value:0,text:'停止',text0:'0-停止'},
+						{value:1,text:'进行中',text0:'1-进行中'}
+					];
+			}
+
+			// 获取活动状态文字
+			function getActivity1StatusText(v){
+				var rt = "停止";
+				if(v == 1){
+					rt = "进行中";
+				}
+				return rt;
+			}
+
+
+			// 添加一个规则
+			function activity1RuleClone(){						
+				$('.activity1RuleClone').unbind('click');
+				$('.activity1RuleClone').bind('click',function(){	
+					if($('.activity1RuleRow').length>=10){
+						return;
+					}
+					var row = "<div class=\"activity1RuleRow\">充 <input class=\"easyui-numberbox amount\" name=\"amount[]\" data-options=\"required:true,min:0,max:1000000\" style=\"width:50px;\"> 分 送 <input class=\"easyui-numberbox gift\" name=\"gift[]\" data-options=\"required:true,min:0,max:1000000\" style=\"width:50px;\"> 分 <a href=\"#\" class=\"easyui-linkbutton activity1RuleRemove\" data-options=\"iconCls:'icon-delete'\"></a></div>";		
+					var last = $('.activity1RuleRow').last();
+					// console.log(last);
+					$('.activity1RuleRow').parent('td').append(row);
+					$.parser.parse($('.activity1RuleRow').last());
+					var last0 = $('.activity1RuleRow').last();
+					activity1RuleRemove();
+				});
+			}
+
+			// 删除当前规则
+			function activity1RuleRemove(){
+				$('.activity1RuleRemove').unbind('click');
+				$('.activity1RuleRemove').bind('click',function(){
+					$(this).parent('.activity1RuleRow').remove();
+				});
+			}
+
+			function init(){
+				var rs = list("mgr/activity/type/1/",0);
+				console.log(rs);
+				if(rs.rows){
+					var rc = rs.rows.length;
+					var row = null;
+					if(rc == 0){
+						return;
+					}else if(rc == 1){
+						row = rs.rows[0];
+					}else{
+						row = rs.rows[0];
+						for(var i=0; i<rc; i++){
+							if(i > 0){							
+								del("mgr/activity/",rs.rows[i]['id']);
+							}
+						}
+					}
+
+
+
+					// 初始化表单
+					$('#activity1-id').val();
+					$('#activity1-title').textbox('setValue','0');
+					$('#activity1-startTime').datebox('setValue','0');
+					$('#activity1-endTime').datebox('setValue','');
+					$('#activity1-detail').textbox('setValue','');
+					$('#activity1-status').combobox('setValue',0);
+					$('#activity1-amount').parent('.activity1RuleRow').siblings().remove();
+
+
+					var rules = JSON.parse(row.rule);
+					if(rules.rules){
+						rules = rules.rules;
+					}else{
+						return;
+					}
+					if(rules.length > 0){
+						var r0 = rules[0];
+						$('#activity1-id').val(row.id);
+						$('#activity1-title').textbox('setValue',row.title);
+						$('#activity1-startTime').datebox('setValue',timestamp2date(row.startTime));
+						$('#activity1-endTime').datebox('setValue',timestamp2date(row.endTime));
+						$('#activity1-detail').textbox('setValue',row.detail);
+						$('#activity1-status').combobox('setValue',row.status);
+						$('#activity1-amount').numberbox('setValue',r0.amount);
+						$('#activity1-gift').numberbox('setValue',r0.gift);
+						lr = null;
+						rules.forEach(function(v,i){							
+							if(i > 0){
+								$('.activity1RuleClone').click();
+								lr = $('.activity1RuleRow').last();
+								lr.find('.amount').numberbox('setValue',v.amount);
+								lr.find('.gift').numberbox('setValue',v.gift);
+							}
+						});
+						maxlength();
+						activity1RuleRemove();
+					}
+				}
+			}
+				setTimeout(function(){
+					// 字段类型定义
+					var pt = {
+						id:"int",
+						// type:"int",
+						title:"string",
+						startTime:"string",
+						endTime:"string",
+						detail:"string",
+						status:"int"
+					};
+
+
+					$('#activity1-status').combobox({
+						valueField: 'value',
+						textField: 'text',
+					    panelHeight: 'auto',
+						data: getActivity1Status()
+					});
+
+					// maxlength
+					maxlength();
+					activity1RuleClone();
+
+					init();
+
+					// 确定
+					$('.js-activity1Ok').unbind('click');
+					$('.js-activity1Ok').bind('click',function(){	
+						var valid = formValidate('activity1Editor');
+						if(!valid){
+							return;
+						}						
+						var t = $('#activity1-action').val();
+						var amounts = getFormArrayDataByKey($('#activity1Editor').serializeArray(),'amount');
+						var gifts = getFormArrayDataByKey($('#activity1Editor').serializeArray(),'gift');
+						var rules = [];
+						var rule = {};
+						for( var i=0; i<amounts.length; i++){
+							rule = {
+								amount:parseInt(amounts[i]),
+								gift:parseInt(gifts[i])
+							};
+							rules.push(rule);
+						}
+
+						var v = getFormData($('#activity1Editor').serializeArray(),pt);
+						var st = $('#activity1-startTime').datebox('getValue');
+						var et = $('#activity1-endTime').datebox('getValue');
+						v.startTime = getTimestamp(st);
+						v.endTime = getTimestamp(et);
+						v.rule = JSON.stringify({rules:rules});
+						v.type = 1;
+						rt = edit("mgr/activity/",v.id,v);
+						if(!rt){
+							$.messager.alert("警告","修改失败！");
+						}else{
+							$.messager.alert("提示","修改成功！");
+						}
+
+						init();
+					});
+
+				},100);
+		</script>
+		<style>
+		.activity1RuleRow{
+			margin:5px 0;
+		}
+		</style>
+	</body>
+</html>

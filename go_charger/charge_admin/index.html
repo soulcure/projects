@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <script type="text/javascript" src="js/jquery.md5.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body class="easyui-layout">
+		<div region="north" id="header" style="background-color: #66f;color: #fff;">
+			<div class="logo">
+				<img src='/apis/mgr/image/logo' style='border:none;height:60px;margin-right:20px;' /> 
+				<span class="title">充电桩运营平台</span>
+			</div>
+			<div class="top-btns">
+				<span>欢迎您，管理员</span>
+				<a href="#" id="changepwd" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-advancedsettings'">修改密码</a>
+				<a href="#" id="logout" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-clear'">退出系统</a>
+			</div>
+		</div>
+		
+		<div class="wu-sidebar" region="west" split="true" title="导航菜单" id="naver">
+			<div class="easyui-accordion" id="navmenu" data-options="border:false,multiple:true,closed:false">
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">首页</a>
+						</li>
+					</ul>
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="setting.html">运营商信息</a>
+						</li>
+					</ul>
+				<div title="站桩管理" data-options="iconCls:'icon-application-cascade',closed:false">
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="station.html">电站配置</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="pile.html">电桩配置</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">视频监控</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">故障管理</a>
+						</li>
+						<!-- <li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="brand.html">充电桩品牌</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="model.html">充电桩型号</a>
+						</li> -->
+					</ul>
+				</div>
+				<div title="订单管理" data-options="iconCls:'icon-application-cascade',closed:false">
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">用户信息</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="recharge0.html">用户充值</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="consumption.html">交易记录</a>
+						</li>
+						<!-- <li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="recharge.html">充值记录</a>
+						</li> -->
+					</ul>
+				</div>
+				<div title="数据分析" data-options="iconCls:'icon-application-cascade',closed:false">
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">站点概要</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">区域</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">时间</a>
+						</li>
+					</ul>
+				</div>
+				<div title="车辆管理" data-options="iconCls:'icon-application-cascade',closed:false">
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="building.html">车辆管理</a>
+						</li>
+					</ul>
+				</div>
+				<div title="系统设置" data-options="iconCls:'icon-application-cascade',closed:false">
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="rules.html">计费策略配置</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="activity.html">充电打折</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="activity1.html">充值赠送</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <div title="用户管理" data-options="iconCls:'icon-application-cascade',closed:false">
+					<ul class="navmenu" >
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="admin.html">管理员</a>
+						</li>
+						<li iconCls="icon-chart-organisation">
+							<a class="tree-icon icon-application-view-list" href="#" data-url="user.html">用户</a>
+						</li>
+					</ul>
+				</div> -->
+			</div>
+		</div>
+		
+		<div region="center" id="content">
+			<div class="easyui-tabs" fit="true" id="tt">
+				<div title="首页" iconCls="icon-ok">
+					<div class="easyui-accordion" data-options="fit:true">
+						<h1>建设中，敬请关注......</h1>
+						<form id="changePassword" class="easyui-dialog" data-options="title:'充电桩参数设置',closed:'true'">
+							<table>
+								<tr>
+									<td align="right">旧密码：</td>
+									<td>
+										<input class="easyui-textbox" id="old"></td>
+									<td>
+								</tr>
+								<tr>
+									<td align="right">新密码：</td>
+									<td>
+										<input class="easyui-textbox" id="new1"></td>
+									<td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center">
+										<a href="#" id="changePasswordOK" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">确认</a>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				checkUser();
+				//添加新的Tab页
+				$("#navmenu").on("click", "a[data-url]", function(e) {
+					e.preventDefault();
+					var tabTitle = $(this).text();
+					var tabUrl = $(this).data("url");
+
+
+					/*$("#tt").tabs("close", 1);
+					$("#tt").tabs("add", {
+						title: tabTitle,
+						href: tabUrl,
+						closable: true
+					});*/
+
+
+					if ($("#tt").tabs("exists", tabTitle)) { //判断该Tab页是否已经存在				
+						$("#tt").tabs("select", tabTitle);
+					} else {
+						$("#tt").tabs("add", {
+							title: tabTitle,
+							href: tabUrl
+						});
+					}
+
+					$("#navmenu .active").removeClass("active");
+					$(this).parent().addClass("active");
+				});
+			});
+
+			$('#changepwd').unbind('click');
+			$('#changepwd').bind('click',function(){
+				$('#changePassword').dialog('open');
+			});
+
+			$('#changePasswordOK').unbind('click');
+			$('#changePasswordOK').bind('click',function(){
+				var old = $('#old').textbox('getValue');
+				var new1 = $('#new1').textbox('getValue');
+				if(!new1 && !old){
+					$.messager.alert("错误","新旧密码都不能为空！");
+				}else{	
+					var u = getCache(CACHE_USER_INFO);
+					v = {
+						id:u.id,
+						oldPwd:$.md5(old),
+						newPwd:$.md5(new1)
+					}			
+					var rt = put("mgr/user/password",v);
+					if(!rt){
+						$.messager.alert("警告","修改失败，旧密码错误！");
+					}else{
+						$.messager.alert("提醒","修改成功！");
+					}
+				}				
+				$('#changePassword').dialog('close');
+			});
+
+
+			$('#logout').unbind('click');
+			$('#logout').bind('click',function(){
+				$.messager.confirm("系统提示", "您确定要退出本次登陆吗?", function(isConfirm) {
+					if (isConfirm) {
+						deleteCache(CACHE_USER_INFO);
+						location.href = "login.html"; //调用logou
+					}
+				});
+			});
+
+		</script>
+	</body>
+</html>

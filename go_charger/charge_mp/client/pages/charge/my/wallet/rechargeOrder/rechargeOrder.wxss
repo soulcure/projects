@@ -1,0 +1,25 @@
+/* pages/charge/my/chargeOrderList.wxss */
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  border-bottom-style: solid;
+  border-bottom-width: 10rpx;
+  border-bottom-color: #f6f6f6;
+}
+
+.order-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgba(177, 172, 172, 0.877);
+  margin-bottom: 20rpx;
+  font-size: 12pt;
+}
+
+.order-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

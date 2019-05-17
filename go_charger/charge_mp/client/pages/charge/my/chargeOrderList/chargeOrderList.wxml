@@ -1,0 +1,20 @@
+<!--pages/charge/my/chargeOrderList.wxml-->
+<!-- <view wx:for="{{orders}}" wx:key="time" class="order-item" data-index='{{index}}' bindtap='goToOrderDetail'> -->
+<view wx:for="{{orders}}" wx:key="time" class="order-item" data-index='{{index}}'>
+  <view class="order-time">
+    <view>订单号：{{item.orderNum}}</view>
+    <view>{{item.time}}</view>
+  </view>
+  <!-- <view class="order-row">
+    <view>充电地点</view>
+    <view>{{item.address}}</view>
+  </view> -->
+  <view class="order-row">
+    <view>充电金额</view>
+    <view>-¥{{item.money/100}}</view>
+  </view>
+</view>
+<view wx:if="{{orders.length==0}}" class='empty'>
+  <image class='empty_icon' src='../../resources/empty_icon.png'></image>
+  <view class='empty_text'>暂无充电记录</view>
+</view>

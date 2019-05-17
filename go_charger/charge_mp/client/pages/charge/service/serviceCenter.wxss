@@ -1,0 +1,25 @@
+/* pages/charge/serviceCenter.wxss */
+
+.container {
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 30rpx;
+    align-items: center;
+  justify-content: space-between;
+}
+
+.avater {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.msg {
+  background-color: rgb(243, 65, 65);
+  border-radius: 20rpx;
+}

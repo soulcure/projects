@@ -1,0 +1,51 @@
+/* pages/charge/my/walllet.wxss */
+
+.container {
+  margin-top: 50rpx;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  border-radius: 20rpx;
+  border: rgba(199, 199, 199, 1) solid 1px;
+  padding-top: 60rpx;
+  padding-bottom: 60rpx;
+}
+
+.rechargeBtn {
+  color: white;
+  font-size: 14pt;
+  margin-left: 0rpx;
+  margin-right: 50rpx;
+  border-radius: 88rpx;
+  display: flex;
+  height: 78rpx;
+  width: 220rpx;
+  justify-content: center; /* 水平*/
+  align-items: center;  /* 垂直*/
+}
+
+.detail {
+  align-items: baseline;
+}
+
+.withdrawBtn {
+  position: fixed;
+  bottom: 50rpx;
+  width: 90%;
+}
+
+
+.item2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 50rpx;
+  align-items: center;
+}

@@ -1,0 +1,7 @@
+<!--pages/charge/activity/activity.wxml-->
+<scroll-view>
+<view class="arow" wx:for="{{rs}}" wx:key="id" data-id="{{item.id}}" bindtap="showDetail">
+  <view class="atitle">{{item.title}}</view>
+  <view class="atime">活动时间：{{item.startTime}} - {{item.endTime}}</view>
+</view>
+</scroll-view>

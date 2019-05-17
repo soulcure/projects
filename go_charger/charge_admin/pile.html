@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+		<div id="pileToolbar" class="toolbar">
+			<a href="#" class="icon-reload pileReload"></a>
+			<a href="#" class="icon-add pileAdd"></a>
+            <a href="#" class="icon-edit pileEdit"></a>
+            <a href="#" class="icon-delete pileDelete"></a>
+            <a href="#" class="icon-advancedsettings pileSetting"></a>
+		</div>
+		<table id="pileList" class="easyui-datagrid js-pileList" data-options="title:'充电桩列表',tools:'#pileToolbar',pagination:true,singleSelect:true">
+			<thead>
+				<tr>
+					<!-- <th data-options="field:'id',frozen:true">ID</th> -->
+					<th data-options="field:'code'">代码</th>
+					<th data-options="field:'name'">名称</th>
+					<th data-options="field:'billName'">计费策略</th>
+					<th data-options="field:'stationId',formatter:getStationName">充电站</th>
+					<!-- <th data-options="field:'brandId'">品牌</th>
+					<th data-options="field:'modelId'">型号</th>
+					<th data-options="field:'pileType'">桩类型</th>
+					<th data-options="field:'gunnum'">枪数量</th>
+					<th data-options="field:'gunType'">枪类型</th>
+					<th data-options="field:'rate'">速率</th> -->
+					<th data-options="field:'status',formatter:getPileStatusText">状态</th>
+					<!-- <th data-options="field:'createTime',formatter:timestamp2date">添加时间</th> -->
+				</tr>
+			</thead>
+		</table>
+		<form id="pileEditor" class="easyui-dialog" data-options="title:'详细信息',closed:true,draggable:false,modal:true">
+			<table>
+				<!-- <tr>
+					<td align="right">代码：</td>
+					<td><input class="easyui-textbox" id="pile-code" name="code" data-options="readonly:true"></td>
+				</tr> -->
+				<tr>
+					<td align="right">名称：</td>
+					<td><input class="easyui-textbox" id="pile-name" name="name" data-options="required:true"></td>
+				</tr>
+				<tr>
+					<td align="right">充电站：</td>
+					<td><input class="easyui-combobox" id="pile-stationId" name="stationId"></td>
+				</tr>
+				<!-- <tr>
+					<td align="right">品牌：</td>
+					<td><input class="easyui-textbox" id="pile-brandId" name="brandId"></td>
+				</tr>
+				<tr>
+					<td align="right">型号：</td>
+					<td><input class="easyui-textbox" id="pile-modelId" name="modelId"></td>
+				</tr>
+				<tr>
+					<td align="right">桩类型：</td>
+					<td><input class="easyui-textbox" id="pile-pileType" name="pileType"></td>
+				</tr>
+				<tr>
+					<td align="right">枪数量：</td>
+					<td><input class="easyui-textbox" id="pile-gunnum" name="gunnum"></td>
+				</tr>
+				<tr>
+					<td align="right">枪类型：</td>
+					<td><input class="easyui-textbox " id="pile-gunType" name="gunType"></td>
+				</tr>
+				<tr>
+					<td align="right">速率：</td>
+					<td><input class="easyui-textbox" id="pile-rate" name="rate"></td>
+				</tr>
+				<tr>
+					<td align="right">状态：</td>
+					<td><input class="easyui-textbox" id="pile-status" name="status"></td>
+				</tr> -->
+				<tr>
+					<td colspan="2" align="center">
+						<input type="hidden" id="pile-action" name="pile-action">
+						<input type="hidden" id="pile-code" name="code">
+						<a href="#" class="easyui-linkbutton js-pileOk" data-options="iconCls:'icon-ok'">确定</a>
+						<a href="#" class="easyui-linkbutton js-pileCancel" data-options="iconCls:'icon-cancel'">取消</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<form id="pileSettings" class="easyui-dialog" data-options="title:'充电桩参数设置',closed:true,draggable:false,modal:true">
+			<table>
+				<tr>
+					<td align="right">充电桩编码(旧编码)：</td>
+					<td>
+						<input type="hidden" id="pileSettingPileCode" name="pileCode">
+						<input class="easyui-textbox" id="pileSettingPileCode0"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingPileCodeShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingPileCode" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr>
+				<tr>
+					<td align="right">充电桩二维码：</td>
+					<td><input class="easyui-textbox" id="pileSettingPileQrcode" name="pileQrcode" data-options="readonly:true"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingPileQrcodeShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingPileQrcode" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr>
+				<tr>
+					<td align="right">计费策略：</td>
+					<td><input class="easyui-combobox" id="pileSettingRule" name="ruleId"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingRuleShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingRule" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr>
+				<!-- <tr>
+					<td align="right">服务器IP：</td>
+					<td><input class="easyui-textbox" id="pileSettingIp" name="ip" value="120.24.37.50"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingIpShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingIp" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr>
+				<tr>
+					<td align="right">服务器端口：</td>
+					<td><input class="easyui-textbox" id="pileSettingPort" name="port" value="7654"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingPortShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingPort" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr> -->
+				<tr>
+					<td align="right">服务费：</td>
+					<td><input class="easyui-textbox" id="pileSettingFee" name="fee" value="100"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingFeeShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingFee" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr>
+				<tr>
+					<td align="right">心跳间隔时间：</td>
+					<td><input class="easyui-textbox" id="pileSettingHeartbeat" name="heartbeat" value="10"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingHeartbeatShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingHeartbeat" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr>
+				<tr>
+					<td align="right">上报间隔时间：</td>
+					<td><input class="easyui-textbox" id="pileSettingStateReport" name="StateReport" value="10"></td>
+					<td><a href="#" class="easyui-linkbutton js-pileSettingStateReportShow" data-options="iconCls:'icon-search'">查看</a><a href="#" class="easyui-linkbutton js-pileSettingStateReport" data-options="iconCls:'icon-ok'">设置</a></td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+
+		<script type="text/javascript">
+			// 添加充电桩状态数据
+			function addPileStatus(rs){
+				var codes = [];
+				var rs0 = {};
+				if(rs.rows.length > 0){
+					for(var i=0; i<rs.rows.length; i++){
+						codes.push(rs['rows'][i]['code']);
+						rs0[rs['rows'][i]['code']] = rs['rows'][i];
+					}
+				}
+
+				var rows = [];
+				if(codes.length > 0){
+					var status = list0_post("mgr/charge/state",codes);
+					if(status.length > 0){						
+						for(i=0; i<status.length; i++){
+							rs0[status[i]['code']]['status'] = status[i]['state'];
+							rows.push(rs0[status[i]['code']]);
+						}
+					}
+				}
+
+				rs.rows = rows;
+				return rs;
+			}
+
+			// 获取充电桩状态
+			function getPileState(pileCode){
+				var rt = 0;
+				var status = list0_post("mgr/charge/state",[pileCode]);
+				if(status.length > 0){
+					rt = status[0]['state'];
+				}
+				return rt;
+			}
+
+			// 获取充电桩状态文字
+			function getPileStatusText(s){
+				var status = {
+					"-1":'断开连接',
+					"0":'空闲',
+					"1":'准备充电',
+					"2":'充电中',
+					"3":'充电完成',
+					"4":'启动失败',
+					"5":'预约',
+					"6":'系统故障'
+				}
+
+				return status[s];
+			}
+
+				setTimeout(function(){
+					// 字段类型定义
+					var pt = {
+						code:"string",
+						name:"string",
+						stationId:"int"//,
+						// brandId:"int",
+						// modelId:"int",
+						// pileType:"int",
+						// gunnum:"int",
+						// gunType:"int",
+						// rate:"float",
+						// status:"int"
+					};
+					
+					//列表
+					var rs = list("mgr/charge/all/",0);
+					rs = addPileStatus(rs);
+					$('#pileList').datagrid('loadData', rs);
+
+					//列表分页
+					$('#pileList').datagrid("getPager").pagination({
+						layout: ['first','links','last'],
+						pageSize:20,
+						onSelectPage: function(n,s){
+							var rt = list("mgr/charge/all/",n-1);
+							rt = addPileStatus(rs);
+							$('#pileList').datagrid("loadData", rt);
+						}
+					});
+					
+					// 重载数据
+					$('.pileReload').unbind('click');
+					$('.pileReload').bind('click',function(){
+						var pn = $('#pileList').datagrid("getPager").data("pagination").options.pageNumber - 1;
+						var rs = list("mgr/charge/all/",pn);
+						rs = addPileStatus(rs);
+						$('#pileList').datagrid('loadData', rs);
+					});
+					
+					// 添加
+					$('.pileAdd').unbind('click');
+					$('.pileAdd').bind('click',function(){
+						$('#pile-action').val('add');
+						$('#pileEditor').dialog('open');
+						setTimeout(function(){
+							var ss = getStationComboData();
+							$('#pile-stationId').combobox({
+								valueField: 'value',
+								textField: 'text',
+							    panelHeight: 'auto',
+								data: ss
+							});
+							$('#pile-stationId').combobox("setValue",ss[0]['value']);
+						},100);
+					});
+
+					// 修改
+					$('.pileEdit').unbind('click');
+					$('.pileEdit').bind('click',function(){
+						var rt = false;
+						$('#pile-action').val('edit');
+
+						var r = $('#pileList').datagrid('getSelected');
+						if(r){
+							$('#pileEditor').dialog('open');	
+							rt = one("mgr/charge/",r.code)
+							if(rt){
+								setTimeout(function(){									
+									var ss = getStationComboData();
+									$('#pile-stationId').combobox({
+										valueField: 'value',
+										textField: 'text',
+									    panelHeight: 'auto',
+										data: ss
+									});
+									$('#pile-stationId').combobox("setValue",ss[0]['value']);
+									setFormData(rt,"pile");
+								},100);
+							}							
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+
+					});
+
+					// 删除
+					$('.pileDelete').unbind('click');
+					$('.pileDelete').bind('click',function(){
+						var rt = false;
+						var r = $('#pileList').datagrid('getSelected');
+						if(r){
+							$.messager.confirm('提醒','确认要删除充电桩吗？',function(y){
+								if(y){
+									rt = del("mgr/charge/",r.code)
+									/*if(rt){
+										$.messager.alert("提醒","删除成功");
+									}else{
+										$.messager.alert("提醒","删除失败");
+									}*/
+									var rs = list("mgr/charge/all/",0);
+									rs = addPileStatus(rs);
+									$('#pileList').datagrid('loadData', rs);									
+								}
+							});			
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+					});
+
+					// 确定
+					$('.js-pileOk').unbind('click');
+					$('.js-pileOk').bind('click',function(){
+						var valid = formValidate('pileEditor');
+						if(!valid){
+							return;
+						}
+						var t = $('#pile-action').val();
+						var v = getFormData($('#pileEditor').serializeArray(),pt);
+						var rt = false;
+						if(t == "add"){
+							rt = add("mgr/charge/",v);
+							if(!rt){
+								$.messager.alert("警告","添加失败！");
+							}
+						}else{
+							rt = edit("mgr/charge/",v.code,v);
+							if(!rt){
+								$.messager.alert("警告","修改失败！");
+							}
+						}
+						if(rt){							
+							$('#pileEditor').dialog("close");
+
+							var rs = list("mgr/charge/all/",0);
+							rs = addPileStatus(rs);
+							$('#pileList').datagrid('loadData', rs);
+						}						
+					});
+
+					// 取消
+					$('.js-pileCancel').unbind('click');
+					$('.js-pileCancel').bind('click',function(){
+						clearFormData(pt,"pile");
+						$('#pileEditor').dialog("close");
+					});
+
+					// 关闭
+					$('#pileEditor').dialog({
+						onClose:function(){
+							clearFormData(pt,"pile");
+						}
+					});
+
+
+					// 参数设置
+					$('.pileSetting').unbind('click');
+					$('.pileSetting').bind('click',function(){
+						setTimeout(function(){
+							var r = $('#pileList').datagrid('getSelected');
+							console.log(r);
+							if(r){
+								$('#pileSettings').dialog('open');
+								$('#pileSettingPileCode').val(r.code);
+								$('#pileSettingPileQrcode').textbox('setValue', MP_URL + r.code);
+
+								var rl = getRuleComboData();
+								$('#pileSettingRule').combobox({
+								    valueField:'value',
+								    textField:'text',
+								    panelHeight: 'auto',
+								    data: rl
+								});		
+
+								$('#pileSettingRule').combobox('setValue',r.billId);				
+
+								// 查询计费策略
+								$('.js-pileSettingRuleShow').unbind('click');
+								$('.js-pileSettingRuleShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var rt = one("mgr/billStrategy/",pileCode);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										var str = "";
+										rt.units.forEach(function(v,k){
+											str +=  v.starthour + ":" + (v.startmin > 9 ? v.startmin: "0"+v.startmin ) + " - " + v.endhour + ":" + (v.endmin > 9 ? v.endmin: "0"+v.endmin ) + "     " + v.rate + "分 <br />";
+										});
+										$.messager.alert("查看数据",str);
+									}
+								});					
+
+								// 设置计费策略
+								$('.js-pileSettingRule').unbind('click');
+								$('.js-pileSettingRule').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var ruleId = $('#pileSettingRule').combobox('getValue');
+										var rt = add("mgr/billStrategy",{code:pileCode,id:parseInt(ruleId)});
+										// if(!rt){
+										// 	$.messager.alert("错误","设置失败");
+										// }
+										$.messager.alert("提示","设置成功");										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+								});					
+
+								// 查看充电桩编码
+								$('.js-pileSettingPileCodeShow').unbind('click');
+								$('.js-pileSettingPileCodeShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var param = {
+													code:pileCode,
+													type:0,
+													addr:1
+												};
+									var rt = one_post("mgr/string/", param);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										$.messager.alert("查看数据",rt.data);
+									}
+								});				
+
+								// 设置充电桩编码
+								$('.js-pileSettingPileCode').unbind('click');
+								$('.js-pileSettingPileCode').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var pileCode0 = $('#pileSettingPileCode0').textbox('getValue');
+										var param = {
+														code:pileCode0,
+														type:1,
+														addr:1,
+														data:pileCode
+													};
+										var rt = add("mgr/string/", param);
+										if(!rt){
+											$.messager.alert("错误","设置失败");
+										}else{
+											$.messager.alert("提示","设置成功");
+										}										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+									
+								});	
+
+								// 查看充电桩二维码
+								$('.js-pileSettingPileQrcodeShow').unbind('click');
+								$('.js-pileSettingPileQrcodeShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var param = {
+													code:pileCode,
+													type:0,
+													addr:11
+												};
+									var rt = one_post("mgr/string/", param);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										$.messager.alert("查看数据",rt.data);
+									}
+								});
+
+								// 设置充电桩二维码
+								$('.js-pileSettingPileQrcode').unbind('click');
+								$('.js-pileSettingPileQrcode').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var qrcode = $('#pileSettingPileQrcode').textbox('getValue');
+										var param = {
+														code:pileCode,
+														type:1,
+														addr:11,
+														data:qrcode
+													};
+										var rt = add("mgr/string/", param);
+										if(!rt){
+											$.messager.alert("错误","设置失败");
+										}else{
+											$.messager.alert("提示","设置成功");
+										}										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+								});
+
+								// 查看服务器IP
+								$('.js-pileSettingIpShow').unbind('click');
+								$('.js-pileSettingIpShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var param = {
+													code:pileCode,
+													type:0,
+													addr:25
+												};
+									var rt = one_post("mgr/integer/", param);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										$.messager.alert("查看数据",rt.data[0]);
+									}
+								});
+
+								// 设置服务器IP
+								$('.js-pileSettingIp').unbind('click');
+								$('.js-pileSettingIp').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var ip = $('#pileSettingIp').textbox('getValue');
+										var ips = ip.split('.');
+										ip = "0x"+parseInt(ips[0]).toString(16)+parseInt(ips[1]).toString(16)+parseInt(ips[2]).toString(16)+parseInt(ips[3]).toString(16);
+										var param = {
+														code:pileCode,
+														type:1,
+														addr:25,
+														data:[Number(ip)]
+													};
+										var rt = add("mgr/integer/", param);
+										if(!rt){
+											$.messager.alert("错误","设置失败");
+										}else{
+											$.messager.alert("提示","设置成功");
+										}										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+								});
+
+								// 查看服务器端口
+								$('.js-pileSettingPortShow').unbind('click');
+								$('.js-pileSettingPortShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var param = {
+													code:pileCode,
+													type:0,
+													addr:26
+												};
+									var rt = one_post("mgr/integer/", param);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										$.messager.alert("查看数据",rt.data[0]);
+									}
+								});
+
+								// 设置服务器端口
+								$('.js-pileSettingPort').unbind('click');
+								$('.js-pileSettingPort').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var port = $('#pileSettingPort').textbox('getValue');
+										var param = {
+														code:pileCode,
+														type:1,
+														addr:26,
+														data:[Number(port)]
+													};
+										var rt = add("mgr/integer/", param);
+										if(!rt){
+											$.messager.alert("错误","设置失败");
+										}else{
+											$.messager.alert("提示","设置成功");
+										}										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+								});
+
+								// 查看服务费
+								$('.js-pileSettingFeeShow').unbind('click');
+								$('.js-pileSettingFeeShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var param = {
+													code:pileCode,
+													type:0,
+													addr:27
+												};
+									var rt = one_post("mgr/integer/", param);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										$.messager.alert("查看数据",rt.data[0]);
+									}
+								});
+
+								// 设置服务费
+								$('.js-pileSettingFee').unbind('click');
+								$('.js-pileSettingFee').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var fee = $('#pileSettingFee').textbox('getValue');
+										var param = {
+														code:pileCode,
+														type:1,
+														addr:27,
+														data:[Number(fee)]
+													};
+										var rt = add("mgr/integer/", param);
+										if(!rt){
+											$.messager.alert("错误","设置失败");
+										}else{
+											$.messager.alert("提示","设置成功");
+										}										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+								});
+
+								// 查看心跳间隔
+								$('.js-pileSettingHeartbeatShow').unbind('click');
+								$('.js-pileSettingHeartbeatShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var param = {
+													code:pileCode,
+													type:0,
+													addr:21
+												};
+									var rt = one_post("mgr/integer/", param);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										$.messager.alert("查看数据",rt.data[0]);
+									}
+								});
+
+								// 设置心跳间隔
+								$('.js-pileSettingHeartbeat').unbind('click');
+								$('.js-pileSettingHeartbeat').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var heartbeat = $('#pileSettingHeartbeat').textbox('getValue');
+										var param = {
+														code:pileCode,
+														type:1,
+														addr:21,
+														data:[Number(heartbeat)]
+													};
+										var rt = add("mgr/integer/", param);
+										if(!rt){
+											$.messager.alert("错误","设置失败");
+										}else{
+											$.messager.alert("提示","设置成功");
+										}										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+								});
+
+								// 查看状态上报间隔
+								$('.js-pileSettingStateReportShow').unbind('click');
+								$('.js-pileSettingStateReportShow').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var param = {
+													code:pileCode,
+													type:0,
+													addr:23
+												};
+									var rt = one_post("mgr/integer/", param);
+									if(!rt){
+										$.messager.alert("错误","查询失败");
+									}else{
+										$.messager.alert("查看数据",rt.data[0]);
+									}
+								});
+
+								// 设置状态上报间隔
+								$('.js-pileSettingStateReport').unbind('click');
+								$('.js-pileSettingStateReport').bind('click',function(){
+									var pileCode = $('#pileSettingPileCode').val();
+									var state = getPileState(pileCode);
+									if(state == 0){
+										var sr = $('#pileSettingStateReport').textbox('getValue');
+										var param = {
+														code:pileCode,
+														type:1,
+														addr:23,
+														data:[Number(sr)]
+													};
+										var rt = add("mgr/integer/", param);
+										if(!rt){
+											$.messager.alert("错误","设置失败");
+										}else{
+											$.messager.alert("提示","设置成功");
+										}										
+									}else{
+										$.messager.alert("提示","充电桩在使用中，不能进行参数设置");
+									}
+								});
+							}else{
+								$.messager.alert("错误","未选择操作对象");
+							}
+						},100);
+					});
+
+				},100);
+		</script>
+	</body>
+</html>

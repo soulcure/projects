@@ -1,0 +1,10 @@
+/* components/wave/wave.wxss */
+
+.canvasddd {
+  width: 250px;
+  height: 250px;
+  background-color: #000000;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}

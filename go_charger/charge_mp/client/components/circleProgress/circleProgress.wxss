@@ -1,0 +1,14 @@
+/* circleProgress.wxss */
+
+.circle_box {
+  position: relative;
+  justify-content: center;
+}
+
+.circle_draw {
+  position: relative;
+}
+
+.circle_bg {
+  position: absolute;
+}

@@ -1,0 +1,75 @@
+/**app.wxss**/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.menu_item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  padding-right: 50rpx;
+  padding-bottom: 50rpx;
+  align-items: center;
+  border-bottom: solid 1rpx #f6f6f6;
+}
+
+.charger-image {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 10rpx;
+  border: 1px solid #f6f6f6;
+}
+
+.charger-text {
+  flex: 1; /* 权重自适应 */
+  overflow: hidden;
+  margin-left: 20rpx;
+}
+
+.charger-title {
+  font-weight: bold;
+  font-size: 36rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.charger-address {
+  font-size: 32rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 15rpx;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  transform: rotate(45deg);
+}
+
+.empty {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*垂直居中*/
+  justify-content: center; /*水平居中*/
+}
+
+.empty_icon {
+  height: 200rpx;
+  width: 200rpx;
+}
+
+.empty_text {
+  margin-top: 20rpx;
+}

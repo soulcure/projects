@@ -1,0 +1,17 @@
+<!--pages/charge/my/wallet/rechare/rechare.wxml-->
+
+<text class='title'>请选择充值金额</text>
+
+<view class="weui-grids">
+  <view wx:for="{{rechargeValueArr}}" wx:key='*this' class='weui-grid {{currentIndex == index ? "weui-grid-select" : ""}}' bindtap='selectValue' data-currentIndex="{{index}}">
+    <text class="weui-grid__label">{{item}}元</text>
+  </view>
+</view>
+
+<view class='otherContainer'>
+  <view class='other {{currentIndex == -1 ? "weui-grid-select" : ""}}'>
+    <input placeholder="填写充值金额" value='{{cash}}' bindinput="inputCash" bindfocus='inputFocus' type='digit'></input>
+    <text class='title'>元</text>
+  </view>
+</view>
+<button class='rechargeBtn' type='primary' form-type='submit' bindtap='recharge'>微信支付</button>

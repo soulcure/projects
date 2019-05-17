@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <script type="text/javascript" src="js/jquery.md5.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body style="background: url(apis/mgr/image/background) no-repeat center 0">
+			<div class="easyui-dialog" title="管理员登录" data-options="modal:true,closable:false" style="width:350px;">
+				<div style="text-align: center;">
+					帐号：<input type="text" class="js-loginUser">
+					<br>
+					<br>
+					密码：<input type="password" class="js-loginPass">
+					<br>
+					<br>
+					<a href="#" class="easyui-linkbutton js-loginBtn" data-options="iconCls:'icon-ok'">登录</a>
+				</div>
+			</div>
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.js-loginBtn').unbind('click');
+				$('.js-loginBtn').bind('click',function(){
+					var u = $('.js-loginUser').val();
+					var p = $('.js-loginPass').val();					
+				    if(!u && !p){
+				        $.messager.alert("温馨提醒","用户和密码都不有为空");
+				        return;
+				    }
+
+					var r = login(u,p);
+					if(!r){
+						$.messager.alert('错误','登录错误')
+					}else{
+						setCache(CACHE_USER_INFO,r);
+						if(!document.referrer){
+							window.location="index.html";
+						}else{					
+							window.location=document.referrer;		
+						}
+					}
+				});
+				
+			});
+		</script>
+	</body>
+</html>

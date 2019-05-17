@@ -1,0 +1,18 @@
+<!--pages/charge/my.wxml-->
+<view class='userBar'>
+  <view class="userinfo-avatar">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view>{{phoneNumber}}</view>
+  <!-- <view class='arrow' /> -->
+</view>
+
+<view class='menu_item' bindtap='goWallet'>
+  <view>我的钱包</view>
+  <view class='arrow' />
+</view>
+
+<view class='menu_item' bindtap='goChargeOrderList'>
+  <view>充电明细</view>
+  <view class='arrow' />
+</view>

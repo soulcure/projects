@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+		<div id="ruleToolbar" class="toolbar">
+			<a href="#" class="icon-reload ruleReload"></a>
+			<a href="#" class="icon-add ruleAdd"></a>
+            <a href="#" class="icon-edit ruleEdit"></a>
+            <a href="#" class="icon-delete ruleDelete"></a>
+		</div>
+		<table id="ruleList" class="easyui-datagrid js-ruleList" data-options="title:'计费策略列表',tools:'#ruleToolbar',pagination:true,singleSelect:true">
+			<thead>
+				<tr>
+					<!-- <th data-options="field:'id',frozen:true">ID</th> -->
+					<th data-options="field:'name'">策略名称</th>
+					<!-- <th data-options="field:'createTime',formatter:timestamp2date">添加时间</th> -->
+				</tr>
+			</thead>
+		</table>
+		<form id="ruleEditor" class="easyui-dialog" data-options="title:'详细信息',width:'450px',maxHeight:'300px',closed:true,draggable:false,modal:true,shadow:false">
+			<table>
+				<tr>
+					<td align="right">策略名称：</td>
+					<td><input class="easyui-textbox" id="rule-name" name="name" maxlength="20" data-options="required:true,validType:'maxLength[20]'"></td>
+				</tr>
+				<!-- <tr>
+					<td align="right">服务费：</td>
+					<td><input class="easyui-textbox" id="rule-fee" name="fee"></td>
+				</tr> -->
+				<tr>
+					<td align="right">策略详情：</td>
+					<td>						
+						<div class="ruleRow">							
+							<input id="rule-startHour" class="easyui-numberspinner sh" name="startHour[]" data-options="required:true,min:0,max:24,increment:1,readonly:true" style="width:45px;"> : 
+							<input id="rule-startMinute" class="easyui-numberspinner sm" name="startMinute[]" data-options="required:true,min:0,max:30,increment:30,readonly:true" style="width:45px;"> - 
+							<input id="rule-endHour" class="easyui-numberspinner eh" name="endHour[]" data-options="required:true,editable:false,min:0,max:24,increment:1" style="width:45px;"> : 
+							<input id="rule-endMinute" class="easyui-numberspinner em" name="endMinute[]" data-options="required:true,editable:false,min:0,max:30,increment:30" style="width:45px;"> 
+							<input id="rule-rate" class="easyui-numberbox rate" name="rate[]" data-options="required:true" style="width:50px;">
+							<a href="#" class="easyui-linkbutton ruleClone" data-options="iconCls:'icon-add'"></a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="hidden" id="rule-action" name="rule-action">
+						<input type="hidden" id="rule-id" name="rule-id">
+						<a href="#" class="easyui-linkbutton js-ruleOk" data-options="iconCls:'icon-ok'">确定</a>
+						<a href="#" class="easyui-linkbutton js-ruleCancel" data-options="iconCls:'icon-cancel'">取消</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+
+		<script type="text/javascript">
+				// 添加一个时段
+				function ruleClone(){						
+					$('.ruleClone').unbind('click');
+					$('.ruleClone').bind('click',function(){	
+						var row = "<div class=\"ruleRow\"><input class=\"easyui-numberspinner sh\" name=\"startHour[]\" data-options=\"required:true,min:0,max:24,increment:1,readonly:true\" style=\"width:45px;\"> : <input class=\"easyui-numberspinner sm\" name=\"startMinute[]\" data-options=\"required:true,min:0,max:30,increment:30,readonly:true\" style=\"width:45px;\"> - <input class=\"easyui-numberspinner eh\" name=\"endHour[]\" data-options=\"required:true,editable:false,min:0,max:24,increment:1\" style=\"width:45px;\"> : <input class=\"easyui-numberspinner em\" name=\"endMinute[]\" data-options=\"required:true,editable:false,min:0,max:30,increment:30\" style=\"width:45px;\"> <input class=\"easyui-numberbox rate\" name=\"rate[]\" data-options=\"required:true\" style=\"width:50px;\"> <a href=\"#\" class=\"easyui-linkbutton ruleRemove\" data-options=\"iconCls:'icon-delete'\"></a></div>";		
+						var last = $('.ruleRow').last();
+						// console.log(last);
+						var sh = parseInt(last.find('.sh').numberspinner('getValue'));
+						var sm = parseInt(last.find('.sm').numberspinner('getValue'));
+						var eh = parseInt(last.find('.eh').numberspinner('getValue'));
+						var em = parseInt(last.find('.em').numberspinner('getValue'));
+						if( isNaN(eh) || isNaN(em) || (eh == 0 && em == 0) ){
+							$.messager.alert("提示","请输入正确的结束时分");
+							return;
+						}
+
+						if(sh == eh && sm == em){
+							$.messager.alert("提示","开始时分与结束时分不能相同");
+							return;
+						}
+
+						if(sh > eh || sh == eh && sm > em){
+							$.messager.alert("提示","结束时分不能早于开始时分");
+							return;
+						}
+
+						if( eh == 24){							
+							$.messager.alert("提示","已经包含了全天所有的时段了");
+							return;
+						}
+
+						$('.ruleRow').parent('td').append(row);
+						$.parser.parse($('.ruleRow').last());
+						var last0 = $('.ruleRow').last();
+						changeEndHour(last0);
+						changeEndMinute(last0);
+						last0.find('.sh').numberspinner('setValue',eh);
+						last0.find('.sm').numberspinner('setValue',em);
+						if(em == 0){
+							last0.find('.eh').numberspinner('setValue',eh);							
+							last0.find('.em').numberspinner('setValue',em+30);
+						}else{	
+							if(eh == 23){
+								last0.find('.eh').numberspinner('setValue',eh+1);
+								last0.find('.em').numberspinner('setValue',0);
+							}else{								
+								last0.find('.eh').numberspinner('setValue',eh+1);
+								last0.find('.em').numberspinner('setValue',em);
+							}
+						}
+						ruleRemove();
+					});
+				}
+
+				// 删除当前时段
+				function ruleRemove(){
+					$('.ruleRemove').unbind('click');
+					$('.ruleRemove').bind('click',function(){
+						var p = $(this).parent('.ruleRow').prev();
+						var n = $(this).parent('.ruleRow').next();
+						if(n.length > 0){
+							n.find('.sh').numberspinner('setValue',p.find('.eh').numberspinner('getValue'));
+							n.find('.sm').numberspinner('setValue',p.find('.em').numberspinner('getValue'));		
+						}
+						$(this).parent('.ruleRow').remove();
+					});
+				}
+
+				// 修改结束时间
+				function changeEndHour(o){
+					$(o).find('.eh').numberspinner({
+						onSpinUp: function(){
+							var s = $(this).parents('.ruleRow');
+							var n = $(this).parents('.ruleRow').next();
+
+							var eh = s.find('.eh').numberspinner('getValue');
+							var em = s.find('.em').numberspinner('getValue');
+							if(eh == 24){
+								s.find('.em').numberspinner('setValue',0);
+								em = 0;
+							}
+							if(n.length > 0){
+								n.find('.sh').numberspinner('setValue',eh);
+								n.find('.sm').numberspinner('setValue',em);
+
+								var neh = n.find('.eh').numberspinner('getValue');
+								var nem = n.find('.em').numberspinner('getValue');
+								console.log(eh,em,neh,nem);
+
+								if(eh > neh || (eh == neh && em >= nem)){
+									n.find('.ruleRemove').click();
+								}
+							}
+						},
+						onSpinDown: function(){
+							var s = $(this).parents('.ruleRow');
+							var n = $(this).parents('.ruleRow').next();
+
+							var sh = s.find('.sh').numberspinner('getValue');
+							var sm = s.find('.sm').numberspinner('getValue');
+							var eh = s.find('.eh').numberspinner('getValue');
+							var em = s.find('.em').numberspinner('getValue');
+							console.log(sh,sm,eh,em);
+							if(n.length > 0){								
+								n.find('.sh').numberspinner('setValue',eh);
+								n.find('.sm').numberspinner('setValue',em);
+								if(sh > eh || sh == eh && sm >= em){
+									s.find('.ruleRemove').click();
+								}
+							}
+						}
+					});
+				}
+
+				// 修改结束分钟
+				function changeEndMinute(o){
+					$(o).find('.em').numberspinner({
+						onSpinUp: function(){
+							var s = $(this).parents('.ruleRow');
+							var n = $(this).parents('.ruleRow').next();
+							
+							var eh = s.find('.eh').numberspinner('getValue');
+							var em = s.find('.em').numberspinner('getValue');
+							if(n.length > 0){
+								n.find('.sh').numberspinner('setValue',eh);
+								n.find('.sm').numberspinner('setValue',em);
+
+								var neh = n.find('.eh').numberspinner('getValue');
+								var nem = n.find('.em').numberspinner('getValue');
+								console.log(eh,em,neh,nem);
+
+								if(eh > neh || (eh == neh && em >= nem)){
+									n.find('.ruleRemove').click();
+								}								
+							}
+						},
+						onSpinDown: function(){
+							var s = $(this).parents('.ruleRow');
+							var n = $(this).parents('.ruleRow').next();
+
+							var sh = s.find('.sh').numberspinner('getValue');
+							var sm = s.find('.sm').numberspinner('getValue');
+							var eh = s.find('.eh').numberspinner('getValue');
+							var em = s.find('.em').numberspinner('getValue');
+							console.log(sh,sm,eh,em);
+
+							if(n.length > 0){
+								n.find('.sh').numberspinner('setValue',eh);
+								n.find('.sm').numberspinner('setValue',em);
+
+								if(sh > eh || (sh == eh && sm >= em)){
+									s.find('.ruleRemove').click();
+								}
+							}
+						}
+					})
+
+				}
+
+				// 
+				setTimeout(function(){
+					// 字段类型定义
+					var pt = {
+						id:"int",
+						name:"string",
+						rate:"string"
+					};
+
+					// 数据限制
+					maxlength();
+
+					changeEndHour($('.ruleRow'));
+					changeEndMinute($('.ruleRow'));
+					// minmax();
+
+					//列表
+					var rs = list("mgr/bill/all/",0);
+					$('#ruleList').datagrid('loadData', rs);
+
+					//列表分页
+					$('#ruleList').datagrid("getPager").pagination({
+						layout: ['first','links','last'],
+						pageSize:20,
+						onSelectPage: function(n,s){
+							var rt = list("mgr/bill/all/",n-1);
+							$('#ruleList').datagrid("loadData", rt);
+						}
+					});					
+					
+					// 重载数据
+					$('.ruleReload').unbind('click');
+					$('.ruleReload').bind('click',function(){
+						var pn = $('#ruleList').datagrid("getPager").data("pagination").options.pageNumber - 1;
+						var rs = list("mgr/bill/all/",pn);
+						$('#ruleList').datagrid('loadData', rs);
+					});
+					
+					// 添加
+					$('.ruleAdd').unbind('click');
+					$('.ruleAdd').bind('click',function(){
+						$('#rule-action').val('add');
+						$('#ruleEditor').dialog('open');
+						// 初始化表单
+						$('#rule-startHour').numberspinner('setValue','0');
+						$('#rule-startMinute').numberspinner('setValue','0');
+						$('#rule-endHour').numberspinner('setValue','');
+						$('#rule-endMinute').numberspinner('setValue','');
+						$('#rule-rate').numberbox('setValue','');
+						$('#rule-rate').parent('.ruleRow').siblings().remove();
+					});
+
+					// 修改
+					$('.ruleEdit').unbind('click');
+					$('.ruleEdit').bind('click',function(){
+						var rt = false;
+						$('#rule-action').val('edit');
+
+						var r = $('#ruleList').datagrid('getSelected');
+						if(r){
+							$('#ruleEditor').dialog('open');	
+							rt = one("mgr/bill/",r.id);
+							if(rt){
+								setTimeout(function(){
+									$('#rule-name').textbox('setValue',rt.name);
+									// $('#rule-fee').textbox('setValue',rt.fee);
+									$('#rule-id').val(rt.id);
+									// 初始化表单
+									$('#rule-startHour').numberspinner('setValue','0');
+									$('#rule-startMinute').numberspinner('setValue','0');
+									$('#rule-endHour').numberspinner('setValue','');
+									$('#rule-endMinute').numberspinner('setValue','');
+									$('#rule-rate').numberbox('setValue','');
+									$('#rule-rate').parent('.ruleRow').siblings().remove();
+
+									if(rt.units && rt.units.length > 0){
+										var r0 = rt.units[0];
+										$('#rule-startHour').numberspinner('setValue',r0.starthour);
+										$('#rule-startMinute').numberspinner('setValue',r0.startmin);
+										$('#rule-endHour').numberspinner('setValue',r0.endhour);
+										$('#rule-endMinute').numberspinner('setValue',r0.endmin);
+										$('#rule-rate').numberbox('setValue',r0.rate);
+										var row = null;
+										rt.units.forEach(function(v,i){
+											if(i > 0){
+												$('.ruleClone').click();
+												row = $('.ruleRow').last();
+												row.find('.sh').numberspinner('setValue',v.starthour);
+												row.find('.sm').numberspinner('setValue',v.startmin);
+												row.find('.eh').numberspinner('setValue',v.endhour);
+												row.find('.em').numberspinner('setValue',v.endmin);
+												row.find('.rate').numberbox('setValue',v.rate);
+											}
+										});
+										ruleRemove();
+										maxlength();
+										// minmax();
+									}
+									// setFormData(rt,"rule");
+								},100);
+							}							
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+
+					});
+
+					// 删除
+					$('.ruleDelete').unbind('click');
+					$('.ruleDelete').bind('click',function(){
+						var rt = false;
+						var r = $('#ruleList').datagrid('getSelected');
+						if(r){
+							$.messager.confirm('提醒','确认要删除计费策略吗？',function(y){
+								if(y){
+									rt = del("mgr/bill/",r.id)
+									/*if(rt){
+										$.messager.alert("提醒","删除成功");
+									}else{
+										$.messager.alert("提醒","删除失败");
+									}*/
+									var rs = list("mgr/bill/all/",0);
+									$('#ruleList').datagrid('loadData', rs);									
+								}
+							});			
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+					});
+
+					// 确定
+					$('.js-ruleOk').unbind('click');
+					$('.js-ruleOk').bind('click',function(){
+						var valid = formValidate('ruleEditor');
+						if(!valid){
+							return;
+						}
+
+						var lr = $('.ruleRow').last();
+						var eh = lr.find('.eh').numberspinner('getValue');
+						if(eh != 24){							
+							$.messager.alert("警告","时段设置不完整，必须设置一天所有时段的计费价格");
+							return;
+						}
+
+						var t = $('#rule-action').val();
+						var sha = getFormArrayDataByKey($('#ruleEditor').serializeArray(),'startHour');
+						var sma = getFormArrayDataByKey($('#ruleEditor').serializeArray(),'startMinute');
+						var eha = getFormArrayDataByKey($('#ruleEditor').serializeArray(),'endHour');
+						var ema = getFormArrayDataByKey($('#ruleEditor').serializeArray(),'endMinute');
+						var ra = getFormArrayDataByKey($('#ruleEditor').serializeArray(),'rate');
+						var rules = [];
+						var rule = {};
+						for( var i=0; i<sha.length; i++){
+							rule = {
+								starthour:parseInt(sha[i]),
+								startmin:parseInt(sma[i]),
+								endHour:parseInt(eha[i]),
+								endmin:parseInt(ema[i]),
+								rate:parseInt(ra[i])
+							};
+							rules.push(rule);
+						}
+						var v = {
+							name:$('#rule-name').textbox('getValue'),
+							// fee: parseInt($('#rule-fee').textbox('getValue')),
+							units: rules
+						};
+
+						var rt = false;
+						if(t == "add"){
+							rt = add("mgr/bill/",v);
+							if(!rt){
+								$.messager.alert("警告","添加失败！");
+							}
+						}else{
+							v.id = parseInt($('#rule-id').val());
+							rt = edit("mgr/bill/",v.id,v);
+							if(!rt){
+								$.messager.alert("警告","修改失败！");
+							}else{
+								$.messager.alert("提醒","计费策略修改成功！注意：充电桩上的计费策略并未进行同步更新，需要逐个充电桩去进行更新并在更新后通过查看来确认更新结果");
+							}
+						}
+						if(rt){							
+							$('#ruleEditor').dialog("close");
+							var rs = list("mgr/bill/all/",0);
+							$('#ruleList').datagrid('loadData', rs);
+						}						
+					});
+
+					// 取消
+					$('.js-ruleCancel').unbind('click');
+					$('.js-ruleCancel').bind('click',function(){
+						clearFormData(pt,"rule");
+						$('#ruleEditor').dialog("close");
+					});
+
+					// 关闭
+					$('#ruleEditor').dialog({
+						onClose:function(){
+							clearFormData(pt,"rule");
+						}
+					});
+
+
+
+					ruleClone();
+					ruleRemove();
+				},100);
+		</script>
+		<style type="text/css">
+			.ruleRow{
+				margin:5px;
+			}
+			.ruleRow input{
+				border:1px solid #95B8E7;
+				border-radius: 5px;
+			}
+		</style>
+	</body>
+</html>

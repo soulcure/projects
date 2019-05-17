@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+		<div id="stationToolbar" class="toolbar">
+			<a href="#" class="icon-reload stationReload"></a>
+			<a href="#" class="icon-add stationAdd"></a>
+            <a href="#" class="icon-edit stationEdit"></a>
+            <a href="#" class="icon-delete stationDelete"></a>
+		</div>
+		<table id="stationList" class="easyui-datagrid js-stationList" data-options="title:'充电站列表',tools:'#stationToolbar',pagination:true,singleSelect:true">
+			<thead>
+				<tr>
+					<!-- <th data-options="field:'id',frozen:true">ID</th> -->
+					<th data-options="field:'code'">电站代码</th>
+					<th data-options="field:'name'">电站名称</th>
+					<th data-options="field:'address'">电站地址</th>
+					<!-- <th data-options="field:'longitude'">经度</th>
+					<th data-options="field:'latitude'">纬度</th> -->
+					<th data-options="field:'pileCount'">桩数量</th>
+					<th data-options="field:'status',formatter:getStationStatusText">状态</th>
+					<!-- <th data-options="field:'createTime',formatter:timestamp2date">添加时间</th> -->
+				</tr>
+			</thead>
+		</table>
+		<form id="stationEditor" class="easyui-dialog" data-options="title:'详细信息',closed:true,draggable:false,modal:true">
+			<table>
+				<!-- <tr>
+					<td align="right">电站代码：</td>
+					<td><input class="easyui-textbox" id="station-code" name="code" data-options="required:true,validType:'code'" maxlength="20"></td>
+				</tr> -->
+				<tr>
+					<td align="right">电站名称：</td>
+					<td><input class="easyui-textbox" id="station-name" name="name" data-options="required:true,validType:'maxLength[20]'" maxlength="20"></td>
+				</tr>
+				<tr>
+					<td align="right">电站地址：</td>
+					<td><input class="easyui-textbox" id="station-address" name="address"  data-options="required:true,validType:'maxLength[50]'"></td>
+				</tr>
+				<tr>
+					<td align="right">位置搜索：</td>
+					<td><input class="easyui-textbox" id="station-search" name="search"></td>
+				</tr>
+				<tr>
+					<td align="right">经纬度：</td>
+					<td>
+						<div id="map" style="width:300px;height:300px"></div>
+						<input class="easyui-textbox" id="station-longitude" name="longitude" data-options="required:true,readonly:true" style="width:120px;">
+						<input class="easyui-textbox" id="station-latitude" name="latitude" data-options="required:true,readonly:true"  style="width:120px;">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">桩数量：</td>
+					<td><input class="easyui-numberbox" id="station-pileCount" name="pileCount"  data-options="required:true,min:1,max:50"></td>
+				</tr>
+				<tr>
+					<td align="right">状态：</td>
+					<td><input class="easyui-combobox" id="station-status" name="status"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="hidden" id="station-action" name="action">
+						<input type="hidden" id="station-id" name="id">
+						<a href="#" class="easyui-linkbutton js-stationOk" data-options="iconCls:'icon-ok'">确定</a>
+						<a href="#" class="easyui-linkbutton js-stationCancel" data-options="iconCls:'icon-cancel'">取消</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+
+		<!-- 地图 -->
+		<script src="https://webapi.amap.com/maps?v=1.4.13&key=427eb703537b9fe9f914fc41b63e19d3&callback=mapInit&plugin=AMap.Autocomplete"></script>
+		<script type="text/javascript">
+			// 获取充电桩状态
+			function getStationStatus(){
+				return [
+					{"value":0,"text":"停止运营","text0":"0-停止运营"},
+					{"value":1,"text":"正常运营","text0":"1-正常运营"},
+				];
+			}
+
+			// 获取充电站状态文字
+			function getStationStatusText(v){
+				var rt = "停止运营";
+				if(v == 1){
+					rt = "正常运营";
+				}
+				return rt;
+			}
+
+			var placeSearch = null;
+			var map = null;
+			function mapInit(lng,lat,title){
+				if(!lng){
+					lng = 113.953923;
+				}else{
+					lng = parseFloat(lng);
+				}
+
+				if(!lat){
+					lat = 22.539874;
+				}else{
+					lat = parseFloat(lat);
+				}
+				map = new AMap.Map("map", {
+			        resizeEnable: true,
+			        zoom:15,
+			        center:[lng,lat]
+			    });
+			    AMap.service(["AMap.PlaceSearch"], function() {
+			        //构造地点查询类
+			        	placeSearch = new AMap.PlaceSearch({ 
+			            pageSize: 10, // 单页显示结果条数
+			            pageIndex: 1, // 页码
+			            city: "0755", // 兴趣点城市
+			            citylimit: false,  //是否强制限制在设置的城市内搜索
+			            map: map, // 展现结果的地图实例
+			            autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
+			        });
+		        });
+
+			    if(lng && lat){
+			    	var icon = new AMap.Icon({
+					    size: new AMap.Size(40, 40),    // 图标尺寸
+					    image: 'img/location.png',  // Icon的图像
+					    imageOffset: new AMap.Pixel(0, 0),  // 图像相对展示区域的偏移量，适于雪碧图等
+					    imageSize: new AMap.Size(40, 40)   // 根据所设置的大小拉伸或压缩图片
+					});
+			        var marker = new AMap.Marker({
+					    position: new AMap.LngLat(lng,lat),
+					    offset: new AMap.Pixel(-20, -40),
+					    icon: icon, // 添加 Icon 图标 URL
+					    title: title
+					});
+
+					map.add(marker);			    	
+			    }
+
+			    //为地图注册click事件获取鼠标点击出的经纬度坐标
+			    map.on('click', function(e) {
+			        $('#station-longitude').textbox('setValue',e.lnglat.getLng());
+			        $('#station-latitude').textbox('setValue',e.lnglat.getLat()); 
+			    });
+			    var auto = new AMap.Autocomplete({
+			        input: "tipinput"
+			    });
+			    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+			    function select(e) {
+			        if (e.poi && e.poi.location) {
+			            map.setZoom(15);
+			            map.setCenter(e.poi.location);
+			        }
+			    }
+
+				$('#station-search').textbox({
+					onChange:function(nv,ov){
+						if(nv && placeSearch){								
+							placeSearch.search(nv);
+						}
+					}
+				});
+			}
+
+				setTimeout(function(){
+					// mapInit();
+					// 字段类型定义
+					var pt = {
+						id:"int",
+						// code:"string",
+						name:"string",
+						address:"string",
+						longitude:"float",
+						latitude:"float",
+						pileCount:"int",
+						status:"int"
+					};
+
+					// 状态
+					$('#station-status').combobox({
+						valueField: 'value',
+						textField: 'text',
+					    panelHeight: 'auto',
+						data: getStationStatus()
+					});
+					//列表
+					var rs = list("mgr/station/all/",0);
+					$('#stationList').datagrid('loadData', rs);
+
+					//列表分页
+					$('#stationList').datagrid("getPager").pagination({
+						layout: ['first','links','last'],
+						pageSize:20,
+						onSelectPage: function(n,s){
+							var rt = list("mgr/station/all/",n-1);
+							$('#stationList').datagrid("loadData", rt);
+						}
+					});
+					
+					// 重载数据
+					$('.stationReload').unbind('click');
+					$('.stationReload').bind('click',function(){
+						var pn = $('#stationList').datagrid("getPager").data("pagination").options.pageNumber - 1;
+						var rs = list("mgr/station/all/",pn);
+						$('#stationList').datagrid('loadData', rs);
+					});
+					
+					// 添加
+					$('.stationAdd').unbind('click');
+					$('.stationAdd').bind('click',function(){
+						$('#station-action').val('add');
+						$('#stationEditor').dialog('open');
+						$('#station-search').textbox('setValue','');
+						mapInit();
+					});
+
+					// 修改
+					$('.stationEdit').unbind('click');
+					$('.stationEdit').bind('click',function(){
+						var rt = false;
+						$('#station-action').val('edit');
+
+						var r = $('#stationList').datagrid('getSelected');
+						if(r){
+							$('#stationEditor').dialog('open');	
+							rt = one("mgr/station/",r.id);
+							if(rt){
+								setTimeout(function(){
+									mapInit(rt.longitude,rt.latitude,rt.name);
+									setFormData(rt,"station");
+								},100);
+							}							
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+
+					});
+
+					// 删除
+					$('.stationDelete').unbind('click');
+					$('.stationDelete').bind('click',function(){
+						var rt = false;
+						var r = $('#stationList').datagrid('getSelected');
+						if(r){
+							$.messager.confirm('提醒','确认要删除充电站吗？',function(y){
+								if(y){
+									rt = del("mgr/station/",r.id)
+									/*if(rt){
+										$.messager.alert("提醒","删除成功");
+									}else{
+										$.messager.alert("提醒","删除失败");
+									}*/
+									var rs = list("mgr/station/all/",0);
+									$('#stationList').datagrid('loadData', rs);									
+								}
+							});			
+						}else{
+							$.messager.alert("错误","未选择操作对象");
+						}
+					});
+
+					// 确定
+					$('.js-stationOk').unbind('click');
+					$('.js-stationOk').bind('click',function(){
+						var valid = formValidate('stationEditor');
+						if(!valid){
+							return;
+						}						
+						var t = $('#station-action').val();
+						var v = getFormData($('#stationEditor').serializeArray(),pt);
+						var rt = false;
+						if(t == "add"){
+							rt = add("mgr/station/",v);
+							if(!rt){
+								$.messager.alert("警告","添加失败！");
+							}
+						}else{
+							rt = edit("mgr/station/",v.id,v);
+							if(!rt){
+								$.messager.alert("警告","修改失败！");
+							}
+						}
+						if(rt){							
+							$('#stationEditor').dialog("close");
+
+							var rs = list("mgr/station/all/",0);
+							$('#stationList').datagrid('loadData', rs);
+						}						
+					});
+
+					// 取消
+					$('.js-stationCancel').unbind('click');
+					$('.js-stationCancel').bind('click',function(){
+						clearFormData(pt,"station");
+						$('#stationEditor').dialog("close");
+					});
+
+					// 关闭
+					$('#stationEditor').dialog({
+						onClose:function(){
+							clearFormData(pt,"station");
+						}
+					});
+
+
+				},100);
+		</script>
+	</body>

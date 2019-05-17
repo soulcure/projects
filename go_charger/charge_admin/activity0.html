@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>促销活动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+	</head>
+	<body>
+		<div class="header">
+			<img src="img/a-header.jpg">
+		</div>
+		<div class="title">
+			
+		</div>
+		
+		<div class="content">
+			<div class="left">开始时间：</div>
+			<div class="right st"></div>
+			<div class="clear"></div>
+			<div class="left">结束时间：</div>
+			<div class="right et"></div>
+			<div class="clear"></div>
+			<div class="left">活动详情：</div>
+			<div class="right detail"></div>
+			<div class="clear"></div>
+			<div class="left">活动状态：</div>
+			<div class="right status"></div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		<div class="link">
+			<a href="#">进入活动</a>
+		</div>
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+
+		<script type="text/javascript">
+			$(function(){
+				var id = getUrlParam('aid');
+				if(id){
+					var row = one("mgr/activity/",id);
+					if(row){
+
+						$('.title').text(row.title);						
+						$('.st').text(timestamp2date(row.startTime));						
+						$('.et').text(timestamp2date(row.endTime));						
+						$('.detail').text(row.detail);	
+						var status = row.status == 1 ? "活动进行中" : "活动已经结束";
+						$('.status').text(status);	
+						$('.link a').attr('href','https://www.baidu.com');		
+					}
+				}else{
+					error("参数错误！");
+				}
+			});
+		</script>
+		<style>
+			body{
+				background: #e7222c;
+				padding: 0;
+				margin: 0;
+				color: #fff;
+			}
+			.header{
+				margin: 0;
+				padding: 0;
+			}
+			.header img{
+				width:100%;
+				border:none;
+				margin:0;
+			}
+			.clear{
+				clear:both;
+			}
+			.title{
+				padding:10px;
+				text-align:center;
+				font-size:20px;
+			}
+			.left{
+				padding:2%;
+				width:20%;
+				text-align:right;
+				float:left;
+			}
+			.right{
+				padding:2%;
+				width:65%;
+				float:left;
+			}
+			.link{
+				padding:10px;
+				text-align:center;
+			}
+		</style>
+	</body>
+</html>

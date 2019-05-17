@@ -1,0 +1,12 @@
+/* pages/charge/login/userAgreement.wxss */
+.title{
+  font-size: 50rpx;
+  text-align: center;
+  padding-top:50rpx;
+}
+
+.content{
+  font-size: 30rpx;
+  padding:30rpx;
+  text-indent: 60rpx;
+}

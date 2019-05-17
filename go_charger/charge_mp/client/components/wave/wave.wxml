@@ -1,0 +1,5 @@
+<!--components/wave/wave.wxml-->
+<view>
+  <canvas class="canvasddd" canvas-id="canvasWave"></canvas>
+  <slot></slot>
+</view>

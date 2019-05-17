@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<title>充电桩运营平台</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+	    <link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	    <!-- <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+		<form id="backgroundImageEditor" method="post" enctype="multipart/form-data" class="easyui-panel" data-options="draggable:false,shadow:false" style="width:400px;border:none;">
+			<table>
+				<tr>
+					<td align="right">背景图片：</td>
+					<td><input class="easyui-filebox" id="backgroundImage-file" name="file" data-options="required:true,buttonText:'选择文件'"></td>
+					<td>
+						<a href="#" class="easyui-linkbutton js-backgroundImageOk" data-options="iconCls:'icon-ok'">上传</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<form id="logoEditor" method="post" enctype="multipart/form-data" class="easyui-panel" data-options="draggable:false,shadow:false" style="width:400px;border:none;">
+			<table>
+				<tr>
+					<td align="right">logo：</td>
+					<td><input class="easyui-filebox" id="logo-file" name="file" data-options="required:true,buttonText:'选择文件'"></td>
+					<td>
+						<a href="#" class="easyui-linkbutton js-logoOk" data-options="iconCls:'icon-ok'">上传</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/cache.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/validate.js"></script>
+
+		<script type="text/javascript">
+				setTimeout(function(){
+					// 登录页背景图片上传
+					$('.js-backgroundImageOk').unbind('click');
+					$('.js-backgroundImageOk').bind('click',function(){
+						var valid = formValidate('backgroundImageEditor');
+						if(!valid){
+							return;
+						}
+						// var url ='http://192.168.0.218:8086/mgr/image/logo';
+						var url = API_URL + 'mgr/image/background';
+						console.log(url);
+						$('#backgroundImageEditor').form('submit',{
+							url: url,
+							success: function(data){
+								data = JSON.parse(data);
+								if(data.res == 0){
+									$.messager.alert("提醒","上传成功！");
+								}else{
+									$.messager.alert("提醒","上传失败！");
+								}
+							}
+
+						});
+					});
+
+					// logo上传
+					$('.js-logoOk').unbind('click');
+					$('.js-logoOk').bind('click',function(){
+						var valid = formValidate('logoEditor');
+						if(!valid){
+							return;
+						}
+						// var url ='http://192.168.0.218:8086/mgr/image/logo';
+						var url = API_URL + 'mgr/image/logo';
+						console.log(url);
+						$('#logoEditor').form('submit',{
+							url: url,
+							success: function(data){
+								data = JSON.parse(data);
+								if(data.res == 0){
+									$.messager.alert("提醒","上传成功！");
+								}else{
+									$.messager.alert("提醒","上传失败！");
+								}
+							}
+
+						});
+					});
+				},100);
+		</script>
+		<style>
+		</style>
+	</body>
+</html>
